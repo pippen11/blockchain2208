@@ -1,0 +1,389 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      th,
+      td {
+        border: 1px solid black;
+      }
+
+      /* .col1{
+                  width: 100%;
+              } */
+
+      div {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      img {
+        margin-left: auto;
+        margin-right: auto;
+        width: 100px;
+      }
+
+      .col:nth-child(1) {
+        width: 70px;
+      }
+      /* class명 col이라는걸 찾아서 스타일 적용
+      가상클래스 쓰는건 xxx:nth-child로 씀 */
+
+      .col:nth-child(2) {
+        width: 150px;
+      }
+
+      .col:nth-child(3) {
+        width: 70px;
+      }
+
+      .col:nth-child(4) {
+        width: 150px;
+      }
+
+      .col:nth-child(5) {
+        width: 90px;
+      }
+      .col:nth-child(6) {
+        width: 90px;
+      }
+
+      .selecttable tr th:nth-child(1), /* 이건 selecttable라는 클래스명에 tr로 들어가고 th로들어가서 스타일적용 띄어쓰기쓰면 그다음거적용 각각 적용 */
+      .selecttable tr td:nth-child(1) {
+        /* tr * 로쓰면 tr 자식태그는 스타일 다적용 */
+        width: 225px; /* 70+150으로 220나옴 */
+      }
+
+      .selecttable tr th:nth-child(2),
+      .selecttable tr td:nth-child(2) {
+        width: 225px;
+      }
+
+      .selecttable tr th:nth-child(3),
+      .selecttable tr td:nth-child(3) {
+        width: 225px;
+      }
+
+      .selecttable tr th:nth-child(4),
+      .selecttable tr td:nth-child(4) {
+        width: 225px;
+      }
+
+      .schooltable tr th:nth-child(1) {
+        width: 910px;
+      }
+
+      .schoolresult tr *:nth-child(1) {
+        width: 220px;
+      }
+    </style>
+  </head>
+  <body>
+    <div><h2 style="text-align: center">이 력 서</h2></div>
+    <div>
+      <table>
+        <tr>
+          <td rowspan="6" colspan="2">
+            <img
+              src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxIHBg8SBw4PEhATDg0PFRAPEA8ODQ0RFREWFhURExYYKCggGBslHRUfITEhJSkrLi4uFx8zODMtNyg5OisBCgoKDg0OFw8QGjIlHSItNy0tKy4tKzctLy0tKzgtLS0tLSstLi0rNy0tLC0tKy0rOC0tKy03LS0rLTctKy0rN//AABEIAOAA4QMBIgACEQEDEQH/xAAaAAEAAgMBAAAAAAAAAAAAAAAABAUCAwYB/8QANhABAAECAgYIBAUFAQAAAAAAAAECAwQRBSExUWFxEhMiMkGRocEzcoGxNFJiotEUQoLh8SP/xAAZAQEBAQEBAQAAAAAAAAAAAAAAAwIBBAX/xAAdEQEBAQEAAgMBAAAAAAAAAAAAAQIRAzESIUET/9oADAMBAAIRAxEAPwDrAH0XzQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAe00zVPZiZ5a26nB3KtlE/XKHOu8aBInBXI/s8piWmuiaJ7cTHOMjsOViA64AAAAAAAAAAAAAAAAAAAAAAJ+F0f0ozv6v0+P1Z6OwuURXcjX4Ru4rBLW/yK5x+1jbtxbjKiIjkyBNQeVUxVGVURMcXoCBidHRMZ2NU/l8J5KyqOjOVW10SHj8L1tHSojtR+6FM7/KnrH7FSAqkAAAAAAAAAAAAAAAAAANuEtddfiPDbPKGpYaIo7VU8oZ1eRrM7VlGqNQCC4AAAAACm0hZ6rETlsnXHujLTS1Gdqmd1WXnCrXzexDU5QBpkAAAAAAAAAAAAAAAAWeiPhVfNH2VifomvK5VG+Iny/wCs79N49rMBBYAAAAABE0p+F/ypVCz0tX2KaeOfkrFsekd+wBtgAAAAAAAAAAAAAAAAZ2LnU3YqjwnzhgDroaKorpiadkxm9VOAxfUz0bnd3/l/0tonONSGpxfN7ABl0AAJnKNYrdIYzOJotTzn2h2TrlvEXGXuvvzMbNkcmkF4hQB1wAAAAAAAAAAAAAAAAAASMNjKrGqNdO6fZHHLOuy8XNrHUXNs5Tun+UiKoq2TDniJy2MXxtzyOimctrRdxdFrbVE8I1ypJnPaH8y+RLxOOqvRlR2afWUQG5OMW9AHXAAAAAAAAAAAAAAAAAAAZ2bNV6rK3H8Qs8Po+m3rudqf2s3UjUzarLdmq7P/AJ0zP2Srejaqu/MR6ytYjKNQnd1SYiDToymO9VVPLKGcaOo/V5pY58q18YiTo6jj5sKtGUz3aqo55SnB8qfGKq5oyqO5MT6Si3bNVr4lMx9l+TGca3Zus3Ec6Le/o+m58Pszw2eSsv2KrFWVyPr4SpNSp3NjWA0yAAAAAAAAAAAAAAJGDwk4ic51U79/CHmDw/8AUXOEbZ9l1RTFFMRTGUQxrXPpTOe/by3bi1RlbjKGQIqgAAAAAAADG5RFynKuM4ZAKfGYObE5066fWOaK6GqOlTlVsU2Nw39PX2e7OzhwVzrv1UtZ59xHAUTAAAAAAAAAACmOlVEU7Z1Cbou10rs1TsjZzly3kdk7eLDDWYsWoiPrO+W0HnegAAAAAAAAAAAAYX7UXrUxV4+k72YDnrlE265irbE5PFhpWzlMVRyn2V70S9iFnKAOsgAAAAAAAC60fb6GFp46/NS7XQ0R0aIiPCIhPyVTxx6AkqAAAAAAAAAAAAAA1Yu31uHqjhn9YULo3P3aehdqjdVMeqvjqfkjEBRIAAAAAAABlajO7T80fd0Cgs/Gp+an7r9LyK+MATUAAAAAAAAAAAAAAFHjIyxVfzLxR438XXz9lPH7Y8nppAVRAAAAf//Z"
+              alt="카카오프로필"
+              style="width: 210px"
+            />
+          </td>
+        </tr>
+
+        <tr>
+          <th class="col">성 명</th>
+          <td class="col">홍길동</td>
+          <th class="col">영문</th>
+          <td class="col">Shin Sang Mok</td>
+          <th class="col">한문</th>
+          <td class="col">辛相穆</td>
+        </tr>
+        <tr>
+          <th class="col">생년월일</th>
+          <td class="col" colspan="3">1991년 07월 08일</td>
+          <th class="col">나이(만)</th>
+          <td class="col">31</td>
+        </tr>
+        <tr>
+          <th class="col">휴대폰</th>
+          <td class="col">010-8553-0047</td>
+          <th class="col">전화번호</th>
+          <td class="col" colspan="3">02-6203-0447</td>
+        </tr>
+        <tr>
+          <th class="col">이메일</th>
+          <td class="col" colspan="5">angolstar@damn.net</td>
+        </tr>
+
+        <tr>
+          <th class="col">주소</th>
+          <td class="col" colspan="5">서울 송파구 문정로83 107동 1502호</td>
+        </tr>
+      </table>
+    </div>
+    <div>
+      <table class="selecttable">
+        <!-- <col style="width: 70px" />
+        <col style="width: 150px" />
+        <col style="width: 70px" />
+        <col style="width: 150px" />
+        <col style="width: 70px" />
+        <col style="width: 90px" />
+        <col style="width: 90px" />
+        <col style="width: 90px" /> -->
+
+        <tr>
+          <th colspan="2">보훈대상자</th>
+          <th colspan="2">해당 해당없음</th>
+          <th colspan="2">장애여부</th>
+          <td colspan="2">해당 해당없음</td>
+        </tr>
+      </table>
+    </div>
+    <div>
+      <table class="schooltable">
+        <tr>
+          <th colspan="8">학력사항 (최종학력: 수원대 졸업)</th>
+        </tr>
+      </table>
+    </div>
+    <div>
+      <table class="schoolresult">
+        <tr>
+          <th colspan="2">재학기간</th>
+          <th colspan="2">학교 명 및 전공</th>
+          <th>학점</th>
+          <th>구분</th>
+          <th colspan="2">소재지</th>
+        </tr>
+        <tr>
+          <td colspan="2">2010~</td>
+          <td colspan="2">수원대 생명과학과</td>
+          <td>3/4.5</td>
+          <td>이공계</td>
+          <td colspan="2">수원</td>
+        </tr>
+        <tr>
+          <td colspan="2">2010~</td>
+          <td colspan="2">수원대 생명과학과</td>
+          <td>3/4.5</td>
+          <td>이공계</td>
+          <td colspan="2">수원</td>
+        </tr>
+      </table>
+    </div>
+    <div>
+      <table>
+        <col style="width: 70px" />
+        <col style="width: 150px" />
+        <col style="width: 70px" />
+        <col style="width: 150px" />
+        <col style="width: 70px" />
+        <col style="width: 90px" />
+        <col style="width: 90px" />
+        <col style="width: 90px" />
+
+        <tr>
+          <th colspan="8">자격증</th>
+        </tr>
+      </table>
+    </div>
+    <div>
+      <table>
+        <col style="width: 70px" />
+        <col style="width: 150px" />
+        <col style="width: 70px" />
+        <col style="width: 150px" />
+        <col style="width: 70px" />
+        <col style="width: 90px" />
+        <col style="width: 90px" />
+        <col style="width: 90px" />
+
+        <tr>
+          <th colspan="2">취득일</th>
+          <th colspan="2">자격증/면허증</th>
+          <th colspan="2">등급</th>
+          <th colspan="2">발행처</th>
+        </tr>
+        <tr>
+          <td colspan="2">2010</td>
+          <th colspan="2">운전면허증</th>
+          <th colspan="2">2종보통</th>
+          <th colspan="2">한국산업인력공단</th>
+        </tr>
+        <tr>
+          <td colspan="2">2010</td>
+          <th colspan="2">운전면허증</th>
+          <th colspan="2">2종보통</th>
+          <th colspan="2">한국산업인력공단</th>
+        </tr>
+        <tr>
+          <td colspan="2">2010</td>
+          <th colspan="2">운전면허증</th>
+          <th colspan="2">2종보통</th>
+          <th colspan="2">한국산업인력공단</th>
+        </tr>
+      </table>
+    </div>
+    <div>
+      <table>
+        <col style="width: 70px" />
+        <col style="width: 150px" />
+        <col style="width: 70px" />
+        <col style="width: 150px" />
+        <col style="width: 70px" />
+        <col style="width: 90px" />
+        <col style="width: 90px" />
+        <col style="width: 90px" />
+
+        <tr>
+          <th colspan="8" style="border: 1px solid black">주요활동 및 경력</th>
+        </tr>
+      </table>
+    </div>
+    <div>
+      <table>
+        <col style="width: 70px" />
+        <col style="width: 150px" />
+        <col style="width: 70px" />
+        <col style="width: 150px" />
+        <col style="width: 70px" />
+        <col style="width: 90px" />
+        <col style="width: 90px" />
+        <col style="width: 90px" />
+
+        <tr>
+          <th colspan="2">기간</th>
+          <th colspan="2">활동내용</th>
+          <th colspan="2">활동구분</th>
+          <th colspan="2">기관명/업체명</th>
+        </tr>
+        <tr>
+          <td colspan="2">2010</td>
+          <td colspan="2">장비보수</td>
+          <td colspan="2">실습</td>
+          <td colspan="2">롯데리아</td>
+        </tr>
+        <tr>
+          <td colspan="2">2010</td>
+          <td colspan="2">장비보수</td>
+          <td colspan="2">실습</td>
+          <td colspan="2">롯데리아</td>
+        </tr>
+        <tr>
+          <td colspan="2">2010</td>
+          <td colspan="2">장비보수</td>
+          <td colspan="2">실습</td>
+          <td colspan="2">롯데리아</td>
+        </tr>
+      </table>
+    </div>
+    <div>
+      <table>
+        <col style="width: 70px" />
+        <col style="width: 150px" />
+        <col style="width: 70px" />
+        <col style="width: 150px" />
+        <col style="width: 70px" />
+        <col style="width: 90px" />
+        <col style="width: 90px" />
+        <col style="width: 90px" />
+        <tr>
+          <th colspan="8">능력사항</th>
+        </tr>
+      </table>
+    </div>
+    <div>
+      <table>
+        <col style="width: 70px" />
+        <col style="width: 150px" />
+        <col style="width: 70px" />
+        <col style="width: 150px" />
+        <col style="width: 70px" />
+        <col style="width: 90px" />
+        <col style="width: 90px" />
+        <col style="width: 90px" />
+
+        <tr>
+          <th rowspan="3">OA능력</th>
+          <th>워드/한글</th>
+          <th>상 □ /중 ■ /하 □</th>
+          <th>영어</th>
+          <th>상 □ /중 ■ /하 □</th>
+          <th rowspan="3">어학능력</th>
+          <th>영어</th>
+          <th>상 □ /중 ■ /하 □</th>
+        </tr>
+        <tr>
+          <th>엑셀</th>
+          <th>상 □ /중 ■ /하 □</th>
+          <th>-</th>
+          <th>-</th>
+          <th>일본어</th>
+          <th>상 □ /중 ■ /하 □</th>
+        </tr>
+        <tr>
+          <th>파워포인트</th>
+          <th>상 □ /중 ■ /하 □</th>
+          <th>-</th>
+          <th>상 □ /중 ■ /하 □</th>
+          <th>기타( )</th>
+          <th>상 □ /중 ■ /하 □</th>
+        </tr>
+      </table>
+    </div>
+    <div>
+      <table>
+        <col style="width: 70px" />
+        <col style="width: 150px" />
+        <col style="width: 70px" />
+        <col style="width: 150px" />
+        <col style="width: 70px" />
+        <col style="width: 90px" />
+        <col style="width: 90px" />
+        <col style="width: 90px" />
+
+        <tr>
+          <th colspan="8">병역사항</th>
+        </tr>
+      </table>
+    </div>
+
+    <div>
+      <table>
+        <col style="width: 70px" />
+        <col style="width: 150px" />
+        <col style="width: 70px" />
+        <col style="width: 150px" />
+        <col style="width: 70px" />
+        <col style="width: 90px" />
+        <col style="width: 90px" />
+        <col style="width: 90px" />
+        <tr>
+          <th>복무기간</th>
+          <th>군별</th>
+          <th>계급</th>
+          <th>병과</th>
+          <th colspan="4">전역사유</th>
+        </tr>
+        <tr>
+          <td>2010~</td>
+          <td>군필</td>
+          <td>병장</td>
+          <td>-</td>
+          <td colspan="4">-</td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
