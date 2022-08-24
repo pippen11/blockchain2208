@@ -1,0 +1,89 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>설문조사</title>
+    <link rel="stylesheet" href="index1.css" />
+  </head>
+  <body>
+    <div><h1 class="h1">회원가입</h1></div>
+
+    <form action="#" method="get">
+      <fieldset>
+        <legend>회원등록</legend>
+        <div>회원가입 서식작성</div>
+        <fieldset>
+          <div>
+            <label for="">이름:</label>
+            <input
+              type="name"
+              id="name"
+              placeholder="이름을 입력하세요"
+              autofocus
+            />
+          </div>
+
+          <div>
+            <label for=""></label>
+            아이디:<input
+              type="id"
+              id="id"
+              placeholder="아이디는 8글자이상입니다"
+              autofocus
+            />
+          </div>
+
+          <div>
+            <label for=""></label>
+            비밀번호:<input
+              type="password"
+              id="number"
+              name="pw"
+              placeholder=""
+              autofocus
+            />
+          </div>
+
+          <div>
+            <label for=""></label>
+            비밀번호확인:<input type="pw" id="pw" placeholder="" autofocus />
+          </div>
+
+          <div>
+            <label for="email"></label>
+            이메일:<input
+              type="email"
+              id="email"
+              placeholder="@를 포함한 주소입력하세요."
+              autofocus
+            />
+          </div>
+          <div>
+            <label for="birthday">생년월일</label>
+            <input type="date" id="birthday" />
+          </div>
+
+          <div>
+            <label for="checkbox">개인정보 동의 확인</label>
+            <input type="checkbox" id="checkbox" checked />
+          </div>
+
+          <textarea name="" id="" cols="30" rows="10"></textarea>
+
+          <div>
+            출생지<select>
+              <option value="seoul">서울</option>
+              <option value="seoul">서울</option>
+              <option value="2">경기도</option>
+              <option value="c">강원도</option>
+              <option value="d">인천</option>
+            </select>
+          </div>
+
+          <div><button type="reset">입력값 초기화</button></div>
+        </fieldset>
+      </fieldset>
+    </form>
+  </body>
+</html>
