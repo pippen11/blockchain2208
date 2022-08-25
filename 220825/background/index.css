@@ -1,0 +1,27 @@
+.background {
+  width: 200px;
+  height: 200px;
+
+  background-color: aqua;
+  /* 배경색 넣기 */
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUEAAACdCAMAAAAdWzrjAAAA3lBMVEX64QA8HR795AD/6AD/6QA8HB7/7QAQAB87Gh4AAB8bAB/QuA3u1QY5GR46GB6zng5POBwuAx+hjBUnAB//7wC7phAiAB8rAB88MRxEORw0Eh7Ywwvmzwny2QE1KR02FR7GsA8eAB8yDh8vCB8VAB9GMRygkRRKPRw6LhxkTBqKeRZcSBtZSxksGx1tWhkxCh59cBcmFh6ZgxQ8JBwkDB53ZxiUfRbhyAh2XhhVQBsxHx2Jchd5aRc1HB4oBx6ZixRrUxmulhItEh5gVRpCJR1GLRwtJB04LRxJNRx3bBh2tiIFAAAHqklEQVR4nO2deVviSBCHk8qdQBDCMSbEhARhEAUFER0UwTnW+f5faLsTAiHgAbLj7na9f+HD8ZAfVV1HV1qOQxAEQRAEQRAEQRAEQRAEQRAEQRAEQRAEQRAEQRAEQf5HQMJnf5H/HgCCKMuum4txXVkWRRTynYAAXN2oDDrtL19PTobDk5OTr1/anZuCUY+eQ14FZHk8v+xYWtPyzLyakDc9S9cancv5WJZRxBcB0TUmV3oYeBK/FS8I9auJkRNRxG2AOD5rVy11u3hLVKvaPhujhhsIXKWr1cw35Isxa1q3Qt6BrADOP57a75Ivxp4e+xzaYQLIfld5n/mlDFHp+mXUMEJ0bnVvR/0ont51xM/+8v8CAFpBsId+FDtoYZot1O/0F3KXdyDpd2PGIwpUvu1rgDHBVYVlK4TyTeOt/O8t1MaE3eQQuFF1fw9OkGojl1EJAUbWh/WjWD1W48l57SAC8nztnMnsGu4PJSCRcMSgguVJ9WAC8nz1Vv7sC/rTQEE/oIA83ygwlhcK44uPpjHrqBdjxhz5YddOwluYElPRBErTAwvI82GJIQVhrBzWhymqUmdHQqH3sWJ4O3aPGQXBuTq8CZLyLjBYkVB+2wRfLZdfejLoMZIUgqstL9oLi2vE0nq16zC1axL2+ynRvOC6tjThfjG9u6Ix0mIQS8tyzus+lta4pHm2feTnjNnyRY3B/OxpJWDbz7WuYkWl5tljr5gywjM2FHTPk10RSeFEYZ3LKZ//5goAcLqwLmsgC/Ik0VN6MESQb6KmjlQtiAKMwpW65+5nX9yfAJxlQRxsVLNQsXi9QvePwF+8LCTxQfSbi7eoX3LACRUlclpayYmV5lJBvuqwYIRiq5FcsGoDtbZ4nIhOuQnEusw7lzZfObcdlS1RhAVD2VBQqs6p0uL9ygb5RouFzTu5s1r8p72KYRiVqKQlDwz/xlODCbGsOpHmLPJcqf+CgvojfZfQSndp7Q4T0TjdU/Cquq5rBZGD+kmTPCxKvEZKC3dGVBtHIVuy1xTMn8YKSnqJNmPEuZYSkFcvGPBiqF9l8zmdKMjljmJhvTuBCEZl5DpRxCmuKxjbYHMahV1hbq19mHrFQGUHRshnWCiYj/6wWgInTxSyxsGgtmmDCy/WYgELWubXCBkoS4RC/zUF1SF14uPgnPYfnqQXIkmhR11Ybm10afsMNFqF1sb2SFpBM3LivsqT6CIfmRuRJFoHYUyLD6GwOe1QazGvoOYLURSuzoVF0rLFi6NeKlkssx+EChK9JOLEoqWSyk4mQWeoZiNJrGCEu6VBgQoGl0kao1GlRvZ2G4ysEHKbI8NMKDh/LRY3fBInJtS2QpLvCaSYy0SSaB3kwKXlG/jX2YUwnP//FYRKMXPVKQWlJnnkHmmKomgz8mJB21qTcFzvlMYSWBWIC4oMTHJB/eGFjJooaJVEOhRcptD6TJzUtuaDBS08p8/LvfUlQXpiYM8T3I0W/1JBqZbprQgVa3tNovAW9VfItdfmh9ULFtpb5ef8Swp636M0JXU/ots2vVjB6N4maVkX86rlEAkFZ5r+PbxTFjoL4iA787ZUMBrdcJ0EYk/iTRjb4MVPyo/aqjfjHeeitDr9adaABQXBV15SUOOiNU6J0fwos6E2yLn1iPFcWXVYi7e0GSj3Upv3CgNlMV27sm6cKNif0DhymdTN4SWVo1M0Uq4tjE5WPWqFmizUfyz9WP3JQGuGAL8ztUSjReqPMVnZBjSX+Znoq3rkxcJ900+pIt7/IgouOvuqRwOPO1sGk+A3EwJuFrTqkCvLE4v3nl25PF/1W/R5Wc6d9s85eYlTtEplGe7iNrc9JG/wn5bZkcaEExPkfMaNvZPZMzUk+/QmvapJ3u3NV5sP/jpuH0ccHT/kJfu29COxOm9431t9WD7PQhyhCPPs+KrqmZEhedaag0v9aG9dNZfQhqGdKofVYrDKz6sMlHQLFttwB8Zsf/Z1/TkWsfTANCssbHUugM7hx9/67Ay/cf/I/Fv+go1cMEEuHdqPlRJDPkyBs8PcEZZgMTK2tQLA2uVchbcIfjI1yR8B9QPeEGEO2VoEYwTn+lASmtcOM7l0GsFpHEZCU2dTQHrIx8Mh1kKbZ1VAuhYWN7Y+dyYs1pkVkG47jT5w0gdF0pk9IyAGYFDb57SeBM8esHpCwBLZOK7uW+Gp1Wc89YiaYWm4X58hHJaYN8AYYdzVdjdDW5uxHELWgbKzsQ3/OpLdHDl49Fua2S7xJF98mhmABpgCxs23dUvk62vDwRjPs11HLLxTQa9ae/5tcBhAssizbHknmeuxRTVtu6Zpp4++i+a3jS+ZWGw+dfmqQu9yojSVKt/9/rvkcDIe6b0VcJ7Wa7vp0HDrjuMXWvN5q1DwDafu4oHorwBrtxfypn7GQTxrJBIE/OcGbwJry2Dt1EDBdiUVifPaJIeZ3o6AsxrmKj77GGt3RrxJ+qz5ag8NcB+SoyuK3wpY6+4BHV+NQrCFBrgf4DeogMG0gAnffoh0AESyvqMB7ot8lecDrYA54L5AXVObvTHud+wP/PpVYm9u6KC4OTTAD4IGiCAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIgiAIwhR/A4IOodBmDEkiAAAAAElFTkSuQmCC);
+  /* 배경 이미지넣기 */
+  background-size: contain;
+  /* 배경 이미지의 크기지정 , 이미지가 다보이도록 하되 최대크기(비율맞춤) */
+  background-size: cover;
+  /* 배경 이미지 크기지정 , 최대크기(비율맞춤), 이미지가 짤릴수있음 */
+  background-size: 100px 100px;
+  /* 배경 이미지 사이즈, 너비높이 */
+  background-position: 100px 100px;
+  /* 배경이미지 위치 x, y */
+  background-position: center;
+  /* 배경이미지 위치, 가운데 맞춤 */
+  background-repeat: repeat;
+  /* 배경이미지 반복여부, 반복한다, 기본값이다 */
+  background-repeat: no-repeat;
+  /* 배경이미지 반복 여부, 반복하지않는다. */
+  background-repeat: repeat-x;
+  /* 배경 이미지 반복 여부, x축으로만 반복 하겠다 */
+  background-repeat: repeat-y;
+  /* 배경 이미지 반복 여부, y축으로만 반복 하겠다 */
+}

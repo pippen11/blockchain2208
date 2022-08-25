@@ -1,0 +1,30 @@
+.flex {
+  display: flex;
+  /* border: 1px solid black; */
+
+  /* width: 5000px; */
+  height: 200px;
+
+  justify-content: space-around;
+}
+
+.flex-item {
+  width: 200px;
+  min-height: 100px;
+  /* background-color: lightgrey;
+  border: 1px solid blue; */
+}
+
+.imgsize {
+  width: 200px;
+  height: 200px;
+  /* min-height: 100px; */
+}
+
+.flexname {
+  height: 100px;
+}
+
+.background {
+  background-image: url(https://thumb.ac-illust.com/66/66e1ff620ed43f1acc3f47fa132cfa20_t.jpeg);
+}
