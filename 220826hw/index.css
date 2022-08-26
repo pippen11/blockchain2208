@@ -1,0 +1,46 @@
+.main {
+}
+
+p.topbar {
+  color: lightgrey;
+}
+
+.secondbar {
+  text-align: center;
+}
+
+.thirdbar {
+  display: flex;
+  justify-content: center;
+}
+
+.flex-item {
+  width: 250px;
+  height: 140px;
+
+  background-color: red;
+  border: 1px solid blue;
+}
+
+.fourthbar {
+}
+
+.flex-item2 {
+  width: 250px;
+  height: 140px;
+
+  border: 1px solid blue;
+}
+
+.fifthbar {
+  margin: 0px;
+}
+
+.sixbar {
+  display: flex;
+  justify-content: center;
+}
+
+.topspan {
+  color: blue;
+}

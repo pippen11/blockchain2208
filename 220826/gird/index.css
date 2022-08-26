@@ -1,0 +1,127 @@
+.grid {
+  display: grid;
+  /* grid 박스를 만든다 부모역할 */
+  grid-template-rows: 200px 200px;
+  /* grid박스에 세로 높이를 결정한다
+    row(행)의 수만큼 입력한다
+    두개 넣으면 두줄넣는다는 의미ㅣ */
+  grid-template-columns: 100px 100px 100px;
+  /* grid박스의 가로너비를 결정한다
+    column(열)의 수만큼 입력한다 */
+  /* grid-template-rows: repeat(2, 200px);
+  grid-template-columns: repeat(3, 100px); */
+  /* reapeat함수는 입력을 반복해준다 repeat(개수,크기) */
+
+  grid-template-rows: 50px 200px 100px;
+
+  grid-template-columns: repeat(5, minmax(100px, 300px));
+
+  row-gap: 10px;
+  /* 세로 간격, 틈 */
+  column-gap: 20px;
+  /* 가로 간격, 틈 */
+  grid-auto-flow: column;
+  /* grid의 앝이템의 진행 방향을 설정한다. */
+  grid-template-areas:
+    "sidebar header header header header"
+    "sidebar content content content ."
+    "sidebar footer footer footer footer";
+  /* gri-template-areas는 grid박스 설정한다/.
+  하나의 row는 (column 설정 )는 ""로 설정하고, 여러 row의 경우
+  줄바꿈으로 처리한다.
+  .을 설정할경우 빈칸된다.
+  무조건 사각형이여야한다.
+  item의 스타일에 grid-area와 매칭한다*/
+
+  /* align-items: stretch;
+  align-items: start;
+  align-items: center;
+  align-items: end; */
+  /* 세로 기준으로 위치를 결정해 세로를 기준으로 움직임 */
+  /* justify-items: stretch;
+  justify-items: start;
+  justify-items: center;
+  justify-items: end; */
+  /* 가로기준으로 위치를 결정 가로를 기준으로 움직임 */
+}
+/* minmax 함수는 이름 그대로 최소 최대 결정 그사이에서 알아서 조절 */
+
+/* 자로주를그었다 */
+.grid-item {
+  background-color: yellow;
+  border: 1px solid black;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  background-color: aqua;
+}
+
+.header {
+  grid-area: header;
+  background-color: blue;
+}
+
+.content {
+  grid-area: content;
+  background-color: violet;
+}
+
+.footer {
+  grid-area: footer;
+  background-color: gray;
+}
+
+.sidebar > div {
+  height: 20px;
+  color: red;
+  margin-bottom: 10px;
+
+  padding: 5px;
+}
+.sidebar > div:last-child {
+  margin-bottom: 0;
+}
+
+.mosaic {
+  display: grid;
+  /* grid박스 설정 */
+
+  /* 기본적으로 보여질 형식 설정 */
+  grid-template-columns: repeat(2, 100px);
+  grid-template-rows: repeat(2, 100px);
+  /* 100px의 정사각형을 4개를 2줄로출력 */
+}
+
+.mosaic > div {
+  /* grid 박스의 아이템을 눈에 보여주기 위해서 설정 */
+  background-color: antiquewhite;
+  border: 1px solid black;
+}
+
+/* 마우스 오버를 감지하기 위해(마우스가 해당영역 위에있는지 확인하기위해)hover 가상클래스(의사클래스)
+를 사용한다 */
+.mosaic:hover {
+  /* mosaic 클래스 위에 마우스가 올라가 있으면 해당 스타일을 적용한다. */
+  /* grid-template-columns: repeat(4, 50px);
+  grid-template-rows: repeat(4, 50px); */
+  grid-template-columns: repeat(3, 66px);
+  grid-template-rows: repeat(3, 66px);
+  /* 50px의 정사각형 16개를 4줄로출력 */
+}
+
+.mosaic-item {
+  display: none;
+  /* 기본적으로 보여지면 안될 아이템을 display: none
+    사용해 보이지 않도록 설정 */
+}
+
+.mosaic:hover .mosaic-item {
+  /* mosaic 클래스 위어ㅔ 마우스가 있을때 자식중
+    mosaic-item 클래스를 가진 영역에 스타일을 적용한다 */
+  display: block;
+  /* display: block 사용해 눈에 보이도록 설정한다. */
+}
+/* gird는 무조건 갯수로 따짐
+wrap기능은 밑으로 내림 아이템이 줄어도 wrap안쓰면 한줄로씀
+grid는 처음부터 wrap기능을 갖고있다 */

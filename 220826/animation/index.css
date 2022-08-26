@@ -1,0 +1,104 @@
+div {
+  border: 1px solid black;
+  width: 800px;
+  height: 800px;
+
+  overflow: hidden;
+}
+
+.transform-translate img {
+  transform: translate(100px, 100px);
+  /* transform 모양 이동 수정 */
+  /* translate 함수는 이동 */
+}
+
+.transform-translateX img {
+  transform: translateX(100px);
+}
+
+.transform-translateY img {
+  transform: translateY(100px);
+}
+
+.transform-scale img {
+  transform: scale(0.5, 2);
+}
+/* scale, 확대 , 1이 기본크기
+배율이라고 생각하면 됨, 0.5=50% 
+translate 처럼 x y가 있다.*/
+
+.transform-skew img {
+  transform: skew(15deg, 30deg);
+  /* 회전 deg는 회전
+  translate 처럼 x y가있다*/
+}
+
+.transform-rotate img {
+  transform: rotate(45deg);
+  /* z축회전
+    우리가보기엔 점이다 */
+}
+
+.transform-origin img {
+  transform: rotate(45deg);
+  transform-origin: 0 0;
+  /* orgin은 기준이 되는 축이다.
+  x y순으로 설정한다. */
+}
+
+.transition img {
+  transition: transform 3s linear, border 1s ease-in-out,
+    border-radius 1s ease-in-out;
+
+  /* transition은 애니메이션 효과를 주긴하는데,
+  css스타일이 변화하는 것에 대해서 설정한다
+  transform x
+  transform에 대해서 변화하는 시간과 변화방법에 대해서 설정했다. */
+}
+
+.transition:hover img {
+  transform: rotate(720deg);
+  border: 10px dashed red;
+  border-radius: 100%;
+  /* 100%비율 50% 50%등으로 조절가능 */
+  /* transform으로 회전을 넣음 */
+}
+
+@keyframes myanimation {
+  /* 애니메이션 설정한다. */
+  0% {
+    transform: rotate(0);
+  }
+  50% {
+    /* 전체 시간의 50%일때 */
+    transform: rotate(360deg);
+  }
+  100% {
+    /* to */
+    /* 전체 시간의 100%일때 */
+    transform: rotate(0);
+  }
+  /* my어쩌구는 아무거나가능 */
+}
+.animation:hover img {
+  animation: myanimation 3s ease;
+  /* 3초동안 돌고 돌아오겟다 호버 ease는 돌아온다 */
+  /* animaition: keyframes이름 시간 변화방법 */
+}
+.animation:hover .test {
+  animation: myanimation 3s ease;
+  /* animation: keyframes이름 시간 변화방법 */
+}
+
+.animation {
+  position: relative;
+}
+
+.text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: red;
+  font-weight: 700;
+  background: aqua;
+}
