@@ -1,0 +1,271 @@
+.main {
+  /* display: flex; */
+  margin-left: 265px;
+  margin-right: 265px;
+}
+
+.flextop {
+  display: flex;
+}
+
+img.diamond {
+  margin-left: 4px;
+}
+
+.flex-item상단왼쪽 {
+  display: flex;
+}
+
+.flex-item상단오른쪽 {
+  /* justify-content: flex-end; */
+  /* text-align: end; */
+  display: flex;
+  width: 500px;
+  justify-content: flex-end;
+
+  /* margin-left: 130px;
+  width: 300px; */
+  /* float: right; */
+}
+
+.bordertop {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.secondbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+p.scp {
+  text-align: center;
+}
+
+.secondbarleft {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 500px;
+}
+
+.secondbarright {
+  display: flex;
+  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
+  width: 302px;
+}
+.flex-item1 {
+}
+
+p.topbar {
+  color: grey;
+  font-size: 12px;
+}
+
+.border-left {
+  border-left: thin solid lightgrey;
+  height: 13px;
+}
+
+.log {
+  background-color: white;
+  color: blue;
+  border-color: blue;
+  border-radius: 10%;
+  width: 70px;
+  height: 30px;
+}
+
+.signin {
+  background-color: blue;
+  color: white;
+  border-color: blue;
+  border-radius: 10%;
+  width: 80px;
+  height: 30px;
+}
+
+.thirdbar {
+  display: flex;
+  /* flex-wrap: wrap; */
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+img.imgscvd {
+  border-radius: 5%;
+}
+
+a.fourthvd {
+  border-radius: 5%;
+}
+
+.thirdbarthree {
+}
+
+.thirdbarfourth {
+}
+
+p.firstvd {
+  color: black;
+  /* text-decoration: none; */
+}
+
+iframe.firstvd {
+  border-radius: 5%;
+}
+
+a.secondvd {
+  border-radius: 5%;
+
+  width: 290px;
+}
+
+a < img {
+  border-radius: 5%;
+}
+
+iframe.thirdvd {
+  border-radius: 5%;
+}
+
+a.fourthvd {
+  border-radius: 5%;
+  margin-top: 15px;
+  margin-right: 40px;
+}
+
+.fourthbar {
+  display: flex;
+}
+
+.fifthbar {
+  display: flex;
+}
+
+.fifthh2 {
+  margin-bottom: 8px;
+}
+
+.fifthp1 {
+  margin-top: 0px;
+}
+
+.fifthp2 {
+  text-align: right;
+}
+
+.sixbar {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.sevenbar {
+  display: flex;
+  max-height: 30px;
+}
+
+.eightbar {
+  display: flex;
+  max-height: 30px;
+}
+
+.eightbarbutton {
+  background-color: white;
+  border: 0px;
+  margin: auto;
+}
+
+.interest {
+  border-radius: 10%;
+  height: 30px;
+  /* border-color: white;
+  box-shadow: none; */
+  border: 0px;
+  outline: 0px;
+}
+
+.portpolio {
+  border-radius: 10%;
+  height: 30px;
+  border-color: white;
+  margin-left: 5px;
+  margin-right: 10px;
+  border: 0px;
+  outline: 0px;
+}
+
+.crypto {
+  border-radius: 10%;
+  border-color: white;
+  margin-left: 10px;
+  height: 30px;
+  color: blue;
+  border: 0px;
+  outline: 0px;
+}
+
+.categoly {
+  background: white;
+  border-radius: 10%;
+  border: 0px;
+  outline: 0px;
+}
+
+.svbutton {
+  border-color: white;
+  outline: 0px;
+  border: 0px;
+  border-radius: 10%;
+}
+
+.six-flex-item1 {
+  width: 450px;
+  height: 200px;
+
+  margin-right: 15px;
+}
+
+.six-flex-item2 {
+  width: 450px;
+  height: 200px;
+
+  margin-right: 15px;
+}
+
+.six-flex-item3 {
+  width: 450px;
+  height: 200px;
+}
+
+.flex-item {
+  /* width: 2000px;
+  height: 140px;
+
+  background-color: red;
+  border: 1px solid blue; */
+}
+
+.flex top {
+  display: flex;
+}
+
+.fourthbar {
+}
+
+.flex-item2 {
+  /* width: 250px;
+  height: 140px;
+
+  border: 1px solid blue; */
+}
+
+.fifthbar {
+  margin: 0px;
+}
+
+.topspan {
+  color: blue;
+}

@@ -7,7 +7,7 @@ div {
 }
 
 .transform-translate img {
-  transform: translate(100px, 100px);
+  transform: translate(200px, 200px);
   /* transform 모양 이동 수정 */
   /* translate 함수는 이동 */
 }
