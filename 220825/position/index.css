@@ -11,8 +11,8 @@
   첫번째 자식이 아니면 이전 형제의 좌측 상단(top, left)을 기준으로
   만약에 block이면 좌측 하단(left,bottom)에 맞춘다
    */
-  top: 100px;
-  left: 100px;
+  /* top: 100px;
+  left: 100px; */
 }
 
 .position2 {

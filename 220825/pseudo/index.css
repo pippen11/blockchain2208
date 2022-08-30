@@ -1,4 +1,5 @@
 p.pseudo::after {
+  color: blue;
   /* 가상클래스
 의사요소 가짜로 넣어준다.
 li등등에서 기본값으로 사용된다.

@@ -14,17 +14,19 @@ img.diamond {
 
 .flex-item상단왼쪽 {
   display: flex;
+  width: 950px;
 }
 
 .flex-item상단오른쪽 {
   /* justify-content: flex-end; */
   /* text-align: end; */
   display: flex;
-  width: 500px;
-  justify-content: flex-end;
+  width: 530px;
+  justify-content: space-evenly;
+  align-items: center;
 
   /* margin-left: 130px;
-  width: 300px; */
+    width: 300px; */
   /* float: right; */
 }
 
@@ -99,7 +101,6 @@ img.imgscvd {
 }
 
 a.fourthvd {
-  border-radius: 5%;
 }
 
 .thirdbarthree {
@@ -108,9 +109,16 @@ a.fourthvd {
 .thirdbarfourth {
 }
 
+img.fourthvd {
+  border-radius: 5%;
+}
+
 p.firstvd {
   color: black;
-  /* text-decoration: none; */
+}
+
+a.secondvd {
+  text-decoration: none;
 }
 
 iframe.firstvd {
@@ -164,7 +172,8 @@ a.fourthvd {
 
 .sevenbar {
   display: flex;
-  max-height: 30px;
+  width: 1357px;
+  justify-content: space-around;
 }
 
 .eightbar {
@@ -182,9 +191,10 @@ a.fourthvd {
   border-radius: 10%;
   height: 30px;
   /* border-color: white;
-  box-shadow: none; */
+    box-shadow: none; */
   border: 0px;
   outline: 0px;
+  cursor: pointer;
 }
 
 .portpolio {
@@ -242,10 +252,10 @@ a.fourthvd {
 
 .flex-item {
   /* width: 2000px;
-  height: 140px;
-
-  background-color: red;
-  border: 1px solid blue; */
+    height: 140px;
+  
+    background-color: red;
+    border: 1px solid blue; */
 }
 
 .flex top {
@@ -257,15 +267,29 @@ a.fourthvd {
 
 .flex-item2 {
   /* width: 250px;
-  height: 140px;
-
-  border: 1px solid blue; */
+    height: 140px;
+  
+    border: 1px solid blue; */
 }
 
 .fifthbar {
   margin: 0px;
 }
 
-.topspan {
+/* .topspan {
   color: blue;
+} */
+
+p.topbar > span {
+  color: blue;
+}
+
+.ninebar {
+  display: flex;
+  align-items: center;
+}
+
+.tenbar {
+  display: flex;
+  align-items: center;
 }
