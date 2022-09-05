@@ -22,8 +22,10 @@ console.log(a);
 // 바깥은 전역 스코프라고 부른다
 
 function addA(a) {
+  
   a++;
   console.log(a);
+  
 }
 // 매개변수 a는 안에서만 따로노는 a가 됐다
 
