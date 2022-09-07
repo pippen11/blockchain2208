@@ -46,7 +46,7 @@ if (test1 < test2) {
   console.log("꼴도 보기 싫다.");
 }
 
-let inputData;
+let inputData = prompt("넣고싶은값입력");
 // const inputData = prompt("넣고 싶은 값을 입력해 보세요.");
 //
 // inputData 변수임
@@ -58,7 +58,7 @@ switch (inputData) {
 
   case "1":
     // case는 () 안에있는 변수의 값이 같은지 확인한다.
-    console.log("1을 넣었어.1");
+    console.log("1을 넣었어.");
     break;
   // break 해당 명령어가 있는 지점에서 코드를 정지한다 없으면 밑에꺼까지 실행
   //  반복문에서 다시하고 , 확실하게 알수있따
