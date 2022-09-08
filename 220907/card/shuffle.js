@@ -1,11 +1,11 @@
-function shuffle(arr) {
+function shuffle(arr, count) {
   if (!arr?.length || typeof arr != "object") {
     //?는 length있는지 없는지 체크
 
     alert("배!열!만!");
     return "이상한 거 넣지 말고 배열만 넣으라고!";
   }
-  for (let i = 0; i < 100; i++) {
+  for (let i = 0; i < count; i++) {
     const first = parseInt(Math.random() * arr.length);
     const second = parseInt(Math.random() * arr.length);
     const temp = arr[first];
