@@ -1,0 +1,35 @@
+null은 변수에 저장된 데이터를 비우고자 할때 사용한다.
+ex) let t=hello;
+t=null;
+
+|| 또는 은 하나라도 true가 존재하면 true값을 반환하고
+&& 그리고는 하나라도 false가 존재하면 false값을 반환한다.
+
+삼항연산자 공부
+
+Math.floor(Math.random()*31)+120
+math floor쓰면 남수를 정수로 바꿔줌
+math random은 0부터 1미만 난수라 31을 곱하면 0부터 30사이의 정수 뒤에 +120하니
+120부터 150까지의 정수임
+
+function myFnc(){
+    실행할코드
+}
+하지만 함수표현식 안에있는 코드는 즉시실행안된다
+
+myfnc();
+이런식으로 써야 실행됨 함수 표현식보다 위에있어도 호출됨
+
+myFnc();
+이건 호이스팅 익명함수라서 오류난다 실행안됨 밑에있어야함 myFnc();가 밑에있어야함
+let function myFnc(){
+    실행할코드
+}
+
+
+문서객체.style.스타일속성=새값
+
+getElementById("theBody").style.backgroundColor="yellow";
+id값이 "theBody"인 요소의 배경색을 노란색으로 적용
+
+return 객체 다시공부
