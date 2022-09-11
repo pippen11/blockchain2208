@@ -24,7 +24,7 @@ const addSN = function () {
 const sum = () => {
   console.log(firstNum + secondNum);
 };
-
+//이부분부터 다시 공부
 function examAddFn(firstNum) {
   // 매개변수는 위에 변수와 다른 변수가 된다.
   //  1번줄에서 선언한 firstNum와 매개변수로 선언된 firstNum는 엄연히 다른놈이다.
@@ -37,3 +37,5 @@ function examAddFn(firstNum) {
 
 examAddFN();
 // 매개변수가 없어 20번째 줄의 firstNum은 undefined
+
+//위에 이해가 잘안되는듯?

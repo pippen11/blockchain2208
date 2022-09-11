@@ -46,14 +46,14 @@ if (test1 < test2) {
   console.log("꼴도 보기 싫다.");
 }
 
-let inputData = prompt("넣고싶은값입력");
+let com = prompt("넣고싶은값입력");
 // const inputData = prompt("넣고 싶은 값을 입력해 보세요.");
 //
 // inputData 변수임
 // switch는 여러 조건을 한번에 확인한다.
 //  숫자로의 형변환 ->Number(***) || +*** | parseInt(***) || parseFloat(***)
 //  우리의적 NaN
-switch (inputData) {
+switch (com) {
   // switch의 () 안에 있는 변수의 값을 확인한다
 
   case "1":
