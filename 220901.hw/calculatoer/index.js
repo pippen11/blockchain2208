@@ -1,55 +1,4 @@
-let firstNum;
-let secondNum;
-let clickCount = 0;
 
-function numSel(num) {
-  clickCount++;
-
-  if (clickCount == 1) {
-    firstNum = num;
-  } else if (clickCount == 2) {
-    secondNum = num;
-  }
-}
-
-// function numSel1(num) {
-//   clickCount++;
-//   if (clickCount == 1) {
-//     firstNum = num;
-//   } else if (clickCount == 2) {
-//     secondNum = num;
-//   }
-// }
-
-function calculate(order) {
-  if (clickCount < 2) return;
-
-  switch (order) {
-    case "+":
-      alert(firstNum + secondNum);
-      break;
-    case "-":
-      alert(firstNum - secondNum);
-      break;
-    case "*":
-      alert(firstNum * secondNum);
-      break;
-    case "/":
-      alert(firstNum / secondNum);
-      break;
-    case "%":
-      alert(firstNum % secondNum);
-      break;
-  }
-}
-
-function check() {
-  console.log(firstNum);
-  console.log(secondNum);
-}
-
-//
-//
 
 // // 숫자 선택(2개)를 선택<< 2개의 숫자를 저장해야한다<<
 // // 플레이어가 선택한 숫자를 기억해야하기때문에
@@ -144,3 +93,76 @@ function check() {
 // ;   console.log(firstNum);
 // ;   console.log(secondNum);
 // ; }
+
+
+
+
+
+let firstNum;
+let secondNum;
+let count = 0;
+
+function numSel() {
+  if (clickcount == 0) {
+    
+    firstNum = 7;
+  } else if (clickcount == 1) {
+    
+    secondNum = 7;
+  } else {
+  }
+  clickcount++; 
+}
+
+function numSel1() {
+  if (clickcount == 0) {
+
+    firstNum = 8;
+  } else if (!clickcount == 1) {
+
+    secondNum = 8;
+  } else {
+  }
+  clickcount++;
+}
+
+
+
+; function numSel(num) {
+
+;   clickcount++;
+;   if (clickcount == 1) {
+;     
+;     firstNum = num;
+;   } else if (clickcount == 2) {
+;    
+;     secondNum = num;
+;   }
+;  
+; }
+; /
+
+; function calculate(order) {
+;   
+;   if (clickcount < 2) return;
+;   
+
+;   switch (order) {
+;     case "+":
+;       alert(firstNum + secondNum);
+;       break;
+;     case "%":
+;       alert(firstNum % secondNum);
+;       break;
+
+;     default:
+;       break;
+;   }
+; }
+
+;
+
+; function check() {
+;   console.log(firstNum);
+;   console.log(secondNum);
+; }
