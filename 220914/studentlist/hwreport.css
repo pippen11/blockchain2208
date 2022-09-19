@@ -1,12 +1,12 @@
 table {
   border-collapse: collapse;
-  border-bottom: 1px solid black;
+  border-top: 1px solid black;
 }
+
 td,
 th {
   border-right: 1px dashed black;
-  padding: 5px;
-  /* 위아래한번 좌우 한번 */
+  padding: 5px 0;
   text-align: center;
   min-width: 100px;
 }
