@@ -1,8 +1,5 @@
 let coin = 1000;
 
-if (coin >= 100) {
-  coin -= 100;
-}
 // 이게 여기있을이유가 없음 start눌렀을때로 들어가야함
 // } else {
 //   lver = prompt("게임종et gameo료");
@@ -23,7 +20,26 @@ let paper = 2;
 let p01 = document.getElementById("title-box2");
 
 function start() {
+  if (coin >= 100) {
+    coin -= 100;
+  }
   p01.innerText = coin;
+  document.getElementById("img1").style.opacity = "1";
+  document.getElementById("img2").style.opacity = "1";
+  document.getElementById("img3").style.opacity = "1";
+
+  document.querySelector(".third").style.animationDuration = "1s";
+
+  [...document.getElementsByClassName("fourthbar")[0].children].forEach(
+    (elem) => {
+      elem.style.opacity = "1";
+    }
+  );
+  [...document.getElementsByClassName("fifthbar")[0].children].forEach(
+    (elem) => {
+      elem.style.opacity = "1";
+    }
+  );
 }
 
 function rockimg() {
@@ -61,19 +77,19 @@ function rockimg() {
     // classList.toggle("third");
   }
   if (comSel == 1) {
-    let p02 = document.getElementById("fifth-item5");
     let comSel2 = parseInt(Math.random() * 10);
 
-    p02.innerHTML = comSel2;
     document.getElementById("fifth-item0").style.opacity = "0";
     document.getElementById("fifth-item1").style.opacity = "0";
     document.getElementById("fifth-item2").style.opacity = "0";
     document.getElementById("fifth-item3").style.opacity = "0";
     document.getElementById("fifth-item4").style.opacity = "0";
+    document.getElementById("fifth-item5").style.opacity = "0";
     document.getElementById("fifth-item6").style.opacity = "0";
     document.getElementById("fifth-item7").style.opacity = "0";
     document.getElementById("fifth-item8").style.opacity = "0";
     document.getElementById("fifth-item9").style.opacity = "0";
+    document.getElementById(`fifth-item${comSel2}`).style.opacity = "1";
 
     coin += comSel2 * 100;
     p01.innerText = coin;
@@ -113,19 +129,19 @@ let scissorsimg = function () {
     document.getElementById("fourth-item3").style.opacity = "0";
   }
   if (comSel == 2) {
-    let p02 = document.getElementById("fifth-item5");
     let comSel2 = parseInt(Math.random() * 10);
-    console.log(typeof comSel2);
-    p02.innerText = comSel2;
+
     document.getElementById("fifth-item0").style.opacity = "0";
     document.getElementById("fifth-item1").style.opacity = "0";
     document.getElementById("fifth-item2").style.opacity = "0";
     document.getElementById("fifth-item3").style.opacity = "0";
     document.getElementById("fifth-item4").style.opacity = "0";
+    document.getElementById("fifth-item5").style.opacity = "0";
     document.getElementById("fifth-item6").style.opacity = "0";
     document.getElementById("fifth-item7").style.opacity = "0";
     document.getElementById("fifth-item8").style.opacity = "0";
     document.getElementById("fifth-item9").style.opacity = "0";
+    document.getElementById(`fifth-item${comSel2}`).style.opacity = "1";
 
     coin += comSel2 * 100;
     p01.innerText = coin;
@@ -165,18 +181,18 @@ let paperimg = () => {
     document.getElementById("fourth-item3").style.opacity = "0";
   }
   if (comSel == 0) {
-    let p02 = document.getElementById("fifth-item5");
     let comSel2 = parseInt(Math.random() * 10);
-    p02.innerText = comSel2;
     document.getElementById("fifth-item0").style.opacity = "0";
     document.getElementById("fifth-item1").style.opacity = "0";
     document.getElementById("fifth-item2").style.opacity = "0";
     document.getElementById("fifth-item3").style.opacity = "0";
     document.getElementById("fifth-item4").style.opacity = "0";
+    document.getElementById("fifth-item5").style.opacity = "0";
     document.getElementById("fifth-item6").style.opacity = "0";
     document.getElementById("fifth-item7").style.opacity = "0";
     document.getElementById("fifth-item8").style.opacity = "0";
     document.getElementById("fifth-item9").style.opacity = "0";
+    document.getElementById(`fifth-item${comSel2}`).style.opacity = "1";
 
     coin += comSel2 * 100;
     p01.innerText = coin;

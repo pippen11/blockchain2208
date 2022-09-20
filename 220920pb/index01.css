@@ -22,16 +22,22 @@
   height: 160px;
 } */
 @keyframes third {
-  0% {
-    background-image: url(1.gif);
+  /* 0 ~ 1000ms */
+  /* 3개의 이미지가 동일하게 시간을 차지하는 거 */
+  /* 3개의 이미지가 변경되더라도 일정 시간 그 이미지를 출력한다. */
+  /* 바위 -> 가위 -> 보 100 / 3 => 33%  */
+  /* 바위 -> 가위로 변경 -> 가위 -> 보로 변경 -> 보 -> 바위로 변경 */
+  0%,
+  33.3% {
+    background-image: url("1.gif");
   }
-
-  50% {
-    background-image: url(3.gif);
+  33.4%,
+  66.6% {
+    background-image: url("3.gif");
   }
-
+  66.7%,
   100% {
-    background-image: url(2.gif);
+    background-image: url("2.gif");
   }
 }
 .third {
@@ -39,9 +45,6 @@
   animation-duration: 1s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
-  /* background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center; */
 }
 #thirdbar {
   display: flex;
@@ -50,7 +53,10 @@
   margin: auto;
   justify-content: center;
 
-  object-fit: cover;
+  /* object-fit: cover; */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .fourthbar {
@@ -96,4 +102,7 @@
   margin: auto;
   justify-content: center;
   background-color: yellow;
+}
+.test {
+  opacity: 0;
 }

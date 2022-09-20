@@ -18,18 +18,21 @@
 }
 
 /* img#img1 {
-  width: 142px;
-  height: 160px;
-} */
+    width: 142px;
+    height: 160px;
+  } */
 @keyframes third {
-  0% {
+  0%,
+  33% {
     background-image: url(1.gif);
   }
 
-  50% {
+  34%,
+  66% {
     background-image: url(3.gif);
   }
 
+  67%,
   100% {
     background-image: url(2.gif);
   }
@@ -39,9 +42,12 @@
   animation-duration: 1s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
-  /* background-size: contain;
+  background-size: contain;
   background-repeat: no-repeat;
-  background-position: center; */
+  background-position: center;
+  /* background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center; */
 }
 #thirdbar {
   display: flex;
@@ -84,11 +90,11 @@
 }
 
 /* #fifth-item {
-  width: 300px;
-  font-size: 30px;
-  text-align: center;
-  background-color: aqua;
-} */
+    width: 300px;
+    font-size: 30px;
+    text-align: center;
+    background-color: aqua;
+  } */
 
 .sixbar {
   display: flex;
