@@ -1,0 +1,228 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- <script>
+      console.log(new Date());
+
+      console.log(new Set([1, 2, 3]));
+
+      //new뒤에 붙는게 class를 생성하는애다.
+
+      //   class people {}
+
+      //   let kim = new people();
+
+      //   console.log(kim);
+
+      class Block7 {
+        //block7 클래스를 선언했다.
+        constructor(count) {
+          //생성자:생성자를 기준으로 객체를 생성한다.
+          //count는 매개변수이다
+          this.count = count;
+          //this.count의 count와 매개변수 constructor(count)의 count랑 다르다
+          //클래스의 count를 선언, 정의 즉 초기화 한다.
+          // 매개변수 count로
+          //this는 객체다. 즉 생성되는 객체의 count키에 count값을 초기화 한거다.
+        }
+
+        consoleLog() {
+          //클래스의 매서드를 선언한다.
+          console.log("블록 7기의" + this.count + "번째 학생입니다.");
+        }
+      }
+
+      const block7 = new Block7(1);
+      //Block7 클래스를 새롭게 생성한다,.->block7에넣어줌
+      //생성된 객체는 Block7을 기준으로 하기때문에 개발자 도구에 이름이 붙어있다.
+      //new Block7,  즉 new를 붙이고 호출시 constructor를 호출한다.
+      //매개변수는 constructor의 매개변수로 전달된다.
+      // 자바스크립트에 원래 클래스 없었으나 다른언어등을 사용하는 개발자들의 요청으로 추가됨
+      new Block7(9).consoleLog();
+
+      //const block7= new Block7(10); 이렇게 안쓰고 new Block7(10)만써도되긴함
+
+      block7.consoleLog();
+      //block7의 console.log 메서드를 호출한다,.
+      console.log(block7);
+      //block7확인
+      /////////////////
+      const block7Obj = {
+        count: 1,
+        consoleLog() {
+          console.log("블록 7기의" + this.count + "번째 학생입니다.");
+        },
+      };
+      block7Obj.consoleLog();
+      console.log(block7Obj);
+
+      //위에서는 class명령어로 클래스 선언
+      //아래는 함수명으로 클래스 선언
+
+      ///////////////////////////////
+
+      function Block7Func(count) {
+        this.count = count;
+      }
+      Block7Func.prototype.consoleLog = function () {
+        //화살표 함수의 this= root
+        console.log("블록 7기의" + this.count + "번째 학생입니다.");
+      };
+
+      const block7Func = new Block7Func(2);
+      block7Func.consoleLog();
+      console.log(block7Func);
+
+      ////////////////
+      class Student extends Block7 {
+        //extends를 사용하여 Block7을 상속받아 Student 클래스를 생성한다.
+        constructor(name, count) {
+          //생성자: new 붙여서 생성할때 사용되는 코드
+          super(count);
+          //Block7이랑 같다
+
+          //부모의 cunstructor를 갖고온다.
+          // super<< 부모의 생성자. Block7의 생성자<< new Block(number)
+          //super은 부모의 생성자 함수를 호출한다.
+          this.name = name;
+        }
+        consoleLog() {
+          super.consoleLog();
+          console.log("이름은" + this.name + "입니다.");
+        }
+      }
+
+      class Apple extends Student {
+        constructor(check, count, name) {
+          super(count, name);
+
+          this.abc = check;
+        }
+        Appleconsol() {
+          super.consoleLog();
+          console.log("테스트용" + this.abc + "임");
+        }
+      }
+      new Apple("100", "김정규", 1).Appleconsol();
+
+      const kjk = new Student("김정규", 1);
+      kjk.consoleLog();
+      console.log(kjk); -->
+    <!-- </script> -->
+
+    <script>
+      console.log(new Date());
+
+      console.log(new Set([1, 2, 3]));
+
+      //new뒤에 붙는게 class를 생성하는애다.
+
+      //   class people {}
+
+      //   let kim = new people();
+
+      //   console.log(kim);
+
+      class Block7 {
+        //block7 클래스를 선언했다.
+        constructor(count) {
+          //생성자:생성자를 기준으로 객체를 생성한다.
+          //count는 매개변수이다
+          this.count = count;
+          //this.count의 count와 매개변수 constructor(count)의 count랑 다르다
+          //클래스의 count를 선언, 정의 즉 초기화 한다.
+          // 매개변수 count로
+          //this는 객체다. 즉 생성되는 객체의 count키에 count값을 초기화 한거다.
+        }
+
+        consoleLog() {
+          //클래스의 매서드를 선언한다.
+          console.log("블록 7기의" + this.count + "번째 학생입니다.");
+        }
+      }
+
+      const block7 = new Block7(1);
+      //Block7 클래스를 새롭게 생성한다,.->block7에넣어줌
+      //생성된 객체는 Block7을 기준으로 하기때문에 개발자 도구에 이름이 붙어있다.
+      //new Block7,  즉 new를 붙이고 호출시 constructor를 호출한다.
+      //매개변수는 constructor의 매개변수로 전달된다.
+      // 자바스크립트에 원래 클래스 없었으나 다른언어등을 사용하는 개발자들의 요청으로 추가됨
+      new Block7(9).consoleLog();
+
+      //const block7= new Block7(10); 이렇게 안쓰고 new Block7(10)만써도되긴함
+
+      block7.consoleLog();
+      //block7의 console.log 메서드를 호출한다,.
+      console.log(block7);
+      //block7확인
+      /////////////////
+      const block7Obj = {
+        count: 1,
+        consoleLog() {
+          console.log("블록 7기의" + this.count + "번째 학생입니다.");
+        },
+      };
+      block7Obj.consoleLog();
+      console.log(block7Obj);
+
+      //위에서는 class명령어로 클래스 선언
+      //아래는 함수명으로 클래스 선언
+
+      ///////////////////////////////
+
+      function Block7Func(count) {
+        this.count = count;
+      }
+
+      Block7Func.prototype.consoleLog = function () {
+        //화살표 함수의 this= root
+        console.log("블록 7기의" + this.count + "번째 학생입니다.");
+      };
+
+      const block7Func = new Block7Func(2);
+      block7Func.consoleLog();
+      console.log(block7Func);
+
+      ////////////////
+      class Student extends Block7 {
+        //extends를 사용하여 Block7을 상속받아 Student 클래스를 생성한다.
+        constructor(name, count) {
+          //생성자: new 붙여서 생성할때 사용되는 코드
+          super(count);
+          //Block7이랑 같다
+
+          //부모의 cunstructor를 갖고온다.
+          // super<< 부모의 생성자. Block7의 생성자<< new Block(number)
+          //super은 부모의 생성자 함수를 호출한다.
+          this.name = name;
+        }
+        consoleLog() {
+          super.consoleLog();
+          console.log("이름은" + this.name + "입니다.");
+        }
+      }
+
+      class Apple extends Student {
+        constructor(check, count, name) {
+          super(count, name);
+
+          this.abc = check;
+        }
+        Appleconsol() {
+          super.consoleLog();
+          console.log("테스트용" + this.abc + "임");
+        }
+      }
+      new Apple("100", "김정규", 1).Appleconsol();
+
+      const kjk = new Student("김정규", 1);
+      kjk.consoleLog();
+      console.log(kjk);
+    </script>
+  </body>
+</html>

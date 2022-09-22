@@ -1,0 +1,49 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width", initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      console.log((65).toString(2)); //2진수 표기
+      console.log((65).toString(16)); //16진수 표기
+      console.log("\uAC00");
+      let name = "정경훈";
+      let count = 0;
+      name = "이가원";
+      //자료구조란 한정된 용량(메모리,공간)에 최적화 시켜서 많은 데이터를 쓸수있도록 설계된것
+      //call stack, memory heap
+      //web API
+      //Callback Queue
+
+      //중요 키워드: stack,heap,Queue
+      //스택(stack) : 책쌓고 보듯이 제일 처음들어간게 제일 나중에들어온다 선입후출,먼저 들어간게 나중에 나온다./push,pop
+
+      function stackOverFlow(count) {
+        console.log(count);
+        if (++count < 10) stackOverFlow(count);
+        //++count if문 안에있어도 실행이됨
+        //stackOverFlow는 쌓아놨다가 다끝나고 나서 역순으로 실행된다.
+        //0~10쌓이고 10부터 다시시작
+        //이렇게 쓰면 카운트가 9까지만찍힘
+        //자기 안에서 자기를 다시 호출하는게 재귀함수이다.
+        console.log(count + "end");
+        //돌아갈수가 없다 계속쌓임 end가 그래서 안찍힘
+      }
+      stackOverFlow(0);
+      //호출해서 0부터 실행시작
+      //힙(heap): 객체, 배열을 저장할때 사용한다. 상당히 마구잡이로 위치한다. 아무데나저장
+      //큐(queue):선입선출,먼저 들어간 것이 먼저나온다./push,shift 스택이랑 반대다
+      //큐는 보통 사용자 입력에 대해서 관리한다.
+
+      //위치에대해 변수를 지정하는것 값이바뀌면 기존위치에서 다시하는게 아니라 새로위치를 잡아 저장한다(자바스크립트)특징
+      //기존에 있던건 쓰레기컬렉터에 들어감
+      //0,1로 이루어져있고
+      //컴퓨터는 0~f까지
+      //16진수로 압축해서? 보여줌
+      //어떻게하면 저장을 효율적으로 할것이냐 이런걸 정립하기위해 나온게 자료구조
+    </script>
+  </body>
+</html>

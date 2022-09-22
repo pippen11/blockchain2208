@@ -49,7 +49,7 @@ for (let i = 0; i < 10; ++i) {
   //root 엘리먼트에 tempElem 엘리먼트를 첫번째자식으로 추가한다.
 }
 
-document.getElementById("name").style.backgroundcolor = "lightgray";
+document.getElementById("name").style.backgroundColor = "lightgray";
 //html문서에서 style속성을 이용해서 inline형식으로 설정된 스타일과 마찬가지로 적용된다.
 
 console.log(document.getElementById("name").style.border);

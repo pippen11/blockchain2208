@@ -42,27 +42,27 @@ function start() {
   );
 }
 
-function rockimg() {
+function test(num) {
   document.getElementById("img2").style.opacity = "0";
   document.getElementById("img3").style.opacity = "0";
 
   const comSel = parseInt(Math.random() * 3);
-
+  document.querySelector(".third").style.animationDuration = "0s";
   // console.log(comSel);
 
   //   let p02 = document.getElementById("thirdbar");
   // document.querySelector(".third");
+  document.querySelector(".third").style.backgroundImage = `url(${
+    comSel + 1
+  }.gif)`;
 
-  if (comSel == rock) {
-    document.querySelector(".third").style.animationDuration = "0s";
-    document.querySelector(".third").style.backgroundImage = "url(1.gif)";
-  } else if (comSel == scissors) {
-    document.querySelector(".third").style.animationDuration = "0s";
-    document.querySelector(".third").style.backgroundImage = "url(2.gif)";
-  } else {
-    document.querySelector(".third").style.animationDuration = "0s";
-    document.querySelector(".third").style.backgroundImage = "url(3.gif)";
-  }
+  // if (comSel == rock) {
+  //   document.querySelector(".third").style.backgroundImage = "url(1.gif)";
+  // } else if (comSel == scissors) {
+  //   document.querySelector(".third").style.backgroundImage = "url(2.gif)";
+  // } else {
+  //   document.querySelector(".third").style.backgroundImage = "url(3.gif)";
+  // }
 
   if (comSel == 0) {
     document.getElementById("fourth-item1").style.opacity = "0";
@@ -79,16 +79,11 @@ function rockimg() {
   if (comSel == 1) {
     let comSel2 = parseInt(Math.random() * 10);
 
-    document.getElementById("fifth-item0").style.opacity = "0";
-    document.getElementById("fifth-item1").style.opacity = "0";
-    document.getElementById("fifth-item2").style.opacity = "0";
-    document.getElementById("fifth-item3").style.opacity = "0";
-    document.getElementById("fifth-item4").style.opacity = "0";
-    document.getElementById("fifth-item5").style.opacity = "0";
-    document.getElementById("fifth-item6").style.opacity = "0";
-    document.getElementById("fifth-item7").style.opacity = "0";
-    document.getElementById("fifth-item8").style.opacity = "0";
-    document.getElementById("fifth-item9").style.opacity = "0";
+    [...document.getElementsByClassName("fifthbar")[0].children].forEach(
+      (elem) => {
+        elem.style.opacity = "0";
+      }
+    );
     document.getElementById(`fifth-item${comSel2}`).style.opacity = "1";
 
     coin += comSel2 * 100;
@@ -101,22 +96,25 @@ let scissorsimg = function () {
   document.getElementById("img3").style.opacity = "0";
 
   const comSel = parseInt(Math.random() * 3);
-
+  document.querySelector(".third").style.animationDuration = "0s";
   // console.log(comSel);
 
   //   let p02 = document.getElementById("thirdbar");
+  document.querySelector(".third").style.backgroundImage = `url(${
+    comSel + 1
+  }.gif)`;
 
-  if (comSel == rock) {
-    document.querySelector(".third").style.animationDuration = "0s";
-    document.querySelector(".third").style.backgroundImage = "url(1.gif)";
-    // let p02 = document.querySelector("thirdbar");
-  } else if (comSel == scissors) {
-    document.querySelector(".third").style.animationDuration = "0s";
-    document.querySelector(".third").style.backgroundImage = "url(2.gif)";
-  } else {
-    document.querySelector(".third").style.animationDuration = "0s";
-    document.querySelector(".third").style.backgroundImage = "url(3.gif)";
-  }
+  // if (comSel == rock) {
+  //   // document.querySelector(".third").style.animationDuration = "0s";
+  //   document.querySelector(".third").style.backgroundImage = "url(1.gif)";
+  //   // let p02 = document.querySelector("thirdbar");
+  // } else if (comSel == scissors) {
+  //   // document.querySelector(".third").style.animationDuration = "0s";
+  //   document.querySelector(".third").style.backgroundImage = "url(2.gif)";
+  // } else {
+  //   // document.querySelector(".third").style.animationDuration = "0s";
+  //   document.querySelector(".third").style.backgroundImage = "url(3.gif)";
+  // }
 
   if (comSel == 0) {
     document.getElementById("fourth-item1").style.opacity = "0";
@@ -131,16 +129,21 @@ let scissorsimg = function () {
   if (comSel == 2) {
     let comSel2 = parseInt(Math.random() * 10);
 
-    document.getElementById("fifth-item0").style.opacity = "0";
-    document.getElementById("fifth-item1").style.opacity = "0";
-    document.getElementById("fifth-item2").style.opacity = "0";
-    document.getElementById("fifth-item3").style.opacity = "0";
-    document.getElementById("fifth-item4").style.opacity = "0";
-    document.getElementById("fifth-item5").style.opacity = "0";
-    document.getElementById("fifth-item6").style.opacity = "0";
-    document.getElementById("fifth-item7").style.opacity = "0";
-    document.getElementById("fifth-item8").style.opacity = "0";
-    document.getElementById("fifth-item9").style.opacity = "0";
+    [...document.getElementsByClassName("fifththbar")[0].children].forEach(
+      (elem) => {
+        elem.style.opacity = "0";
+      }
+    );
+    // document.getElementById("fifth-item0").style.opacity = "0";
+    // document.getElementById("fifth-item1").style.opacity = "0";
+    // document.getElementById("fifth-item2").style.opacity = "0";
+    // document.getElementById("fifth-item3").style.opacity = "0";
+    // document.getElementById("fifth-item4").style.opacity = "0";
+    // document.getElementById("fifth-item5").style.opacity = "0";
+    // document.getElementById("fifth-item6").style.opacity = "0";
+    // document.getElementById("fifth-item7").style.opacity = "0";
+    // document.getElementById("fifth-item8").style.opacity = "0";
+    // document.getElementById("fifth-item9").style.opacity = "0";
     document.getElementById(`fifth-item${comSel2}`).style.opacity = "1";
 
     coin += comSel2 * 100;
@@ -157,18 +160,19 @@ let paperimg = () => {
   // console.log(comSel);
 
   //   let p02 = document.getElementById("thirdbar");
+  document.querySelector(".third").style.animationDuration = "0s";
+  document.querySelector(".third").style.backgroundImage = `url(${
+    comSel + 1
+  }.gif)`;
 
-  if (comSel == rock) {
-    document.querySelector(".third").style.animationDuration = "0s";
-    document.querySelector(".third").style.backgroundImage = "url(1.gif)";
-    // let p02 = document.querySelector("thirdbar");
-  } else if (comSel == scissors) {
-    document.querySelector(".third").style.animationDuration = "0s";
-    document.querySelector(".third").style.backgroundImage = "url(2.gif)";
-  } else {
-    document.querySelector(".third").style.animationDuration = "0s";
-    document.querySelector(".third").style.backgroundImage = "url(3.gif)";
-  }
+  // if (comSel == rock) {
+  //   document.querySelector(".third").style.backgroundImage = "url(1.gif)";
+  //   // let p02 = document.querySelector("thirdbar");
+  // } else if (comSel == scissors) {
+  //   document.querySelector(".third").style.backgroundImage = "url(2.gif)";
+  // } else {
+  //   document.querySelector(".third").style.backgroundImage = "url(3.gif)";
+  // }
 
   if (comSel == 0) {
     document.getElementById("fourth-item2").style.opacity = "0";
@@ -182,19 +186,35 @@ let paperimg = () => {
   }
   if (comSel == 0) {
     let comSel2 = parseInt(Math.random() * 10);
-    document.getElementById("fifth-item0").style.opacity = "0";
-    document.getElementById("fifth-item1").style.opacity = "0";
-    document.getElementById("fifth-item2").style.opacity = "0";
-    document.getElementById("fifth-item3").style.opacity = "0";
-    document.getElementById("fifth-item4").style.opacity = "0";
-    document.getElementById("fifth-item5").style.opacity = "0";
-    document.getElementById("fifth-item6").style.opacity = "0";
-    document.getElementById("fifth-item7").style.opacity = "0";
-    document.getElementById("fifth-item8").style.opacity = "0";
-    document.getElementById("fifth-item9").style.opacity = "0";
+    [...document.getElementsByClassName("fifthbar")[0].children].forEach(
+      (elem) => {
+        elem.style.opacity = "0";
+      }
+    );
+    // document.getElementById("fifth-item0").style.opacity = "0";
+    // document.getElementById("fifth-item1").style.opacity = "0";
+    // document.getElementById("fifth-item2").style.opacity = "0";
+    // document.getElementById("fifth-item3").style.opacity = "0";
+    // document.getElementById("fifth-item4").style.opacity = "0";
+    // document.getElementById("fifth-item5").style.opacity = "0";
+    // document.getElementById("fifth-item6").style.opacity = "0";
+    // document.getElementById("fifth-item7").style.opacity = "0";
+    // document.getElementById("fifth-item8").style.opacity = "0";
+    // document.getElementById("fifth-item9").style.opacity = "0";
     document.getElementById(`fifth-item${comSel2}`).style.opacity = "1";
 
     coin += comSel2 * 100;
     p01.innerText = coin;
   }
 };
+
+// function PicktheWinner(rspId) {
+//   let ranComId = Math.floor(Math.random() * 3);
+//   let curDiff = ranComId - rspId;
+//   let result = "draw";
+//   if (curDiff > 0) {
+//     Math.abs(curDiff) == 1 ? (result = "win") : (result = "lose");
+//   } else if (curDiff < 0) {
+//     Math.abs(curDiff) == 1 ? (result = "lose") : (result = "win");
+//   }
+//정규코드 분석해보기
