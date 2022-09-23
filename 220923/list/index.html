@@ -1,0 +1,160 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Linked List</title>
+  </head>
+  <body>
+    <script>
+      const listNode = {
+        data: undefined,
+        //노드의 데이터
+        next: undefined,
+        // 다음노드
+
+        insert(data) {
+          //노드 추가
+          if (this.next) this.next.insert(data);
+          // 다음노드가 있으면 그노드에 추가
+          this.next = {
+            //다음 노드가 없으면 여기에 추가
+            ...listNode,
+            data,
+          };
+        },
+      };
+      const listRoot = { ...listNode, data: 1 };
+      listRoot.insert(2);
+      listRoot.insert(3);
+      console.log(listRoot);
+
+      //이론과 다르지만 대충 만들어본 리스트 가능
+      const listArr = {
+        arr: [],
+        insert(data) {
+          this.arr.push(data);
+        },
+        remove(data) {
+          let isDelete = false;
+          this.arr.filter((item) => {
+            if (item != data || isDelete) {
+              return true;
+            } else {
+              isDelete = true;
+              return false;
+            }
+          });
+          //   this.arr=[...this.arr.slice(0,this.arr.indexOf(data)),...this.arr.slice(this.arr.indexOf(data)+1)]
+          return this.arr.length;
+        },
+        contains(data) {
+          return this.arr.contains(data);
+        },
+      };
+
+      //아래는 공부하고싶은면 해보세요
+      function SingleNode(data) {
+        //하나의 데이터(점)이다.
+        this.data = data;
+        //노드의 데이터
+        this.next = undefined;
+        //다음 노드
+      }
+
+      function SingleList() {
+        // Single Linked List
+        this.head = undefined;
+        //리스트의 헤드(머리))
+        this.tail = undefined; //편하게 할려고|| 후에 원형 리스트에서 사용
+        //리스트의 테일
+        this.size = 0;
+        //리스트의 크기(전체크기)
+      }
+
+      SingleList.prototype.insert = function (data) {
+        // 추가 메서드다, 클래스이기 때문에 prototype에 method로 추가한다.
+        if (!this.head) {
+          //머리가 없으면, 리스트가 하나도없다
+          this.head = new SingleNode(data);
+          //리스트에 노드를 추가한다.
+          this.tail = this.head;
+          //꼬리도 넣어둔다.
+        } else {
+          //머리가 있으면
+          const temp = new SingleNode(data);
+          //임시로 하나 만든다.
+          this.tail.next = temp;
+          // 현재 꼬리에 만들어진 노드를 다음 노드로 연결한다.
+          this.tail = temp;
+          // 만든 노드를 꼬리에 정의한다.
+        }
+        return ++this.size;
+        //사이즈를 키운다.
+      };
+      //1,2,3,4,5 data 3이라고 생각해라 예시
+      SingleList.prototype.remove = function () {
+        //삭제 메서드
+        if (!this.head) return;
+        //헤드가 없으면 리턴
+        if (this.head.data == data) {
+          //헤드의 데이터가 삭제하려는 데이터이면
+          const tempt = this.head.next;
+          //헤드의 next를 임시로 저장
+          delete this.head;
+          //헤드 삭제
+          this.head = temp;
+          //임시로 저장된 노드(head의 다음노드)를 헤드로 정의
+          this.size--;
+          //하나 지웠으니 사이즈 줄이기
+          return;
+        }
+        let curr = this.head;
+        //현재 어떤 노드를 확인하는가? 현재노드를 변수에 정의
+
+        while (curr !== this.tail) {
+          //현재 노드가 꼬리 즉 끝인지 확인
+          if (!curr.next) return;
+          //다음 노드가 없으면 리턴
+          if (curr.next.data === data) {
+            //현재 노드의 다음 노드의 데이터가 삭제하려는 데이터인가?
+
+            const temp = curr.next.next;
+            //현재노드의 다음노드의 다음 노드를 임시로정의
+
+            delete curr.next;
+            //현재의 다음 노드 삭제
+            curr.next = temp;
+            //현재의 다음노드에 임시로 정의한 노드정의(기존의 다다음 노드)
+            this.size--;
+            //데이터 삭제했으니 사이즈 줄이기
+            return;
+          }
+          curr = curr.next;
+          //다음 노드의 데이터가 삭제할 노드가 아니면 현재 노드를 다음 노드로 정의
+        }
+      };
+
+      SingleList.prototype.contains = function () {
+        //존재 여부 확인 메서드
+        let curr = this.head;
+        // 현재 노드 설정(시작은 head)
+        if (curr.data === data) return true;
+        //head의 데이터가 찾으려는 데이터면 참 반환
+        while (curr !== this.tail) {
+          if (curr.next.data === data) {
+            //다음 노드의 데이터를 확인해서 같으면 참 반환
+            return true;
+          }
+          curr = curr.next;
+        }
+        //모든 노드 확인했는데 여기까지 오면 없다고 판단가능
+        return false;
+      };
+    </script>
+    <!-- call stack(메모리) 함수에서사용 먼저들어온게 나중에나간다 데이터를 다루는 방식이 stack 둘은다른거다 
+    값들은 다 memory heap 에 저장된다 call stack , callback queue , memory heap , 
+call back queue 뒤에부른다  click했을때 DOM에서 callback Queue로 들어간다 DOM은 엘리먼트이다 Ajax(Axios) 서버에 데이터 요청
+event loop 계속 작동되게함 리스트는 스택 큐 개념이 아니라 중간에서도 뺄수있따 스택은 선입후출 큐는 선입선출 리스트는 몇번째인지 까지는 저장을 안함 -->
+  </body>
+</html>
