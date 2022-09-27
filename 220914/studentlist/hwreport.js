@@ -91,12 +91,12 @@ function createStudent(name, age, area, mbti, bloodType) {
 // 객체 정의 시 객체 내에 다른 변수만을 넣으면 변수명과 변수의 값을 키와 값에 입력한다.
 // name 매개변수에 정의된 값을 객체의 name 키에 대한 값으로 정의한다.
 // 간단 예제
-//   let temp = 100;
-//   const tempObj = {
-//     temp,
-//     // temp : temp, << 24번 줄과 같다.
-//   };
-//   console.log(tempObj);
+let temp = 100;
+const tempObj = {
+  temp,
+  // temp : temp, << 24번 줄과 같다.
+};
+console.log(tempObj);
 // }
 
 createStudent("김성진", 27, "성남", "INTP", "B");
