@@ -1,0 +1,43 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      let n = 123;
+
+      let sp = n.toString();
+
+      console.log(typeof sp);
+
+      //   console.log(sp.split(""));
+
+      let a = sp.split("");
+
+      console.log(typeof parseInt(a[0]));
+
+      let sum = 0;
+      for (let i = 0; i < a.length; i++) {
+        parseInt(a[i]);
+
+        sum += parseInt(a[i]);
+      }
+
+      //   console.log(n.split(""));
+
+      //n을 문자열로 바꿔준다
+      //각각 한자리씩 끊어준다(split은 문자열에서만 쓴다)
+      //각각 끊어준 string값을 number값으로 바꿔준다
+      //각각 number값을 더해서 리턴해준다
+      //   // function solution(n) {
+      //     let n=[n];
+      //   }
+
+      //   for (let i = 0; i <= a.length; i++)
+    </script>
+  </body>
+</html>

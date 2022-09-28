@@ -1,0 +1,61 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //1번
+      //   function solution(num) {
+      //     if (num % 2 == 0) {
+      //       return "Even";
+      //     } else {
+      //       return "Odd";
+      //     }
+      //   }
+
+      //2번 평균구하기
+      //   function solution(arr) {
+      //     let sum = 0;
+      //     for (let i = 0; i < arr.length; i++) {
+      //       sum += arr[i];
+      //     }
+      //     return sum / arr.length;
+      //   }
+      //arr[i]생각못해냄
+
+      //3번 약수의합 예시로 나눠보고 개념이 뭔지 생각해보기
+      // let sum=0;을 for문 안에넣으면 실행될때마다 초기화가돼서 sum이 0이 돼서 누적이안됨
+      // return값을 for문 안에넣으면
+
+      //   function solution(n) {
+      //     let sum = 0;
+      //     for (let i = 0; i <= n; i++) {
+      //       if (n % i == 0) sum += i;
+      //     }
+      //     console.log(sum);
+      //   }
+
+      //   solution(3);
+
+      //4번
+      let n = 123;
+      n = n.toString();
+
+      n = n.split("");
+
+      let sum = 0;
+      for (let i = 0; i < n.length; i++) {
+        // parseInt(n[i]);
+        sum += parseInt(n[i]);
+      }
+      return sum;
+
+      //   function solution(n){
+
+      //   }
+    </script>
+  </body>
+</html>
