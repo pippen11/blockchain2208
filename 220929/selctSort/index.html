@@ -1,0 +1,42 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>선택정렬</title>
+  </head>
+  <body>
+    <script>
+      function swap(arr, idx1, idx2) {
+        const temp = arr[idx1];
+        arr[idx1] = arr[idx2];
+        arr[idx2] = temp;
+      }
+
+      const dataArr = [
+        727, 129, 621, 333, 100, 708, 1112, 1121, 1229, 214, 1818, 500, 6, 8282,
+        119, 3838,
+      ];
+      //selectSort 하나씩 찾아서 최소값을 맨앞으로 가져온다
+
+      function selectSort(arr) {
+        const tempArr = [...arr];
+        for (let i = 0; i < tempArr.length - 1; i++) {
+          let minIdx = i;
+          //하나씩 늘면서 확인
+          for (let j = i + 1; j < tempArr.length; j++) {
+            //두번째부터 확인해서 i+1임
+            if (tempArr[minIdx] > tempArr[j]) minIdx = j;
+          }
+          swap(tempArr, minIdx, i);
+        }
+        return tempArr;
+      }
+      console.log(dataArr);
+      console.time("selectSort");
+      console.log(selectSort(dataArr));
+      console.timeEnd("selectSort");
+      console.log(dataArr);
+    </script>
+  </body>
+</html>

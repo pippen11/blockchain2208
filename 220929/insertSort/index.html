@@ -1,0 +1,45 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>삽입정렬</title>
+  </head>
+  <body>
+    <script>
+      function swap(arr, idx1, idx2) {
+        const temp = arr[idx1];
+        arr[idx1] = arr[idx2];
+        arr[idx2] = temp;
+      }
+
+      const dataArr = [
+        727, 129, 621, 333, 100, 708, 1112, 1121, 1229, 214, 1818, 500, 6, 8282,
+        119, 3838,
+      ];
+      //selectSort 하나씩 찾아서 최소값을 맨앞으로 가져온다
+
+      function inserttSort(arr) {
+        const tempArr = [...arr];
+
+        for (let i = 1; i < tempArr.length; ++i) {
+          for (let j = i - 1; j > -1; --j) {
+            if (tempArr[j + 1] < tempArr[j]) swap(tempArr, j, j + 1);
+          }
+        }
+      }
+      console.log(dataArr);
+      console.time("insertSortSort");
+      console.log(selectSort(dataArr));
+      console.timeEnd("insertSortSort");
+      console.log(dataArr);
+      //is << boolean,참거짓
+      //***s||***Arr<<배열
+      //***data
+      //동사***<<함수||메서드
+      // on***<<이벤트함수
+      //get||set
+      //***Api<< Node.js에서 사용합니다. 보통 통신관련 즉, 서버에 요청하거나 서버에서 요청 받는함수 || 메서드 feat.RESTAPI
+    </script>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 하노이의탑 -->
+    <script>
+      function solution(n) {
+        let a = [];
+
+        a[0] = 0;
+
+        a[1] = 1;
+
+        for (let i = 2; i <= n; ++i) {
+          a.push((a[i - 2] + a[i - 1]) % 1234567);
+        }
+        let b = a[n];
+        return b;
+      }
+      console.log(solution(999));
+    </script>
+  </body>
+</html>
+
+<!-- 숫자규칙 push랑 리턴 조건 배열  -->
+
+<!-- // 선언할때 let const등 쓰기 조건을 두개쓴다하면 한번에가 아니라 || &&으로 나눠서 써야함
+      //return을 안쓰면 함수밖으로 안나와서 결과값이 안나옴 나누기숫자를 위로 올려서 해결함 
+
+
+    문제에서 1234567로 나눈 나머지를 정답으로 내놓으라는 것은 문제를 꼰 것이 아니라 int 자료형의 범위 내에 항상 값이 있을 수 있도록 한 배려이며, 자료형의 크기에 제한이 있는 언어를 쓸 경우 
+    (A + B) % C ≡ ( ( A % C ) + ( B % C) ) % C라는 성질을 이용해서 매번 계산 결과에 1234567으로 나눈 나머지를 대신 넣는 것으로 int 범위 내에 항상 값이 존재함을 보장할 수 있다.-->
