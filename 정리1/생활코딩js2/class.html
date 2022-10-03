@@ -1,0 +1,43 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class Person {
+        constructor(name, first, second) {
+          this.name = name;
+          this.first = first;
+          this.second = second;
+          console.log("constructor");
+          console.log("constructor");
+        }
+
+        sum() {
+          return this.first + this.second;
+        }
+      } //클래스는 객체를 만드는공장
+
+      //객체가 실행되기전에 실행되도록 약속된 함수가 consturctor 객체가 생성되는 과정에서 실행됨
+      //new붙이는 순간 실행
+
+      //prototype 객체 sum 프로퍼티
+
+      let kim = new Person("kim", 10, 20);
+      console.log(kim);
+      let lee = new Person("lee", 10, 10);
+      console.log(lee.sum());
+      console.log(kim.sum());
+      //   kim.sum = function () {
+      //     return "this:" + (this.first + this.second);
+      //   };
+
+      //   let lee = new Person("lee", 10, 10, 10);
+      //   console.log(kim.sum());
+      //   console.log(lee.sum());
+    </script>
+  </body>
+</html>

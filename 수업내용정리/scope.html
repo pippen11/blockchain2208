@@ -1,0 +1,45 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let a = 0;
+      console.log(a);
+
+      {
+        let a = 2;
+
+        let b = 1;
+        console.log(a + b);
+        console.log(a);
+      }
+
+      //   console.log(b);
+      //b는 지역 스코프안이라서 안찍힌다
+
+      function addA() {
+        console.log(a);
+      }
+
+      addA(a);
+
+      let obj = {
+        func1: function () {
+          console.log("돼");
+        },
+        func: (fn, sn) => {
+          return fn + sn;
+        },
+      };
+
+      obj.func1();
+      console.log(obj.func(1, 2));
+
+      //객체안에 포함된 함수는 메서드이다
+    </script>
+  </body>
+</html>

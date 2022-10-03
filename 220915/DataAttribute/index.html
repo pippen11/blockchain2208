@@ -11,14 +11,14 @@
 
     <script>
       console.log(document.getElementById("data-set").dataset.count);
-      //속성으로 "data-***을 설정하면 jacascript에서 dataset이라는 프로퍼티 객체에 ***이라는 프로퍼티로 저장된다.
+      // //속성으로 "data-***을 설정하면 jacascript에서 dataset이라는 프로퍼티 객체에 ***이라는 프로퍼티로 저장된다.
       document.getElementById("data-set").onclick = (e) => {
-        e.target.dataset.count = parseInt(e.target.dataset.count) + 1;
-        //dataset은 수정도 가능하다
+        e.target.dataset.count = parseInt(e.target.dataset.count) + 2;
+        //   //dataset은 수정도 가능하다
         console.log(document.getElementById("data-set").dataset.count);
         document.getElementById("data-set").dataset.time = Date.now();
-        //data.now메서드는 현재시간을 가져온다.
-        consol.log(
+        // data.now  =x1메서드는 현재시간을 가져온다.
+        console.log(
           new Date(parseInt(document.getElementById("data-set").dataset.time))
         );
       };

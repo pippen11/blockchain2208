@@ -1,0 +1,56 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="addFN()">+</button>
+    <!-- 위버튼을 누르면 firstNum가 1씩 증가한다. -->
+    <button onclick="addSN()">+</button>
+    <!-- 위 버튼을 누르면 secondNum가 1씩 증가한다. -->
+    <button onclick="sum()">result</button>
+    <!-- firstNum, secondNum 합친결과가 콘솔창에 출력된다 -->
+    <script>
+      let firstNum = 0;
+      let secondNum = 0;
+
+      function test1() {}
+
+      addFunc(0, 0);
+
+      function addFunc(firstNum, secondNum) {
+        console.log(firstNum + secondNum);
+      }
+
+      function addFN() {
+        firstNum++;
+        //   firstNum를 하나 증가시킨다.
+        console.log("firstNum: " + firstNum);
+        //   firstNum를 콘솔창에출력한다
+      }
+
+      const addSN = function () {
+        secondNum++;
+        console.log("secondNum : " + secondNum);
+      };
+
+      const sum = () => {
+        console.log(firstNum + secondNum);
+      };
+      //이부분부터 다시 공부
+      function examAddFn(firstNum) {
+        // 매개변수는 위에 변수와 다른 변수가 된다.
+        //  1번줄에서 선언한 firstNum와 매개변수로 선언된 firstNum는 엄연히 다른놈이다.
+        console.log(firstNum);
+        firstNum++;
+        firstNum += 1;
+        firstNum = firstNum + 1;
+        console.log(firstNum);
+      }
+
+      examAddFn(5);
+    </script>
+  </body>
+</html>

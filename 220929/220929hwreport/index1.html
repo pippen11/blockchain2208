@@ -21,8 +21,22 @@
       //   }
       //   //이전값 현재값 ,0 초기값?
 
-      //   [1, 2, 3, 4];
+      // let sum = [100, 2, 3, 4, 100, 100];
 
+      // function sumss() {
+      //   return sum.reduce((pre, curr) => pre + curr, 0);
+      // }
+
+      // console.log(sumss());
+
+      //약수의합
+      function solution(n) {
+        let sum = 0;
+        for (let i = 0; i <= n; i++) {
+          if (n % i == 0) sum += i;
+        }
+        return sum;
+      }
       //   prev + curr;
       //   0 + 1;
       //   1 + 2;

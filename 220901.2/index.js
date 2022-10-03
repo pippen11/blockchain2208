@@ -69,6 +69,7 @@ console.log(console.log(addFunc2(1, 2)));
 // 콘솔로그는 return값이 없다 => undefined
 // addfun2는 리턴값이 있음
 
+////이부분 질문하기
 function sel(num) {
   switch (num) {
     case 1:

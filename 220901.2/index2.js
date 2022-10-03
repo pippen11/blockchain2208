@@ -1,13 +1,13 @@
 let firstNum = 0;
 let secondNum = 0;
 
-// function test1() {}
+function test1() {}
 
-// addFunc(0, 0);
+addFunc(0, 0);
 
-// function addFunc(firstNum, secondNum) {
-//   console.log(firstNum + secondNum);
-// }
+function addFunc(firstNum, secondNum) {
+  console.log(firstNum + secondNum);
+}
 
 function addFN() {
   firstNum++;
@@ -31,11 +31,11 @@ function examAddFn(firstNum) {
   console.log(firstNum);
   firstNum++;
   firstNum += 1;
-  firstNum = FirstNum + 1;
+  firstNum = firstNum + 1;
   console.log(firstNum);
 }
 
-examAddFN();
+examAddFn(5);
 // 매개변수가 없어 20번째 줄의 firstNum은 undefined
 
 //위에 이해가 잘안되는듯?

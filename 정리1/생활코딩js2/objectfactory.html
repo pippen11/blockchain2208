@@ -1,0 +1,46 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //   let d1 = new Date("2019-4-10");
+      //   console.log(d1.getFullYear());
+      //   console.log(d1.getMonth());
+
+      //   console.log(Date);
+
+      //   function Person() {
+      //     this.name = "kim";
+      //     this.first = 10;
+      //     this.second = 20;
+      //     this.third = 30;
+      //     this.sum = function () {
+      //       return this.first + this.second + this.third;
+      //     };
+      //   }
+      //   console.log(Person());
+      //   console.log(new Person());
+
+      function Person(name, first, second, third) {
+        this.name = name;
+        this.first = first;
+        this.second = second;
+        this.third = third;
+        this.sum = function () {
+          return this.first + this.second + this.third;
+        };
+      }
+
+      let kim = new Person("kim", 10, 20, 30);
+      let lee = new Person("lee", 10, 10, 10);
+      console.log(kim.sum());
+      console.log(lee.sum());
+      //new붙어있으면 생성자 함수
+      //앞에 new만 붙였더니 Person이라는 객체가 만들어짐
+    </script>
+  </body>
+</html>

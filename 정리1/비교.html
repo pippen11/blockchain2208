@@ -1,0 +1,50 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // a=1에서 =는 대입연산자이다
+      //1,2등은 상수 a는 변수
+      //true와 false는 boolean이다
+
+      console.log(1 == 2);
+      //동등연산자 == 좌항 우항 비교해서 값이 같으면 true 다르면 false
+      //false다
+      console.log("one" == "two");
+      //문자도 비교가능
+      //false다
+
+      console.log(1 === "1");
+      //===은 타입 까지 같아야한다
+      //false다
+
+      //결론은 ==연산자 대신 ===연산자를 쓰는것을 강력하게 권한다
+
+      //undefined 값이 정의되지않음=>값이 없다=>프로그래머 의도가없다
+      //null 값이 없음=>프로그래머가 값이없는걸 의도적으로함
+      console.log(undefined == null);
+      //true
+      console.log(undefined === null);
+      //fasle
+
+      //true false는 boolean이라는 데이터타입이고
+      //undefined, null은 각각 undefined, null이라는 데이터타입이다.
+
+      //==동등연산자는 숫자 1을 true로 간주한다
+      //===는 1이랑 비교해도 false가나옴 ===은 같은의미 같은데이터타입만 true
+      console.log(true == 1);
+      //true
+      console.log(true == 2);
+      //false
+
+      //NaN은 성립하지 않는수=>계산할수없음 ex) 0/0같은것
+
+      //!는 부정을 의미함 !=로 쓰면 같지 않다라는 의미
+      //!==정확하게 같지않다
+    </script>
+  </body>
+</html>

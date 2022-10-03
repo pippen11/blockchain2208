@@ -1,0 +1,35 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function a(arg) {
+        //(arg)는 매개변수
+      }
+      a(1);
+      //1은 인자
+
+      function sum() {
+        _sum = 0;
+        for (let i = 0; i < arguments.length; i++) {
+          //arguments는 사용자가 전달한 인자가 들어가있다 1,2,3,4
+          console.log(i + ":" + arguments[i]);
+          _sum += arguments[i];
+        }
+        return _sum;
+      }
+      console.log("result : " + sum(1, 2, 3, 4));
+
+      function one(arg1) {
+        //one.length는 그함수가 매개변수로 정의한 매개변수의 숫자 1만알려줌
+        //arguments는 몇개의 인자를 갖고있는가를 알려줌 2나옴
+        console.log("one.length", one.length, "arguments", arguments.length);
+      }
+      one("val1", "var2");
+    </script>
+  </body>
+</html>

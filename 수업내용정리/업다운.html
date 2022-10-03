@@ -1,0 +1,50 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const comSel = parseInt(Math.random() * 99 + 1);
+
+      let playerSel;
+      let count = 0;
+      let max = 100;
+      let min = 0;
+      let updown = "";
+      const maxCount = parseInt(prompt("몇번만에 맞출래? 숫자로만"));
+      do {
+        playerSel = prompt(`${updown}숫자를 선택해주세요.
+컴퓨터가 선택한 숫자를 멈추시면됩니다.\n최소 : ${min} / 최대 : ${max}
+ /남은횟수 : ${maxCount - count}`);
+
+        playerSel = parseInt(playerSel);
+        if (min > playerSel || max < playerSel) {
+          console.log("제외된 숫자들이다.");
+        } else if (playerSel === comSel) {
+          console.log(`${count}맞추셨네요 , 축하합니다`);
+          break;
+        } else if (playerSel > comSel) {
+          max = playerSel;
+
+          console.log("up!");
+          updown = "up";
+          count++;
+        } else if (playerSel < comSel) {
+          min = playerSel;
+          console.log("DoWn!");
+          updown = "down";
+          count++;
+        } else {
+          console.log("숫자만! 입력해라!");
+          updown = "숫자만 입력해라";
+        }
+      } while (playerSel !== comSel && count < maxCount);
+      if (count >= maxCount) {
+        consol.log("w제한 횟수를 초과했네요 ㅋㅋ");
+      }
+    </script>
+  </body>
+</html>

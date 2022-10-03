@@ -1,0 +1,47 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class Person {
+        constructor(name, first, second) {
+          this.name = name;
+          this.first = first;
+          this.second = second;
+        }
+
+        sum() {
+          return this.first + this.second;
+        }
+      }
+
+      class PersonPlus extends Person {
+        constructor(name, first, second, third) {
+          super(name, first, second);
+          this.third = third;
+        }
+        //super써서 부모꺼를 가져와서씀
+
+        // sum() {
+        //   return this.first + this.second;
+        // }
+        //이런식으로 써도되는데 중복되는걸 없애기위해 없애고
+        //extends Person으로 상속받음
+        sum() {
+          return super.sum() + this.third;
+        }
+        avg() {
+          return (this.first + this.second) / 2;
+        }
+      }
+
+      let kim = new PersonPlus("kim", 10, 20, 30);
+      console.log(kim.sum());
+      console.log(kim.avg());
+    </script>
+  </body>
+</html>

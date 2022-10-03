@@ -1,0 +1,63 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // //클로저는 내부함수가 외부함수의 맥락에 접근할수있는것을 가르킨다
+      // //내부함수는 외부함수의 지역변수에 접근할수있다.
+      // //외부함수의 실행이 끝나서 외부함수가 소멸된 이후에도 내부함수가
+      // //외부함수의 변수에 접근할수있다.
+
+      // function outter() {
+      //   let title = "coding everybody";
+      //   return function () {
+      //     console.log(title);
+      //   };
+      //   //리턴은 내부함수,리턴은 그함수는 생을 마감했다는뜻이다
+      //   //근데inner을 호출하는순간 otter 외부함수는 죽었는데 그 title이 나옴
+      // }
+
+      // let inner = outter();
+      // inner();
+
+      // //오류가 남 뭔가 잘못나옴
+      // function factory_movie(title) {
+      //   return {
+      //     get_title: function () {
+      //       return title;
+      //     },
+      //     set_title: function (_title) {
+      //       title = _title;
+      //     },
+      //   };
+      // }
+      // ghost = factory_movie("Ghost in the shell");
+      // matirx = factory_movie("Matrix");
+      // console.log(ghost.get_title());
+      // // console.log(matrix.get_title());
+      // console.log(ghost.set_title("공각기동대"));
+
+      // console.log(ghost.get_title());
+      // console.log(matrix.get_title());
+      // ////
+
+      //이해다시하기
+      // let arr = [];
+
+      // for (let i = 0; i < 5; i++) {
+      //   arr[i] = (function (id) {
+      //     return function () {
+      //       return id;
+      //     };
+      //   })(i);
+      // }
+      // for (let index in arr) {
+      //   console.log(arr[index]());
+      // }
+    </script>
+  </body>
+</html>

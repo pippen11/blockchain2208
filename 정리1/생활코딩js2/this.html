@@ -1,0 +1,37 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let kim = {
+        name: "kim",
+        first: 10,
+        second: 20,
+        sum: function () {
+          return kim.first + kim.second;
+        },
+      };
+
+      //   console.log(kim.sum(kim.first, kim.second));
+      console.log(kim.sum());
+      //위에도 틀린건아닌데 더 간편하게 쓰려면 밑에껄로
+
+      let k = {
+        name: "kim",
+        first: 10,
+        second: 20,
+        sum: function () {
+          return this.first + this.second;
+        },
+      };
+      //this는 메소드가 속해있는 객체를 가르키도록 약속된 특수한 약속
+
+      //   console.log(kim.sum(kim.first, kim.second));
+      console.log(k.sum());
+    </script>
+  </body>
+</html>

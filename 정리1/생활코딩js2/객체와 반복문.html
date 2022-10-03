@@ -1,0 +1,36 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let memberArray = ["egoing", "graghittie", "leezhce"];
+      console.group("array loop");
+      let i = 0;
+      while (i < memberArray.length) {
+        console.log(i, memberArray[i]);
+        i = i + 1;
+      }
+      console.groupEnd("array loop");
+
+      let MemberObject = {
+        manager: "egoing",
+        developer: "grapghittie",
+        designer: "lezhce",
+      };
+      //egoing, graphittie , lezhce등은 원소의 값이라한다
+
+      console.group("object loop");
+
+      for (let name in MemberObject) {
+        // console.log(name);
+        console.log(name, MemberObject[name]);
+      }
+      //객체에서는 for문을 for in문을 쓴다
+      console.groupEnd("object loop");
+    </script>
+  </body>
+</html>

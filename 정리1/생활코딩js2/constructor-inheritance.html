@@ -1,0 +1,39 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function Person(name, first, second) {
+        this.name = name;
+        this.frist = first;
+        this.second = second;
+      }
+      Person.prototype.sum = function () {
+        return this.first + this.second;
+      };
+      //Person prototype메소드를 sum으로지정
+      //
+
+      function PersonPlus(name, first, second, third) {
+        Person.call(this, name, first, second);
+        this.third = third;
+      }
+
+      PersonPlus.prototype.avg = function () {
+        return (this.first + this.second + this.thrid) / 3;
+      };
+
+      PersonPlus.prototype = Object.create(Person.prototype);
+      PersonPlus.prototype.constructor = PersonPlus;
+
+      let kim = new PersonPlus("kim", 10, 20, 30);
+      console.log(kim.sum());
+      console.log(kim.avg());
+      console.log(kim.constructor);
+    </script>
+  </body>
+</html>

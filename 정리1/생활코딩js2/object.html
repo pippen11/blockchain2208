@@ -1,0 +1,34 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let memberArray = ["eging", "graghittie", "leezhce"];
+
+      console.log("memberArray[2]", memberArray[2]);
+
+      let MemberObject = {
+        manager: "egoing",
+        developer: "grapghittie",
+        designer: "lezhce",
+      };
+      //객체는 이름이 있는정보를 정리정돈할때 쓰는 도구다
+      //객체를 읽을때는 .이나 []통해서 읽을수있다
+      //값을 업데이트하거나 삭제할수있다.
+      //ex MemberObject.designer = "gop"; , delete MemberObject.manager;
+      MemberObject.designer = "gop";
+      //이런식으로 위에쓴거 변경가능
+      console.log("memberObject.designer", MemberObject.designer);
+      console.log("memberObject['designer']", MemberObject["designer"]);
+      //객체는 .으로도 접근할수있고 배열처럼["xxx"]로접근할수도있다
+      delete MemberObject.manager;
+      //delete써서 이런식으로 삭제가능
+      console.log(MemberObject.manager);
+      //undefined뜸
+    </script>
+  </body>
+</html>

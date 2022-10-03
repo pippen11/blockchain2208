@@ -1,0 +1,65 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //유효범위는 scope 변수의 수명
+      let vscope = "global";
+      function fscope() {
+        let vscope = "locall";
+        vscope = "gg";
+        //이건 지역변수를 나타낸다
+
+        let vscopt = "local";
+        let lv = "local variables";
+        console.log(lv);
+        console.log(vscope);
+        //같은함수안에있는 local이 나옴 없으면 global나옴
+      }
+      fscope();
+      alert(vscope);
+      //이건 글로벌나옴
+
+      //console.log(lv);
+      //지역변수안에서 선언돼있어서 안됨
+      //지역변수local  전역변수 global
+
+      //왜 전역변수를 써야하는지 인지하지못하는 상황이면
+      //언제나 지역변수를 써야한다.
+
+      function a() {
+        let i = 0;
+        //let 이 안붙으면 전역변수를 의미한다 여기서는
+      }
+      for (let i = 0; i < 5; i++) {
+        //for안에 let i는 전역변수
+        a();
+        console.log(i);
+      }
+
+      //   함수 중괄호 안은 지역변수
+      //   for if문 등 안에서 선언된 변수는 지역변수의미가 아니다
+
+      //   js는 함수가 선언된 시점에서의 유효범위를 갖는다
+      //   이러한 유효범위방식은 정적 유효범위나 렉시컬이라 한다.
+
+      let i = 5;
+
+      function a() {
+        let i = 10;
+        b();
+      }
+
+      function b() {
+        console.log(i);
+        //b함수안에서의 지역변수없으니 전역변수 5가 나옴
+      }
+
+      a();
+    </script>
+  </body>
+</html>

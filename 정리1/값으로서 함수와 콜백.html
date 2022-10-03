@@ -1,0 +1,66 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function a() {}
+
+      let a = function () {};
+      //함수가 a에 담김
+
+      console.log(a);
+
+      a = {
+        b: function () {},
+      };
+      //   b는 변수 key 객체안에서 변수 역할 : 속성
+      //   속성에 저장되있는값이 함수면(객체) 메소드라한다(객체안에 저장되어있음)
+
+      function cal(func, num) {
+        return func(num);
+      }
+
+      function increase(num) {
+        return num + 1;
+      }
+
+      function decrease(num) {
+        return num - 1;
+      }
+
+      console.log(cal(increase, 1));
+      //2나옴
+      console.log(cal(decrease, 1));
+      //0나옴
+
+      //   함수는 인자로도 전달될수있고, 리턴값으로도 사용될수있다.
+
+      function cal(mode) {
+        let funcs = {
+          plus: function (left, right) {
+            return left + right;
+          },
+          minus: function (left, right) {
+            return left - right;
+          },
+        };
+        return funcs[mode];
+      }
+
+      console.log(cal("plus")(2, 1)); //이건 3나옴
+      //( )는 함수가 호출된다는 얘기
+      console.log(cal("minus")(2, 1)); // 1나옴
+
+      //   변수 , 매개변수 ,리턴값=> first class citizen
+
+      //   콜백 다시보기
+
+      //   numbers는 배열객체가됨
+      //   sort는 메소드라고한다=>내장메소드
+    </script>
+  </body>
+</html>

@@ -1,0 +1,54 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let inputData = prompt("넣고싶은값");
+
+      switch (inputData) {
+        case "1":
+          console.log("1넣음");
+          break;
+        case "2":
+          console.log("2넣음");
+          break;
+        case "3":
+          console.log("3넣음");
+          break;
+        case "4":
+          console.log("4넣음");
+          break;
+        default:
+          console.log("넣는값만넣어라");
+      }
+      //   case에서는 들어오는값 default는 그 값이 아닐때 실행
+
+      for (let i = 0; i < 10; ++i) {
+        console.log(`i=${i}`);
+      }
+      //   `` 템플릿 리터널에는 안에 변수 넣을때 사용
+
+      let i = 0;
+      for (; i < 10; ) {
+        console.log(`i=${i}`);
+        ++i;
+      }
+      //   이렇게써도 위에꺼랑 같다
+
+      for (let a = 0, b = 1; a < 10 && b < 5; ++a, --b) {
+        console.log(`a=${a},b=${b}`);
+      }
+      //  1
+
+      for (let a = 0, b = 1; a < 10 || b > -2; ++a, --b) {
+        // ||는 '또는' 다. 즉 두 조건중 하나라도 만족하면 실행된다.
+
+        console.log(`a = ${a}, b= ${b}`);
+      }
+    </script>
+  </body>
+</html>

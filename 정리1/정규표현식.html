@@ -1,0 +1,72 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //exec,test등은 메소드다
+      //exec는 어떤특정문자를 찾아서 배열로 리턴하는것
+      //test는 ture나 false를 리턴함
+      //exec는 추출 , test는 test 존재유무
+
+      let pattern = /a/;
+
+      let str = "abcdef";
+
+      console.log("Abcde".match(pattern));
+      //이건 null나옴
+      //만약 let pattern=/a/i; 이렇게 뒤에 i가붙으면 A가출력이됨
+      //대문자 소문자 구분안함
+      console.log(str.match(pattern));
+      //match도 있으면 배열로 리턴, 없으면 null
+
+      console.log(str.replace(pattern, "A"));
+      //replace는 str에서 pattern에 인자를 A로 바꿔줌
+
+      console.log(pattern.exec("abcde"));
+      console.log(pattern.test("a"));
+      //문자열 a를 찾고자하는 pattern을 exec시행해서 abcde를 써서찾아봄
+      //정규 표현식 객체라는것을 패턴이라는 변수에저장
+
+      let pat = /a./;
+      //.은 문자다 .앞에는 a가있어야함 .이 b가됨
+
+      console.log(pat.exec("abcde"));
+
+      console.log(pat.exec("cdef"));
+      //찾고자하는 대상에 a가없어서null이나옴
+
+      //let pattern=new RegExp('a');
+      //위에랑 같은 말이다
+
+      //정규표현식은 추출, test, 치환등을 하기위해 쓴다
+
+      let xg = /a/;
+
+      console.log("abcdea".match(xg));
+      //a가 두개가있는데 하나만 나옴
+      //하지만 let xg = /a/g; 이렇게바꾸면 a가 두개가나옴 뒤에g붙이면 있는 a를 다리턴
+      //뒤에 let xg /a/ig; 이런식으로 적으면 대문자 소문자 구별안하고 있는거 다찾아준다
+
+      let ig = /a/gi;
+
+      console.log("AabcdAa".match(ig));
+
+      let hard = /(\w+)\s(\w+)/;
+
+      let strr = "coding everybody";
+
+      let result = strr.replace(hard, "$2, $1");
+      //replace는 치환 str에 값을 hard에 해당되는문자를 뒤에값으로
+      //$2는 (\w+)위에서 두번째그륩을 의미한다
+      //$1은 (\w+)위에서 첫번째 그룹을 의미한다.
+      //그래서 coding은 뒤로가고 위에서 \s는 공백이다 \s가 ,공백으로 바뀜
+      //everybody는 첫번째로 감 그러한것을 캡처라고함?
+
+      console.log(result);
+    </script>
+  </body>
+</html>

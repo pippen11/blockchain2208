@@ -1,0 +1,33 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      console.log(Math.PI);
+      console.log(Math.random()); //객체에 소속된 함수는 메소드라함
+      console.log(Math.floor(3.9));
+
+      let MyMath = {
+        PI: Math.PI,
+        random: function () {
+          return Math.random();
+        },
+        floor: function (val) {
+          return Math.floor(val);
+        },
+      };
+      //변수와 함수를 객체안에 그룹핑함
+
+      console.log(MyMath.PI);
+      console.log(MyMath.random());
+      console.log(MyMath.floor(3.9));
+
+      //Math등은 객체의 이름 PI,random, floor등은 변수 함수등을 그룹핑해서 정리정돈
+      //이것이 객체
+    </script>
+  </body>
+</html>

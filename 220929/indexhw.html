@@ -68,28 +68,30 @@
 
       ////교수님 풀이
       //코테 1번은 삼항연산자로 한줄로끝남
-      function solution(num) {
-        return num % 2 == 0 ? "Even" : "Odd";
-      }
-      //코테 2번
+      // function solution(num) {
+      //   return num % 2 == 0 ? "Even" : "Odd";
+      // }
+      // //코테 2번
 
-      function solution(arr) {
-        return arr.reduce((prev, curr) => prev + curr, 0) / arr.length;
-      }
-      //이전값 현재값 ,0 초기값?
+      // function solution(arr) {
+      //   return arr.reduce((prev, curr) => prev + curr, 0) / arr.length;
+      // }
+      // //이전값 현재값 ,0 초기값?
 
-      [1, 2, 3, 4];
+      // [1, 2, 3, 4];
 
-      prev + curr;
-      0 + 1;
-      1 + 2;
-      3 + 3;
+      // prev + curr;
+      // 0 + 1;
+      // 1 + 2;
+      // 3 + 3;
 
-      //3번
+      // //3번
 
       // function solution(n) {
       //   let answer = 1;
-      //   for (let i = 1; i < n / 2; ++i) if (!(n % 1)) answer += i + n / i;
+      //   for (let i = 1; i < n / 2; ++i) {
+      //     if (!(n % 1)) answer += i + n / i;
+      //   }
       //   return answer - 1;
       // }
 
@@ -146,8 +148,15 @@
       // //if(!(answer%1))return Math.pow(answer+1,2)
       // //return -1;
       //
+
+      function f(n) {
+        if (n <= 1) {
+          return 1;
+        }
+        return n + f(n - 1);
+      }
+
+      console.log(f(100));
     </script>
-    //
   </body>
-  //
 </html>

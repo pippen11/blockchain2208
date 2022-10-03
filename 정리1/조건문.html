@@ -1,0 +1,53 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //조건문은 주어진 조건에따라 에플리케이션을 다르게동작하도록하는것
+
+      //   if (true) {
+      //     alert(1);
+      //   }
+      //if안에 true일 경우에만 중괄호안에 내용이 실행됨
+
+      if (false) {
+        alert(2);
+      }
+
+      if (true) {
+      } else {
+      }
+
+      if (false) {
+      } else if (true) {
+      } else if (true) {
+      } else {
+      }
+
+      //else가 들어가면 일단 무조건 앞에서 실행이 안됐을때 실행된다
+      //else if는 몇개든 가능하다
+
+      //   prompt("당신의나이는?");
+
+      //   alert(prompt("당신의 나이는?") * 2);
+      //20넣으면 안에꺼부터 실행돼서 40이 출력된다
+      let id = prompt("아이디를 입력해주세요");
+      if (id == "신상목") {
+        let password = prompt("비밀번호를 입력해주세요");
+        if (password == "202061") {
+          alert("로그인 하셨습니다" + id + "님 반갑습니다");
+        } else {
+          alert("비밀번호가 다릅니다");
+        }
+      } else {
+        alert("아이디가 일치하지 않습니다");
+      }
+
+      //if문안에 if을 넣어서 조건에 조건을 넣을수있다.
+    </script>
+  </body>
+</html>

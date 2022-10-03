@@ -1,0 +1,49 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let let2;
+      //let 2를 선언
+      let2 = 2;
+      //let2를 정의
+
+      let let3 = 3;
+
+      //let3을 초기화 했다
+
+      obj = { a: 1, b: 2, c: "3" };
+
+      let arr1 = [1, 2, "3", { a: 1, b: 2, c: "3" }, true, [obj.a, 3], obj];
+
+      console.log(arr1[6]);
+
+      arr1.push("a");
+      //배열에서 push 쓰면 뒤에 추가
+      console.log(arr1);
+
+      arr1.pop();
+      console.log(arr1);
+      //pop은 뒤에서 하나뺀다
+
+      arr1.unshift("match");
+      console.log(arr1);
+      //앞에서 추가
+
+      arr1.shift();
+      console.log(arr1);
+      //앞에서 하나뺀다
+
+      //빼던 추가해주던 그걸 변수에 넣으면 하나만 조절가능
+
+      let obj1 = { "test code": 1, test_code: 2 };
+      console.log(obj1);
+      console.log(obj1["test code"]);
+      console.log(obj1.test_code);
+    </script>
+  </body>
+</html>

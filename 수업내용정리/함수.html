@@ -1,0 +1,51 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function test() {
+        console.log("넣고싶은거 아무거나");
+      }
+
+      function test1() {
+        console.log("함수 선언문");
+      }
+
+      let test2 = function () {
+        console.log("함수 표현식");
+      };
+
+      let test3 = () => {
+        console.log("화살표 함수");
+      };
+
+      test1();
+      test2();
+      test3();
+
+      function addFunc(firstNum, secondNum) {
+        console.log(firstNum + secondNum);
+      }
+
+      addFunc(2, 3);
+
+      function addFunc2(firstNum, secondNum) {
+        return firstNum + secondNum;
+      }
+      let answer = addFunc2(6, 13);
+
+      console.log(answer);
+
+      answer = addFunc(56, 3);
+      console.log(answer);
+
+      console.log(console.log("asdf"));
+
+      console.log(console.log(addFunc2(1, 2)));
+    </script>
+  </body>
+</html>
