@@ -1,0 +1,88 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>heap</title>
+  </head>
+  <body>
+    <script>
+      //내림차순 기준으로 정렬
+      //heap 추가되면 부모랑 비교해서 작으면 바꿔준다 최소 힙이 맨위로 4랑 4랑똑같으면 냅둠
+      //추가할때마다 값비교해서 바꿔줌 뺄때는 제일위에랑 밑에랑 바꿈 마지막노드를 맨위노드로 바꿈
+      //위부터 왼쪽부터 배열 순서 최소힙은 부모가 무조건 작아야한다 최대힙은 부모가 무조건 커야한다
+      //뺄때는 무조건 앞에서 뺀다 맨뒤에있는거 빼다가 채워넣는다
+      //추가한거 기준으로 부모랑만 비교해서 올려서 왼쪽에 더큰값이 있을수도있다
+      const heapArr = [];
+
+      function swap(idx1, idx2) {
+        const temp = heapArr[idx1];
+        heapArr[idx1] = heapArr[idx2];
+        heapArr[idx2] = temp;
+      }
+
+      function heapInsert(item) {
+        heapArr.push(item);
+        //빈배열에 원소추가
+        let nowIdx = heapArr.length - 1;
+        //nowIdx를 heapArr길이에 -1빼서 정의
+        while (true) {
+          if (nowIdx < 1) return heapArr.length;
+          const parentIdx = parseInt((nowIdx - 1) / 2);
+          if (heapArr[parentIdx] > heapArr[nowIdx]) {
+            //최대값순으로
+            // if (heapArr[parentIdx]*-1 > heapArr[nowIdx]*-1) {
+            //최소값순으로 크면클수록 마이너스로 갔을때 더작아진다
+            swap(parentIdx, nowIdx);
+            nowIdx = parentIdx;
+            //최소값
+          } else {
+            break;
+          }
+        }
+        return heapArr.length;
+      }
+
+      function heapRemove() {
+        const temp = heapArr.shift();
+        heapArr.unshift(heapArr.pop());
+
+        let nowIdx = 0;
+        while (true) {
+          const leftChild = nowIdx * 2 + 1,
+            rightChild = nowIdx * 2 + 2;
+          if (
+            heapArr[nowIdx] > heapArr[leftChild] ||
+            heapArr[nowIdx] > heapArr[rightChild]
+          ) {
+            if (heapArr[leftChild] > heapArr[rightChild]) {
+              swap(nowIdx, rightChild);
+              nowIdx = rightChild;
+            } else {
+              swap(nowIdx, leftChild);
+              nowIdx = leftChild;
+            }
+          } else {
+            break;
+          }
+        }
+        return temp;
+      }
+
+      heapInsert(9);
+      //   heapInsert(9);
+      //   heapInsert(10);
+
+      console.log(heapArr);
+      //   heapInsert(20);
+      //   heapInsert(28);
+      //   heapInsert(18);
+      //   heapInsert(727);
+      //   heapInsert(8);
+      //   heapInsert(7);
+      //   heapInsert(1);
+      //   console.log(heapArr);
+      //   console.log(heapRemove());
+    </script>
+  </body>
+</html>

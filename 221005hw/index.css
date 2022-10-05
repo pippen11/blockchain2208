@@ -1,0 +1,49 @@
+/* html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+} */
+
+.firstbar {
+  margin-left: 30px;
+  display: flex;
+}
+
+.firstbarleft {
+  display: flex;
+  align-items: center;
+}
+.opensea {
+  width: 40px;
+}
+
+.openseastring {
+  font-size: 1.2em;
+}
+
+.firstbutton {
+  margin-left: 30px;
+  width: 1000px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.firstbarright {
+  width: 700px;
+  margin-left: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.secondbarvideo {
+  width: 700px;
+}
+
+.first {
+  background-color: lightskyblue;
+
+  height: 650px;
+}
