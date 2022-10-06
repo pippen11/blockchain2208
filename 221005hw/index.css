@@ -298,6 +298,22 @@ body {
 }
 .fourth {
   display: flex;
-  margin: 0 auto;
+  width: 100%;
+  /* justify-content: center; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* margin: 0 auto; */
   /* width: 100%; */
+}
+
+.fourthone {
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* width: 20%; */
+}
+
+.fourthtwo {
+}
+
+.fourththree {
 }
