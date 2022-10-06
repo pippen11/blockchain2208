@@ -2,6 +2,11 @@ body {
   margin: 0;
 }
 
+.second {
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
 .firstbar {
   margin-left: 30px;
   display: flex;
@@ -9,12 +14,13 @@ body {
 
 .opensea {
   margin-top: 10px;
-  width: 40px;
+  width: 45px;
+  margin-left: 20px;
 }
 
 .openseastring {
   margin-top: 10px;
-  font-size: 1.2em;
+  font-size: 1.4em;
   color: white;
   margin-left: 5px;
 }
@@ -28,9 +34,17 @@ body {
   margin-top: 10px;
   margin-left: 30px;
   width: 1000px;
-  height: 40px;
+  height: 50px;
   display: flex;
   align-items: center;
+  border-radius: 8px;
+  background-color: lightgray;
+  opacity: 0.5;
+}
+
+.firstbutton span {
+  color: grey;
+  font-size: 15px;
 }
 
 .firstbarright {
@@ -44,29 +58,246 @@ body {
 .firstbarright span {
   color: white;
 }
-
+.secondbar {
+  height: 610px;
+}
 .secondbarvideo {
-  position: fixed;
-  /* left: 0;
-  right: 0;
-  width: auto;
-  height: auto; */
-  /* min-width: 100%;
-  min-height: 100%; */
-  /* z-index: -100; */
-  background: url(video.mp4);
-  /* background-size: cover; */
+  top: 20px;
+  width: 95%;
+  height: 530px;
+  object-fit: fill;
+  position: relative;
+  left: 50px;
+  border-radius: 30px;
+}
+
+.probably {
+  position: relative;
+  width: 60px;
+  right: 1730px;
+  bottom: 200px;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: white;
 }
 
 .videolabel {
   position: relative;
+  left: 90px;
+  bottom: 200px;
+  color: white;
+}
+
+.videolabel2 {
+  position: relative;
+  left: 90px;
+  bottom: 210px;
+  color: white;
+}
+
+.videolabel3 {
+  position: relative;
+  top: 2;
+}
+
+.videolabel4 {
+  display: inline-block;
+  left: 80px;
+  color: white;
+  width: 50px;
+  border-color: gray;
+  border-style: solid;
+  right: px;
+  background-color: gray;
+  border-radius: 10px;
   text-align: center;
-  margin-top: 30%;
-  margin-left: 30%;
+  position: relative;
+  bottom: 220px;
+}
+
+.videolabel5 {
+  color: white;
+  text-align: center;
+  border-style: solid;
+  line-height: 42px;
+
+  width: 120px;
+  height: 50px;
+  border-radius: 10px;
+  border-color: white;
+  position: relative;
+  left: 1700px;
+  bottom: 320px;
 }
 
 .first {
   background-image: url(background.png);
   width: auto;
   height: 650px;
+}
+
+.thirdbar {
+  display: flex;
+}
+
+.thirdbarleft {
+  display: flex;
+  width: 1000px;
+  margin-top: 20px;
+}
+
+.trending {
+  display: flex;
+}
+
+.trending span {
+  color: lightgray;
+}
+
+.thirdbarright {
+  display: flex;
+  width: 1000px;
+  justify-content: flex-end;
+}
+
+.thirdbarbutton {
+  /* text-align: center; */
+  margin-top: 35px;
+  background-color: white;
+  display: flex;
+  width: 100px;
+  height: 50px;
+  justify-content: center;
+  border-radius: 10px;
+  border-color: lightgrey;
+  align-items: center;
+}
+
+.fourthbar {
+  display: flex;
+}
+.fourthbarleft {
+  display: flex;
+  width: 911px;
+  color: gray;
+}
+
+.collectionone {
+  width: 600px;
+}
+
+.floorpriceone {
+  width: 180px;
+}
+
+.fourthbarright {
+  display: flex;
+  color: grey;
+}
+
+.collectiontwo {
+  width: 600px;
+}
+
+.floorpricetwo {
+  width: 250px;
+}
+
+.fifthbarone {
+  display: flex;
+  width: 1850px;
+}
+
+.fifthbarright {
+  display: flex;
+}
+
+.fifthbaroneleft {
+  display: flex;
+  width: 910px;
+  /* justify-content: space-between; */
+}
+
+.fifthbaroneright {
+  display: flex;
+  width: 910px;
+}
+
+.fifthbaroneright {
+  display: flex;
+}
+
+.fifthbartwo {
+  display: flex;
+  width: 1850px;
+  margin-top: 30px;
+}
+
+.fifthbartwoleft {
+  display: flex;
+  width: 910px;
+}
+
+.fifthbartworight {
+  display: flex;
+  width: 910px;
+}
+
+.fifthbarthree {
+  display: flex;
+  width: 1850px;
+  margin-top: 30px;
+}
+
+.fifthbarthreeleft {
+  display: flex;
+  width: 910px;
+}
+
+.fifthbarthreeright {
+  display: flex;
+  width: 910px;
+}
+
+.fifthbarfour {
+  display: flex;
+  width: 1850px;
+  margin-top: 30px;
+}
+
+.fifthbarfourleft {
+  display: flex;
+  width: 910px;
+}
+
+.fifthbarfourright {
+  display: flex;
+  width: 910px;
+}
+
+.fifthbarfifth {
+  display: flex;
+  width: 1850px;
+  margin-top: 30px;
+}
+
+.fifthbarfifthleft {
+  display: flex;
+  width: 910px;
+}
+
+.fifthbarfifthright {
+  display: flex;
+  width: 910px;
+}
+
+.third {
+  /* padding: 40px; */
+  margin-left: 30px;
+  margin-top: 50px;
+}
+.fourth {
+  display: flex;
+  margin: 0 auto;
+  /* width: 100%; */
 }
