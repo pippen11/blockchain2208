@@ -24,7 +24,7 @@ body {
 .opensea {
   margin-top: 10px;
   width: 45px;
-  margin-left: 20px;
+  margin-left: 50px;
 }
 
 .openseastring {
@@ -56,17 +56,110 @@ body {
   font-size: 15px;
 }
 
-.firstbarright {
+li {
+  list-style: none;
+
+  /* text-align: center; */
+}
+
+li:hover {
+  opacity: 0.8;
+}
+.firstul {
+  display: flex;
+  /* align-items: center; */
+  justify-content: space-between;
+
+  width: 600px;
+  color: white;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+.firstbarmenu ul ul {
+  display: none;
+  position: absolute;
+
+  /* top: 100; */
+}
+
+.first-ul1 {
+  right: 480px;
+  top: 83px;
+}
+
+.Exploremenuspan {
+  color: black;
+  /* margin-bottom: 10px; */
+}
+
+.Exploremenu-item1 {
+  /* display: flex; */
+  /* width: 100px; */
+  height: 40px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.firstbarmenu li {
+  /* position: relative; */
+}
+
+li:hover > ul {
+  display: block;
+}
+
+.Exploremenu {
+  background-image: url(ee12.png);
+  border-radius: 10px;
+
+  /* height: 100%;
+  width: 100%; */
+}
+
+/* .firstbarright {
   margin-top: 10px;
   width: 700px;
   margin-left: 30px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-}
-.firstbarright span {
+} */
+/* .firstbarright span {
   color: white;
+} */
+
+/* .Explore:hover {
+  opacity: 0.8;
 }
+
+.Stats:hover {
+  opacity: 0.8;
+}
+
+.Resources:hover {
+  opacity: 0.8;
+}
+
+.Create:hover {
+  opacity: 0.8;
+}
+
+.accounts:hover {
+  opacity: 0.8;
+}
+
+.wallet:hover {
+  opacity: 0.8;
+}
+
+.cart:hover {
+  opacity: 0.8;
+} */
+
 .secondbar {
   height: 610px;
 }
@@ -446,6 +539,12 @@ body {
   display: flex;
   align-items: center;
   border-radius: 8px;
+
+  opacity: 0.8;
+  border-color: white;
+}
+
+.inputfirst:hover {
   background-color: white;
-  opacity: 0.5;
+  opacity: 1;
 }
