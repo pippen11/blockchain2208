@@ -21,10 +21,18 @@ body {
   background-image: url(background.png);
 }
 
+.firstbarchange {
+  background-image: url(bc.png);
+}
+
+.firstbarleft-a {
+  display: flex;
+  align-items: center;
+}
 .opensea {
   margin-top: 10px;
   width: 45px;
-  margin-left: 50px;
+  padding-left: 45px;
 }
 
 .openseastring {
@@ -99,6 +107,21 @@ a {
   top: 76px;
 }
 
+.first-ul2 {
+  right: 340px;
+  top: 76px;
+}
+
+.first-ul3 {
+  right: 240px;
+  top: 76px;
+}
+
+.first-ul4 {
+  right: 200px;
+  top: 76px;
+}
+
 .Exploremenuspan {
   color: black;
   /* margin-bottom: 10px; */
@@ -127,6 +150,17 @@ a {
   display: block;
 }
 
+.firstbarmenu .firstul > li:hover > .first-ul2 {
+  display: block;
+}
+
+.firstbarmenu .firstul > li:hover > .first-ul3 {
+  display: block;
+}
+
+.firstbarmenu .firstul > li:hover > .first-ul4 {
+  display: block;
+}
 /* .firstbarmenu .firstul > li > {
   display: block;
 } */
@@ -148,7 +182,27 @@ a {
   height: 630px;
   /* width: 500px; */
 }
-
+.Statsmenu {
+  background-image: url(ee12.png);
+  border-radius: 10px;
+  border-style: solid;
+  border-color: rgb(246, 240, 240);
+  height: 110px;
+}
+.Resourcesmenu {
+  background-image: url(ee12.png);
+  border-radius: 10px;
+  border-style: solid;
+  border-color: rgb(246, 240, 240);
+  height: 500px;
+}
+.Profilemenu {
+  background-image: url(ee12.png);
+  border-radius: 10px;
+  border-style: solid;
+  border-color: rgb(246, 240, 240);
+  height: 400px;
+}
 /* .firstbarright {
   margin-top: 10px;
   width: 700px;
