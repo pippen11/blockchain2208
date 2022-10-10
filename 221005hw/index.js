@@ -21,5 +21,3 @@ openseastrings[0].onclick = function () {
 //     mainbar.classList.add("firstbarchange");
 //   }
 // });
-
-// console.log(window.scrollY);

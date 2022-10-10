@@ -1,6 +1,7 @@
 // 슬라이크 전체 크기(width 구하기)
 const slide = document.querySelector(".slide");
 let slideWidth = slide.clientWidth;
+// 보더와 마진을 제외한값 실제컨텐츠의 크기
 
 // 버튼 엘리먼트 선택하기
 const prevBtn = document.querySelector(".slide_prev_button");
@@ -19,6 +20,7 @@ const startSlide = slideItems[0];
 const endSlide = slideItems[slideItems.length - 1];
 const startElem = document.createElement("div");
 const endElem = document.createElement("div");
+// div태그 생성
 
 endSlide.classList.forEach((c) => endElem.classList.add(c));
 endElem.innerHTML = endSlide.innerHTML;

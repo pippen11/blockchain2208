@@ -68,12 +68,12 @@
 
 /* 각 슬라이드가 변경되는 것을 시각적으로 확인하기 쉽도록 각 슬라이드별 색상 적용 */
 .slide_item.item1 {
-  background-color: darkgoldenrod;
+  /* background-color: darkgoldenrod; */
   display: flex;
   justify-content: space-evenly;
 }
 .slide_item.item2 {
-  background-color: aqua;
+  /* background-color: aqua; */
   display: flex;
   justify-content: space-evenly;
 }
