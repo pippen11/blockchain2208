@@ -16,14 +16,14 @@ li {
   width: 960px;
   margin: 0 auto;
   height: 300px;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .slides {
   position: absolute;
   left: 0;
   top: 0;
-
+  transition: left 0.5s ease-out;
   /* slides전체넓이 width300짜리 8개랑 marginright 30 7개 더하면 2610 */
   /* 슬라이드 하나만 움직이면 330만큼만 움직이면됨 */
 }
