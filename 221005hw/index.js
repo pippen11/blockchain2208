@@ -10,14 +10,18 @@ openseastrings[0].onclick = function () {
   window.scroll({ top: secondTop, behavior: "smooth" });
 };
 
-// let mainbar = document.querySelector(".firstbar");
+let mainbar = document.querySelector(".firstbar");
 
-// let mainbarHeight = mainbar.getBoundingClientRect().height;
+let mainbarHeight = mainbar.getBoundingClientRect().height;
 
 // document.addEventListener("scroll", () => {
 //   if (window.scrollY < mainbarHeight) {
+//     mainbar.classList.remove("firstbarchange");
+
 //     mainbar.classList.add("firstbar");
 //   } else {
+//     // mainbar.classList.remove("firstbar");
+
 //     mainbar.classList.add("firstbarchange");
 //   }
 // });

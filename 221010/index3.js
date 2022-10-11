@@ -50,9 +50,9 @@ function nextMove() {
     slideItems.forEach((i) => {
       i.setAttribute("style", `left: ${-offset}px`);
     });
-    // 슬라이드 이동 시 현재 활성화된 pagination 변경
-    paginationItems.forEach((i) => i.classList.remove("active"));
-    paginationItems[currSlide - 1].classList.add("active");
+    // // 슬라이드 이동 시 현재 활성화된 pagination 변경
+    // paginationItems.forEach((i) => i.classList.remove("active"));
+    // paginationItems[currSlide - 1].classList.add("active");
   } else {
     // 무한 슬라이드 기능 - currSlide 값만 변경해줘도 되지만 시각적으로 자연스럽게 하기 위해 아래 코드 작성
     currSlide = 0;
@@ -71,8 +71,8 @@ function nextMove() {
       });
     }, 0);
     // // 슬라이드 이동 시 현재 활성화된 pagination 변경
-    paginationItems.forEach((i) => i.classList.remove("active"));
-    paginationItems[currSlide - 1].classList.add("active");
+    // paginationItems.forEach((i) => i.classList.remove("active"));
+    // paginationItems[currSlide - 1].classList.add("active");
   }
 }
 function prevMove() {

@@ -33,3 +33,6 @@ name , class ,id등에서
 한개의 요소만을 반환 없으면 null반환
 
   quertySelectorAll() 여러개의 클래스등 list를 배열로 반환
+
+  aws계정 만들어오기
+  
