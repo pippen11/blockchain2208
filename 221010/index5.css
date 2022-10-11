@@ -1,31 +1,41 @@
 .img {
-  width: 300px;
-  height: 300px;
+  width: 200px;
+  height: 200px;
+  float: left;
 }
+/* 이미지크기지정 */
 
-/*  */
 * {
   margin: 0;
   padding: 0;
 }
+
 li {
   list-style: none;
 }
+
 .slide_wrapper {
   position: relative;
-  width: 960px;
+  width: 660px;
+  /* 세개 마진까지 계산해서 660임 보이는값 */
   margin: 0 auto;
-  height: 300px;
-  /* overflow: hidden; */
+  height: 200px;
+  overflow: hidden;
 }
+/*div 부모에 relative줌 */
 
 .slides {
   position: absolute;
   left: 0;
   top: 0;
-  transition: left 0.5s ease-out;
+  /* transition: left 0.5s ease-out; */
+
+  /* 이전버전 */
   /* slides전체넓이 width300짜리 8개랑 marginright 30 7개 더하면 2610 */
   /* 슬라이드 하나만 움직이면 330만큼만 움직이면됨 */
+}
+.slides.animated {
+  transition: 0.5s ease-out;
 }
 
 .slides li:not(:last-child) {
