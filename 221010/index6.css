@@ -1,4 +1,4 @@
-.img {
+.imgnew2 {
   width: 600px;
 }
 /* 이미지크기지정 */
@@ -14,19 +14,19 @@
   margin: 0;
   padding: 0;
 }
-.slidesimg2 {
+.slidesimg3 {
   height: 80px;
   /* display: flex;
   align-items: center; */
 }
 
-li {
+.slidesli2 {
   list-style: none;
   width: 600px;
   height: 410px;
 }
 
-.slide_wrapper {
+.slide_wrapper2 {
   position: relative;
   width: 1830px;
 
@@ -39,9 +39,9 @@ li {
 }
 /*div 부모에 relative줌 */
 
-.slides {
+.slides2 {
   display: flex;
-  /* position: absolute; */
+  position: absolute;
   left: 0;
   top: 0;
 
@@ -51,7 +51,7 @@ li {
   /* slides전체넓이 width300짜리 8개랑 marginright 30 7개 더하면 2610 */
   /* 슬라이드 하나만 움직이면 330만큼만 움직이면됨 */
 }
-.slides.animated {
+.slides2.animated2 {
   transition: 0.5s ease-out;
 }
 
@@ -59,16 +59,11 @@ li {
   margin-right: 10px;
 } */
 
-.slides li {
+.slides2 li {
   margin-right: 10px;
 }
 
-.controls {
-  /* text-align: center; */
-  /* margin-top: 50px; */
-}
-
-.controls span {
+.controls2 span {
   background-color: rgba(247, 241, 241, 0.897);
   /* color: #fff; */
   padding: 12px 15px;
@@ -77,13 +72,13 @@ li {
   border-radius: 100%;
 }
 
-.prev {
+.prev2 {
   position: absolute;
   top: 230px;
   left: 25px;
 }
 
-.next {
+.next2 {
   position: absolute;
   top: 230px;
   right: 30px;

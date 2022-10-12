@@ -35,4 +35,7 @@ name , class ,id등에서
   quertySelectorAll() 여러개의 클래스등 list를 배열로 반환
 
   aws계정 만들어오기
+
+  https://onlinejpgtools.com/make-jpg-transparent
+  사진 배경 투명도
   
