@@ -1,0 +1,90 @@
+.img {
+  width: 600px;
+}
+/* 이미지크기지정 */
+
+/* .img2 {
+  border-radius: 15%;
+  border-style: solid;
+  border-color: rgb(248, 246, 246);
+  padding: 5px;
+} */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+.slidesimg2 {
+  height: 80px;
+  /* display: flex;
+  align-items: center; */
+}
+
+li {
+  list-style: none;
+  width: 600px;
+  height: 410px;
+}
+
+.slide_wrapper {
+  position: relative;
+  width: 1830px;
+
+  /* 세개 마진까지 계산해서 660임 보이는값 */
+  /* margin: 0 auto; */
+  margin-left: 50px;
+
+  height: 450px;
+  overflow: hidden;
+}
+/*div 부모에 relative줌 */
+
+.slides {
+  display: flex;
+  /* position: absolute; */
+  left: 0;
+  top: 0;
+
+  /* transition: left 0.5s ease-out; */
+
+  /* 이전버전 */
+  /* slides전체넓이 width300짜리 8개랑 marginright 30 7개 더하면 2610 */
+  /* 슬라이드 하나만 움직이면 330만큼만 움직이면됨 */
+}
+.slides.animated {
+  transition: 0.5s ease-out;
+}
+
+/* .slides li:not(:last-child) {
+  margin-right: 10px;
+} */
+
+.slides li {
+  margin-right: 10px;
+}
+
+.controls {
+  /* text-align: center; */
+  /* margin-top: 50px; */
+}
+
+.controls span {
+  background-color: rgba(247, 241, 241, 0.897);
+  /* color: #fff; */
+  padding: 12px 15px;
+
+  /* border-style: solid; */
+  border-radius: 100%;
+}
+
+.prev {
+  position: absolute;
+  top: 230px;
+  left: 25px;
+}
+
+.next {
+  position: absolute;
+  top: 230px;
+  right: 30px;
+}

@@ -5,12 +5,12 @@ let slide = document.querySelectorAll(".slides li");
 let currentIdx = 0;
 //슬라이드위치파악
 let slideCount = slide.length;
-//슬라이드 본원래길이가 5임
+//슬라이드 본원래길이가 6임
 
-let slideWidth = 200;
-//사진 넓이 200똑같이
-let slideMargin = 30;
-//마진 30똑같이
+let slideWidth = 600;
+//사진 넓이 600똑같이
+let slideMargin = 10;
+//마진 10똑같이
 prevBtn = document.querySelector(".prev");
 nextBtn = document.querySelector(".next");
 //버튼 불러옴
@@ -20,23 +20,23 @@ makeClone();
 
 function makeClone() {
   for (let i = 0; i < slideCount; i++) {
-    //길이 5면 배열은 0부터 1 2 3 4 임
+    //길이 6면 배열은 0부터 1 2 3 4 5임
     //a.cloneNode()-> a요소를 그대로복사 acloneNode(true)->a의 자식요소까지 복사
     let cloneSlide = slide[i].cloneNode(true);
     //자식까지 복사 전체 li복사해서 cloneSlide에넣는다
     cloneSlide.classList.add("clone");
     //clone이라는 클래스를 추가함
     //a.appendChild(b) a요소 기존에 내용 뒤에 b를 추가한다
-    //1 2 3 4 5 순으로복사해서 5뒤에 그대로붙임
+    //1 2 3 4 5 6순으로복사해서 6뒤에 그대로붙임
     slides.appendChild(cloneSlide);
-    // 1 2 3 4 5 clone 1 2 3 4 5
-    //기존 li 클론 li
+    // 1 2 3 4 5 6   clone 1 2 3 4 5 6
+    //기존 1~6 클론 1~6
   }
   for (let i = slideCount - 1; i >= 0; i--) {
-    //4부터시작해서 인데스 4번째 3번째 2번재 1번째 0번째 순으로 복사
-    //1 2 3 4 5 1 2 3 4 5
+    //5부터시작해서 인덱스 5번째 4번째 3번재 2번째 1번째 순으로 복사
+    //1 2 3 4 5 6 1 2 3 4 5 6
     let cloneSlide = slide[i].cloneNode(true);
-    //5 4 3 2 1순으로 복사해서 붙여야함 1번앞에
+    //6 5 4 3 2 1순으로 복사해서 붙여야함 1번앞에
     cloneSlide.classList.add("clone");
     //a.prepend(b) a요소앞에 b를 추가 기존li 랑 위에서 클론태그 합한게 a인듯
     slides.prepend(cloneSlide);
@@ -60,10 +60,9 @@ function updateWidth() {
   let currentSlides = document.querySelectorAll(".slides li");
   //새롭게 합쳐진(복사본포함) 전체 슬라이드를 담음
   let newSlideCount = currentSlides.length;
-  //전체길이는 15가된다
+  //전체길이는 18가된다
 
-  let newWidth =
-    (slideWidth + slideMargin) * newSlideCount - slideMargin + "px";
+  let newWidth = (slideWidth + slideMargin) * newSlideCount + "px";
   //전체 넓이
   slides.style.width = newWidth;
 }
@@ -73,8 +72,8 @@ function updateWidth() {
 //트랜스폼 트랜스레이트로 x축으로 왼쪽으로 마이너스 얼마나 가야할지 계산
 function setInitialPos() {
   let initialTranslateValue = -(slideWidth + slideMargin) * slideCount;
-  //초기값 길이 5개만큼 넓이 -1이동시켜야 원본이 중간에옴
-  //초기값 원래 5개있었으니 slidecount를 곱함
+  //초기값 길이 6개만큼 넓이 -6이동시켜야 원본이 중간에옴
+  //초기값 원래 6개있었으니 slidecount를 곱함
   //-를해야 음수로 왼쪽으로 이동
   //slides{transform:translateX(-1150px);}
   //css방식이면 이런식
@@ -129,19 +128,34 @@ slides.addEventListener("mouseleave", function () {
   autoSlide();
 });
 //마우스가 나가면 다시 작동
+prevBtn.addEventListener("mouseenter", function () {
+  stopSlide();
+});
+nextBtn.addEventListener("mouseenter", function () {
+  stopSlide();
+});
+
+//마우스가 들어오면 작동멈춤
+preBtn.addEventListener("mouseleave", function () {
+  autoSlide();
+});
+nextBtn.addEventListener("mouseleave", function () {
+  autoSlide();
+});
+//마우스가 나가면 다시 작동
 
 //하나씩이동은 left값이 -230
 //전체가 이동한다
 function moveSlide(num) {
   slides.style.left = -num * (slideWidth + slideMargin) + "px";
-  //만약 한번눌러서 1들어오면 -1*(230)px만큼 이동
+  //만약 한번눌러서 1들어오면 -1*(610)px만큼 이동
   currentIdx = num;
   //한번실행됐으니 currentidx값을 0에서 1로바꿔줘야함 이동했으니
 
   console.log(currentIdx, slideCount);
 
   if (currentIdx == slideCount || currentIdx == -slideCount) {
-    //5 ==5로 같을때가(next누를때) 마지막일때(5에서 1로바뀔때) 눈속임으로 처음으로 보내야함
+    //6 ==6로 같을때가(next누를때) 마지막일때(5에서 1로바뀔때) 눈속임으로 처음으로 보내야함
     // 또는 왼쪽으로(prev누를때)가서 currentIdx가 -5일때 처음
     setTimeout(function () {
       slides.classList.remove("animated");
