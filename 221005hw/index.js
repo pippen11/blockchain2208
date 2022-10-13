@@ -185,7 +185,7 @@ function moveSlide(num) {
   slides.style.left = -num * (slideWidth + slideMargin) + "px";
   //만약 한번눌러서 1들어오면 -1*(610)px만큼 이동
   currentIdx = num;
-  console.log(currentIdx);
+  // console.log(currentIdx);
   //한번실행됐으니 currentidx값을 0에서 1로바꿔줘야함 이동했으니
 
   //   0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5, 0, 1, 2, 3, 4, 5,
