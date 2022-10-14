@@ -38,4 +38,6 @@ name , class ,id등에서
 
   https://onlinejpgtools.com/make-jpg-transparent
   사진 배경 투명도
+
+  figma.com은 디자인수정 홈페이지
   

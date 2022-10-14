@@ -1,0 +1,58 @@
+aws 
+ec2->인스턴스->인스턴스유형 프리티어->키페어 푸티와함께사용 생성
+네트워크설정 https 트래픽 사용 다 체크
+인스턴스시작 
+들어가서 연결
+
+
+sudo->관리자 권한으로 실행한다
+
+apt-get->우분투에서 사용하는 프로그램 관리자
+
+windows에서는 프로그램 추가/제거
+
+apt-get update->명령어는 설치되어있는 프로그램들의 최신 버전 정보를 가져온다.
+
+sudo apt-get upgrade
+upgrade->최신정보 받아온것을 기준으로 설치를 시작한다.
+
+화살표 윗키누르면 다시 되돌아감 q누르면 원상태 컨트롤c 실행중인것을 중단한다
+sudo apt-get install apache2
+아파치2 설치->web server 프로그램
+web server을 연다
+윈도우에서는 IIS/ (linux,ubuntu)NginX
+
+sudo service apache2 status
+service->service는 실행중인 프로그램관리자
+status->service 프로그램을 사용해 다른 프로그램의 상태를 확인한다.
+status 대신 start stop restart등을 넣으면 바뀜
+sudo service apache2 status/stop/start/restart
+
+cd/var/www
+cd->경로이동
+/->root폴더(최상위폴더로간다) 기준
+./->현재 경로 기준
+../->이전 경로
+../../->이전의 이전경로
+
+ls->경로 내의 파일, 폴더보기
+ls -a->모든 파일,폴더보기
+ls -al->경뢔의 모든파일 , 폴더의 자세한 정보보기
+
+drwxr-xr-x
+d->파일 타입
+rwx / r-x /r-x
+소유자의 권한 / 소유 그룹의 권한 /이외(제 3자) 권한
+r ->read , 읽기 권한
+w ->write, 쓰기 권한
+x ->실행 execute, 실행 권한
+- > 권한 없음
+
+apache2의 기본 폴더 위치 : /var/www/html
+
+sudo chmod 777 html
+chmod->권한 설정하는 프로그램
+7-> 이진법으로 0111->111->r, w ,x r은 4 w는 2 x는 1
+4,2,1순서->7->r 참이냐? w가 참이냐? x가 참이냐?
+000
+sudo chmod 777 html
