@@ -1,0 +1,41 @@
+https: //pixabay.com/ko/videos/search/
+  무료영상;
+
+  //position fixed 하고 다른거에 마진탑주고 커서이벤트 
+
+
+  https://www.iconfinder.com/search?q=wallet
+  아이콘 
+
+  구글 확장 Fakun 일괄다운로드 이미지
+  
+  바닐라js 배너만들기
+
+  vue js?
+
+  1.메뉴바상단고정
+
+  2.메뉴상태창(다크모드,메뉴바 색변화, language창)
+
+  3...점이아니라 없어지는거 기능
+
+  4.슬라이드자동이동
+
+  5.반응형웹
+
+  getBoundingClientRect 메서드
+  엘리먼트의 위치를 찾아줌
+
+  화면상단부터 top bottom left x, y right width height등
+
+name , class ,id등에서
+  quertySelector() 첫번째 element반환 보통 클래스 아이디등 하나
+한개의 요소만을 반환 없으면 null반환
+
+  quertySelectorAll() 여러개의 클래스등 list를 배열로 반환
+
+  aws계정 만들어오기
+
+  https://onlinejpgtools.com/make-jpg-transparent
+  사진 배경 투명도
+  
