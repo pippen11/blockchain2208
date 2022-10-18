@@ -1,0 +1,35 @@
+init
+requir import? 
+global
+npm start
+node 파일명
+npm init하고 "start":"node index.js" 치는이유가 node index.js처럼 똑같은 기능하려고 npm start처도
+
+
+설치하는것
+npm i express express-session dotenv morgan cookie-parser
+
+npm i -D nodemon
+//개발자모드로 노드몬을 설치하겠다.
+
+devDependencies 개발할때만 사용
+
+ npm remove cookie-parse
+
+라이브러리 모듈 다 같은말이다 
+
+라이브러리는 외부모듈
+
+npmjs.com들어가면 라이브러리 검색 가능
+
+"start": "nodemon app" 이렇게쓰면 저장하면 자동으로뜸
+
+localhost:8080 들어가면됨
+
+morgan쓰면 얼마나 걸렸나 나옴
+
+node.js는 자바스크립트의 런타임
+
+"start": "nodemon app" 바로실행되게
+"type": "module" 이게 Es6버전쓰려며 이렇게써야함
+

@@ -1,0 +1,105 @@
+.title {
+  display: flex;
+  justify-content: center;
+  width: 500px;
+  margin: auto;
+  background-color: aqua;
+}
+
+.title-box1 {
+  width: 120px;
+}
+
+.secondbar {
+  display: flex;
+  width: 500px;
+  margin: auto;
+  justify-content: space-between;
+}
+
+/* img#img1 {
+    width: 142px;
+    height: 160px;
+  } */
+@keyframes third {
+  0%,
+  33% {
+    background-image: url(1.gif);
+  }
+
+  34%,
+  66% {
+    background-image: url(3.gif);
+  }
+
+  67%,
+  100% {
+    background-image: url(2.gif);
+  }
+}
+.third {
+  animation-name: third;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  /* background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center; */
+}
+#thirdbar {
+  display: flex;
+  width: 150px;
+  height: 150px;
+  margin: auto;
+  justify-content: center;
+
+  object-fit: cover;
+}
+
+.fourthbar {
+  display: flex;
+  width: 500px;
+  margin: auto;
+  justify-content: space-between;
+}
+
+#fourth-item1 {
+  width: 166px;
+  text-align: center;
+  background-color: blue;
+}
+#fourth-item2 {
+  width: 166px;
+  text-align: center;
+  background-color: green;
+}
+#fourth-item3 {
+  width: 166px;
+  text-align: center;
+  background-color: red;
+}
+
+.fifthbar {
+  display: flex;
+  width: 500px;
+  margin: auto;
+  justify-content: space-between;
+}
+
+/* #fifth-item {
+    width: 300px;
+    font-size: 30px;
+    text-align: center;
+    background-color: aqua;
+  } */
+
+.sixbar {
+  display: flex;
+  width: 500px;
+  margin: auto;
+  justify-content: center;
+  background-color: yellow;
+}
