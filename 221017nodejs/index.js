@@ -9,7 +9,7 @@ console.log("테스트중");
 // DB(maria): 3306 포트를 사용
 // 서버는 보통 3가지로 나뉜다 .( 종류가 아니라 구분)
 // web server , Application Server, Database server
-// wev server는 HTML 파일 주는 서버(Front End)
+// web server는 HTML 파일 주는 서버(Front End)
 // Application Server는 데이터를 주는 서버 (Back End)
 // DataBase Server는 데이터를 저장하는 서버(DB)
 //WAS : web Appliction Server -> web Server + Application Server, 혼자서 HTML파일도 주고

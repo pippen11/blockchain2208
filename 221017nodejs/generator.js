@@ -18,10 +18,11 @@ function* what() {
 }
 
 let generator = what();
-// generator.next();
+generator.next();
 //yild쓰면 한번만 돈다
 while (!generator.done) {
   //done 프로퍼티는 generator가 끝났는가?에대한 불린값을 준다
   generator.next();
   //next 메서드는 코드를 실행한다 .( 단 , yield에서 멈춘다.)
 }
+// generator.next();
