@@ -1,0 +1,96 @@
+//암호화<< 이론만 간단하게 용어정도
+//입력한 데이터를 다른사람이 알수없도록 변환한다
+//1234 -> 암호화를 통해서 ->aksdfjlkdsjflksdfj123
+//복호화: 암호화된 데이터를 원상복구한다
+// aksdfjlkdsjflksdfj123->복호화-> 1234
+//사용자가 입력한 데이터를 알수 있어야할까?
+// 알면 안되는것들도 있다.-> 단방향 / 양방향 암호화
+// 단방향은 암호화만 가능하다 -> 복호화가 불가능 하다.
+// 양방향은 복호화가 가능하다.
+//
+
+const express = require("express");
+const session = require("express-session");
+const morgan = require("morgan");
+const dotenv = require("dotenv");
+const path = require("path");
+const cookieParser = require("cookie-parser");
+
+// const routes = require("./routes/index.js");
+
+dotenv.config();
+
+const boardList = [];
+
+const app = express();
+
+app.set("port", process.env.PORT || 8080);
+
+app.use((req, res, next) => {
+  if (process.env.NODE_ENV) morgan("combined")(req, res, next);
+  else morgan("dev")(req, res, next);
+});
+app.use(express.json());
+app.use("/", express.static(path.join(__dirname, "web")));
+
+app.use(cookieParser(process.env.COOKIE_SECRET));
+
+app.use(express.urlencoded({ extended: false }));
+
+app.use(
+  session({
+    resave: false,
+    saveuninitialized: false,
+    secret: process.env.COOKIE_SECRET,
+    cookie: {
+      httpOnly: true,
+      secure: false,
+    },
+    name: "session",
+  })
+);
+
+// app.use("/", (req, res, next) => {
+//   console.log("url1:" + req.url);
+
+//   next();
+// });
+
+// app.use("/api", (req, res, next) => {
+//   console.log("url2:" + req.url);
+
+//   next();
+// });
+
+// app.use("/api", routes);
+
+//3
+app.post("/api/board/add", (req, res) => {
+  boardList.unshift(req.body);
+  res.send({ status: 200, data: "정상입력완료" });
+});
+
+app.post("/api/board/delete", (req, res) => {
+  boardList.splice(+req.body.count * 5 + +req.body.num, 1);
+  res.send({ status: 200, data: "delete" });
+});
+app.post("/api/board/update", (req, res) => {
+  res.send({ status: 200, data: "update" });
+});
+
+//5
+app.get("/api/board", (req, res) => {
+  console.log(req.query.count);
+  res.send({
+    status: 200,
+    list: boardList.slice(+req.query.count * 5, (+req.query.count + 1) * 5),
+    maxCount:
+      parseInt(
+        (boardList.length ? boardList.length - 1 : boardList.length) / 5
+      ) + 1,
+  });
+});
+
+app.listen(app.get("port"), () => {
+  console.log("서버확인");
+});
