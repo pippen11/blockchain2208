@@ -1,7 +1,7 @@
 document.getElementById("menu-btn").onclick = function (e) {
   document.getElementById("user-input-container").classList.toggle("on");
 };
-
+const a = document.getElementById("board-title");
 //1 정보입력
 document.getElementById("board-add").onsubmit = async function (e) {
   e.preventDefault();
@@ -22,7 +22,7 @@ document.getElementById("board-add").onsubmit = async function (e) {
       text: e.target["board-text"].value,
       uptime: Date.now(),
     });
-    // console.log(data.data);
+    console.log(data);
     if (data.data.status == 200) {
       e.target["board-title"].value = e.target["board-text"].value = "";
     }
@@ -55,7 +55,7 @@ let count = 0; // 현재 페이지
 const pageElem = document.getElementById("page");
 const listElem = document.getElementById("list");
 
-//3
+//3 페이지표시
 async function getList() {
   try {
     const data = await axios.get("/api/board?count=" + count);
@@ -80,6 +80,7 @@ async function getList() {
     }
 
     listElem.innerHTML = "";
+
     data.data.list.forEach((data, index) => {
       // tempData[count].forEach((data) => {
       const tempLi = document.createElement("li");
@@ -111,6 +112,8 @@ async function getList() {
       tempDelBtn.src = "./imgs/ban-solid.svg";
       tempDelBtn.alt = "delete-btn";
       tempDelBtn.classList.add("delete");
+
+      // 클릭했을때 삭제
       tempDelBtn.onclick = async function (e) {
         try {
           const data = await axios.post("/api/board/delete", {
@@ -123,6 +126,8 @@ async function getList() {
           console.log(err);
         }
       };
+
+      // 수정이미지 클릭했을때
       tempEditBtn.src = "./imgs/plus-solid.svg";
       tempEditBtn.alt = "edit-btn";
       tempEditBtn.onclick = async function (e) {
@@ -144,7 +149,8 @@ async function getList() {
           tempText.classList.add("edit");
         }
       };
-
+      //////
+      // 수정버튼 누른상태에서 취소이미지 눌렀을때
       tempCancelBtn.src = "./imgs/xmark-solid.svg";
       tempCancelBtn.alt = "cancel-btn";
       tempCancelBtn.classList.add("cancel");
