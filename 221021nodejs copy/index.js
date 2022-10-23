@@ -10,17 +10,17 @@ const path = require("path");
 // const routes = require("./routes/index.js");
 // app.set("port", process.env.PORT || 8080);
 
-const boardList = [
-  { title: "arvserv1", text: "9baresrsearvstb" },
-  { title: "arvserv2", text: "8baresrsearvstb" },
-  { title: "arvserv3", text: "7baresrsearvstb" },
-  { title: "arvserv4", text: "6baresrsearvstb" },
-  { title: "arvserv5", text: "5baresrsearvstb" },
-  { title: "arvserv6", text: "4baresrsearvstb" },
-  { title: "arvserv7", text: "3baresrsearvstb" },
-  { title: "arvserv8", text: "2baresrsearvstb" },
-  { title: "arvserv9", text: "1baresrsearvstb" },
-];
+// const boardList = [
+//   { title: "arvserv1", text: "9baresrsearvstb" },
+//   { title: "arvserv2", text: "8baresrsearvstb" },
+//   { title: "arvserv3", text: "7baresrsearvstb" },
+//   { title: "arvserv4", text: "6baresrsearvstb" },
+//   { title: "arvserv5", text: "5baresrsearvstb" },
+//   { title: "arvserv6", text: "4baresrsearvstb" },
+//   { title: "arvserv7", text: "3baresrsearvstb" },
+//   { title: "arvserv8", text: "2baresrsearvstb" },
+//   { title: "arvserv9", text: "1baresrsearvstb" },
+// ];
 
 const app = express();
 dotenv.config();
@@ -53,33 +53,6 @@ app.use(
 app.post("/api/board/add", (req, res) => {
   boardList.unshift(req.body);
   res.send({ status: 200, data: "정상 입력 완료" });
-});
-
-// 존재하는 게시판 삭제
-app.post("/api/board/delete", (req, res) => {
-  console.log(req.body);
-  boardList.splice(+req.body.count * 5 + +req.body.num, 1);
-  res.send({ status: 200, data: "delete" });
-});
-
-//존재하는게시판 수정
-app.post("/api/board/update", (req, res) => {
-  boardList[+req.body.count * 5 + +req.body.num].text = req.body.text;
-  boardList[+req.body.count * 5 + +req.body.num].uptime = req.body.time;
-  res.send({ status: 200, data: "update" });
-});
-
-//4 게시판 5개씩 목록화
-app.get("/api/board", (req, res) => {
-  res.send({
-    status: 200,
-    list: boardList.slice(+req.query.count * 5, (+req.query.count + 1) * 5), // 0~5 => 5~10
-    maxCount:
-      parseInt(
-        (boardList.length ? boardList.length - 1 : boardList.length) / 5
-      ) + 1,
-    // 조건 ? 참 : 거짓
-  });
 });
 
 app.listen(8080, () => {

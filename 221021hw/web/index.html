@@ -8,35 +8,30 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
   <body>
-    <div id="root">
-      <div id="board">
-        <ul id="list"></ul>
-        <ul id="page"></ul>
-      </div>
-      <div id="user-input-container">
-        <div id="menu-btn-box">
-          <img id="menu-btn" src="./imgs/bars-solid.svg" alt="menu button" />
-        </div>
-        <form id="board-add">
-          <label for="board-title"
-            >글 제목:<input
-              type="text"
-              id="board-title"
-              placeholder="글내용을 입력하세요"
-          /></label>
-          <label for="board-text">
-            <textarea
-              name="board-text"
-              id="board-text"
-              cols="30"
-              rows="10"
-              placeholder="글내용을 입력하세요"
-            ></textarea>
-          </label>
-          <button>업로드</button>
-        </form>
-      </div>
+    <div id="main">
+      <form id="main-add">
+        <label for="main-id"
+          >회원가입:
+          <input type="text" id="main-id" placeholder="아이디를 입력하세요" />
+        </label>
+
+        <label for="main-pw">
+          <input type="text" id="main-pw" placeholder="비밀번호를 입력하세요" />
+        </label>
+        <button>회원가입</button>
+      </form>
+      <form id="login-add">
+        <label for="loginid">
+          로그인
+          <input type="text" id="loginid" placeholder="아이디 입력" />
+        </label>
+        <label for="loginpw">
+          <input type="text" id="loginpw" placeholder="비밀번호 입력" />
+        </label>
+        <button>로그인</button>
+        <button>로그아웃</button>
+      </form>
     </div>
-    <script src="index.js"></script>
+    <script src="./index.js"></script>
   </body>
 </html>
