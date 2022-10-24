@@ -10,23 +10,24 @@
   <body>
     <div id="root">
       <div id="board">
-        <ul id="list">
-          <!-- <li>
-            <div class="title">
-              <h3>123123123n</h3>
-              <img src="imgs/angle-up-solid.svg" alt="list-item-btn" />
-            </div>
-            <div class="text">
-              <p>asdfksdfl</p>
-              <textara>
-            </div>
-          </li> -->
-        </ul>
+        <ul id="list"></ul>
         <ul id="page"></ul>
       </div>
       <div id="user-input-container">
         <div id="menu-btn-box">
           <img id="menu-btn" src="./imgs/bars-solid.svg" alt="menu button" />
+        </div>
+        <div id="user-box">
+          <form id="user-info">
+            <div class="sign-input">
+              <input type="text" id="id" placeholder="ID" />
+              <input type="password" id="pw" placeholder="passoword" />
+            </div>
+            <div class="btn-box">
+              <button id="sign-in">Sign In</button>
+              <button id="sign-up">Sign up</button>
+            </div>
+          </form>
         </div>
         <form id="board-add">
           <label for="board-title"

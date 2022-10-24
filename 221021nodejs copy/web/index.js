@@ -50,21 +50,21 @@ document.getElementById("board-add").onsubmit = async function (e) {
 //   ],
 // ];
 
-let maxCount = 2;
-let count = 0;
+// let maxCount = 2;
+// let count = 0;
 
-const pageElem = document.getElementById("page");
-const listElem = document.getElementById("list");
+// const pageElem = document.getElementById("page");
+// const listElem = document.getElementById("list");
 
-async function getList() {
-  try {
-    const data = await axios.get("/api/board?count=" + count);
-    pageElem.innerHTML = "";
-    maxCount = data.data.maxCount;
-    for (let i = 0; i < maxCount; ++i) {
-      const tempLi = document.createElement("li");
-      tempLi.innerText = i + 1;
-      tempLi.onclick = function (e) {};
-    }
-  } catch {}
-}
+// async function getList() {
+//   try {
+//     const data = await axios.get("/api/board?count=" + count);
+//     pageElem.innerHTML = "";
+//     maxCount = data.data.maxCount;
+//     for (let i = 0; i < maxCount; ++i) {
+//       const tempLi = document.createElement("li");
+//       tempLi.innerText = i + 1;
+//       tempLi.onclick = function (e) {};
+//     }
+//   } catch {}
+// }

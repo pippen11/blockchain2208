@@ -1,10 +1,12 @@
 {
   "dependencies": {
     "cookie-parser": "^1.4.6",
+    "crypto-js": "^4.1.1",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "express-session": "^1.17.3",
     "exprss": "^0.0.1-security",
+    "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0"
   },
   "name": "221021nodejs",
