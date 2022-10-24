@@ -68,3 +68,19 @@ document.getElementById("board-add").onsubmit = async function (e) {
 //     }
 //   } catch {}
 // }
+
+document.getElementById("sign-in").onclick = async function (e) {
+  e.preventDefault();
+
+  const data = await axios.post("/api/user/login", {
+    id: document.forms["user-info"].id.value,
+    pw: document.forms["user-info"].pw.value,
+  });
+};
+document.getElementById("sign-up").onclick = async function (e) {
+  e.preventDefault();
+  const data = await axios.post("/api/user/regist", {
+    id: document.forms["user-info"].id.value,
+    pw: document.forms["user-info"].pw.value,
+  });
+};

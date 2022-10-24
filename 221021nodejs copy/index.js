@@ -10,6 +10,7 @@ const path = require("path");
 // const routes = require("./routes/index.js");
 // app.set("port", process.env.PORT || 8080);
 
+const routes = require("./routes/index.js");
 // const boardList = [
 //   { title: "arvserv1", text: "9baresrsearvstb" },
 //   { title: "arvserv2", text: "8baresrsearvstb" },
@@ -47,7 +48,7 @@ app.use(
   })
 );
 
-// app.use("/api", routes);
+app.use("/api", routes);
 
 //2 게시판등록
 app.post("/api/board/add", (req, res) => {
