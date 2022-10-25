@@ -164,14 +164,16 @@ html {
 #user-info {
   width: 280px;
 }
-.btn-box {
-  justify-content: space-evenly;
-}
+
 .sign-input,
 .btn-box {
   width: 100%;
-  display: flex;
   justify-content: space-between;
+  display: none;
+}
+
+.btn-box {
+  justify-content: space-evenly;
 }
 
 .sign-input.on,
@@ -186,8 +188,8 @@ html {
 }
 
 #user-info button {
-  margin: 5px 15px 20px;
   padding: 5px 10px;
+  margin: 5px 15px 20px;
 }
 
 #user-input-container.on {

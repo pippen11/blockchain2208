@@ -1,8 +1,7 @@
 document.getElementById("menu-btn").onclick = function (e) {
   document.getElementById("user-input-container").classList.toggle("on");
 };
-// const a = document.getElementById("board-title");
-//1 정보입력
+
 document.getElementById("board-add").onsubmit = async function (e) {
   e.preventDefault();
   if (!e.target["board-title"].value) {
@@ -13,17 +12,15 @@ document.getElementById("board-add").onsubmit = async function (e) {
     e.target["board-text"].focus();
     return;
   }
-  //값이 없을때 포커스 해줌
   //   console.log(e.target["board-title"].value);
   //   console.log(e.target["board-text"].value);
   try {
     const data = await axios.post("/api/board/add", {
-      //서버로감
       title: e.target["board-title"].value,
       text: e.target["board-text"].value,
       uptime: Date.now(),
     });
-    console.log(data);
+    // console.log(data.data);
     if (data.data.status == 200) {
       e.target["board-title"].value = e.target["board-text"].value = "";
     }
@@ -56,7 +53,6 @@ let count = 0; // 현재 페이지
 const pageElem = document.getElementById("page");
 const listElem = document.getElementById("list");
 
-//3 페이지표시
 async function getList() {
   try {
     const data = await axios.get("/api/board?count=" + count);
@@ -81,7 +77,6 @@ async function getList() {
     }
 
     listElem.innerHTML = "";
-
     data.data.list.forEach((data, index) => {
       // tempData[count].forEach((data) => {
       const tempLi = document.createElement("li");
@@ -110,11 +105,9 @@ async function getList() {
       tempTextarea.value = data.text;
 
       tempBtnBox.classList.add("list-btn-box");
-      tempDelBtn.src = "./imgs/ban-solid.svg";
+      tempDelBtn.src = "./imgs/bars-soild.svg";
       tempDelBtn.alt = "delete-btn";
       tempDelBtn.classList.add("delete");
-
-      // 클릭했을때 삭제
       tempDelBtn.onclick = async function (e) {
         try {
           const data = await axios.post("/api/board/delete", {
@@ -127,9 +120,7 @@ async function getList() {
           console.log(err);
         }
       };
-
-      // 수정이미지 클릭했을때
-      tempEditBtn.src = "./imgs/plus-solid.svg";
+      tempEditBtn.src = "./imgs/ban-solid.svg";
       tempEditBtn.alt = "edit-btn";
       tempEditBtn.onclick = async function (e) {
         if (tempText.classList.contains("edit")) {
@@ -150,8 +141,7 @@ async function getList() {
           tempText.classList.add("edit");
         }
       };
-      //////
-      // 수정버튼 누른상태에서 취소이미지 눌렀을때
+
       tempCancelBtn.src = "./imgs/xmark-solid.svg";
       tempCancelBtn.alt = "cancel-btn";
       tempCancelBtn.classList.add("cancel");
@@ -180,26 +170,26 @@ getList();
 
 document.getElementById("sign-in").onclick = async function (e) {
   e.preventDefault();
-  console.log(document.forms["user-info"].id.value);
   const data = await axios.post("/api/user/login", {
     id: document.forms["user-info"].id.value,
     pw: document.forms["user-info"].pw.value,
   });
-  console.log(data.data);
+  document.forms["user-info"].id.value =
+    document.forms["user-info"].pw.value =
+    document.forms["user-info"].name.value =
+      "";
 
-  // const temp = Buffer.from(
-  //   document.cooke.split("=")[1].split(".")[1],
-  //   "base64url"
-  // ).toString();
-  // console.log(temp);
+  // const temp = parseJwt(document.cookie.split("=")[1]);
+  // console.log(temp.name);
 
   const tempName = JSON.parse(
     window.atob(document.cookie.split("=")[1].split(".")[1])
   ).name;
+
   console.log(tempName);
+
   if (tempName) {
     document.getElementById("user-name").innerText = tempName + "님 어서오세요";
-    //밑코드는 다른거사라지고 로그인했을때 로그아웃버튼이뜬다
     [...document.getElementsByClassName("btn-box")].forEach((elem) => {
       elem.classList.toggle("on");
     });
@@ -207,12 +197,22 @@ document.getElementById("sign-in").onclick = async function (e) {
       elem.classList.toggle("on");
     });
   }
-  document.forms["user-info"].id.value =
-    document.forms["user-info"].pw.value =
-    document.forms["user-info"].name.value =
-      "";
-  //JSON.parse로 객체화 시킴
 };
+
+// function parseJwt(token) {
+//   var base64Url = token.split(".")[1];
+//   var base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+//   var jsonPayload = decodeURIComponent(
+//     window.atob(base64)
+//       .split("")
+//       .map(function (c) {
+//         return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
+//       })
+//       .join("")
+//   );
+
+//   return JSON.parse(jsonPayload);
+// }
 
 document.getElementById("sign-up").onclick = async function (e) {
   e.preventDefault();
@@ -221,8 +221,6 @@ document.getElementById("sign-up").onclick = async function (e) {
     pw: document.forms["user-info"].pw.value,
     name: document.forms["user-info"].name.value,
   });
-  console.log(data.data);
-  console.log(document.cookie);
   document.forms["user-info"].id.value =
     document.forms["user-info"].pw.value =
     document.forms["user-info"].name.value =
@@ -231,9 +229,7 @@ document.getElementById("sign-up").onclick = async function (e) {
 
 document.getElementById("sign-out").onclick = async function (e) {
   e.preventDefault();
-
   document.getElementById("user-name").innerText = "";
-  //밑코드는 다른거사라지고 로그인했을때 로그아웃버튼이뜬다
   [...document.getElementsByClassName("btn-box")].forEach((elem) => {
     elem.classList.toggle("on");
   });

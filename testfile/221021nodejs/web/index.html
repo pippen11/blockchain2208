@@ -1,16 +1,26 @@
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>게시판?</title>
     <link rel="stylesheet" href="index.css" />
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
   <body>
     <div id="root">
       <div id="board">
-        <ul id="list"></ul>
+        <ul id="list">
+          <!-- <li>
+            <div class="title">
+              <h3>23423142v34v</h3>
+              <img src="./imgs/angle-up-solid.svg" alt="list-item-btn" />
+            </div>
+            <div class="text">
+              <p>avswerasvr</p>
+            </div>
+          </li> -->
+        </ul>
         <ul id="page"></ul>
       </div>
       <div id="user-input-container">
@@ -22,12 +32,12 @@
             <div id="user-name"></div>
             <div class="sign-input on">
               <input type="text" id="id" placeholder="ID" />
-              <input type="password" id="pw" placeholder="passoword" />
-              <input type="text" id="name" placeholder="name" />
+              <input type="password" id="pw" placeholder="Password" />
+              <input type="text" id="name" placeholder="Name" />
             </div>
             <div class="btn-box on">
               <button id="sign-in">Sign In</button>
-              <button id="sign-up">Sign up</button>
+              <button id="sign-up">Sign Up</button>
             </div>
             <div class="btn-box">
               <button id="sign-out">Sign Out</button>
@@ -36,10 +46,11 @@
         </div>
         <form id="board-add">
           <label for="board-title"
-            >글 제목:<input
+            >글 제목 :
+            <input
               type="text"
               id="board-title"
-              placeholder="글내용을 입력하세요"
+              placeholder="글 제목을 입력하세요."
           /></label>
           <label for="board-text">
             <textarea
@@ -47,7 +58,7 @@
               id="board-text"
               cols="30"
               rows="10"
-              placeholder="글내용을 입력하세요"
+              placeholder="글 내용을 입력하세요."
             ></textarea>
           </label>
           <button>업로드</button>
