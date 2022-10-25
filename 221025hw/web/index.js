@@ -5,5 +5,6 @@ document.getElementById("join-btn").onclick = async function (e) {
     pw: document.forms["main-form"].pw.value,
     name: document.forms["main-form"].name.value,
   });
-  console.log(userlist[req.body]);
+  console.log(data.data);
+  console.log(document.cookie);
 };
