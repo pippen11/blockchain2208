@@ -74,6 +74,7 @@ router.post("/login", (req, res) => {
         expiresIn: "10m",
         issuer: "jkh",
       })
+      //브라우저에 쿠키에 jwt토큰으로 값을 보냄
     );
     res.send({ status: 200, data: "login", userlist });
   } else {

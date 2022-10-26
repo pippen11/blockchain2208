@@ -192,10 +192,23 @@ document.getElementById("sign-in").onclick = async function (e) {
   //   "base64url"
   // ).toString();
   // console.log(temp);
+  // console.log(document.cookie);
+  // console.log(documnet.cookie.split("="));
+  // console.log(documnet.cookie.split("=")[1]);
+  // console.log(documnet.cookie.split("=")[1].split("."));
+  // console.log(documnet.cookie.split("=")[1].split(".")[1]);
+  // console.log(window.atob(documnet.cookie.split("=")[1].split(".")[1]));
+  // console.log(
+  //   JSON.parse(window.atob(documnet.cookie.split("=")[1].split(".")[1]))
+  // );
+  // console.log(
+  //   JSON.parse(window.atob(documnet.cookie.split("=")[1].split(".")[1])).name
+  // );
 
   const tempName = JSON.parse(
     window.atob(document.cookie.split("=")[1].split(".")[1])
   ).name;
+
   console.log(tempName);
   if (tempName) {
     document.getElementById("user-name").innerText = tempName + "님 어서오세요";
@@ -203,6 +216,9 @@ document.getElementById("sign-in").onclick = async function (e) {
     [...document.getElementsByClassName("btn-box")].forEach((elem) => {
       elem.classList.toggle("on");
     });
+    //getElementsByclassName은 그클래스명을 몇개든 다가져옴
+    // btn-box 클래스 를 가져와서 배열로만들고 포이치 돌려서
+    //on class를 껏다켰다씀 로그인 로그아웃 로그인하면 없어지고 로그아웃생기고등
     [...document.getElementsByClassName("sign-input")].forEach((elem) => {
       elem.classList.toggle("on");
     });
@@ -222,7 +238,7 @@ document.getElementById("sign-up").onclick = async function (e) {
     name: document.forms["user-info"].name.value,
   });
   console.log(data.data);
-  console.log(document.cookie);
+
   document.forms["user-info"].id.value =
     document.forms["user-info"].pw.value =
     document.forms["user-info"].name.value =
@@ -237,6 +253,7 @@ document.getElementById("sign-out").onclick = async function (e) {
   [...document.getElementsByClassName("btn-box")].forEach((elem) => {
     elem.classList.toggle("on");
   });
+
   [...document.getElementsByClassName("sign-input")].forEach((elem) => {
     elem.classList.toggle("on");
   });
