@@ -1,0 +1,68 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //양꼬치
+      //   let n = 64;
+      //   let k = 6;
+
+      //   let a = () => {
+      //     if (n < 10) {
+      //       return n * 12000 + k * 2000;
+      //     } else {
+      //       return n * 12000 + k * 2000 - Math.floor(n / 10) * 2000;
+      //     }
+      //   };
+
+      //   console.log(a());
+      //편지지 4시 17분
+      //메서드는 함수 프로퍼티는 값을 갖고있는 변수
+      //   let a = "happy birthday!";
+
+      //   console.log(a.length * 2);
+
+      //짝수 홀수 개수 4시 32분
+      //짝수홀수에대한 변수와 for문
+      //   let num_list = [1, 2, 3, 4, 5];
+
+      //   console.log(num_list);
+      //   num_list.filter(()=>num_list%2==0{
+
+      //   }
+      //     if (num_list % 2 == 0) {
+      //       console.log(num_list);
+      //     }
+      //5시2분
+
+      //피자나눠먹기 5시 2분
+      //규칙성 찾기 1~7까지 한판 8~14까지 두판 컴퓨터는 0부터 센다
+      //   function solution(n) {
+      //     return parseInt(n / 7 + (n % 7));
+      //   }
+
+      //   console.log(solution(1));
+      // 5시 11분
+
+      // 5시12분
+      //   let money = 15000;
+      //   let answer = [];
+      //   let a = parseInt(money / 5500);
+      //   let b = money - 5500 * a;
+      //   console.log(answer[(a, b)]);
+      let answer = [];
+      function solution(money) {
+        let a = parseInt(money / 5500);
+        let b = money - 5500 * a;
+        answer.push(a, b);
+        return answer;
+      }
+      solution(15000);
+      console.log(answer);
+    </script>
+  </body>
+</html>
