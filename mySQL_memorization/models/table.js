@@ -15,7 +15,7 @@ module.exports = class Table extends Sequelize.Model {
       },
       {
         sequelize, // 넣어라
-        timestamps: true, // createAt, updateAt 자동으로 추가
+        timestamps: true, // createdAt, updatedAt 자동으로 추가
         underscored: true, // 테이블과 컬럼명을 카멜 케이스로 수정
         modelName: "NewTable1", // Javascript에서 사용하는 테이블명
         tableName: "new_table1", // MySQL에 있는 테이블명

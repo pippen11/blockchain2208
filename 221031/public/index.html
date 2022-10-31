@@ -1,0 +1,162 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>mySQL</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <script>
+      async function testGet(query) {
+        const data = (await axios.get("/hi/table1?" + query)).data;
+        console.log(data);
+      }
+      // testGet("");
+      // testGet("column2=2");
+
+      async function testPost(item) {
+        const data = (await axios.post("/hi/table1", { column1: item })).data;
+        console.log(data);
+        await testGet("");
+      }
+      // testPost();
+      // testPost(1);
+      // testPost(2);
+      // testPost(3);
+      // testPost(4);
+
+      async function testPut() {
+        const data = (
+          await axios.put("/hi/table1", { column1: 13, column2: 3 })
+        ).data;
+        console.log(data);
+      }
+      // testPut();
+
+      async function testPatch() {
+        const data = (
+          await axios.patch("/hi/table1?name=경훈", { className: "block7" })
+        ).data;
+        console.log(data);
+      }
+      // testPatch();
+
+      async function testDelete() {
+        const data = (await axios.delete("/hi/table1?column1=4")).data;
+        console.log(data);
+      }
+      // testDelete();
+
+      async function testGet2(query) {
+        const data = (await axios.get("/hi/table2?" + query)).data;
+        console.log(data);
+      }
+      // testGet2("");
+      // testGet2("id=2");
+
+      async function testPost2(item, bool) {
+        const data = (
+          await axios.post("/hi/table2", { column3: item, column4: bool })
+        ).data;
+        console.log(data);
+      }
+      // testPost2(1, true);
+      // testPost2(2, false);
+      // testPost2(3, false);
+      // testPost2(4, true);
+
+      async function associate() {
+        const data =
+          // await axios.patch("/hi/table2/associate", { column2: 1, id: 2 })
+          (await axios.patch("/hi/table2/associate", { id1: 1, id2: 2 })).data;
+        console.log(data);
+      }
+      // associate();
+    </script>
+  </body>
+</html>
+
+<!--  ////////////////////////////////////////////////////////////////// -->
+<!-- <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <script>
+      async function testGet(query) {
+        const data =
+          //column2가 2인거찾는다
+          (await axios.get("/hi/table1?" + query)).data;
+        console.log(data);
+      }
+      testGet("");
+      // testGet("column2=2");
+      async function testPost(item) {
+        const data = (await axios.post("/hi/table1", { column1: item })).data;
+        console.log(data);
+      }
+      async function testPut() {
+        const data = (await axios.put("/hi/table1")).data;
+        console.log(data);
+      }
+
+      async function testPatch() {
+        const data = (
+          await axios.patch("/hi/table1?name=상목", { className: "block7" })
+        ).data;
+        console.log(data);
+      }
+      async function testDelete() {
+        const data = (await axios.delete("/hi/table1?column1=4")).data;
+        console.log(data);
+      }
+
+      async function testGet2(query) {
+        const data =
+          //column2가 2인거찾는다
+          (await axios.get("/hi/table2?" + query)).data;
+        console.log(data);
+      }
+      testGet2("");
+      // testGet2("id=2");
+
+      async function testPost2(item, bool) {
+        const data = (
+          await axios.post("/hi/table2", { column3: item, column4: bool })
+        ).data;
+
+        console.log(data);
+      }
+
+      // testPost2(1, true);
+      // testPost2(2, false);
+      // testPost2(3, false);
+      // testPost2(4, true);
+      //testPost2(1)
+
+      // testGet();
+      // testPost(1);
+      // testPost(2);
+      // testPost(3);
+      // testPost(4);
+      // testPost();
+      // testPost();
+      // testPut();
+      // testPatch();
+      // testDelete();
+
+      async function associate() {
+        const data =
+          // await axios.patch("/hi/table2/associate", { id: 1, id2: 2 })
+          (await axios.patch("/hi/table2/associate", { id: 1, id2: 2 })).data;
+        console.log(data);
+      }
+      // associate();
+    </script>
+  </body>
+</html> -->
