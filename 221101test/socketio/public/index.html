@@ -1,0 +1,47 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <!-- 항상같음 -->
+  </head>
+  <body>
+    <input type="text" id="text" placeholder="아이디를입력하세요" />
+    <input type="text" id="pw" placeholder="비밀번호를입력하세요" />
+    <button id="join">회원가입</button>
+    <button id="send-msg">로그인</button>
+    <button id="send-end">로그아웃</button>
+    <script>
+      const sendBtn = document.getElementById("send-msg");
+      const inputElem = document.getElementById("text");
+      const endBtn = document.getElementById("send-end");
+
+      function socket() {
+        const socket = io();
+
+        // socket.emit("hi1", { text: inputElem.value });
+
+        socket.on("message1", (data) => {
+          console.log(data);
+        });
+
+        sendBtn.onclick = () => {
+          socket.emit("aa", { text: inputElem.value });
+        };
+
+        endBtn.onclick = () => {
+          // socket.disconnect();
+          socket.emit("hi1");
+        };
+
+        socket.on("disconnect1", (data) => {
+          console.log(data);
+        });
+      }
+
+      socket();
+    </script>
+  </body>
+</html>
