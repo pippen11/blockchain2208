@@ -34,21 +34,21 @@ document.getElementById("board-add").onsubmit = async function (e) {
 };
 // form 안에 있는 button은 기본적으로 form의 submit을 실행
 
-const tempData = [
-  [
-    { title: "arvserv1", text: "9baresrsearvstb" },
-    { title: "arvserv2", text: "8baresrsearvstb" },
-    { title: "arvserv3", text: "7baresrsearvstb" },
-    { title: "arvserv4", text: "6baresrsearvstb" },
-    { title: "arvserv5", text: "5baresrsearvstb" },
-  ],
-  [
-    { title: "arvserv6", text: "4baresrsearvstb" },
-    { title: "arvserv7", text: "3baresrsearvstb" },
-    { title: "arvserv8", text: "2baresrsearvstb" },
-    { title: "arvserv9", text: "1baresrsearvstb" },
-  ],
-];
+// const tempData = [
+//   [
+//     { title: "arvserv1", text: "9baresrsearvstb" },
+//     { title: "arvserv2", text: "8baresrsearvstb" },
+//     { title: "arvserv3", text: "7baresrsearvstb" },
+//     { title: "arvserv4", text: "6baresrsearvstb" },
+//     { title: "arvserv5", text: "5baresrsearvstb" },
+//   ],
+//   [
+//     { title: "arvserv6", text: "4baresrsearvstb" },
+//     { title: "arvserv7", text: "3baresrsearvstb" },
+//     { title: "arvserv8", text: "2baresrsearvstb" },
+//     { title: "arvserv9", text: "1baresrsearvstb" },
+//   ],
+// ];
 
 let maxCount = 2; // 총 페이지 수
 let count = 0; // 현재 페이지
@@ -180,83 +180,22 @@ getList();
 
 document.getElementById("sign-in").onclick = async function (e) {
   e.preventDefault();
+
   console.log(document.forms["user-info"].id.value);
   const data = await axios.post("/api/user/login", {
     id: document.forms["user-info"].id.value,
     pw: document.forms["user-info"].pw.value,
   });
   console.log(data.data);
-
-  // const temp = Buffer.from(
-  //   document.cooke.split("=")[1].split(".")[1],
-  //   "base64url"
-  // ).toString();
-  // console.log(temp);
-  // console.log(document.cookie);
-  // console.log(documnet.cookie.split("="));
-  // console.log(documnet.cookie.split("=")[1]);
-  // console.log(documnet.cookie.split("=")[1].split("."));
-  // console.log(documnet.cookie.split("=")[1].split(".")[1]);
-  // console.log(window.atob(documnet.cookie.split("=")[1].split(".")[1]));
-  // console.log(
-  //   JSON.parse(window.atob(documnet.cookie.split("=")[1].split(".")[1]))
-  // );
-  // console.log(
-  //   JSON.parse(window.atob(documnet.cookie.split("=")[1].split(".")[1])).name
-  // );
-
-  const tempName = JSON.parse(
-    window.atob(document.cookie.split("=")[1].split(".")[1])
-  ).name;
-
-  console.log(tempName);
-  if (tempName) {
-    document.getElementById("user-name").innerText = tempName + "님 어서오세요";
-    //밑코드는 다른거사라지고 로그인했을때 로그아웃버튼이뜬다
-    [...document.getElementsByClassName("btn-box")].forEach((elem) => {
-      elem.classList.toggle("on");
-    });
-    //getElementsByclassName은 그클래스명을 몇개든 다가져옴
-    // btn-box 클래스 를 가져와서 배열로만들고 포이치 돌려서
-    //on class를 껏다켰다씀 로그인 로그아웃 로그인하면 없어지고 로그아웃생기고등
-    [...document.getElementsByClassName("sign-input")].forEach((elem) => {
-      elem.classList.toggle("on");
-    });
-  }
-  document.forms["user-info"].id.value =
-    document.forms["user-info"].pw.value =
-    document.forms["user-info"].name.value =
-      "";
-  //JSON.parse로 객체화 시킴
 };
-
 document.getElementById("sign-up").onclick = async function (e) {
   e.preventDefault();
   const data = await axios.post("/api/user/regist", {
     id: document.forms["user-info"].id.value,
     pw: document.forms["user-info"].pw.value,
-    name: document.forms["user-info"].name.value,
   });
   console.log(data.data);
-
-  document.forms["user-info"].id.value =
-    document.forms["user-info"].pw.value =
-    document.forms["user-info"].name.value =
-      "";
-};
-
-document.getElementById("sign-out").onclick = async function (e) {
-  e.preventDefault();
-
-  document.getElementById("user-name").innerText = "";
-  //밑코드는 다른거사라지고 로그인했을때 로그아웃버튼이뜬다
-  [...document.getElementsByClassName("btn-box")].forEach((elem) => {
-    elem.classList.toggle("on");
-  });
-
-  [...document.getElementsByClassName("sign-input")].forEach((elem) => {
-    elem.classList.toggle("on");
-  });
+  console.log(document.cookie);
 };
 
 // axios.post("/api/board/add").then((data) => {

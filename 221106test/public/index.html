@@ -1,0 +1,28 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>게시판</title>
+    <link rel="stylesheet" href="index.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div id="user">
+      <form action="sign-up">
+        <input id="user-id" type="text" placeholder="ID" />
+        <input id="user-pw" type="password" placeholder="Password" />
+        <input id="user-name" type="text" placeholder="Name" />
+        <input id="user-class" type="text" placeholder="Class" />
+        <button id="sign-up-btn">Sign Up</button>
+      </form>
+      <form id="sign-in">
+        <input id="user-id" type="text" placeholder="ID" />
+        <input id="user-pw" type="password" placeholder="Password" />
+        <button id="sign-in-btn">Sign In</button>
+      </form>
+      <button id="sign-out-btn">Sign Out</button>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>

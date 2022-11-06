@@ -1,7 +1,6 @@
 {
   "name": "221028",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -18,10 +17,11 @@
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",
     "mysql2": "^2.3.3",
-    "sequelize": "^6.25.3"
+    "sequelize": "^6.25.4"
   },
   "devDependencies": {
     "nodemon": "^2.0.20",
     "sequelize-cli": "^6.5.2"
-  }
+  },
+  "description": ""
 }
