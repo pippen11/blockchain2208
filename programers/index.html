@@ -26,24 +26,47 @@
 
       //   console.log(a.length * 2);
 
-      //짝수 홀수 개수 4시 32분!!!!!!!!!!!!!!!!!!!!!!!!!
-      //짝수홀수에대한 변수와 for문
-      //   let num_list = [1, 2, 3, 4, 5];
+      // 짝수 홀수 개수 4시 32분!!!!!!!!!!!!!!!!!!!!!!!!! 5시 55분~6시 36분
+      // 짝수홀수에대한 변수와 for문
+      let num_list = [1, 2, 3, 4, 5];
+      let count = 0;
+      let countodd = 0;
+      let answer = [];
+      for (let i = 0; i < num_list.length; ++i) {
+        if (num_list[i] % 2 == 0) {
+          count++;
+          answer.push(count);
+          console.log(answer.length);
 
-      //   console.log(num_list);
-      //   num_list.filter(()=>num_list%2==0{
+          // console.log(answer);
+          // console.log(count);
+          // num_list[i].push(count);
+          // console.log(num_list);
+        } else {
+          countodd++;
+          // console.log(countodd);
+        }
+      }
+      // }
+      // console.log(num_list);
+      // num_list.filter(()=>num_list%2==0{
 
+      // }
+      //   if (num_list % 2 == 0) {
+      //     console.log(num_list);
       //   }
-      //     if (num_list % 2 == 0) {
-      //       console.log(num_list);
-      //     }
       //5시2분
 
-      //피자나눠먹기 5시 2분!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+      //피자나눠먹기 5시 2분!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 6시 36분
       //규칙성 찾기 1~7까지 한판 8~14까지 두판 컴퓨터는 0부터 센다
       //   function solution(n) {
       //     return parseInt(n / 7 + (n % 7));
       //   }
+      //       function solution(n){
+      // if(n%7=0){
+
+      // }
+      //       }
 
       //   console.log(solution(1));
       // 5시 11분
@@ -72,7 +95,7 @@
       // console.log(num_list);
 
       //7시 13분 최댓값만들기
-      let numbers = [0, 31, 24, 10, 1, 9];
+      // let numbers = [0, 31, 24, 10, 1, 9];
 
       //숫자를 비교하는 함수를 구현
       // numbers.sort(function (a, b) {

@@ -25,6 +25,4 @@ module.exports = class Table extends Sequelize.Model {
       }
     );
   }
-
-  static associate(db) {}
 };

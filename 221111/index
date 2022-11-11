@@ -1,0 +1,4 @@
+html
+1.heigth는 사진같은것만 최소로
+2.width는 보통 %로 글자크기 같은거 px대신 rem em?
+3.width를 주면 br안쓰고 밑으로 넘기기가능
