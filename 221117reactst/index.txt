@@ -19,11 +19,15 @@ npm i -g create-react-app
 -g<< global: 전역에서 사용하는 라이브러리 전역에설치?
 
 
+
+
 npm list -g <<전역에 설치된 라이브러리를 확인한다
 
 npx create-react-app testing
 npx create-react-app board로 바꿔서 보드만듬
 -testing이라는 폴더를 만들고 그안에 reat를 기본 세팅한다.
+
+npm i styled-components
 
 src의 index.js
 
