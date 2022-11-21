@@ -13,6 +13,7 @@ export default class BtnComp extends React.Component {
         className="num-pad"
         onClick={() => {
           this.props.onClick(this.props.item);
+          // this.props.onClick은 selNum이다
         }}
       >
         {this.props.item}
