@@ -1,0 +1,22 @@
+.test {
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-sizing: border-box;
+  flex-basis: 500px;
+  max-width: 1000px;
+  min-width: 350px;
+  cursor: not-allowed;
+  cursor: pointer;
+  outline: none;
+  border-bottom: 2px solid rgb(187, 180, 180);
+  display: inline-block;
+  text-align: left;
+  flex-wrap: wrap;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  align-self: center;
+  flex-direction: column;
+  font-weight: bold;
+  font-size: 13px;
+  white-space: nowrap;
+}

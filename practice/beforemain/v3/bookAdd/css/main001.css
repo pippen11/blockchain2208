@@ -1,0 +1,189 @@
+.flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 1156px;
+}
+
+section .img001 {
+  flex: 1 1 70%;
+  object-fit: contain;
+}
+
+section #login {
+  padding: 30px;
+  flex: 1 1 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#fileadd input {
+  height: 50px;
+  padding: 18px;
+  font-size: var(--font-S-size);
+}
+
+#fileadd #img {
+  text-align: center;
+  align-self: center;
+  width: 250px;
+  height: 250px;
+  padding: 11px;
+}
+#fileadd #category {
+  height: 45px;
+  padding: 11px;
+  font-size: var(--font-M-size);
+  font-weight: 500;
+  cursor: pointer;
+}
+#category option {
+  cursor: pointer;
+}
+
+#fileadd #introduce {
+  height: 250px;
+  font-size: var(--font-M-size);
+}
+#fileadd #login-btn {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#save,
+#cancle {
+  font-weight: 500;
+  background-color: #f7b938;
+  text-align: center;
+  flex: 1 1 50%;
+  height: 50px;
+  cursor: pointer;
+}
+
+#fileadd #save {
+  margin-right: 4px;
+  font-size: var(--font-M-size);
+}
+
+#fileadd #cancle {
+  margin-left: 4px;
+  font-size: var(--font-M-size);
+}
+
+#fileadd {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  gap: 10px;
+}
+
+#img001 {
+  display: flex;
+  flex-direction: column;
+}
+#img001 img {
+  width: 200px;
+  height: 250px;
+}
+
+#img001 input {
+  margin-top: 10px;
+}
+
+#popup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}
+#popup.hide {
+  display: none;
+}
+
+#popup.has-filter {
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+#popup .content {
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.eyes {
+  transform-origin: 50% 50% -40px;
+}
+.focused {
+  transition: transform 0.1s;
+}
+
+@keyframes lookaway-up {
+  from {
+    transform: rotate3d(0.2, 0, -0.1, 20deg);
+  }
+  to {
+    transform: rotate3d(0.2, -0.5, -0.1, 20deg);
+  }
+}
+
+@keyframes lookaway-down {
+  0% {
+    transform: rotate3d(-0.2, 0, -0.1, 20deg);
+  }
+  100% {
+    transform: rotate3d(-0.2, -0.5, 0.1, 20deg);
+  }
+}
+
+.look-away.up .eyes {
+  transform: rotate3d(0.2, 0, 0, 20deg) !important;
+}
+.look-away.down .eyes {
+  transform: rotate3d(-0.2, 0, 0, 20deg) !important;
+}
+.look-away1.up .eyes {
+  transform: rotate3d(0.2, 0, 0, 25deg) !important;
+}
+.look-away1.down .eyes {
+  transform: rotate3d(-0.2, 0, 0, 25deg) !important;
+}
+
+.look-away-up.playing.up .eyes {
+  animation-name: look-up;
+}
+.look-away-down.playing.down .eyes {
+  animation-name: look-down;
+}
+
+form > input,
+#img001 input[type="file"],
+input,
+button,
+select,
+#introduce {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border: 5px;
+  border-radius: 10px;
+}
+
+textarea#introduce {
+  padding: 18px;
+  font-size: var(--font-S-size);
+}
+
+svg {
+  transform-style: preserve-3d;
+  width: 75%;
+  align-self: center;
+}

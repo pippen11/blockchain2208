@@ -1,0 +1,14 @@
+#mainwindow.on {
+  background-color: aqua;
+  /* width: 100%; */
+  /* display: none; */
+}
+#secondwindow {
+  /* display: none; */
+  background-color: blue;
+}
+
+#loginbtn.on {
+  cursor: pointer;
+  background-color: yellow;
+}

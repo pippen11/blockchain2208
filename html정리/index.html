@@ -1,0 +1,35 @@
+<input
+  type="date"
+  name="userBirthday"
+  id="userBirthday"
+  value="xxx"
+  min="0000-1-1"
+  max="9999-12-31"
+  placeholder="생년월일"
+  autocomplete="off"
+  onkeyup="valueCheck()"
+  onchange="valueCheck()"
+/>
+<textarea
+  type="text"
+  id="introduce"
+  placeholder="소개를 입력하세요."
+  cols="70"
+></textarea>
+
+<select
+  type="submit"
+  name="order"
+  form="login"
+  id="category"
+  onchange="getValue()"
+>
+  <option class="apple" type="submit" value="경제경영">경제경영</option>
+  <option class="apple" type="submit" value="소설">소설</option>
+  <option class="apple" type="submit" value="에세이">에세이</option>
+  <option class="apple" type="submit" value="자기 계발">자기 계발</option>
+</select>
+
+<form id="fileadd" enctype="multipart/form-data">
+  <!-- 인풋옵션 셀렉 버튼 이런거 폼태그로묵음 -->
+</form>
