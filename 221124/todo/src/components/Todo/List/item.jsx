@@ -11,11 +11,15 @@ export default function Item({ item, index, setList }) {
     <ItemTr>
       <td>{index + 1}</td>
       <td>{item.taskName}</td>
+
       <td>
         <TodoBtn
           className={STATUSLIST[item.status]
+
             .toLocaleLowerCase()
+            //소문자로변경
             .replace(" ", "-")}
+          //띄어쓰기 -로변경
           style={{ curser: "defalut" }}
         >
           {STATUSLIST[item.status]}
@@ -23,6 +27,7 @@ export default function Item({ item, index, setList }) {
       </td>
       <td>
         <Link to={"/edit"} state={{ index, item }}>
+          {/* state값 보내줌? */}
           <TodoBtn className="sky">
             <img
               src={penImg}
@@ -44,6 +49,7 @@ export default function Item({ item, index, setList }) {
               const after = list.slice(index + 1);
               return [...before, ...after];
             });
+            // 잘라서어디서넣어줌?
             //여기서 list는 state의 개념의 콜백함수
             // setList((state) => [
             //   ...state.slice(0, index),

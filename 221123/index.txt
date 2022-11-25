@@ -37,7 +37,7 @@ Server Side Rendering(SSR)
 
 yarn create react-app 프로젝트명 ./<< 이거쓰면 폴더 그자체명
 
-yarn add react-router-dom
+yarn add react-router-dom << 내부 폴더안에
 
 yarn add styled-components
 

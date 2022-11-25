@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Todo from "./components/Todo";
 import { useState } from "react";
-import List from "./components/Todo/List/index.jsx";
+// import List from "./components/Todo/List/index.jsx";
 
 function App() {
   const [user, setUser] = useState("");

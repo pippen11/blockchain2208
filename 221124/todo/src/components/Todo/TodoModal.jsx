@@ -9,6 +9,7 @@ export default function TodoModal({ setList, func }) {
   const item = useLocation().state?.item;
   const [taskName, setTaskName] = useState(item ? item.taskName : "");
   const [status, setStatus] = useState(item ? item.status : STATUS.ToDo);
+  //이부분모름 state와 item받아오지않앗는데 가능?
 
   //location에 state에 index가잇으면
   //state가 없으면 undefined가나감
@@ -31,6 +32,7 @@ export default function TodoModal({ setList, func }) {
               className={
                 STATUSLIST[index].toLocaleLowerCase().replace(" ", "-") +
                 (status === index ? " on" : "")
+                //이부분잘모름
               }
               onClick={() => {
                 setStatus(index);

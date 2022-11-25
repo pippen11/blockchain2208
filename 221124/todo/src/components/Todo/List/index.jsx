@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Item from "./item";
 
 export default function List({ list, setList }) {
+  //여러개 여서 객체로받음?
   return (
     <ListTable>
       <thead>
@@ -21,6 +22,7 @@ export default function List({ list, setList }) {
             index={index}
             setList={setList}
           />
+          //map을 돌려서 띄워주는이유?
           // 리스트를 아이템으로 넘겨줌
         ))}
       </tbody>

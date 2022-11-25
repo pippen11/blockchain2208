@@ -15,6 +15,7 @@ export default function Todo() {
 
   return (
     <div>
+      <div></div>
       <h1>Todo List</h1>
       <TodoModalBtnBox>
         <Link to={"add"}>
