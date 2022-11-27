@@ -5,7 +5,12 @@ export default function TempTr({ isHead, tableData, head }) {
   //const {tableData}=props랑 같은얘기
 
   //export default function TempTr(props)
+  console.log("hi");
+  console.log(head);
+  console.log("hi1");
   console.log(tableData);
+  console.log("hi2");
+
   //console.log(props.tableData)
   if (isHead) {
     return (

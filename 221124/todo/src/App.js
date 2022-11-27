@@ -4,9 +4,6 @@ import { useState } from "react";
 // import List from "./components/Todo/List/index.jsx";
 
 function App() {
-  const [user, setUser] = useState("");
-  //오늘의 과제
-
   return (
     <div>
       <AppBox>

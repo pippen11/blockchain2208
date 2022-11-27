@@ -34,7 +34,7 @@ export default class ClassComp extends React.Component {
           //state 재정의
         }.bind(this)}
       >
-        ClassComp {this.props.text}
+        {this.props.text}//
         {this.state.test}
       </div>
     );

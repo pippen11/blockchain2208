@@ -11,13 +11,13 @@
 //  -LogIn
 //  -LogOut
 // -BoardBox
-
+import { useState } from "react";
 import React from "react";
 import "./App.css";
 
 function App() {
   let test = "테스팅";
-  let num = 1;
+  // let num = 1;
   let bool = true;
   let str = "문자열";
   let arr = [1, 2, 3, 4];
@@ -35,9 +35,11 @@ function App() {
   function testing() {
     return "함수 테스팅";
   }
+  const [num, SetNum] = useState(0);
 
   function increase() {
-    num = num + 1;
+    // num = num + 1;
+    SetNum(num + 1);
     console.log(num);
   }
 
@@ -82,11 +84,11 @@ function App() {
       <div>2</div>
       <div>3</div>
       <div>4</div> */}
-      {arrDiv}
+      {/* {arrDiv} */}
       {arrFunc(arr)}
-      {arr.map((item, index) => {
+      {/* {arr.map((item, index) => {
         return <div key={index}>{item}</div>;
-      })}
+      })} */}
     </div>
   );
 

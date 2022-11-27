@@ -17,21 +17,23 @@ export default function FuncComp({ text, func }) {
   //hook은 사용자가 구현할수도있다(커스텀훅)
   // custom hook과 component의 차이-> html문법으로return하는가 안하는가?
   //useState와 useEffect는 뺄수없는 hook이다 , 단 나머지는 사용하지않아도 크게상관없다
-  const [test, setTest] = useState("state test");
+  console.log("ge");
+  console.log(text);
 
+  const [test, setTest] = useState("state test");
   //state 선언 및 정의(초기화)
   // state: 상태값 , react에서의 리랜더링(다시그리기)의 기준이 된다.
   //state가 변경(재정의)되면 컴포넌트를 다시 불러온다.
   //단 , 다시불러올때 hook으로 된 변수 , 함수들은 다시 부르지 않는다( useState등등)
   //useState는 함수형 컴포넌트의 투톱중 하나다.
 
-  const [test1] = useState("state test1");
+  const [test1, setTest1] = useState("state testfix");
 
-  func();
+  // func();
 
   useEffect(() => {
     //useEffect는 랜더링 후에 실행되는 콜백함수
-    console.log("useEffect");
+    console.log("useEffect실행되냐");
     //아래가 componentWillUnmount와 같다
     return () => {
       console.log("componentWillUnmount");
@@ -79,10 +81,11 @@ export default function FuncComp({ text, func }) {
   return (
     <div
       onClick={function () {
-        setTest(test + "1"); //state 재정의
+        setTest1(test1 + "1"); //state 재정의
       }}
     >
-      FuncComp//{text}//
+      FuncComp//
+      {text}//
       {test}//
       {test1}
     </div>

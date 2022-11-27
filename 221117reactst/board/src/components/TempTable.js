@@ -51,19 +51,15 @@ import TempTr from "./TempTr";
 // const tempHead = ["name", "age", "number", "work"];
 // //객체에서 받아옴 위에있는 키들을 순서대로 가져옴
 
-export default function TempTable(props) {
+export default function TempTable({ headData, tempHead, tempArr }) {
   return (
     <table>
       <thead>
-        <TempTr
-          isHead={true}
-          tableData={props.headData}
-          head={props.tempHead}
-        />
+        <TempTr isHead={true} tableData={headData} head={tempHead} />
       </thead>
       <tbody>
-        {props.tempArr.map((item, index) => (
-          <TempTr key={index} tableData={item} head={props.tempHead} />
+        {tempArr.map((item, index) => (
+          <TempTr key={index} tableData={item} head={tempHead} />
         ))}
       </tbody>
     </table>

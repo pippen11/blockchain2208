@@ -1,0 +1,99 @@
+
+2. 221117reactst 테이블부분에 
+콘솔로그찍어보니 이해가잘안됨
+값이바뀜?
+
+if (isHead) {
+    return (
+      <tr>
+        {head.map((item, index) => (
+          <th key={index}>{tableData[item]}</th>
+        ))}
+      </tr>
+    );
+  }
+
+  return (
+    <tr>
+      {head.map((item, index) => (
+        <TempTd key={index} item={tableData[item]} />
+      ))}
+    </tr>
+  );
+}
+
+3. 221121 components addtional부분
+
+usememo , usecallback질문
+
+useEffect(() => {
+    ref.current.classList.add("testing");
+    console.log(ref.current.classList); // Element에 접근 시 current 프로퍼티로 가져온다.
+  }, []);
+
+이부분 질문 잘모르겠음
+
+4.// 기존에 useEffect를 사용할 경우 어떤 상태(a)의 값이 변화 시 a를 기준으로 다른 상태(b)의 값을 계산하여 정의하는 경우가 있다. (ex. axios를 통한 데이터 받기)
+  // state를 따로 정의하지 않고 useMemo를 정의한 변수로 사용할 수 있다.
+뭔소리인지 질문
+
+5.useParams() 질문, uselLocation은 state로 보내준값 받을때씀?
+
+6.npm i로 각각설치하고 yarn은못슴?
+
+1. 배열안에 여러개 객체로 데이터
+2.Routes로 감사고 Route써서 path={} element={컴포넌트나 값}
+4.const 변수명=styled.div``
+(div나 다른태그 가능)
+5.map,replace,slice,...
+6.이미지 src에 데이터로 넣고 이미지 임포트
+7.스타일에 필터로넣어주기가능
+8.setting에 정의나 스타일 몰아주고 export만써서 내보내기가능
+
+9. const index = useLocation().state?.index;
+  const item = useLocation().state?.item;
+  const [taskName, setTaskName] = useState(item ? item.taskName : "");
+  const [status, setStatus] = useState(item ? item.status : STATUS.ToDo);
+이런식으로 쓰는거 공부 삼항연잔자랑
+
+10.
+
+<input
+            type="text"
+            placeholder="Task name"
+            value={taskName}
+            onInput={(e) => {
+              setTaskName(e.target.value);
+            }}
+          ></input>
+
+11.클래스네임도 자유자재로 변하게 가능
+
+12.  <TodoBtn
+              onClick={() => {
+                if (func === "Add") {
+                  setList((state) => [...state, { taskName, status }]);
+                } else if (func === "Edit") {
+                  setList((list) => {
+                    const before = list.slice(0, index);
+                    const after = list.slice(index + 1);
+                    return [...before, { taskName, status }, ...after];
+                  });
+                }
+              }}
+            >
+온클릭안에도 이렇게 조건넣어주고 ...으로 복사가능
+
+13onClick={() => {
+        item.setNum(item.num - 1);
+      }} 이런식으로 바로써주거나
+
+ function increase(e) {
+    e.stopPropagation();
+    item.setNum(item.num + 1);
+  }
+이렇게 함수만든다음
+<div onClick={increase}>
+변수로 넣어줘서 사용가능
+
+14. Link to, state , routes route는 path ,element

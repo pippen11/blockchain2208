@@ -7,18 +7,19 @@ import Additional from "./components/Additional";
 function App() {
   return (
     <div className="App" style={{}}>
-      <ClassComp
+      {/* <ClassComp
         text={"testing ClassComp"}
         func={() => {
           console.log("testing ClassCom");
         }}
-      />
-      <FuncComp
-        text={"testing FuncComp"}
+      /> */}
+      {/* <FuncComp
+        text={"testing text"}
         func={() => {
-          console.log("testing FuncCom");
+          console.log("testing func");
         }}
-      />
+      /> */}
+      <Additional />
     </div>
   );
 }

@@ -124,7 +124,6 @@
 
       //10시 48분 문자열뒤집기
 
-      
       // let dot = [1, 2];
 
       // function solution(dot) {
@@ -141,6 +140,18 @@
       //     return parseInt(n / slice);
       //   }
       // }
+
+      //22 / 11 /27 9시 26분
+      let sides = [199, 72, 222];
+      console.log(sides[0] + sides[1]);
+      function solution(sides) {
+        if (sides[0] + sides[1] == sides[2] || sides[0] + sides[1] > sides[2]) {
+          return 2;
+        } else {
+          return 1;
+        }
+      }
+      console.log(solution(sides));
     </script>
   </body>
 </html>
