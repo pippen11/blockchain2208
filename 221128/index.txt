@@ -50,3 +50,16 @@ npm list -g
 npm i -g yarn
 
 yarn install
+
+powershell에서는 yarn 안됨
+npm list -g 로 설치된 전역 라이브러리 확인 가능
+npm i -g yarn 설치 필요
+프로젝트 내에서(package.json이 있는 폴더에서) yarn install 로 node_modules를 설치
+
+yarn create react-app 프로젝트명 ./<< 이거쓰면 폴더 그자체명
+
+yarn add react-router-dom << 내부 폴더안에
+
+yarn add styled-components
+
+yarn add react-router-dom query-string

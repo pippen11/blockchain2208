@@ -1,5 +1,5 @@
 import { Provider } from "react-redux";
-// React에서 Redex를 사용하기 위한 Root 컴포넌트를 가져온다(Provider)
+// React에서 Redux를 사용하기 위한 Root 컴포넌트를 가져온다(Provider)
 
 import { store } from "./components/store";
 // 브라우저의 Redux DevTool과 연결해준다 . 함수이다.
