@@ -5,17 +5,18 @@ const TYPE = {
   INPUT: "regist/input",
 };
 
-const regist = {
+const regist = (userinfo) => ({
   type: TYPE.REGIST,
-};
+  payload: { userinfo },
+});
 
-const login = {
+const login = (userlogin) => ({
   type: TYPE.LOGIN,
-};
+  // payload: { userlogin },
+});
 
-const input = (input) => ({
+const input = () => ({
   type: TYPE.INPUT,
-  payload: { input },
 });
 
 const logout = {
@@ -28,10 +29,11 @@ export const initialize = { registvalue: "" };
 
 export const reducer = (state = "", action) => {
   const { type, payload } = action;
+  console.log(payload);
 
   switch (type) {
     case TYPE.REGIST:
-      return state;
+      return { ...payload, payload };
     case TYPE.LOGIN:
       return state;
     case TYPE.INPUT:

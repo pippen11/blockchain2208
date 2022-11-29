@@ -4,7 +4,13 @@ import { connect } from "react-redux";
 import { action } from "../modules/Regist";
 const RegistContainer = ({ registvalue, regist, login, logout, input }) => {
   return (
-    <RegistComp regist={regist} login={login} logout={logout} input={input} />
+    <RegistComp
+      registvalue={registvalue}
+      regist={regist}
+      login={login}
+      logout={logout}
+      input={input}
+    />
   );
 };
 
@@ -24,8 +30,8 @@ const mapDispatchToprops = (dispatch) => {
     logout: () => {
       dispatch(action.logout);
     },
-    regist: () => {
-      dispatch(action.regist);
+    regist: (input) => {
+      dispatch(action.regist(input));
     },
   };
 };

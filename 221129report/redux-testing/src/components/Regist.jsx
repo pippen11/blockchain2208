@@ -27,32 +27,26 @@ const RegistComp = ({ registvalue, regist, login, logout, input }) => {
           type={"text"}
           value={inputName}
           onInput={(e) => {
-            setInputPw(e.target.value);
+            setInputName(e.target.value);
           }}
           placeholder={"이름입력"}
         />
       </div>
       <button
         onClick={() => {
-          input();
+          regist({ inputUser, inputPw, inputName });
         }}
       >
         회원가입
       </button>
       <button
         onClick={() => {
-          // input(inputUser, inputPw);
+          login({ inputUser, inputPw });
         }}
       >
         로그인
       </button>
-      <button
-        onClick={() => {
-          // input(inputUser, inputPw);
-        }}
-      >
-        로그아웃
-      </button>
+      <button onClick={() => {}}>로그아웃</button>
     </div>
   );
 };
