@@ -6,6 +6,9 @@ import RegistComponent from "./Component";
 import { action } from "../../../modules/userDB";
 //액션가져옴
 
+import axios from "axios";
+//yarn add axios쓴다음 여기서 추가
+
 const RegistContainer = () => {
   //1.onClick을 선언한다
   const onClick = (userId, userPw, userName) => {
@@ -21,6 +24,15 @@ const RegistContainer = () => {
     // 10. dispatch를 호출했다 . action.regist의 return값(반환값,==액션)을 매개변수로 전달햇다.<<action
     //11.dispatch는 reducer를 호출하며 액션을 매개변수로 전달한다.
     store.dispatch(action.regist(userId, userPw, userName));
+
+    axios.post("http://localhost:8080/api/user/regist", {
+      userId,
+      userPw,
+      userName,
+    });
+    //axios를 이용해서 8080서버에 api/user/regist로
+    // req.body인 {userId,userPw,userName} 보냄
+
     //regist호출해서 반환값을 dispatch로 reducer로 보내줌
     //regist는 userdb에서 옴 거기서 호출
     // 액션으로 레지스트 보내고있음
