@@ -1,7 +1,9 @@
 import BoardtitleComponent from "./Component";
+import { useSelector } from "react-redux";
 
 const BoardContainer = () => {
-  return <BoardtitleComponent />;
+  const list = useSelector((state) => state.board);
+  return <BoardtitleComponent list={list} />;
 };
 
 export default BoardContainer;

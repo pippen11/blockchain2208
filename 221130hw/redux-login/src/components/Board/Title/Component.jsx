@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useState } from "react";
 
-const BoardtitleComponent = ({ userName, inputTitle, inputContent }) => {
+const BoardtitleComponent = ({ list }) => {
   // const [userName, setName] = useState("");
   // const [Title, setTitle] = useState("");
   // const [Content, setContent] = useState("");
@@ -20,32 +20,7 @@ const BoardtitleComponent = ({ userName, inputTitle, inputContent }) => {
           </tr>
         </thead>
 
-        <tbody>
-          <tr>
-            <th>{userName}</th>
-            <th>{inputTitle}</th>
-            <th>{inputContent}</th>
-            <th>{}</th>
-          </tr>
-          <tr>
-            <th>1</th>
-            <th>2</th>
-            <th>3</th>
-            <th>4</th>
-          </tr>
-          <tr>
-            <th>1</th>
-            <th>2</th>
-            <th>3</th>
-            <th>4</th>
-          </tr>
-          <tr>
-            <th>1</th>
-            <th>2</th>
-            <th>3</th>
-            <th>4</th>
-          </tr>
-        </tbody>
+        <tbody>{list}</tbody>
       </TableBox>
     </>
   );

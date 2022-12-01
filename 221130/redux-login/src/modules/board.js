@@ -49,15 +49,18 @@ export const reducer = (state = initialize, action) => {
         // state가 아래에 있는이유: 최신 입력된 값을 위로 올리기 위해서
       ];
 
+    //질문
     case TYPE.REMOVE: {
       const index = state.findIndex((item) => item.id == payload.id);
       return [...state.slice(0, index), ...state.slice(index + 1)];
+      //이부분 다시 질문
     }
     //const두개라 객체로 묶어줌 오류안뜨게
 
     case TYPE.EDIT: {
       const index = state.findIndex((item) => item.id == payload.id);
 
+      //이부분도 다시질문
       return [
         ...state.slice(0, index),
         { ...state[index], ...payload },

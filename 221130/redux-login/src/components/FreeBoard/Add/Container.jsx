@@ -17,6 +17,8 @@ const AddContainer = () => {
   //userName이 필요함
 
   return !userName || <Addcomponent onClick={onClick} />;
+  //이부분 다시질문
+
   //로그인 안하면 add가 사라짐
 };
 
