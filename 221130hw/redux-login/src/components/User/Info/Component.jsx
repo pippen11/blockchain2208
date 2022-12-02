@@ -1,7 +1,7 @@
 //5번 초기에 기본적인것만 파일 만들고 넣어줌
 import styled from "styled-components";
 import { Link, Routes, Route } from "react-router-dom";
-import WriteCompo from "../../Board/Title/Write";
+import WriteCom from "../../Board/Title/WriteCom";
 const InfoComponent = ({ userName, onClick }) => {
   return (
     <InfoBox>
@@ -20,7 +20,7 @@ const InfoComponent = ({ userName, onClick }) => {
         <button onClick={() => {}}>글쓰기</button>
       </Link>
       <Routes>
-        <Route path="/write" element={<WriteCompo userName={userName} />} />
+        <Route path="/write" element={<WriteCom userName={userName} />} />
       </Routes>
     </InfoBox>
   );

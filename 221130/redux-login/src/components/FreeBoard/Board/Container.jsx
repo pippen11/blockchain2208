@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useLocation, useParams, useNavigate } from "react-router-dom";
 import Boardcomponent from "./Component";
 import { action } from "../../../modules/board";
+import CommentContainer from "../Comment/Container";
 
 const BoardContainer = () => {
   const navigate = useNavigate();
@@ -25,12 +26,15 @@ const BoardContainer = () => {
   };
 
   return (
-    <Boardcomponent
-      item={item}
-      remove={remove}
-      isCreator={userName == item.userName}
-      //이렇게까지 해서 넣어주는이유?
-    />
+    <>
+      <Boardcomponent
+        item={item}
+        remove={remove}
+        isCreator={userName == item.userName}
+        //이렇게까지 해서 넣어주는이유?
+      />
+      <CommentContainer userName={userName} boardId={id} />
+    </>
   );
 };
 

@@ -1,0 +1,76 @@
+1. .toString(crypto.enc.Base64);
+//enc.Base64는 하나의 방법?
+
+암호화된 데이터를 문자열로 바꿔준다
+
+2. dispatch(action.add(title, text, userName));
+    //dispatch로 action의 add값에 매개변수로보냄?
+
+action의 add함수를 호출하여 그결과인 리턴값을 dispatch를 통해 reducer로 보내준다
+
+
+4.//밑에 라우트 이렇게 나눈이유?
+const FreeBoard = () => {
+  return (
+    <FreeBoardBox>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <AddContainer />
+              <ListContainer />
+            </>
+          }
+        />
+
+        <Route path="/board/:id" element={<BoardContainer />} />
+        <Route path="/edit/:id" element={<EditContainer />} />
+        {/* 여기 :id로써야하는이유? */}
+      </Routes>
+    </FreeBoardBox>
+  );
+};
+
+5.const list = useSelector((state) => state.board);
+  //여기서의 state.board는 boardIni? 배열인데 추가된값들?
+
+6. board파일 component부분
+   {!isCreator || (
+isCreator true면 뒤에값을 출력 
+또는이라 앞에가 false 뒤에꺼 확인 true면 건너뛴다
+          <span>
+            <Link to={`/edit/${item.id}`}>
+              <button>Edit</button>
+            </Link>
+
+            <button
+              onClick={() => {
+                remove();
+              }}
+            >
+              Delete
+            </button>
+          </span>
+        )}
+
+
+
+8.const remove = () => {
+    dispatch(action.remove(item.id));
+    //item.id인이유?
+댓글의 id 1부터 넣으니까 
+    navigate("/");
+  };;=
+9. isCreator={userName == item.userName}
+같을때 true로 넣겠다 다르면 false로 넣겠다
+        //이렇게까지 해서 넣어주는이유?
+
+
+10./return !userName || <Addcomponent onClick={onClick} />;
+  //이부분 다시질문
+
+
+11.comment component부분 밑에 commentItemcomponent함수 흐름
+
+12.container함수 밑에흐름

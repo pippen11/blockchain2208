@@ -25,11 +25,11 @@ const RegistContainer = () => {
     //11.dispatch는 reducer를 호출하며 액션을 매개변수로 전달한다.
     store.dispatch(action.regist(userId, userPw, userName));
 
-    axios.post("http://localhost:8080/api/user/regist", {
-      userId,
-      userPw,
-      userName,
-    });
+    // axios.post("http://localhost:8080/api/user/regist", {
+    //   userId,
+    //   userPw,
+    //   userName,
+    // });
     //axios를 이용해서 8080서버에 api/user/regist로
     // req.body인 {userId,userPw,userName} 보냄
 

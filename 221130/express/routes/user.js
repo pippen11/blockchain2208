@@ -19,13 +19,15 @@ router.post("/regist", (req, res) => {
 router.post("/login", (req, res) => {
   const tempUser = userArr.find((item) => item.userId == req.body.userId);
   //req.body와 item.userId가 같을때만 찾아서 tempUser에넣는다
-
+  console.log(user[tempUser.userId]);
   if (
     //이부분 잘모르겠음
     tempUser &&
     tempUser.userPw == req.body.userPw &&
     //번호
     !user[tempUser.userId]
+    //user라는 객체에 [tempUser.userId] 라는 키값을 넣어줌
+    //처음엔 undefined다
     //다른곳에서 로그인돼있는지 체크 어딘가에도없다(로그인안했던사람임)
   ) {
     user[tempUser.userId] = crypto
@@ -63,8 +65,9 @@ router.post("/logout", (req, res) => {
 //포스트맨에서 확인하려고 넣어줌
 router.get("/check", (req, res) => {
   res.send({ userArr, user });
-  //객체로 보내주는이유?
+  //객체로 보내주는이유? 그냥 편하게 쓰려고
   // res.end();
+
   //체크통해서 정상적으로 들어왔나 확인함 암호화된 문자열이 들어가게된다
 });
 

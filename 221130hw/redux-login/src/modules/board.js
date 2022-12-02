@@ -34,10 +34,11 @@ export const reducer = (state = initialize, action) => {
   const { type, payload } = action;
   // console.log(payload);
   //   const { title, text, userName } = payload;
-  //   여기도 구조분해할당?
+  //   title,text,userName빼서 쓰겠다
 
   // const { title, text, userName } = payload;
-  //이거 위에쓰면 안되는이유?
+  //title, text userName빼서 쓰겠다
+  //밑에다가 쓰면 처음에 한번 싹 돌리기때문에 터짐 switch문 안에들어가야 안터진다
   switch (type) {
     case TYPE.ADD:
       id++;
@@ -50,6 +51,7 @@ export const reducer = (state = initialize, action) => {
       return state;
     case TYPE.EDIT:
       return state;
+    default:
+      return state;
   }
-  defalt: return state;
 };

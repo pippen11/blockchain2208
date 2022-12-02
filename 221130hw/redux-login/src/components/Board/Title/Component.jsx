@@ -7,7 +7,7 @@ const BoardtitleComponent = ({ list }) => {
   // const [Content, setContent] = useState("");
   // const [Time, setTime] = useState("");
   // const nowTime = new Date();
-
+  console.log(list);
   return (
     <>
       <TableBox>
@@ -20,7 +20,18 @@ const BoardtitleComponent = ({ list }) => {
           </tr>
         </thead>
 
-        <tbody>{list}</tbody>
+        <tbody>
+          {list.map((item, index) => {
+            return (
+              <tr key={`tr=${index}`}>
+                <td key={`id-${index}`}>{item.id}</td>
+                <td key={`title-${index}`}>{item.title}</td>
+                <td key={`userName-${index}`}>{item.userName}</td>
+                <td key={`createdAt-${index}`}>{item.createdAt}</td>
+              </tr>
+            );
+          })}
+        </tbody>
       </TableBox>
     </>
   );
