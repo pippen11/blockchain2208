@@ -1,0 +1,237 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.mainbar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  margin-left: 300px;
+  cursor: pointer;
+}
+
+.logoutbtn {
+  border-radius: 10px;
+  width: 80px;
+  height: 30px;
+  background-color: black;
+  color: white;
+  margin-right: 30px;
+  margin-right: 300px;
+  cursor: pointer;
+}
+
+.mybook {
+  background-color: white;
+  width: 250px;
+
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  border-color: #F3E7E7;
+
+  margin-left: 50px;
+
+  cursor: pointer;
+}
+
+.bookdetail_main {
+  margin-left: 300px;
+  margin-right: 300px;
+}
+
+.bookdetail {
+  box-sizing: border-box;
+  display: flex;
+  border-style: solid;
+  border-color: rgb(245,245,245);
+  width: 1280px;
+  padding: 50px 30px 40px 30px;
+}
+
+.bookname_title {
+  margin-top: 0px;
+  margin-left: 50px;
+}
+
+.bookname_title_second {
+  color: grey;
+  font-size: 10px;
+}
+
+.book_info {
+  width: 1280px;
+  height: fit-content;
+  border-style: solid;
+  border-color: rgb(245,245,245);
+  position: relative;
+  padding-bottom: 80px;
+}
+
+.bookdetail-info {
+  margin-top: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.bookdetail-info h4{
+  margin-bottom: 5px;
+}
+
+.bookdetail-info-title {
+  margin-bottom: 3px;
+  font-size: 16px;
+}
+
+.bookdetail-info-content {
+  font-size: 14px;
+}
+
+.buttondetail {
+  background-color: white;
+  border-color: white;
+  color: blue;
+  font-size: 15px;
+}
+
+.book_review {
+  border-style: solid;
+  width: 1280px;
+  /* height: 400px; */
+  border-color: rgb(245,245,245);
+}
+
+.book_review_side {
+  /* margin-left: 20px;
+  margin-right: 20px; */
+  margin: 20px;
+  display: flex;
+  align-items: center;
+  width: 1240px;
+}
+
+.review_one {
+  margin-left: 20px;
+  margin-right: 20px;
+  /* display: flex;
+  align-items: center; */
+}
+
+.review_one_first {
+  display: flex;
+  align-items: center;
+}
+
+.input_review {
+  width: 500px;
+  padding: 0px 10px;
+}
+
+.review_add {
+  color: white;
+  margin-left: 5px;
+  width: 70px;
+  background-color: gray;
+  border-radius: 10px;
+  border-color: white;
+  cursor: pointer;
+}
+
+.mainbar_img {
+  padding-left: 20px;
+}
+
+.character_img_one {
+  margin-left: 1100px;
+}
+
+.review_id {
+  font-size: 12px;
+  width: 300px;
+}
+
+.review_count {
+  color: rgb(216, 216, 18);
+}
+
+.threedot {
+  margin-left: 865px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.review_content {
+  margin-left: 30px;
+}
+
+.review_content_detail {
+  font-size: 14px;
+}
+
+.review_content_like {
+  color: grey;
+  font-size: 10px;
+  display: flex;
+}
+
+.review_coment {
+  display: flex;
+  margin-bottom: 13px;
+}
+
+.character_img_two {
+  padding-left: 20px;
+  padding-right: 10px;
+  height: 30px;
+}
+
+.category {
+  width: 150px;
+  background-color: rgb(243, 231, 231);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 50px;
+  justify-content: space-around;
+  margin: 10px;
+}
+
+.publish {
+  width: 150px;
+  background-color: rgb(243, 231, 231);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 50px;
+  justify-content: space-around;
+  margin: 10px;
+}
+
+.book_button {
+  display: flex;
+  /* justify-content: space-between; */
+  /* margin-right: 10px; */
+  width: 400px;
+  position: absolute;
+  bottom: 0;
+  margin: 10px 20px 0 20px;
+}
+
+.category_title {
+  color: gray;
+}
+
+.publish_title {
+  color: gray;
+}
+
+.category_content {
+  text-decoration: underline;
+}
+
+.publish_content {
+  text-decoration: underline;
+}

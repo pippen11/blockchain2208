@@ -26,9 +26,9 @@ export const initialize = [];
 export const reducer = (state = initialize, action) => {
   // 12. dispatch가 액션(action)을 매개변수로 보내며 호출했다. state는 기존의 상태값이다
   // -state는 combinedreducers의 사용여부에 따라서 달라진다.
-  console.log(action);
+  // console.log(action);
   const { type, payload } = action;
-  console.log(state); // << []임
+  // console.log(state); // << []임
 
   //13. type에 따라서 state를 재정의한다. 재정의하고 싶은 정보를 return한다.
 

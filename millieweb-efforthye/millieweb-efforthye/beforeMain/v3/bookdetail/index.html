@@ -1,0 +1,137 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>밀리의 서재</title>
+    <link rel="stylesheet" href="./index.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="millie_logo_1548901236.webp" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div>
+      <div class="mainbar">
+        <img
+          id="logoBtn"
+          class="mainbar_img"
+          src="bookdetail_img/millieicon.png"
+          alt=""
+        /><button class="logoutbtn" id="logoutBtn">로그아웃</button>
+      </div>
+      <div style="border-top: thin solid lightgray; margin-top: 2px"></div>
+    </div>
+    <div class="bookdetail_main">
+      <div class="bookdetail">
+        <img id="book_img" src="bookdetail_img/bookimg.png" alt="" />
+        <div class="bootname">
+          <h3 id="book_title" class="bookname_title">
+            우리가 빛의 속도로 갈수 없다면
+            <p class="bookname_title_second">김초엽 지음</p>
+          </h3>
+        </div>
+        <div>
+          <button class="mybook" id="mybook">
+            <img src="bookdetail_img/mybookbtn.png" alt="" />구매하기
+          </button>
+        </div>
+      </div>
+      <div class="book_info">
+        <div class="bookdetail-info">
+          <h4>책 소개</h4>
+          <!-- <p class="bookdetail-info-title">★우리 SF의 우아한 계보,그 후</p> -->
+          <span id="bookdetail-info-content" class="bookdetail-info-content"
+            >지난겨울까지 바이오센서를 만드는 과학도였던 김초엽작가는,이제
+            소설을 쓴다.<br />관내분실로 한국과학문학상 중단편부문 대상을
+            받았다.자신만이 그려낼 수 있는 김초엽 특유의 작품세계를 보여주었다.
+            투명하고 아릅답지만 순진하지만은 않은, 어디에도 없는 그러나 어딘가에
+            있을 것 같은, 근사한 세계를 손에 잡힐 듯 이야기에 담아냈다.</span
+          >
+          <!-- <span class="buttondetail">더보기 </span> -->
+        </div>
+        <div class="book_button">
+          <div class="category">
+            <div class="category_title">카테고리</div>
+            <div id="category_content" class="category_content">소설</div>
+          </div>
+          <div class="publish">
+            <div class="publish_title">출판사</div>
+            <div id="publish_content" class="publish_content">1984BOOKS</div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="book_review" id="bookReview">
+
+        <!-- <div class="book_review_side">
+          <p>
+            <strong>한 줄 리뷰 <span class="review_count" id="reviewCount">1061</span></strong>
+          </p>
+          <img
+            class="character_img_one"
+            src="bookdetail_img/reviewbtn.png"
+            alt=""
+          />
+        </div> -->
+
+        
+        <!-- <div class="review_one">
+          <div class="review_one_first">
+            <img src="bookdetail_img/chracterimg.png" alt="" />
+            <span class="review_id"
+              >쿠키121<br />
+              <span class="review_date">22.11.03</span>
+            </span>
+            <img class="threedot" src="bookdetail_img/threebtn.png" alt="" />
+          </div>
+          <div class="review_content">
+            <p class="review_content_detail">
+              단편 하나하나가 이렇게 다 재밌을수 있나요...시간가는줄 모르고
+              읽었어요 <br />
+            </p>
+            <p class="review_content_like">
+              이 리뷰가 마음에 드시나요?
+              <img src="bookdetail_img/likebtn.png" alt="" />
+            </p>
+          </div>
+        </div>
+        <div class="review_one">
+          <div class="review_one_first">
+            <img src="bookdetail_img/chracterimg.png" alt="" />
+            <span class="review_id"
+              >쿠키121<br />
+              <span class="review_date">22.11.03</span>
+            </span>
+            <img class="threedot" src="bookdetail_img/threebtn.png" alt="" />
+          </div>
+          <div class="review_content">
+            <p class="review_content_detail">
+              단편 하나하나가 이렇게 다 재밌을수 있나요...시간가는줄 모르고
+              읽었어요 <br />
+            </p>
+            <p class="review_content_like">
+              이 리뷰가 마음에 드시나요?
+              <img src="bookdetail_img/likebtn.png" alt="" />
+            </p>
+          </div>
+        </div> -->
+
+        <div class="review_coment">
+          <img
+            class="character_img_two"
+            src="bookdetail_img/chracterimg.png"
+            alt=""
+          />
+          <input
+            id="review"
+            class="input_review"
+            placeholder="다양한생각을 남겨주세요"
+          />
+          <button id="review_btn" class="review_add" onkeyup="if(window.event.keyCode==13){reviewBtn.onclick()};">등록</button>
+        </div>
+
+      </div>
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>

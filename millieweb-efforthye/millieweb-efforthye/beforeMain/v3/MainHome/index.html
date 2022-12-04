@@ -1,0 +1,1368 @@
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Main Home | 밀리의 서재</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="millie_logo_1548901236.webp" />
+    <link
+      href="https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/index.css" />
+  </head>
+  <body>
+    <!-- navi bar -->
+    <header>
+      <!-- main navi bar-->
+      <section id="HeadNaviContainer">
+        <div id="naviBar">
+          <div id="navi-log">
+            <img id="logoBtn" src="./assets/millie-logo.png" alt="gg" class="navi-i01" style="width: 60px; height: 30px;" />
+          </div>
+          <div id="navi-text">
+            <span class="navi-text01">투데이</span>
+            <span class="navi-text">완독지수</span>
+            <span class="navi-text" id="searchBtn">검색</span>
+            <span class="navi-text" id="myLibraryBtn">내서재</span>
+            <span class="navi-text">관리</span>
+          </div>
+          <div id="navi-logOut">
+            <img src="./assets/bell-regular.svg " alt="gg" class="navi-i02" />
+            <button id="logOut-btn">로그아웃</button>
+          </div>
+        </div>
+      </section>
+      <!-- sub navi -->
+      <section id="HeadNaviSubContainer">
+        <div id="HeadNaviSubtextBox">
+          <span class="navi-text02">NOW</span>
+          <span class="navi-text03">오디오.챗북</span>
+          <span class="navi-text03">스토리</span>
+        </div>
+      </section>
+    </header>
+    <!-- main slide -->
+    <section id="mainSlide">
+      <div id="ColorSlide">
+        <div id="colorM">
+          <div
+            id="carouselExampleFade"
+            class="carousel slide carousel-fade"
+            data-bs-ride="carousel"
+          >
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img
+                  src="../MainHome/assets/1.webp"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="../MainHome/assets/11.jpg"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="../MainHome/assets/30.jpg"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+            </div>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselExampleFade"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselExampleFade"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- main user text box -->
+    <main>
+      <section id="mainUserContainer">
+        <div id="mainUserBox">
+          <div id="UserNickName">유저누구_662356</div>
+          <div id="UserBox">
+            <div class="UserText">
+              독서가 습관이 되는 시작, 나만의 독서 목표를 세워보세요.
+            </div>
+            <img
+              src="./assets/angle-right-solid.svg"
+              alt="a"
+              class="UserIcon"
+            />
+          </div>
+        </div>
+      </section>
+      <!-- obj slide 001 -->
+      <div class="padding">
+        <section id="obj-slide-001">
+          <p class="text001">당신을 위한 추천</p>
+          <p class="text002">
+            어떤 책을 읽을지 고민이라면? 밀리에서 꼭 봐야하는 책
+          </p>
+          <div id="obj-slide-box-001" class="list">
+            <div id="obj-BoxItem-001">
+              <div class="obj-slide-item-001">
+                <img src="./assets/6.webp" alt="a" class="img001" />
+              </div>
+              <p class="text003">달러구트 꿈 백화점 2</p>
+              <p class="text001">이미예 지음</p>
+            </div>
+            <div id="obj-BoxItem-001">
+              <div class="obj-slide-item-001">
+                <img src="./assets/7.webp" alt="a" class="img001" />
+              </div>
+              <p class="text003">달러구트 꿈 백화점 2</p>
+              <p class="text001">이미예 지음</p>
+            </div>
+            <div id="obj-BoxItem-001">
+              <div class="obj-slide-item-001">
+                <img src="./assets/8.webp" alt="a" class="img001" />
+              </div>
+              <p class="text003">달러구트 꿈 백화점 2</p>
+              <p class="text001">이미예 지음</p>
+            </div>
+            <div id="obj-BoxItem-001">
+              <div class="obj-slide-item-001">
+                <img src="./assets/9.webp" alt="a" class="img001" />
+              </div>
+              <p class="text003">달러구트 꿈 백화점 2</p>
+              <p class="text001">이미예 지음</p>
+            </div>
+            <div id="obj-BoxItem-001">
+              <div class="obj-slide-item-001">
+                <img src="./assets/10.webp" alt="a" class="img001" />
+              </div>
+              <p class="text003">달러구트 꿈 백화점 2</p>
+              <p class="text001">이미예 지음</p>
+            </div>
+            <div id="obj-BoxItem-001">
+              <div class="obj-slide-item-001">
+                <img src="./assets/11.webp" alt="a" class="img001" />
+              </div>
+              <p class="text003">달러구트 꿈 백화점 2</p>
+              <p class="text001">이미예 지음</p>
+            </div>
+          </div>
+          <div id="obj-slide-btn-001">
+            <img
+              src="./assets/rotate-right-solid.svg"
+              alt="a"
+              class="icon001"
+            />
+            <span class="text003">더 많이 발견하기</span>
+          </div>
+        </section>
+      </div>
+      <!-- obj slide 002 -->
+      <div class="padding">
+        <section id="obj-slide-002">
+          <p class="text002">위로 받는 느낌, 오디오 드라마</p>
+          <p class="text001">오연서X이수혁이 만나다</p>
+          <div id="obj-slide-list-002" class="list">
+            <div id="obj-slide-box-002">
+              <div id="obj-BoxItem-002">
+                <img src="./assets/11.jpg" alt="a" class="img002" />
+              </div>
+            </div>
+            <div id="obj-slide-box-002">
+              <div id="obj-BoxItem-002">
+                <img src="./assets/03.jpg" alt="a" class="img001" />
+              </div>
+              <div id="obj-BoxItem-002-1">
+                <p class="text004">매일 가는 그 곳, 그녀가 궁금해졌다.</p>
+                <p class="text005">#승우_티저#오연서#이수혁</p>
+                <p class="text006">영상 바로가기 ></p>
+              </div>
+            </div>
+            <div id="obj-slide-box-002">
+              <div id="obj-BoxItem-002">
+                <img src="./assets/40.jpg" alt="a" class="img001" />
+              </div>
+              <div id="obj-BoxItem-002-1">
+                <p class="text004">매일 가는 그 곳, 그녀가 궁금해졌다.</p>
+                <p class="text005">#승우_티저#오연서#이수혁</p>
+                <p class="text006">영상 바로가기 ></p>
+              </div>
+            </div>
+            <div id="obj-slide-box-002">
+              <div id="obj-BoxItem-002">
+                <img src="./assets/41.jpg" alt="a" class="img001" />
+              </div>
+              <div id="obj-BoxItem-002-1">
+                <p class="text004">매일 가는 그 곳, 그녀가 궁금해졌다.</p>
+                <p class="text005">#승우_티저#오연서#이수혁</p>
+                <p class="text006">영상 바로가기 ></p>
+              </div>
+            </div>
+            <div id="obj-slide-box-002">
+              <div id="obj-BoxItem-002">
+                <img src="./assets/42.jpg" alt="a" class="img001" />
+              </div>
+              <div id="obj-BoxItem-002-1">
+                <p class="text004">매일 가는 그 곳, 그녀가 궁금해졌다.</p>
+                <p class="text005">#승우_티저#오연서#이수혁</p>
+                <p class="text006">영상 바로가기 ></p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <!-- obj slide 003 -->
+      <div class="padding">
+        <section id="obj-slide-003">
+          <div class="iconflex">
+            <div class="text002">밀리의 선택</div>
+            <img
+              src="./assets/angle-right-solid.svg"
+              alt="a"
+              class="UserIcon"
+            />
+          </div>
+          <p class="text001">밀리의 직원들이 고르고 고른 책을 추천합니다.</p>
+          <div id="obj-slide-list-003" class="list">
+            <div id="obj-slide-box-003">
+              <h4>매일 먹는 음식으로 <br />허기진 역사 지식 채우기</h4>
+              <div class="obj-slide-item-001">
+                <img src="./assets/1.webp" alt="a" class="img001" />
+              </div>
+              <div class="obj-slide-item-002">
+                <div class="abc">
+                  <p>
+                    80여 개국을 돌아다니며 모은<br />
+                    사람과 사랑, 색깔과 풍경
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div id="obj-slide-box-003">
+              <h4>매일 먹는 음식으로 <br />허기진 역사 지식 채우기</h4>
+              <div class="obj-slide-item-001">
+                <img src="./assets/2.webp" alt="a" class="img001" />
+              </div>
+              <div class="obj-slide-item-002">
+                <div class="abc">
+                  <p>
+                    80여 개국을 돌아다니며 모은<br />
+                    사람과 사랑, 색깔과 풍경
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div id="obj-slide-box-003">
+              <h4>매일 먹는 음식으로 <br />허기진 역사 지식 채우기</h4>
+              <div class="obj-slide-item-001">
+                <img src="./assets/3.webp" alt="a" class="img001" />
+              </div>
+              <div class="obj-slide-item-002">
+                <div class="abc">
+                  <p>
+                    80여 개국을 돌아다니며 모은<br />
+                    사람과 사랑, 색깔과 풍경
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div id="obj-slide-box-003">
+              <h4>매일 먹는 음식으로 <br />허기진 역사 지식 채우기</h4>
+              <div class="obj-slide-item-001">
+                <img src="./assets/4.webp" alt="a" class="img001" />
+              </div>
+              <div class="obj-slide-item-002">
+                <div class="abc">
+                  <p>
+                    80여 개국을 돌아다니며 모은<br />
+                    사람과 사랑, 색깔과 풍경
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div id="obj-slide-box-003">
+              <h4>매일 먹는 음식으로 <br />허기진 역사 지식 채우기</h4>
+              <div class="obj-slide-item-001">
+                <img src="./assets/5.webp" alt="a" class="img001" />
+              </div>
+              <div class="obj-slide-item-002">
+                <div class="abc">
+                  <p>
+                    80여 개국을 돌아다니며 모은<br />
+                    사람과 사랑, 색깔과 풍경
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="obj-slide-btn-003">
+            <img src="./assets/bell-regular.svg" alt="a" class="icon003" />
+            <span class="text003"> 독서 루틴 알림 만들기</span>
+          </div>
+        </section>
+      </div>
+      <!-- obj slide 004 -->
+      <div class="padding">
+        <section id="obj-slide-004">
+          <div id="obj-slide-list-004">
+            <div id="obj-slide-box-004" class="loop animate1">
+              <img src="./assets/21.jpg" alt="a" />
+              <img src="./assets/22.jpg" alt="a" />
+              <img src="./assets/23.jpg" alt="a" />
+              <img src="./assets/24.jpg" alt="a" />
+              <img src="./assets/25.jpg" alt="a" />
+              <img src="./assets/26.jpg" alt="a" />
+              <img src="./assets/27.jpg" alt="a" />
+              <img src="./assets/28.jpg" alt="a" />
+              <img src="./assets/29.jpg" alt="a" />
+              <img src="./assets/30.jpg" alt="a" />
+              <img src="./assets/31.jpg" alt="a" />
+              <img src="./assets/32.jpg" alt="a" />
+              <img src="./assets/33.jpg" alt="a" />
+              <img src="./assets/34.jpg" alt="a" />
+              <img src="./assets/35.jpg" alt="a" />
+              <img src="./assets/21.jpg" alt="a" />
+              <img src="./assets/22.jpg" alt="a" />
+              <img src="./assets/23.jpg" alt="a" />
+              <img src="./assets/24.jpg" alt="a" />
+              <img src="./assets/25.jpg" alt="a" />
+              <img src="./assets/26.jpg" alt="a" />
+              <img src="./assets/27.jpg" alt="a" />
+              <img src="./assets/28.jpg" alt="a" />
+              <img src="./assets/29.jpg" alt="a" />
+              <img src="./assets/30.jpg" alt="a" />
+              <img src="./assets/31.jpg" alt="a" />
+              <img src="./assets/32.jpg" alt="a" />
+              <img src="./assets/33.jpg" alt="a" />
+              <img src="./assets/34.jpg" alt="a" />
+              <img src="./assets/35.jpg" alt="a" />
+            </div>
+            <div id="obj-slide-box-005" class="loop animate2">
+              <img src="./assets/25.jpg" alt="a" />
+              <img src="./assets/22.jpg" alt="a" />
+              <img src="./assets/21.jpg" alt="a" />
+              <img src="./assets/23.jpg" alt="a" />
+              <img src="./assets/24.jpg" alt="a" />
+              <img src="./assets/26.jpg" alt="a" />
+              <img src="./assets/27.jpg" alt="a" />
+              <img src="./assets/34.jpg" alt="a" />
+              <img src="./assets/28.jpg" alt="a" />
+              <img src="./assets/33.jpg" alt="a" />
+              <img src="./assets/29.jpg" alt="a" />
+              <img src="./assets/30.jpg" alt="a" />
+              <img src="./assets/31.jpg" alt="a" />
+              <img src="./assets/21.jpg" alt="a" />
+              <img src="./assets/32.jpg" alt="a" />
+              <img src="./assets/24.jpg" alt="a" />
+              <img src="./assets/35.jpg" alt="a" />
+              <img src="./assets/23.jpg" alt="a" />
+              <img src="./assets/22.jpg" alt="a" />
+              <img src="./assets/25.jpg" alt="a" />
+              <img src="./assets/28.jpg" alt="a" />
+              <img src="./assets/26.jpg" alt="a" />
+              <img src="./assets/27.jpg" alt="a" />
+              <img src="./assets/31.jpg" alt="a" />
+              <img src="./assets/29.jpg" alt="a" />
+              <img src="./assets/30.jpg" alt="a" />
+              <img src="./assets/33.jpg" alt="a" />
+              <img src="./assets/32.jpg" alt="a" />
+              <img src="./assets/35.jpg" alt="a" />
+              <img src="./assets/34.jpg" alt="a" />
+            </div>
+            <div id="obj-slide-box-006" class="loop animate3">
+              <img src="./assets/35.jpg" alt="a" />
+              <img src="./assets/22.jpg" alt="a" />
+              <img src="./assets/23.jpg" alt="a" />
+              <img src="./assets/21.jpg" alt="a" />
+              <img src="./assets/25.jpg" alt="a" />
+              <img src="./assets/26.jpg" alt="a" />
+              <img src="./assets/27.jpg" alt="a" />
+              <img src="./assets/29.jpg" alt="a" />
+              <img src="./assets/24.jpg" alt="a" />
+              <img src="./assets/30.jpg" alt="a" />
+              <img src="./assets/32.jpg" alt="a" />
+              <img src="./assets/28.jpg" alt="a" />
+              <img src="./assets/33.jpg" alt="a" />
+              <img src="./assets/35.jpg" alt="a" />
+              <img src="./assets/31.jpg" alt="a" />
+              <img src="./assets/21.jpg" alt="a" />
+              <img src="./assets/24.jpg" alt="a" />
+              <img src="./assets/22.jpg" alt="a" />
+              <img src="./assets/34.jpg" alt="a" />
+              <img src="./assets/25.jpg" alt="a" />
+              <img src="./assets/27.jpg" alt="a" />
+              <img src="./assets/26.jpg" alt="a" />
+              <img src="./assets/33.jpg" alt="a" />
+              <img src="./assets/23.jpg" alt="a" />
+              <img src="./assets/31.jpg" alt="a" />
+              <img src="./assets/29.jpg" alt="a" />
+              <img src="./assets/30.jpg" alt="a" />
+              <img src="./assets/32.jpg" alt="a" />
+              <img src="./assets/34.jpg" alt="a" />
+              <img src="./assets/28.jpg" alt="a" />
+            </div>
+          </div>
+        </section>
+      </div>
+      <!-- obj slide 005 -->
+      <!-- <div class="padding">
+        <section id="obj-slide-005">
+          <div id="obj-slide-list-005">
+            <div id="obj-slide-box-005"></div>
+          </div>
+        </section>
+      </div> -->
+      <!-- obj slide 006 -->
+      <div class="padding">
+        <section id="obj-slide-006">
+          <p class="text002" style="margin-top: 20px;">지금! 서점 베스트</p>
+          <p class="text001">서점3사 100위 내, 79권을 밀리에서 만나보세요</p>
+          <div class="accordion-wrap">
+            <div class="accordion">
+              <div id="accordion1">
+                <div class="ac" style="width: 500px;">
+                  <img src="assets/35.jpg" alt="작은 이미지">
+                  <span>1</span>
+                  <div>
+                    <span>트렌드 코리아 2023</span>
+                    <span>김난도, 전미영</span>
+                  </div>
+                  <img src="assets/2985150.png" alt="내리기 버튼">
+                </div>
+              </div>
+              <div id="accordion12" class="bc on">
+                <div class="small">
+                  <img src="assets/35.jpg" alt="작은 이미지">
+                  <span>1</span>
+                  <div>
+                    <span>트렌드 코리아 2023</span>
+                    <span>김난도, 전미영</span>
+                  </div>
+                  <img src="assets/2985150.png" alt="내리기 버튼">
+                </div>
+                <div class="big">
+                  <img src="assets/01.jpg" alt="큰 이미지">
+                </div>
+              </div>
+              <div id="accordion2" class="ac">
+                <img src="assets/1.webp" alt="작은 이미지">
+                <span>2</span>
+                <div>
+                  <span>불편한 편의점2</span>
+                  <span>김호연</span>
+                </div>
+                <img src="assets/2985150.png" alt="내리기 버튼">
+              </div>
+              <div id="accordion22" class="bc">
+                <div class="small">
+                  <img src="assets/1.webp" alt="작은 이미지">
+                  <span>2</span>
+                  <div>
+                    <span>불편한 편의점2</span>
+                    <span>김호연</span>
+                  </div>
+                  <img src="assets/2985150.png" alt="내리기 버튼">
+                </div>
+                <div class="big">
+                  <img src="assets/1.webp" alt="큰 이미지">
+                </div>
+              </div>
+
+              <div id="accordion3" class="ac">
+                <img src="assets/03.jpg" alt="작은 이미지">
+                <span>3</span>
+                <div>
+                  <span>불편한 편의점</span>
+                  <span>김호연</span>
+                </div>
+                <img src="assets/2985150.png" alt="내리기 버튼">
+              </div>
+              <div id="accordion32" class="bc">
+                <div class="small">
+                  <img src="assets/03.jpg" alt="작은 이미지">
+                  <span>3</span>
+                  <div>
+                    <span>불편한 편의점</span>
+                    <span>김호연</span>
+                  </div>
+                  <img src="assets/2985150.png" alt="내리기 버튼">
+                </div>
+                <div class="big">
+                  <img src="assets/03.jpg" alt="큰 이미지">
+                </div>
+              </div>
+
+              
+            </div><!--//.accordion-->
+            <div class="accordion">
+              <div id="accordion4" class="ac">
+                <img src="assets/28.jpg" alt="작은 이미지">
+                <span>4</span>
+                <div>
+                  <span>인생의 역사</span>
+                  <span>자청</span>
+                </div>
+                <img src="assets/2985150.png" alt="내리기 버튼">
+              </div>
+              <div id="accordion42" class="bc">
+                <div class="small">
+                  <img src="assets/28.jpg" alt="작은 이미지">
+                  <span>4</span>
+                  <div>
+                    <span>인생의 역사</span>
+                    <span>자청</span>
+                  </div>
+                  <img src="assets/2985150.png" alt="내리기 버튼">
+                </div>
+                <div class="big">
+                  <img src="assets/28.jpg" alt="큰 이미지">
+                </div>
+              </div>
+
+              <div id="accordion5" class="ac">
+                <img src="assets/05.jpg" alt="작은 이미지">
+                <span>5</span>
+                <div>
+                  <span>세상에서 가장 쉬운 본질육아</span>
+                  <span>지나영</span>
+                </div>
+                <img src="assets/2985150.png" alt="내리기 버튼">
+              </div>
+              <div id="accordion52" class="bc on">
+                <div class="small">
+                  <img src="assets/05.jpg" alt="작은 이미지">
+                  <span>5</span>
+                  <div>
+                    <span>세상에서 가장 쉬운 본질육아</span>
+                    <span>지나영</span>
+                  </div>
+                  <img src="assets/2985150.png" alt="내리기 버튼">
+                </div>
+                <div class="big">
+                  <img src="assets/05.jpg" alt="큰 이미지">
+                </div>
+              </div>
+
+              <div id="accordion6" class="ac">
+                <img src="assets/21.jpg" alt="작은 이미지">
+                <span>6</span>
+                <div>
+                  <span>마흔에 읽는 니체</span>
+                  <span>장재형</span>
+                </div>
+                <img src="assets/2985150.png" alt="내리기 버튼">
+              </div>
+              <div id="accordion62" class="bc">
+                <div class="small">
+                  <img src="assets/21.jpg" alt="작은 이미지">
+                  <span>6</span>
+                  <div>
+                    <span>마흔에 읽는 니체</span>
+                    <span>장재형</span>
+                  </div>
+                  <img src="assets/2985150.png" alt="내리기 버튼">
+                </div>
+                <div class="big">
+                  <img src="assets/21.jpg" alt="큰 이미지">
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="accordion">
+              <div id="accordion7" class="ac">
+                <img src="assets/22.jpg" alt="작은 이미지">
+                <span>7</span>
+                <div>
+                  <span>쓰레기책</span>
+                  <span>이금희</span>
+                </div>
+                <img src="assets/2985150.png" alt="내리기 버튼">
+              </div>
+              <div id="accordion72" class="bc">
+                <div class="small">
+                  <img src="assets/22.jpg" alt="작은 이미지">
+                  <span>7</span>
+                  <div>
+                    <span>쓰레기책</span>
+                    <span>이금희</span>
+                  </div>
+                  <img src="assets/2985150.png" alt="내리기 버튼">
+                </div>
+                <div class="big">
+                  <img src="assets/22.jpg" alt="큰 이미지">
+                </div>
+              </div>
+
+              <div id="accordion8" class="ac">
+                <img src="assets/23.jpg" alt="작은 이미지">
+                <span>8</span>
+                <div>
+                  <span>책 만들기 책</span>
+                  <span>최서영</span>
+                </div>
+                <img src="assets/2985150.png" alt="내리기 버튼">
+              </div>
+              <div id="accordion82" class="bc">
+                <div class="small">
+                  <img src="assets/23.jpg" alt="작은 이미지">
+                  <span>8</span>
+                  <div>
+                    <span>책 만들기 책</span>
+                    <span>최서영</span>
+                  </div>
+                  <img src="assets/2985150.png" alt="내리기 버튼">
+                </div>
+                <div class="big">
+                  <img src="assets/23.jpg" alt="큰 이미지">
+                </div>
+              </div>
+
+              <div id="accordion9" class="ac">
+                <img src="assets/24.jpg" alt="작은 이미지">
+                <span>9</span>
+                <div>
+                  <span>물고기는 존재하지 않는다</span>
+                  <span>룰루 밀러</span>
+                </div>
+                <img src="assets/2985150.png" alt="내리기 버튼">
+              </div>
+              <div id="accordion92" class="bc on">
+                <div class="small">
+                  <img src="assets/24.jpg" alt="작은 이미지">
+                  <span>9</span>
+                  <div>
+                    <span>물고기는 존재하지 않는다</span>
+                    <span>룰루 밀러</span>
+                  </div>
+                  <img src="assets/2985150.png" alt="내리기 버튼">
+                </div>
+                <div class="big">
+                  <img src="assets/24.jpg" alt="큰 이미지">
+                </div>
+              </div>
+            </div><!--//.accordion-->
+            </div>
+          </div>
+
+
+
+          <!-- <div id="obj-slide-list-006" class="list">
+            <div id="obj-slideBox-006"> -->
+
+              <!-- 새로운 아코디언 -->
+              <!-- <div class="accordion"></div>
+              <div class="accordion"></div>
+              <div class="accordion"></div>
+              <div class="accordion"></div> -->
+
+              <!-- 기존 아코디언 -->
+              <!-- <div class="accordion">
+                <div class="paddingbox">
+                  <input type="radio" name="accordion" id="answer01" checked/>
+                  <label for="answer01"
+                    >컨텐 제목<em></em>
+                    <div>
+                      <p><img src="./assets/03.jpg" alt="aaa" /></p></div
+                  ></label>
+                </div>
+                <div class="paddingbox">
+                  <input type="radio" name="accordion" id="answer02" />
+                  <label for="answer02"
+                    >컨텐 제목<em></em>
+                    <div>
+                      <p><img src="./assets/03.jpg" alt="aaa" /></p></div
+                  ></label>
+                </div>
+                <div class="paddingbox">
+                  <input type="radio" name="accordion" id="answer03" />
+                  <label for="answer03"
+                    >컨텐 제목<em></em>
+                    <div>
+                      <p><img src="./assets/03.jpg" alt="aaa" /></p></div
+                  ></label>
+                </div>
+              </div>
+              <div class="accordion">
+                <div class="paddingbox">
+                  <input type="radio" name="accordion" id="answer204" />
+                  <label for="answer204"
+                    >컨텐 제목<em></em>
+                    <div>
+                      <p><img src="./assets/03.jpg" alt="aaa" /></p></div
+                  ></label>
+                </div>
+                <div class="paddingbox">
+                  <input type="radio" name="accordion" id="answer205"checked />
+                  <label for="answer205"
+                    >컨텐 제목<em></em>
+                    <div>
+                      <p><img src="./assets/03.jpg" alt="aaa" /></p></div
+                  ></label>
+                </div>
+                <div class="paddingbox">
+                  <input type="radio" name="accordion" id="answer206" />
+                  <label for="answer206"
+                    >컨텐 제목<em></em>
+                    <div>
+                      <p><img src="./assets/03.jpg" alt="aaa" /></p></div
+                  ></label>
+                </div>
+              </div>
+              <div class="accordion">
+                <div class="paddingbox">
+                  <input type="radio" name="accordion" id="answer307" />
+                  <label for="answer307"
+                    >컨텐 제목<em></em>
+                    <div>
+                      <p><img src="./assets/03.jpg" alt="aaa" /></p></div
+                  ></label>
+                </div>
+                <div class="paddingbox">
+                  <input type="radio" name="accordion" id="answer308" />
+                  <label for="answer308"
+                    >컨텐 제목<em></em>
+                    <div>
+                      <p><img src="./assets/03.jpg" alt="aaa" /></p></div
+                  ></label>
+                </div>
+                <div class="paddingbox">
+                  <input type="radio" name="accordion" id="answer309" checked/>
+                  <label for="answer309"
+                    >컨텐 제목<em></em>
+                    <div>
+                      <p><img src="./assets/03.jpg" alt="aaa" /></p></div
+                  ></label>
+                </div>
+              </div> -->
+
+              
+            <!-- </div>
+          </div> -->
+
+        </section>
+      </div>
+      <!-- obj slide 007 -->
+      <div class="padding">
+        <section id="obj-slide-007">
+          <p class="text002">밀리 오리지널</p>
+          <p class="text001">오직 밀리에서만 볼 수 있는 요일별 연재도서</p>
+          <div id="obj-slide-container-007">
+            <div id="obj-btn-box1-007" class="but">
+              <button id="btn01" class="btn-list">월</button>
+              <button id="btn02" class="btn-list">화</button>
+              <button id="btn03" class="btn-list">수</button>
+              <button id="btn04" class="btn-list">목</button>
+              <button id="btn05" class="btn-list">금</button>
+              <button id="ctn06" class="btn-list">완결</button>
+            </div>
+            <div id="obj-box-list-008" class="list">
+              <div id="mon" class="off">
+                <div id="obj-btn-box2-008">
+                  <div id="box2-item01">
+                    <ul class="flex1">
+                      <div class="flex-item01">
+                        <div class="t01">NEW</div>
+                        <div class="t02">UP</div>
+                      </div>
+                      <li class="t03">호텔 이야기 1화</li>
+                      <li class="t04">임경선</li>
+                    </ul>
+                    <ul class="flex2">
+                      <img src="./assets/21.jpg" />
+                    </ul>
+                  </div>
+                  <div>
+                    <div id="box2-item02">
+                      <div class="flex3">
+                        <div class="t05">
+                          작가 임경선, 2년 만에 선보이는 소설 단독 공개 매혹적인
+                          장소, 호텔에서
+                        </div>
+                        <img src="./assets/css3-alt.svg" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="obj-btn-box2-008">
+                  <div id="box2-item01">
+                    <ul class="flex1">
+                      <div class="flex-item01">
+                        <div class="t01">NEW</div>
+                        <div class="t02">UP</div>
+                      </div>
+                      <li class="t03">호텔 이야기 2화</li>
+                      <li class="t04">임경선</li>
+                    </ul>
+                    <ul class="flex2">
+                      <img src="./assets/22.jpg" />
+                    </ul>
+                  </div>
+                  <div>
+                    <div id="box2-item02">
+                      <div class="flex3">
+                        <div class="t05">
+                          작가 임경선, 2년 만에 선보이는 소설 단독 공개 매혹적인
+                          장소, 호텔에서
+                        </div>
+                        <img src="./assets/css3-alt.svg" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="obj-btn-box2-008">
+                  <div id="box2-item01">
+                    <ul class="flex1">
+                      <div class="flex-item01">
+                        <div class="t01">NEW</div>
+                        <div class="t02">UP</div>
+                      </div>
+                      <li class="t03">호텔 이야기 3화</li>
+                      <li class="t04">임경선</li>
+                    </ul>
+                    <ul class="flex2">
+                      <img src="./assets/23.jpg" />
+                    </ul>
+                  </div>
+                  <div>
+                    <div id="box2-item02">
+                      <div class="flex3">
+                        <div class="t05">
+                          작가 임경선, 2년 만에 선보이는 소설 단독 공개 매혹적인
+                          장소, 호텔에서
+                        </div>
+                        <img src="./assets/css3-alt.svg" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="tue" class="off">
+                <div id="obj-btn-box2-008">
+                  <div id="box2-item01">
+                    <ul class="flex1">
+                      <div class="flex-item01">
+                        <div class="t01">NEW</div>
+                        <div class="t02">UP</div>
+                      </div>
+                      <li class="t03">호텔 이야기 4화</li>
+                      <li class="t04">임경선</li>
+                    </ul>
+                    <ul class="flex2">
+                      <img src="./assets/24.jpg" />
+                    </ul>
+                  </div>
+                  <div>
+                    <div id="box2-item02">
+                      <div class="flex3">
+                        <div class="t05">
+                          작가 임경선, 2년 만에 선보이는 소설 단독 공개 매혹적인
+                          장소, 호텔에서
+                        </div>
+                        <img src="./assets/css3-alt.svg" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="obj-btn-box2-008">
+                  <div id="box2-item01">
+                    <ul class="flex1">
+                      <div class="flex-item01">
+                        <div class="t01">NEW</div>
+                        <div class="t02">UP</div>
+                      </div>
+                      <li class="t03">호텔 이야기 5화</li>
+                      <li class="t04">임경선</li>
+                    </ul>
+                    <ul class="flex2">
+                      <img src="./assets/25.jpg" />
+                    </ul>
+                  </div>
+                  <div>
+                    <div id="box2-item02">
+                      <div class="flex3">
+                        <div class="t05">
+                          작가 임경선, 2년 만에 선보이는 소설 단독 공개 매혹적인
+                          장소, 호텔에서
+                        </div>
+                        <img src="./assets/css3-alt.svg" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="obj-btn-box2-008">
+                  <div id="box2-item01">
+                    <ul class="flex1">
+                      <div class="flex-item01">
+                        <div class="t01">NEW</div>
+                        <div class="t02">UP</div>
+                      </div>
+                      <li class="t03">호텔 이야기 6화</li>
+                      <li class="t04">임경선</li>
+                    </ul>
+                    <ul class="flex2">
+                      <img src="./assets/26.jpg" />
+                    </ul>
+                  </div>
+                  <div>
+                    <div id="box2-item02">
+                      <div class="flex3">
+                        <div class="t05">
+                          작가 임경선, 2년 만에 선보이는 소설 단독 공개 매혹적인
+                          장소, 호텔에서
+                        </div>
+                        <img src="./assets/css3-alt.svg" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="wed" class="off">
+                <div id="obj-btn-box2-008">
+                  <div id="box2-item01">
+                    <ul class="flex1">
+                      <div class="flex-item01">
+                        <div class="t01">NEW</div>
+                        <div class="t02">UP</div>
+                      </div>
+                      <li class="t03">호텔 이야기 7화</li>
+                      <li class="t04">임경선</li>
+                    </ul>
+                    <ul class="flex2">
+                      <img src="./assets/28.jpg" />
+                    </ul>
+                  </div>
+                  <div>
+                    <div id="box2-item02">
+                      <div class="flex3">
+                        <div class="t05">
+                          작가 임경선, 2년 만에 선보이는 소설 단독 공개 매혹적인
+                          장소, 호텔에서
+                        </div>
+                        <img src="./assets/css3-alt.svg" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="obj-btn-box2-008">
+                  <div id="box2-item01">
+                    <ul class="flex1">
+                      <div class="flex-item01">
+                        <div class="t01">NEW</div>
+                        <div class="t02">UP</div>
+                      </div>
+                      <li class="t03">호텔 이야기 8화</li>
+                      <li class="t04">임경선</li>
+                    </ul>
+                    <ul class="flex2">
+                      <img src="./assets/29.jpg" />
+                    </ul>
+                  </div>
+                  <div>
+                    <div id="box2-item02">
+                      <div class="flex3">
+                        <div class="t05">
+                          작가 임경선, 2년 만에 선보이는 소설 단독 공개 매혹적인
+                          장소, 호텔에서
+                        </div>
+                        <img src="./assets/css3-alt.svg" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="obj-btn-box2-008">
+                  <div id="box2-item01">
+                    <ul class="flex1">
+                      <div class="flex-item01">
+                        <div class="t01">NEW</div>
+                        <div class="t02">UP</div>
+                      </div>
+                      <li class="t03">호텔 이야기 9화</li>
+                      <li class="t04">임경선</li>
+                    </ul>
+                    <ul class="flex2">
+                      <img src="./assets/30.jpg" />
+                    </ul>
+                  </div>
+                  <div>
+                    <div id="box2-item02">
+                      <div class="flex3">
+                        <div class="t05">
+                          작가 임경선, 2년 만에 선보이는 소설 단독 공개 매혹적인
+                          장소, 호텔에서
+                        </div>
+                        <img src="./assets/css3-alt.svg" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="thu" class="off">
+                <div id="obj-btn-box2-008">
+                  <div id="box2-item01">
+                    <ul class="flex1">
+                      <div class="flex-item01">
+                        <div class="t01">NEW</div>
+                        <div class="t02">UP</div>
+                      </div>
+                      <li class="t03">호텔 이야기 10화</li>
+                      <li class="t04">임경선</li>
+                    </ul>
+                    <ul class="flex2">
+                      <img src="./assets/31.jpg" />
+                    </ul>
+                  </div>
+                  <div>
+                    <div id="box2-item02">
+                      <div class="flex3">
+                        <div class="t05">
+                          작가 임경선, 2년 만에 선보이는 소설 단독 공개 매혹적인
+                          장소, 호텔에서
+                        </div>
+                        <img src="./assets/css3-alt.svg" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="obj-btn-box2-008">
+                  <div id="box2-item01">
+                    <ul class="flex1">
+                      <div class="flex-item01">
+                        <div class="t01">NEW</div>
+                        <div class="t02">UP</div>
+                      </div>
+                      <li class="t03">호텔 이야기 11화</li>
+                      <li class="t04">임경선</li>
+                    </ul>
+                    <ul class="flex2">
+                      <img src="./assets/32.jpg" />
+                    </ul>
+                  </div>
+                  <div>
+                    <div id="box2-item02">
+                      <div class="flex3">
+                        <div class="t05">
+                          작가 임경선, 2년 만에 선보이는 소설 단독 공개 매혹적인
+                          장소, 호텔에서
+                        </div>
+                        <img src="./assets/css3-alt.svg" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="obj-btn-box2-008">
+                  <div id="box2-item01">
+                    <ul class="flex1">
+                      <div class="flex-item01">
+                        <div class="t01">NEW</div>
+                        <div class="t02">UP</div>
+                      </div>
+                      <li class="t03">호텔 이야기 12화</li>
+                      <li class="t04">임경선</li>
+                    </ul>
+                    <ul class="flex2">
+                      <img src="./assets/33.jpg" />
+                    </ul>
+                  </div>
+                  <div>
+                    <div id="box2-item02">
+                      <div class="flex3">
+                        <div class="t05">
+                          작가 임경선, 2년 만에 선보이는 소설 단독 공개 매혹적인
+                          장소, 호텔에서
+                        </div>
+                        <img src="./assets/css3-alt.svg" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="fri" class="off">
+                <div id="obj-btn-box2-008">
+                  <div id="box2-item01">
+                    <ul class="flex1">
+                      <div class="flex-item01">
+                        <div class="t01">NEW</div>
+                        <div class="t02">UP</div>
+                      </div>
+                      <li class="t03">호텔 이야기 13화</li>
+                      <li class="t04">임경선</li>
+                    </ul>
+                    <ul class="flex2">
+                      <img src="./assets/34.jpg" />
+                    </ul>
+                  </div>
+                  <div>
+                    <div id="box2-item02">
+                      <div class="flex3">
+                        <div class="t05">
+                          작가 임경선, 2년 만에 선보이는 소설 단독 공개 매혹적인
+                          장소, 호텔에서
+                        </div>
+                        <img src="./assets/css3-alt.svg" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="obj-btn-box2-008">
+                  <div id="box2-item01">
+                    <ul class="flex1">
+                      <div class="flex-item01">
+                        <div class="t01">NEW</div>
+                        <div class="t02">UP</div>
+                      </div>
+                      <li class="t03">호텔 이야기 14화</li>
+                      <li class="t04">임경선</li>
+                    </ul>
+                    <ul class="flex2">
+                      <img src="./assets/21.jpg" />
+                    </ul>
+                  </div>
+                  <div>
+                    <div id="box2-item02">
+                      <div class="flex3">
+                        <div class="t05">
+                          작가 임경선, 2년 만에 선보이는 소설 단독 공개 매혹적인
+                          장소, 호텔에서
+                        </div>
+                        <img src="./assets/css3-alt.svg" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="obj-btn-box2-008">
+                  <div id="box2-item01">
+                    <ul class="flex1">
+                      <div class="flex-item01">
+                        <div class="t01">NEW</div>
+                        <div class="t02">UP</div>
+                      </div>
+                      <li class="t03">호텔 이야기 15화</li>
+                      <li class="t04">임경선</li>
+                    </ul>
+                    <ul class="flex2">
+                      <img src="./assets/21.jpg" />
+                    </ul>
+                  </div>
+                  <div>
+                    <div id="box2-item02">
+                      <div class="flex3">
+                        <div class="t05">
+                          작가 임경선, 2년 만에 선보이는 소설 단독 공개 매혹적인
+                          장소, 호텔에서
+                        </div>
+                        <img src="./assets/css3-alt.svg" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="sat" class="off">
+                <div id="obj-btn-box2-008">
+                  <div id="box2-item01">
+                    <ul class="flex1">
+                      <div class="flex-item01">
+                        <div class="t01">NEW</div>
+                        <div class="t02">UP</div>
+                      </div>
+                      <li class="t03">호텔 이야기 16화</li>
+                      <li class="t04">임경선</li>
+                    </ul>
+                    <ul class="flex2">
+                      <img src="./assets/21.jpg" />
+                    </ul>
+                  </div>
+                  <div>
+                    <div id="box2-item02">
+                      <div class="flex3">
+                        <div class="t05">
+                          작가 임경선, 2년 만에 선보이는 소설 단독 공개 매혹적인
+                          장소, 호텔에서
+                        </div>
+                        <img src="./assets/css3-alt.svg" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="obj-btn-box2-008">
+                  <div id="box2-item01">
+                    <ul class="flex1">
+                      <div class="flex-item01">
+                        <div class="t01">NEW</div>
+                        <div class="t02">UP</div>
+                      </div>
+                      <li class="t03">호텔 이야기 17화</li>
+                      <li class="t04">임경선</li>
+                    </ul>
+                    <ul class="flex2">
+                      <img src="./assets/27.jpg" />
+                    </ul>
+                  </div>
+                  <div>
+                    <div id="box2-item02">
+                      <div class="flex3">
+                        <div class="t05">
+                          작가 임경선, 2년 만에 선보이는 소설 단독 공개 매혹적인
+                          장소, 호텔에서
+                        </div>
+                        <img src="./assets/css3-alt.svg" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="obj-btn-box2-008">
+                  <div id="box2-item01">
+                    <ul class="flex1">
+                      <div class="flex-item01">
+                        <div class="t01">NEW</div>
+                        <div class="t02">UP</div>
+                      </div>
+                      <li class="t03">호텔 이야기 18화</li>
+                      <li class="t04">임경선</li>
+                    </ul>
+                    <ul class="flex2">
+                      <img src="./assets/21.jpg" />
+                    </ul>
+                  </div>
+                  <div>
+                    <div id="box2-item02">
+                      <div class="flex3">
+                        <div class="t05">
+                          작가 임경선, 2년 만에 선보이는 소설 단독 공개 매혹적인
+                          장소, 호텔에서
+                        </div>
+                        <img src="./assets/css3-alt.svg" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <!-- obj slide 008 -->
+      <!-- obj slide 009 -->
+      <!-- obj slide 010 -->
+      <!-- obj slide 011 link -->
+      <!-- obj slide 012 -->
+      <!-- obj slide 013 link -->
+      <!-- obj slide 014 -->
+      <!-- obj slide 015 link -->
+      <!-- obj slide 016 -->
+      <!-- obj slide 017 -->
+      <!-- obj slide 018 -->
+      <!-- obj slide 019 -->
+      <!-- obj slide 020 -->
+      <!-- obj slide 021 -->
+      <!-- obj slide 022 -->
+      <!-- footer img text -->
+      <!-- footer -->
+      <div class="padding">
+        <section id="footer">
+          <div class="footerBox01">
+            <span class="ftext01"> (주) 밀리의 서재</span>
+            <div class="icon">
+              <img src="./assets/github.svg" alt="a" />
+              <img src="./assets/tiktok.svg" alt="a" />
+              <img src="./assets/instagram.svg" alt="a" />
+              <img src="./assets/css3-alt.svg" alt="a" />
+              <img src="./assets/twitter.svg" alt="a" />
+            </div>
+          </div>
+          <div class="footerBox">
+            <span class="ftext02"> 사업자 정보 펼쳐보기 </span>
+            <img src="./assets/angle-right-solid.svg" alt="" />
+          </div>
+          <div class="footerBox">
+            <div class="footerItemBox">
+              <div class="fItem">
+                <span class="ftext02"> 이용약관 </span>
+                <img src="./assets/angle-right-solid.svg" alt="" />
+              </div>
+              <div class="fItem">
+                <span class="ftext02"> 개인정보처리방침 </span>
+                <img src="./assets/angle-right-solid.svg" alt="" />
+              </div>
+              <div class="fItem">
+                <span class="ftext02"> 청소년보호정책 </span>
+                <img src="./assets/angle-right-solid.svg" alt="" />
+              </div>
+              <div class="fItem">
+                <span class="ftext02"> 고객센터 </span>
+                <img src="./assets/angle-right-solid.svg" alt="" />
+              </div>
+              <div class="fItem">
+                <span class="ftext02"> 환불신청 </span>
+                <img src="./assets/angle-right-solid.svg" alt="" />
+              </div>
+              <div class="fItem">
+                <span class="ftext02"> B2B 문의 </span>
+                <img src="./assets/angle-right-solid.svg" alt="" />
+              </div>
+              <div class="fItem">
+                <span class="ftext02"> 콘텐츠 제휴문의 </span>
+                <img src="./assets/angle-right-solid.svg" alt="" />
+              </div>
+              <div class="fItem">
+                <span class="ftext02"> 저작권/도서오류 신고 </span>
+                <img src="./assets/angle-right-solid.svg" alt="" />
+              </div>
+              <div class="fItem">
+                <span class="ftext02"> 뷰어 다운로드 </span>
+                <img src="./assets/angle-right-solid.svg" alt="" />
+              </div>
+              <div class="fItem">
+                <span class="ftext02"> 종료 예정 도서 </span>
+                <img src="./assets/angle-right-solid.svg" alt="" />
+              </div>
+              <div class="fItem">
+                <span class="ftext02"> 회사소개 </span>
+                <img src="./assets/angle-right-solid.svg" alt="" />
+              </div>
+            </div>
+          </div>
+          <div class="footerBox">
+            <span class="ftext03"
+              >Copylight e 2022 밀리의 서재 All Rights Reserved</span
+            >
+          </div>
+        </section>
+      </div>
+    </main>
+    <script src="index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"></script>
+  </body>
+</html>

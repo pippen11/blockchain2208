@@ -1,7 +1,7 @@
 //5번
 import { useEffect } from "react";
 import { connect } from "react-redux";
-import { useNavigate, userNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import LoginComponent from "./Component";
 import { action } from "../../../modules/userInfo";
