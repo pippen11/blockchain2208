@@ -1,0 +1,23 @@
+yarn create react-app 프로젝트명 ./<< 이거쓰면 폴더 그자체명
+
+yarn add react-router-dom << 내부 폴더안에
+
+yarn add styled-components << 내부 폴더안에
+
+yarn add react-redux << 내부 폴더안에
+
+yarn add redux
+
+yarn add redux-devtools-extension --devtools
+
+
+yarn add axios
+
+내부 폴더안?
+npm init
+npm i express express-session
+morgan dotenv cookie-parser 
+
+npm i -D nodemon
+
+//package.json내의 "type":"module"내용은 import등 ES6문법을 사용하기위해

@@ -31,5 +31,5 @@ morgan쓰면 얼마나 걸렸나 나옴
 node.js는 자바스크립트의 런타임
 
 "start": "nodemon app" 바로실행되게
-"type": "module" 이게 Es6버전쓰려며 이렇게써야함
+"type": "module" 이게 Es6버전쓰려면 이렇게써야함
 

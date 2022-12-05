@@ -43,6 +43,8 @@ yarn add styled-components
 
 yarn add react-router-dom query-string
 
+yarn add react redux
+
 
 svg filter color
 svg파일은 색상넣고 필터복사해서 스타일변경
