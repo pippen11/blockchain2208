@@ -9,6 +9,7 @@ module.exports = router;
 router.post("/regist", async (req, res) => {
   try {
     const tempUser = await User.findOne({ where: { userId: req.body.id } });
+
     if (tempUser) {
       res.status(500);
       res.send({ message: "exist ID" });

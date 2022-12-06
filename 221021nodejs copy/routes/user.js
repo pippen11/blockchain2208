@@ -9,11 +9,11 @@ router.post("/regist", (req, res) => {
     expiresIn: "10m",
     issuer: "jkh",
   });
-});
-const tempData = jwt.verify(tempJWT, "sdkfjksdfj");
+  const tempData = jwt.verify(tempJWT, "sdkfjksdfj");
 
-res.cookie("cookie_name", "now testing", {
-  expires: new Date(Date.now() + 3 * 1000),
+  res.cookie("cookie_name", "now testing", {
+    expires: new Date(Date.now() + 3 * 1000),
+  });
 });
 
 console.log(req.body);

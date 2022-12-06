@@ -60,7 +60,7 @@ function a(data) {
 
 //2 게시판등록
 app.post("/api/board/add", (req, res) => {
-  console.log(a(req.body));
+  console.log(req.body);
   res.send({ status: 200, data: "정상 입력 완료" });
 });
 
