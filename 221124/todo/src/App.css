@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  background-color: red;
+  background-image: url(./);
 }
 
 .App-logo {
