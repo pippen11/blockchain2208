@@ -4,16 +4,17 @@ import backimg from "./img/backcolor.png";
 import React from "react";
 import Select from "react-select";
 // import circlecheck from "circle-check-regular.svg";
-const COLOR = " #3399ff";
 // import magni from "./img/magnifying-glass-solid.svg";
+import { VscSearch } from "react-icons/vsc";
+const COLOR = " #3399ff";
 
 export default function CompanyComponent() {
   const options = [
     { value: "", label: "" },
-    { value: "기업형태", label: "기업형태" },
-    { value: "중소기업", label: "중소기업" },
-    { value: "외국계", label: "외국계" },
-    { value: "중견기업", label: "중견기업" },
+    { value: "1", label: "기업형태" },
+    { value: "2", label: "중소기업" },
+    { value: "3", label: "외국계" },
+    { value: "4", label: "중견기업" },
   ];
 
   return (
@@ -32,6 +33,13 @@ export default function CompanyComponent() {
           </Joindetail>
 
           <Select
+            styles={{
+              control: (baseStyles, state) => ({
+                ...baseStyles,
+
+                height: "50px",
+              }),
+            }}
             className="selectone"
             placeholder="기업형태＊"
             options={options}
@@ -51,7 +59,13 @@ export default function CompanyComponent() {
             회사명,대표자명 수정이 필요한 경우, 가입 후 고객센터(1588-9350)로
             문의 해 주세요
           </div>
-          <Companyadress type={"text"} placeholder="회사주소 *"></Companyadress>
+          <div>
+            <Companyadress
+              type={"text"}
+              placeholder="회사주소 * "
+            ></Companyadress>{" "}
+            {/* <img src={magni} alt="" /> */}
+          </div>
           <Companytitle>
             <Companyid type={"text"} placeholder="아이디 *"></Companyid>
             <Companypw type={"text"} placeholder="비밀번호*"></Companypw>
