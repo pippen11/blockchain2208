@@ -51,10 +51,21 @@ export const counterThunk = createAsyncThunk(
   }
 );
 
+const initialState = { value: 0, isLoading: false };
+
+//기존 스위치문등대신씀(reducer만드는거도와줌)
+
+//객체를 매개변수로받음->객체안에는 반드시 name,initialState,reducers가 있어야함
+
+//action이름은 createSlice가 알아서 만들어줄것 name이 action이름
+
+//reducers안에는 객체안에 ifelse switch써서 만든케이스를 함수로 만듬
+// 매개변수는 state랑 action을 받음
+
 const counterSlice = createSlice({
   // createSlice로 actions, reducers 등등을 전부 한번에 생성한다.
   name: "count", // action의 이름, action의 type에 '액션명/리듀서명'으로 표기된다.
-  initialState: { value: 0, isLoading: false }, // 초기값, 객체로만 가능
+  initialState, // 초기값, 객체로만 가능
   reducers: {
     // reducer를 만든다.
     increment: (state) => {

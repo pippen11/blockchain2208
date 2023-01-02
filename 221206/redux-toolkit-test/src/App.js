@@ -6,6 +6,8 @@ import { action, counterThunk } from "./modules/counter";
 function App() {
   const dispatch = useDispatch();
   const count = useSelector((state) => state.count.value);
+  // state.count의 count는 store의 reducer의 count랑같음
+  //접근할때 counter가 reducer자체니까 이렇게접근함
   const isLoading = useSelector((state) => state.count.isLoading);
   const [inputCount, setCount] = useState(0);
   const [input, setInput] = useState(0);
