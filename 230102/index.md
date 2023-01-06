@@ -27,10 +27,23 @@
      - 최신 Linux에 추가된 기능이다.
 3. sudo apt-get install -y apache2 nodejs npm mysql-server
 
-4. cd /var/www => sudo chmod 777 html -R
-   - chmod는 권한 설정 프로그램이다.
-   - 777은 모든 사용자, 모든 그룹에 대해서 모든 권한을 준다.
-   - -R은 하위 모든 폴더/파일에 같은 권한을 적용한다.
+1~3번은 최상위 루트에서 적용한다
+
+88/\*9856142100-../
+.0 XDCFT6FHUTBC U9.;
+]
+.0.
+
+- ,LZQW23AW3E45ZXDFRT56 BNHJ NM'
+
+4.  cd /var/www 경로로 들어간다음 sudo chmod 777 html -R
+
+- chmod는 권한 설정 프로그램이다.
+- 777'
+  은 모든 사용자, 모든 그룹에 대해서 모든 권한을 준다.
+
+- -R은 하위 모든 폴더/파일에 같은 권한을 적용한다.
+
 5. sudo mkdir server => sudo chmod 777 server -R
    - mkdir 은 폴더 생성
 6. cd server => npm install => npm start
@@ -54,7 +67,9 @@
 
    - show databases;
 
-10. apache의 설정을 수정한다.
+/\*63+
+.0.
+.0.0ㅅ.010. apache의 설정을 수정한다.
 
     - cd /etc/apache2/sites-available
       - apache에 대한 설정이 있는 폴더이다.
