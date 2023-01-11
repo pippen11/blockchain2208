@@ -7,6 +7,8 @@
 # jest란
 
 -FaceBook에서 개발한 테스트 라이브러리(자칭 프레임워크)
+//test파일이 두개면 jest관련내용 안뜸 npx jest
+//npx jest --verbose 세부내용 상세하게 보여줌
 
 # Block Header란
 
