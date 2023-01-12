@@ -129,6 +129,7 @@ function hex2dec(hex) {
   return value;
 }
 
+//이해안감
 function dec2bin(dec) {
   // 10진수를 2진수로 바꾼다
   let value = "";
@@ -139,6 +140,7 @@ function dec2bin(dec) {
   return value;
 }
 
+// 이해안감
 function bin2dec(bin) {
   //2진수를 10진수로바꾼다
   let value = 0;
@@ -148,10 +150,14 @@ function bin2dec(bin) {
   return value;
 }
 
-console.log(dec2Hex(123123));
-console.log(hex2dec(dec2Hex(123123)));
-console.log(dec2bin(4123));
-console.log(bin2dec(dec2bin(4123)));
+// let n = 1010;
+// console.log(n.length);
+//1. undifined뜨는데 bin.length는?
+
+// console.log(dec2Hex(123123));
+// console.log(hex2dec(dec2Hex(123123)));
+// console.log(dec2bin(4123));
+// console.log(bin2dec(dec2bin(4123)));
 
 // 10진수를 기준으로
 // 1 < = 10 몇승 ? 0승
