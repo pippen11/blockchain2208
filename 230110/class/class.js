@@ -1,7 +1,9 @@
 class ParentTestClass {
   #privateValue;
+  value1;
 
   constructor(value) {
+    console.log("ParentTestClass");
     this.#privateValue = value;
     this.value = value * 10;
   }
@@ -21,21 +23,36 @@ class ParentTestClass {
     //class.test.js에서 TestClass.add(1,2) 13번째줄에서사용
     return a + b;
   }
+0223.
+203.
+149*
 
-  add() {
-    //class.test.js에서 test.add() 12번째줄에서사용
-    return this.#privateValue + this.value;
+
+
+d/*74851023.
+0.
+4569() {    //class.test.js에서 test.add() 12번째줄에서사용\
+  ';ㄵ  `ㅋㅊㅇㄺ 퓨ㅗㅓ ;,.
+  -
++
+  ㄹㅊㅍ    return this.#privateValue + this.value;
   }
 }
 //#붙이면 외부에서는 없는애다
 
 class TestClass extends ParentTestClass {
   constructor(value) {
-    super(value);
+    console.log("TestClass");
+    super(5);
     // console.log(this.#privateValue);
     //위에껀안됨
     //상속받은건 모든걸 다갖고잇기때문에 정상적으로 test가 진행이됨
   }
 }
 
+const test = new TestClass(11);
+console.log(test);
+console.log(test.privateValue);
+
 module.exports = TestClass;
++
