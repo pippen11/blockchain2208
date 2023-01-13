@@ -132,10 +132,14 @@ function hex2dec(hex) {
 //이해안감
 function dec2bin(dec) {
   // 10진수를 2진수로 바꾼다
+  //8이 들어왔을때 예시
   let value = "";
   while (dec) {
+    //만약 dec가 8이면
     value = (dec % 2) + value;
+    // 8을 2로 나눈 나머지는 0 +"" 스트링은 스트링으로 0이된다
     dec = parseInt(dec / 2);
+    // 8을 2로 나누고 정수화되면 그게 dec가됨 4가되면 또돌고 00이됨 2가되면 0이되고 결국엔 2를 1로나눈나머지가 1이라 1000이됨
   }
   return value;
 }
