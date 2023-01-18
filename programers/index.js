@@ -14,6 +14,7 @@
 
 // for (let i = 0; i < my_string.length; i++) {}
 
+<<<<<<< HEAD
 // 9시 44분 삼각형 완성조건 10시
 
 // let sides = [3, 6, 2];
@@ -212,3 +213,38 @@
 // if(alpas[i]==test[i]){
 //   array.
 // }
+=======
+// function solution(numbers, direction) {
+//   var answer = [];
+//   let cnt = 0;
+//   while (cnt <= numbers.length) {
+//     console.log(cnt);
+//     console.log(numbers);
+//     if (direction == "right") {
+//       numbers[numbers.length - 1] = numbers[0];
+//       numbers[cnt] = numbers[cnt + 1];
+//     }
+//     cnt = cnt + 1;
+//   }
+//   return answer;
+// }
+
+// console.log(solution([1, 2, 3], "right"));
+
+function solution(age) {
+  var answer = "";
+  let cnt = 0;
+  answer = answer + age;
+  let test = answer.split("");
+  for (let i = 0; i < test.length; i++) {
+    if (test[i] == cnt + 1) {
+      test[i] = "c";
+    }
+    cnt++;
+    console.log(test);
+  }
+  return answer;
+}
+
+console.log(solution(23));
+>>>>>>> 0d1f909f1b8dea9b4c844a3b4aeb2a6cf8b10902
