@@ -4,29 +4,24 @@ const path = require("path");
 const parser = (client, req) => {
   function createMessage(data) {
     const dataBuffer = Buffer.from(data);
-    // console.log(dataBuffer);
     let contentType = req.headers.accept;
-    // console.log(contentType);
-    //text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;
-    // q=0.8,application/signed-exchange;v=b3;q=0.9 두줄이이어서들어옴
     if (contentType.indexOf("text/html") > -1) contentType = "text/html";
     return `HTTP/1.1 200 OK
-Connection: Close
+Connection: Close 
 Conntent-Type: ${contentType}; charset=UTF-8
 Content-Length: ${dataBuffer.length}
+//데이터의 길이로 잡으면 스트링1은 1 버퍼로잡으면 3 스트링렝스는 더짧게나와서 잘림(최대길이수는 우리가정함)
 
 ${dataBuffer.toString()}`;
   }
   return {
     send: (data) => {
       const message = createMessage(data);
-      // console.log(message);
       client.write(message);
     },
     sendFile(fileName) {
       const target = path.join(__dirname, "../public", fileName);
       const readLine = fs.readFileSync(target, "utf-8");
-      // console.log(readLine);
       const message = createMessage(readLine);
       client.write(message);
     },
