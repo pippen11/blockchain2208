@@ -31,29 +31,38 @@ const server = net.createServer((client) => {
     //라우터 구현
     // Routes해서 쓴게 이거다
     // req, 요청으로 들어온 정보를 가져와서 path와 method에 따라 라우터를 구분하여 응답을 보낸다.
-    if (req.method === "GET" && req.path === "/") {
-      //get형식이면서 path가 /면 index.html로 응답
-      // app.get("/",(req,res)=>{})
-      //GET 형식으로 / 라우터로 요청이 왔을때 public 폴더의 index.html파일으로 응답한다.
-      res.sendFile("index.html");
-    } else if (req.method === "GET" && req.path === "/index.css") {
-      res.sendFile("index.css");
-    } else if (req.method === "GET" && req.path === "/index.js") {
-      res.sendFile("index.js");
-    } else if (req.method === "GET" && req.path === "/board") {
-      // console.log("test1");
-      res.sendFile("/board/board.html");
-    } else if (req.method === "GET" && req.path === "/board.js") {
-      // console.log("test2");
-      res.sendFile("/board/board.js");
-    } else if (req.method === "GET" && req.path === "/board/list") {
+    if (global.isStatic) {
+      const staticRoutes = staticFunc();
+      if (req.method === "GET" && staticRoutes[req.path]) {
+        res.sendStaticFile(staticRoutes[req.path]);
+      }
+    }
+
+    // if (req.method === "GET" && req.path === "/") {
+    //   //get형식이면서 path가 /면 index.html로 응답
+    //   // app.get("/",(req,res)=>{})
+    //   //GET 형식으로 / 라우터로 요청이 왔을때 public 폴더의 index.html파일으로 응답한다.
+    //   res.sendFile("index.html");
+    // } else if (req.method === "GET" && req.path === "/index.css") {
+    //   res.sendFile("index.css");
+    // } else if (req.method === "GET" && req.path === "/index.js") {
+    //   res.sendFile("index.js");
+    // } else if (req.method === "GET" && req.path === "/board") {
+    //   // console.log("test1");
+    //   res.sendFile("/board/board.html");
+    // } else if (req.method === "GET" && req.path === "/board.js") {
+    //   // console.log("test2");
+    //   res.sendFile("/board/board.js");
+    // } else
+    if (req.method === "GET" && req.path === "/board/list") {
       // console.log("asdfsdf");
-      console.log(req.body.value);
+
       res.send(JSON.stringify(global.board));
       //배열을 보내면 안들어가서 JSON.stringify ->json으로 변환한다
       // string + -ify => string, 문자열로 -ify, -화한다. => 문자열로 변환한다.
     } else if (req.method === "POST" && req.path === "/board/add") {
       global.board.unshift(req.body.value);
+      //여기서의 req.body.value?는
       // console.log("test");
       res.send(JSON.stringify(global.board));
       //배열을 보내면 안들어가서 JSON.stringify ->json으로 변환한다
