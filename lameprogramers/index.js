@@ -1,14 +1,14 @@
-function solution(num1, num2) {
-  let answer = parseInt((num1 / num2) * 1000);
-  //1. number->string
-  //2. 10진수 추론을위해 string앞 2글자가 ox나 oX인지 비교
-  console.log("MF(-1.1)", Math.floor(-1.1));
-  //이게 수학적으로 소수점버리는거
-  console.log("parseInt(-1.1)", parseInt(-1.1));
-  return;
-}
+// function solution(num1, num2) {
+//   let answer = parseInt((num1 / num2) * 1000);
+//   //1. number->string
+//   //2. 10진수 추론을위해 string앞 2글자가 ox나 oX인지 비교
+//   console.log("MF(-1.1)", Math.floor(-1.1));
+//   //이게 수학적으로 소수점버리는거
+//   console.log("parseInt(-1.1)", parseInt(-1.1));
+//   return;
+// }
 
-solution(1, 2);
+// solution(1, 2);
 
 //분수의 덧셈 혼자풀어보기
 // function solution(denum1, num1, denum2, num2) {
@@ -98,3 +98,34 @@ solution(1, 2);
 //   }
 //   cnt = cnt + 1;
 // }
+
+// function solution(age) {
+//   var answer = "";
+//   let stringage = String(age);
+//   let cnt = 0;
+//   // console.log(stringage.length);
+//   while (cnt < stringage.length) {
+//     if (stringage[cnt] === "0") {
+//       answer = answer + "a";
+//     }
+//     if (stringage[cnt] === "1") {
+//       answer = answer + "b";
+//     }
+//     if (stringage[cnt] === "2") {
+//       answer = answer + "c";
+//     }
+//     cnt = cnt + 1;
+//     console.log(answer);
+//   }
+// }
+// solution(12);
+
+function solution(emergency) {
+  var answer = [];
+  let test = emergency.sort((a, b) => b - a);
+  console.log(test);
+
+  return answer;
+}
+
+solution([3, 76, 24]);
