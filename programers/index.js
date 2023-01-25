@@ -1947,3 +1947,50 @@ let db = [
 // if (a.length !== 0) console.log(a);
 // console.log(arr.length);
 // if (a.length == 0) console.log([-1]);
+
+// let arr = [4, 3, 2, 3, 0, 1];
+// let arr1 = [10];
+
+// if (arr1.length == 1) {
+//   console.log([-1]);
+// }
+// // let a = arr.join("");
+
+// let a = Math.min(...arr);
+
+// let b = arr.filter((item, index) => item !== a);
+
+// console.log(b);
+
+// let absolutes = [1, 2, 3];
+
+// signs = [false, false, true];
+// answer = 0;
+// for (let i = 0; i < absolutes.length; i++) {
+//   if (signs[i] == true) {
+//     answer += absolutes[i];
+//   }
+//   if (signs[i] == false) {
+//     answer -= absolutes[i];
+//   }
+// }
+// console.log(answer);
+
+// let numbers = [5, 8, 4, 0, 6, 7, 9];
+// let numbersone = [5, 8, 4, 0, 6, 7, 9];
+// let a = numbers.sort((a, b) => a - b);
+
+// // console.log(a);
+// let answer = 0;
+// for (let i = 0; i <= 9; i++) {
+//   if (a.indexOf(i) == -1) {
+//     answer += i;
+//   }
+// }
+
+// console.log(answer);
+
+let s = "abcde";
+let d = "qwer";
+
+console.log(s.length);
