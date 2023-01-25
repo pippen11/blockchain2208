@@ -2009,3 +2009,17 @@ let db = [
 //   // console.log(a);
 // }
 // console.log(s.length);
+
+let su = "수";
+let bak = "박";
+let answer = "";
+let n = 4;
+for (let i = 1; i <= n; i++) {
+  if (i % 2 !== 0) {
+    answer += su;
+  }
+  if (i % 2 == 0) {
+    answer += bak;
+  }
+}
+console.log(answer);
