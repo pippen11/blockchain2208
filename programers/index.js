@@ -1990,7 +1990,19 @@ let db = [
 
 // console.log(answer);
 
-let s = "abcde";
+let s = "a1111";
 let d = "qwer";
 
-console.log(s.length);
+console.log(s[s.length - 3]);
+let a = s.split("");
+
+// console.log(a.splice(, 2));
+
+// console.log(s);
+if (s.length % 2 == 0) {
+  // console.log("짝수개");
+}
+if (s.length % 2 !== 0) {
+  // console.log("홀수개");
+}
+// console.log(s.length);
