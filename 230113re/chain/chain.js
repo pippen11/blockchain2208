@@ -48,16 +48,18 @@ class Chain {
 
   get adjustmentBlock() {
     //adjustmentblock지정해서 내보내는이유?
-    //=>  난이도 지정을 10개마다 했으니까
+    //=>  난이도 지정을 10개마다 했으니까 체인에 추가는 되는데 만약 길이가 -면 말이안되니까 제네시스를 내보냄
     const length = this.#chain.length;
     //체인의 길이를 구함
     const interval = length - this.#DIFFICULTY_ADJUSTMENT_INTERVAL;
     // interval은  체인의 길이에서 블록 10개당 난이도 지정한값을 뺌
+    // 최소 체인 길이 1이니까 만약 단위개수가 20이면 interval이 -19
     if (interval < 0) return this.#chain[0];
     // 그값이 0보다 작으면 제네시스 블록을 내보냄
     //인덱스에 -들어갈수없다
 
     return this.#chain[interval];
+    //예를들어 -19번째는 안됨
     // 현재 블록의 10번째 전블록을 내보냄
     // 0보다 작지않으면 그냥 그자체를 내보냄
   }

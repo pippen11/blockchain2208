@@ -61,11 +61,14 @@ class BlockHeader {
   //getdifficulty함수가 block header에 있는이유?
   getDifficulty({
     previousDifficulty,
+    ///이전 난이도는 이전블록의 난이도
     adjustmentDifficulty,
+    // 난이도 매개변수 10개전블록의 난이도
     adjustmentTimestamp,
-    DAI,
+    // 시간 매개변수 10개전블록의 시간
+    DAI, // 환경설정 블록10개당 난이도 설정하게 지정
     averageGenerationTime,
-    //10개당 생성소요시간의 목표치 :1초
+    //10개당 생성소요시간의 목표치 :1초 단위*시간
   }) {
     if (this.height < DAI) this.difficulty = 0;
     //만약 블록의 높이가 블록10개당 난이도 지정한값보다 작으면 난이도 0 10개당 난이도 설정하니까
@@ -124,11 +127,11 @@ class Block extends BlockHeader {
           previousDifficulty: _previousBlock.difficulty,
           //이전 난이도는 이전블록의 난이도
           adjustmentDifficulty: _adjustmentBlock.difficulty,
-          // 난이도 매개변수
+          // 10개전 블록난이도
           adjustmentTimestamp: _adjustmentBlock.timestamp,
-          // 시간 매개변수
+          // 10개전 블록 시간
           DAI: _config.DAI,
-          //난이도 단위개수 _adjustmentBlock 이걸 찾아온다
+          //블록 10개당 난이도 단위개수 _adjustmentBlock 이걸 찾아온다
           averageGenerationTime: _config.averageGenerationTime,
           //10개 블록만드는데 걸리는 목표 시간
         });
@@ -152,13 +155,13 @@ class Block extends BlockHeader {
           previousDifficulty: _previousBlock.difficulty,
           // 이전블록의 난이도
           adjustmentDifficulty: _adjustmentBlock.difficulty,
-          // 블록10개당이 난이도? 밑에 dai랑 다름?
+          // 이전 블록 10개전의 난이도
 
           adjustmentTimestamp: _adjustmentBlock.timestamp,
-          // 블록 10개당의 시간?
+          // 이전 블록 10개전의 시간
 
           DAI: _config.DAI,
-          // 환경설정 블록10개당 난이도 지정한값?
+          // 환경설정 블록10개당 난이도 지정
           averageGenerationTime: _config.averageGenerationTime,
           // 평균 생성 블록시간 1초?
         });
@@ -217,7 +220,7 @@ class Block extends BlockHeader {
       // 논스+생성시간+ 난이도를 다시설정해서 넣는다
       // 해시도 다시 만들어줌?
       hashBinary = hexToBinary(this.hash);
-      //해시를 2진수로 다시바꾸는이유?
+      //해시를 2진수에서 16진수로 바꿈
     }
   }
 
