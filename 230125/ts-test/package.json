@@ -1,0 +1,14 @@
+{
+  "name": "ts-test",
+  "version": "1.0.0",
+  "description": "-마이크로소프트에서 만든 Javascript 기반 프로그래밍 언어 -슈퍼셋? 이라고 부르더라.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.9.4"
+  }
+}

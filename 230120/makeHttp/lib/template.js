@@ -40,7 +40,7 @@ const createHtml = (fileName, data, { styleName, scriptName }) => {
       }
 
       readLine = readLine.replace(`{for{${keys[i]}}}`, subReadLine);
-      // 파일에 {for{}}부분을 읽어서 subReadLine으로변경?
+      // 파일에 {for{li}}부분을 읽어서 subReadLine으로변경?
     } else {
       //배열이 아니면
       readLine = readLine.replace(`{{${keys[i]}}}`, data[keys[i]]);
