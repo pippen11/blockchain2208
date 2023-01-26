@@ -1,0 +1,37 @@
+
+http://192.168.0.140:8080/peer/add 8080앞은 ip고 8080은 포트번호
+1.peer1에서 peer2로 연결을 요청함 peer2가 peer1한테 다시 요청하는게 성공적으로 끝났을때
+2.peer1에서 conncection이벤트 발생
+3.peer2 open 이벤트 발생
+4.peer1 peer2로 메세지전송(랜덤순서)
+5.peer2가 pee1으로 메세지전송(랜덤순서)
+
+listen(서버자체 peer1),addtopeer (peer2)(http요청이 들어왓을때)
+
+열어주세요해서 연결이됨 요청을받은서버라면 connection이되고
+서버에서 연결이 먼저된다?
+
+
+요청을 보낸서버라면  그래서 소켓을만들고있음 peer2가 소켓으로 peer1한테 보낼때 소켓만듬
+addToPeer(peer: string): void {
+    // 소켓을 생성하고 연결한다.
+    // 요청을 받았는데 열려있냐
+    //이게 peer2?
+    //peer은 주소 라서 스트링
+    const socket: WebSocket = new WebSocket(peer);
+    // 상대 소켓 서버 주소를 받아서 연결을 시도한다.
+    //연결 요청(socket, peer1 connection 이벤트 발생, peer2 open 이벤트 발생) 여기까지는 순차적할때씀
+    socket.on("open", () => {
+      // 연결 성공시 open 이벤트가 발생한다.
+      console.log("open");
+      this.connectSocket(socket);
+      // 연결에 성공하면 소켓을 추가한다.
+    });
+  }
+나무전기쓸테니 정보를달라
+무전기(소켓)
+
+
+주파수 맞추는게 peer임
+연결이 확실히되면 open이벤트발생
+
