@@ -2231,3 +2231,23 @@ let db = [
 // } else answer = lastprice - money;
 
 // console.log(answer);
+
+// let arr1 = [
+//   [1, 2],
+//   [2, 3],
+// ];
+// let arr2 = [
+//   [3, 4],
+//   [5, 6],
+// ];
+
+// let answer = 0;
+// let array = [[]];
+// for (let i = 0; i < arr1.length; i++) {
+//   // console.log(arr1[0][0] + arr2[0][0]);
+//   // console.log(arr1[0][1] + arr2[0][1]);
+//   for (let j = 0; j < arr2.length; j++) {
+//     array[0].push(arr1[i][j] + arr2[i][j]);
+//   }
+// }
+// console.log(array);
