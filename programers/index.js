@@ -2231,7 +2231,10 @@ let db = [
 // } else answer = lastprice - money;
 
 // console.log(answer);
+<<<<<<< HEAD
 /////////////////////////////////
+=======
+>>>>>>> 33e7d49197d39128a02eef9d38bf5b7a73edd01a
 
 // let arr1 = [
 //   [1, 2],
@@ -2241,6 +2244,7 @@ let db = [
 //   [3, 4],
 //   [5, 6],
 // ];
+<<<<<<< HEAD
 // let sum = [];
 // let first = [];
 // let second = [];
@@ -2251,3 +2255,16 @@ let db = [
 // }
 // // console.log(first);
 // // console.log(second);
+=======
+
+// let answer = 0;
+// let array = [[]];
+// for (let i = 0; i < arr1.length; i++) {
+//   // console.log(arr1[0][0] + arr2[0][0]);
+//   // console.log(arr1[0][1] + arr2[0][1]);
+//   for (let j = 0; j < arr2.length; j++) {
+//     array[0].push(arr1[i][j] + arr2[i][j]);
+//   }
+// }
+// console.log(array);
+>>>>>>> 33e7d49197d39128a02eef9d38bf5b7a73edd01a
