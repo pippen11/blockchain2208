@@ -31,6 +31,7 @@
 
 // npm i -g ts-node
 //ts-node src/index
+// TCP는 3단계 HTTP는 4단계
 
 import P2P from "./p2p";
 import express, { Express, Request, Response } from "express";
@@ -44,6 +45,7 @@ const ws: P2P = new P2P();
 app.use(express.json());
 
 app.get("/chains", (req: Request, res: Response) => {
+  //현제 체인 가져온다  const genesis: IBlock = new Block([`제네시스 블록 ${new Date()}`]); chain폴더안에 index.ts
   console.log("GET /chains");
   //연결없음
   res.json(ws.getChain);
@@ -51,11 +53,12 @@ app.get("/chains", (req: Request, res: Response) => {
 });
 
 app.post("/block/mine", (req: Request, res: Response) => {
-  //p2p랑상관없이 블록추가
+  //p2p랑상관없이 블록추가 데이터값 포스트맨에
   console.log("POST /block/mine");
   //체인 추가하려고넣음
   const { data }: { data: Array<string> } = req.body;
   const newBlock: IBlock | null = ws.addBlock(data);
+  // addBlock할때 데이터 넣어주니까 그값을 넣어줌 형식은 JSon형식
   if (newBlock === null) res.send("error data");
   res.json(newBlock);
 });
@@ -76,6 +79,7 @@ app.post("/peer/add", (req: Request, res: Response) => {
 });
 
 app.get("/peer", (req: Request, res: Response) => {
+  // 처음엔 빈배열
   console.log("GET /peer");
   //서버에 연결된 피어를 확인하려고 넣음
   const sockets = ws.getSockets.map(

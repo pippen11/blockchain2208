@@ -24,7 +24,7 @@ enum MessageType {
   allBlock = 1,
   // 전체 체인 달라고 하고 준다.
   addBlock = 2,
-  // 블록이 추가됐다고 알려주고 뭐가 추가됐는지 알려준다.
+  // 블록이 추가됐다고 알려주고 뭐가 추가됐는지 알려준다. 내블록으로바꿔라
 }
 // 오타 같은 오류를 줄이기 위해서 사용한다.
 
@@ -35,6 +35,7 @@ interface IMessage {
   payload: any;
   // 메세지에 담긴 데이터
   msg: string;
+  //임시 테스트용
 }
 
 class P2P extends Chain {
@@ -69,6 +70,7 @@ class P2P extends Chain {
       const data: IMessage = JSON.parse(_data.toString());
       console.log(data);
       // 받은 메세지를 객체로 파싱
+      //메세지 data.type이 뭐냐에따라 다르게 설정 last block, allblock등
       switch (data.type) {
         //어떤 요청이 왔는가 type으로 확인해서
         case MessageType.lastBlock: {
@@ -103,11 +105,13 @@ class P2P extends Chain {
         }
         case MessageType.addBlock:
           const isValidChain = this.isValidChain(data.payload);
+          //체인이 정상인지확인
           if (isValidChain.isError === true) {
             console.log(isValidChain.msg);
             break;
           }
 
+          //확인되면 체인 교체
           const isValid = this.replaceChain(data.payload);
           if (isValid.isError === true) {
             console.log(isValid.msg);
@@ -131,14 +135,18 @@ class P2P extends Chain {
       }
     });
 
+    //메세지를 어떻게 보낼건지(메세지 어떤내용담을건지)
+    //이거다음 message쪽
     const message: IMessage = {
       //
       // 처음 연결 시 요청을 보내자 , 마지막 블럭 주세요
       type: type | MessageType.lastBlock,
+      // 마지막블록을 확인해야 누가 더긴지등 확인
       payload: type ? this.getChain : [],
       msg: "처음 신상목이 보냈다.",
     };
     socket.send(JSON.stringify(message));
+    // 일단 연결되면 서로 메세지를 보냄
     //상대방한테 메세지를 보냄
     // message 객체를 주고받을때는 JSON형식으로 보내야함
     // 방금 연결한 소켓 서버에  message 이벤트를 보낸다.
@@ -146,6 +154,7 @@ class P2P extends Chain {
 
   //1 소켓은 peer다
   listen(port: number): void {
+    //listen은 서버여는거 자체
     // 현재 로컬에 서버를 생성, 배포한다.
     const server: WebSocketServer = new WebSocket.Server({ port });
     // 서버를 생성한다.
@@ -153,8 +162,9 @@ class P2P extends Chain {
     // 이 가나슈의 초기 port 설정이 7545이다.
     server.on("connection", (socket: WebSocket) => {
       //connection이생길때 메서드를 실행할수있게 준비해놔라
+      // socket을보냄
       // 내가 요청보냈을때 연결되면 socketstart
-      // 서버에 연결이 들어왔을때 s
+      // 서버에 연결이 들어왔을때
       //요청한쪽은 socket start
       console.log("socket start");
       this.connectSocket(socket);
@@ -166,6 +176,7 @@ class P2P extends Chain {
   //여기서 부터 peer
   addToPeer(peer: string): void {
     //연결함
+
     console.log("addToPeer");
     console.log("peer :", peer);
     // 소켓을 생성하고 연결한다.
@@ -173,6 +184,8 @@ class P2P extends Chain {
     //이게 peer2?
     //peer은 주소 라서 스트링
     const socket: WebSocket = new WebSocket(peer);
+    //http통신을 통해서 peer를 받았다
+
     //소켓을 연결해달라
     //여기가 주파수(peer)맞추는것
     // 상대 소켓 서버 주소를 받아서 연결을 시도한다.

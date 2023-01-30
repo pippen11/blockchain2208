@@ -2,7 +2,7 @@
 
 - 설치 명령어
 
-```sh
+```sh(터미널)
 npm i -D typescript ts-node @types/node
 npm i crypto-js hex-to-binary merkle
 npm i -D @types/crypto-js @types/merkle
