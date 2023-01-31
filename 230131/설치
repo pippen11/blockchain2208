@@ -1,0 +1,5 @@
+npm i -D @types/elliptic
+
+npm i elliptic axios 
+
+ts-node wallet/server 실행 
