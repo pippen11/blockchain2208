@@ -2251,3 +2251,434 @@ let db = [
 // }
 // // console.log(first);
 // // console.log(second);
+
+// let arr = [1, 1, 3, 3, 0, 1, 1];
+// let b = arr.slice(0);
+// console.log(b);
+
+// let test = arr.splice(1, 1);
+// console.log(arr);
+// console.log(test);
+// let b = [];
+// let c;
+// let v;
+// for (let i = 0; i < arr.length; i++) {
+//   // console.log(arr[i] == arr[i + 1]);
+//   if ((arr[i] == arr[i + 1]) == true) {
+//     // console.log(arr[i]);
+//     if (!b.includes(arr[i])) {
+//       b.push(arr[i]);
+//     }
+//   }
+// }
+// // console.log(b);
+
+// for (let i = 0; i < arr.length; i++) {
+//   if (b[i] == undefined && arr.includes(b[i]) == false) {
+//     b.push(arr[i]);
+//   }
+//   // console.log(arr.includes(b[i]));
+// }
+
+// console.log(b);
+
+// let b = arr.filter((item, index) => {
+//   return item !== arr[index + 1];
+//   // console.log(arr[index + 1]);
+// });
+
+// console.log(b);
+
+// function solution(arr) {
+//   var answer = [arr[0]];
+
+//   for (let i = 1; i < arr.length; i++) {
+//     if (answer[answer.length - 1] !== arr[i]) {
+//       answer.push(arr[i]);
+//     }
+//   }
+
+//   return answer;
+// }
+
+// function solution(arr){
+//   var answer = [];
+//   for(var i = 0; i < arr.length; i++){
+//       if(arr[i] !== arr[i + 1]){
+//          answer.push(arr[i]);
+//       }
+//   }
+//   return answer;
+// }
+
+// let n = 45;
+// for (let i = 0; i < n; i++) {
+//   if(n%3==0)
+//   }
+
+// let s = "try hello world";
+// console.log(s[14])/;
+// let s = "  tRy hello  WORLD    ";
+
+// let a = s.split("");
+// // console.log(a);
+// let b;
+// // console.log(a[2]);
+// for (let i = 0; i < a.length; i++) {
+//   console.log(a[i]);
+//   if(a[i!==""]){
+
+//   }
+//   // if (a[i] !== "") {
+//   // a.splice(0, i);
+//   // break;
+// }
+// // }
+// // console.log(a);
+// let n = 45;
+// for (let i = 1; i < n; i++) {
+//   if (n / i == 0) console.log(i);
+// }
+
+// let d = [2, 2, 3, 3];
+
+// budget = 10;
+
+// d.sort((a, b) => a - b);
+
+// // // console.log(d);
+// let answer = 0;
+// let count = 0;
+// // console.log(d);
+// d.forEach((item, index) => {
+//   answer += item;
+//   if (answer <= budget) {
+//     answer++;
+//   }
+// });
+// console.log(answer);
+// console.log(answer);
+// // for (let i = 0; i < d.length; i++) {
+// //   answer += d[i];
+// //   if (answer > budget) break;
+// //   count++;
+// // }
+// // console.log(count);
+
+// function solution(d, budget) {
+//   let answer = 0;
+//   let money = 0;
+//   d.sort((a,b) => a-b).forEach(function(val){
+//       money += val;
+//       if(money <= budget){
+//           answer++;
+//       }
+
+//   })
+//   return answer;
+// }
+
+// let s = "a B z";
+
+// // s.replace();
+
+// // console.log(s);
+// let legexp = /^[a-zA-Z]*$/;
+
+// s.replace(legexp, "d");
+
+// console.log(s);
+
+// let sizes = [
+//   [60, 50],
+//   [30, 70],
+//   [60, 30],
+//   [80, 40],
+// ];
+// let sum = [];
+// for (let i = 0; i < sizes.length; i++) {
+//   sum.push(sizes[i][0] * sizes[i][1]);
+// }
+
+// let number = [-3, -2, -1, 0, 1, 2, 3];
+// let count = 0;
+
+// let a = number.map((item, index) => {
+//   return number[index] + number[index + 1] + number[index + 2];
+// });
+// console.log(a);
+
+// let givecola = 3;
+
+// let takecola = 2;
+
+// let havecola = 10;
+
+// let freecola = 0;
+
+// let free = 0;
+
+// let sum = 0;
+
+// let freeone = 0;
+// while (havecola >= givecola) {
+//   free = (havecola / givecola) * takecola;
+//   freeone = havecola % givecola;
+//   sum += free;
+//   sum += freeone;
+//   havecola = free + freeone;
+// }
+// console.log(sum);
+
+// free = Math.floor(havecola / givecola) * takecola;
+
+// console.log(free);
+
+// freeone = havecola % givecola;
+// // sum += free;
+// console.log(freeone);
+
+// havecola = free + freeone;
+
+// console.log(havecola);
+// free = Math.floor(havecola / givecola);
+// console.log(free);
+// sum += free;
+
+// havecola = havecola - givecola * free + free;
+
+// console.log(havecola);
+
+// free = Math.floor(havecola / givecola);
+
+// console.log(free);
+// sum += free;
+
+// havecola = havecola - givecola * free + free;
+
+// console.log(havecola);
+// console.log(sum);
+// console.log(sum);
+
+// console.log(free);
+// console.log(sum);
+
+// do {
+//   free += Math.floor(sum / givecola);
+
+//   sum = sum - givecola * free + free;
+// } while (Math.floor(sum / givecola) !== 0);
+
+// console.log(free);
+
+// sum = sum - givecola * free + free;
+// console.log(free);
+
+// console.log(sumone);
+
+// s = "-1 -1";
+// console.log(s);
+// let a = s.split(" ");
+// let b;
+// let array = [];
+// let test = "";
+// // console.log(a);
+// a.forEach((item, index) => {
+//   if (item !== " ") {
+//     b = Number(item);
+//     array.push(b);
+//   }
+// });
+// // console.log(array);
+
+// array.sort((a, b) => a - b);
+// // console.log(array);
+
+// for (let i = 0; i < array.length; i++) {
+//   test += `${array[i]} ${array[array.length - 1]}`;
+//   break;
+// }
+// console.log(test);
+// array.forEach((item, index) => {
+//   test += `${array[index]} ${array[array.length - 1]}`;
+// });
+// console.log(test);
+// let a = Number(s);
+// console.log(a);
+// console.log(array);
+// let c = array.join(" ");
+// console.log(c);
+// console.log(Number(c));
+
+// const arr = s.split(" ");
+
+// let a = Math.min(...arr) + " " + Math.max(...arr);
+// console.log(a);
+
+// var arr = s.split(" ");
+// arr.sort((a, b) => a - b);
+// console.log(arr);
+// var answer = arr[0] + " " + arr[arr.length - 1];
+
+// console.log(answer);
+
+// let s = "gpeople unFollowed me";
+// // let b;
+
+// // for (let i = 0; i < s.length; i++) {
+// //   console.log(s[0]);
+// // }
+// // console.log(s);
+// let ar = s.split("");
+
+// // console.log(ar[0].toUpperCase());
+// array = "";
+// // let b;
+// for (let i = 0; i < ar.length; i++) {
+//   array += ar[0].toUpperCase();
+
+//   // console.log(ar);
+// }
+// console.log(array);
+// // console.log(b);
+// // ar.forEach((item, index) => {
+// //   console.log(item);
+// // });
+
+// let s = "3people unFollowed me";
+
+// let a = s.split(" ");
+// // console.log(a);
+// let t = [];
+// let b = [];
+// for (let i = 0; i < a.length; i++) {
+//   a[i].split(0, 1);
+//   t.push(a[i][0].toUpperCase());
+// }
+// console.log(b);
+
+// balls = 5;
+// share = 3;
+// let test = 1;
+// let testone = 1;
+// let testtwo = 1;
+
+// for (let i = 1; i <= balls; i++) {
+//   test *= i;
+// }
+// // console.log(test);
+
+// for (let i = 1; i <= balls - share; i++) {
+//   testone *= i;
+// }
+// console.log(testone);
+
+// for (let i = 1; i <= share; i++) {
+//   testtwo *= i;
+// }
+// console.log(testtwo);
+
+// console.log(test / (testone * testtwo));
+
+// let s = "3people unFollowed me";
+// // let t;
+
+// let a = s.split(" ");
+// // console.log(a);
+
+// console.log(a[0][0].toUpperCase());
+// // console.log(a[1][0].toUpperCase());
+// // console.log(a[2][0].toUpperCase());
+
+// // a.splice(1, 2);
+// // a.splice(1, 1);
+// // console.log(a);
+// for (let i = 0; i < s.length; i++) {}
+// // console.log(t);
+// let n = 2;
+// let n2 = 2;
+// let n3 = 3;
+// let n4 = 4;
+// let n5 = 5;
+// let n6 = 6;
+// let n7 = 7;
+// let n8 = 8;
+// let n9 = 9;
+// // let n10 = 10;
+// let test = 1;
+// let testone = 0;
+// for (let i = 1; i <= n; i++) {
+//   test *= i;
+//   if (test > n) {
+//     testone += i - 1;
+//     break;
+//   }
+//   // console.log(test);
+// }
+// console.log(testone);
+
+// let i = 1;
+// let f = 1;
+// while (f * i < n) f *= ++i;
+// console.log(i);
+
+// let n = 17;
+// let two = 2;
+// let three = 3;
+// let five = 5;
+// let seven = 7;
+// let sum = [];
+// for (let i = 1; i <= 1; i++) {
+//   if (n % seven == 0) {
+//     sum.push(seven);
+//   }
+//   if (n % five == 0) {
+//     sum.push(five);
+//   }
+//   if (n % three == 0) {
+//     sum.push(three);
+//   }
+//   if (n % two == 0) {
+//     sum.push(two);
+//   } else sum.push(n);
+// }
+// console.log(sum.sort((a, b) => a - b));
+
+// console.log(Math.sqrt(n));
+let alpa = {
+  1: a,
+  2: b,
+  3: c,
+  4: d,
+  5: e,
+  6: f,
+  7: g,
+  8: h,
+  9: i,
+  10: j,
+  11: k,
+  12: l,
+  13: m,
+  14: n,
+  15: o,
+  16: p,
+  q: 17,
+  r: 18,
+  s: 19,
+  t: 20,
+  u: 21,
+  v: 22,
+  w: 23,
+  x: 24,
+  y: 25,
+  z: 26,
+};
+
+console.log(alpa.[1]);
+let s = "aukks";
+let skip = "wbqd";
+let index = 5;
+
+let test = s.replace(s[0], alpa[1]);
+console.log(test);
+for (let i = 0; i < s.length; i++) {}

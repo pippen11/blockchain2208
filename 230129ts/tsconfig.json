@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs"
+  }
+}
+
+// js컴파일로 바꾸는 설정해주고
+//npm install -g typescript 전역설치
+//ts -w 적어놓으면 알아서 바꿔줌 js파일로
