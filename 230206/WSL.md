@@ -29,7 +29,7 @@ E-->B-->E
 - Windows SubSystem for Linux
 - 윈도우에서 Linux OS를 사용하게 해주는 서비스
 - Linux OS에는 Ubuntu, cent OS, Redhat 등이 있다.
-  - Lunux는 Unix 기반의 OS이다.
+  - Linux는 Unix 기반의 OS이다.
   - Mac OS도 Unix 기반의 OS이다.
 - WSL은 VM과 조금은 다르다. -> VM이 OS상에서 다른 OS를 설치, 사용->
   VM은 하드웨어 성능을 나눠서 사용하지만 WSL은 Linux의 기반을 설치하지 않고 Windows의 기반을 사용하여 Linux를 실행한다.
@@ -117,7 +117,28 @@ wsl
 11. WSL에서 삭제하고 싶을 때
 
 ```sh
-wsl -unregister Ubuntu
+wsl --unregister Ubuntu
+```
+
+12. 기본적으로 WSL 2를 사용하도록 설정
+
+```sh
+wsl --set-default-version 2
+```
+
+- 기본 버전 수정
+
+```sh
+wsl -l -v
+# 여기서는 Ubuntu 1(기본적으로 1로 설치되도록 설정되어있다.)
+# 여기서는 Ubuntu 2
+wsl --unregister Ubuntu
+wsl -l -v
+# 여기서는 목록 없음
+wsl --set-default-version 2
+wsl --install -d Ubuntu
+wsl -l -v
+# 여기서는 Ubuntu 2
 ```
 
 - 우분투로 실행하면 홈경로로 들어가고 터미널에서 실행하면
@@ -146,13 +167,17 @@ wsl -unregister Ubuntu
 
 # Node.js
 
--설치
+- source ~/.bashrc 이걸로 우분투색깔 회색에서 초록파랑으로 바꿔줘야함 -설치
+
+- 이 source명령은 새 프로세스를 시작하지 않고 현재 셸 세션에서 스크립트 또는 구성 파일의 내용을 실행하는 데 사용됩니다. 를 사용 source ~/.bashrc하면 사용자는 .bashrc로그아웃했다가 다시 로그인하지 않고도 파일을 다시 로드하고 현재 셸 세션의 환경을 업데이트합니다. 이를 통해 사용자는 파일을 변경하고 .bashrc파일을 닫았다가 다시 열 필요 없이 즉시 적용할 수 있습니다. 터미널 창.
 
 ```sh
 sudo apt-get update 로 업데이트함
 sudo apt-get upgrade로 업그레이드까지하기
 sudo apt-get install nodejs
 ```
+
+- 경로 상관 없음
 
 - 업데이트 업그레이트는 ubuntu자체를 업데이트 업그레이드함
 - node -v
@@ -163,7 +188,7 @@ sudo apt-get install nodejs
 - nvm : Node Version Manager
 - Node.js의 버전을 관리한다.
 - https://github.com/nvm-sh/nvm 사이트 들어가서
-- 밑에 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash 찾아서 설치
+- 밑에 curl부터 bash까지 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash 찾아서 설치
 
 - nvm치면 notfound뜬다
 - nvm의 명령어들

@@ -69,7 +69,11 @@ make geth
 
 # 생성한 geth를 위치에 상관없이 명령어로 사용할 수 있도록 하자
 
+- build/bin으로 들어감
+
 -pwd 입력후
+
+- cd ~ 계정의 홈주소
 
 - pwd로 확인한 geth의 경로
 - /home/ssm/geth/go-ethereum/build/bin
@@ -94,8 +98,12 @@ vi ~/.bash_profile
 source ~/.bash_profile
 ```
 
+- bash:환경설정파일
+
 이거 치면 이제 geth가능
 
 - ./geth대신 geth로 쳐도 되게하는 방법
 
 - 이후에 어디서든지 geth 명령어로 geth 실행가능
+
+- wsl을 치면 로컬 우분투깔려있는거로 접속
