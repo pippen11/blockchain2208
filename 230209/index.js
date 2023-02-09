@@ -81,10 +81,11 @@ async function getBalance(_account) {
 }
 
 //이렇게해야 다른거클릭했을때 멈춰준다
-async function getWallet(_account) {
+// async앞에 붙이는거랑 getBalance앞에 await붙여도됨
+function getWallet(_account) {
   if (interval !== undefined) mineStop();
   accountElem.innerHTML = _account;
-  await getBalance(_account);
+  getBalance(_account);
   selectElem.innerHTML = "";
 
   accounts.forEach((item) => {
@@ -117,6 +118,7 @@ async function getAccounts() {
       method: "eth_accounts",
     },
   });
+  //request는 함수자체
   console.log(result);
   // result.unshift(confirmtest);
   walletListElem.innerHTML = "";
