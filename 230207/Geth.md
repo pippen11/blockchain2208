@@ -103,6 +103,8 @@ geth --datadir ~/myGeth
 geth attach ~/myGeth/geth.ipc
 ```
 
+- 이건 IPC로 접근 attach localhost이방식은 http접근
+
 - exit은 나가는것
 
 - eth.getBalance("0xb18fBAd70a07D4CAB5510e2f87Fae20eE22cF2b4") 하면 내 지갑 잔액 알수있다

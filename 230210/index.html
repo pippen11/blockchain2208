@@ -29,15 +29,21 @@
         placeholder="Password"
         pattern="[A-Za-z0-9]+"
       />
+      <!-- 알파벳 A-Z , a-Z, 0-9 +없으면 딱 하나씩만 들어갈수잇다 +는 여러개 -->
       <input
         type="text"
         id="transaction-account"
         placeholder="0x260B222Aa16C244b0BE74CFacFebBf71De221fF3"
       />
       <select id="select-account"></select>
-
-      <input type="number" id="ether" step="0.001" placeholder="Ether" />
-      <!--  step은 0.001이더 단위로보낼수있게 -->
+      <input
+        type="number"
+        id="ether"
+        step="0.001"
+        placeholder="Ether"
+        min="0"
+      />
+      <!-- step으로 이더보내는거 제한둘려고 적어줌 0.001단위로 늘리고 줄이고하겠다-->
       <button>이더 보내기</button>
     </form>
     <form id="new-wallet">
@@ -47,7 +53,7 @@
         placeholder="Password"
         pattern="[A-Za-z0-9]+"
       />
-      <!-- pattern은 대문자나 소문자 숫자 몇글자이상적게 -->
+      <!-- +는 앞에있는것들중 하나를 여러개 넣겟다 -->
       <button id="new-wallet-btn">계정생성</button>
     </form>
     <ul id="wallet-list"></ul>

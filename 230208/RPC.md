@@ -13,6 +13,8 @@
 
 - HTTP 통신을 사용하기 때문에 port가 열려있으면 외부에서 조작가능
 
+- 이건 서버여는거
+
 ```sh
 geth --datadir ~/myGeth --http --http.addr "0.0.0.0" --http.port 8080 --http.corsdomain "*" --http.api "admin,miner,txpool,web3,personal,eth,net" --allow-insecure-unlock --syncmode full --networkid 50
 ```
@@ -217,7 +219,7 @@ curl -X POST -H "content-type: application/json" --data '{"id": 50, "jsonrpc": "
 
 -value값등 0x뒤에 hex값으로 변경해서 넣어야함 1,000,000,000
 
-- 1이더 보내려면 1,000,000,000,000,000,000 0이 18개임 이값을 16진수로 변경해서 0x뒤에 붙여둔다
+- 1이더 보내려면 1,000,000,000,000,000,000 0이 18개임 총 19개 이값을 16진수로 변경해서 0x뒤에 붙여둔다
 
 ```json
 {

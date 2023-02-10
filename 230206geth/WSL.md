@@ -81,7 +81,7 @@ wsl --list --online
 wsl --install -d Ubuntu
 ```
 
--wsl -l -v 버전확인
+- wsl -l -v 버전확인
 
 6. Enter new Unix username
 
@@ -188,7 +188,7 @@ sudo apt-get install nodejs
 - nvm : Node Version Manager
 - Node.js의 버전을 관리한다.
 - https://github.com/nvm-sh/nvm 사이트 들어가서
-- 밑에 curl부터 bash까지 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash 찾아서 설치
+- 밑에 curl부터 bash까지 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash 찾아서 설치 하면 껐다가 킨다
 
 - nvm치면 notfound뜬다
 - nvm의 명령어들
@@ -215,3 +215,8 @@ sudo apt-get install nodejs
   npm i -g typescript ts-node
   npm list -g
   ts-node src
+
+- 예성이한테 줄 선물 고르기
+- 예성이한테 해줄 서프라이즈 이벤트 계획 세우기
+- 예성이한테 용돈주기
+- 예성이한테 근육주기

@@ -65,6 +65,8 @@ make geth
 ./geth
 ```
 
+//./geth로 실행
+
 -./는 현재경로
 
 # 생성한 geth를 위치에 상관없이 명령어로 사용할 수 있도록 하자
@@ -93,6 +95,8 @@ vi ~/.bash_profile
 
   - 수정완료시 esc => :wq! => 엔터
   - ubuntu home ssm bash profile을 메모장으로 열어서확인가능
+
+- source 가 vi쳐서 환경 설정해줘야 저장이된다
 
 ```sh
 source ~/.bash_profile

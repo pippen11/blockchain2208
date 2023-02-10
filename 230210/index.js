@@ -1,6 +1,6 @@
 const request = axios.create({
   method: "POST",
-  baseURL: "http://localhost:8080",
+  baseURL: "http://localhost:8545",
   headers: {
     "content-type": "application/json",
   },
@@ -38,7 +38,7 @@ document.forms["confirmaccount"].onsubmit = function (e) {
 async function mineStop() {
   await request({
     data: {
-      id: 50,
+      id: 1337,
       jsonrpc: "2.0",
       method: "miner_stop",
     },
@@ -54,7 +54,7 @@ async function getBalance(_account) {
     data: { result },
   } = await request({
     data: {
-      id: 50,
+      id: 1337,
       jsonrpc: "2.0",
       method: "eth_getBalance",
       params: [_account, "latest"],
@@ -65,7 +65,7 @@ async function getBalance(_account) {
   //   const balanceData = (
   //     await request({
   //       data: {
-  //         id: 50,
+  //         id: 1337,
   //         jsonrpc: "2.0",
   //         method: "eth_getBalance",
   //         params: [_account, "latest"],
@@ -83,7 +83,7 @@ async function getBalance(_account) {
 //이렇게해야 다른거클릭했을때 멈춰준다
 // async앞에 붙이는거랑 getBalance앞에 await붙여도됨
 function getWallet(_account) {
-  if (interval !== undefined) mineStop();
+  // if (interval !== undefined) mineStop();
   accountElem.innerHTML = _account;
   getBalance(_account);
   selectElem.innerHTML = "";
@@ -97,7 +97,7 @@ function getWallet(_account) {
   //   let address = _account;
   //   const data = await request({
   //     data: {
-  //       id: 50,
+  //       id: 1337,
   //       jsonrpc: "2.0",
   //       method: "eth_getBalance",
   //       params: [`${address}`],
@@ -113,7 +113,7 @@ async function getAccounts() {
     //data여러개나오니 result로 구조분해할당해서 띄우려고씀
   } = await request({
     data: {
-      id: 50,
+      id: 1337,
       jsonrpc: "2.0",
       method: "eth_accounts",
     },
@@ -131,7 +131,7 @@ async function getAccounts() {
 }
 
 getAccounts();
-mineStop();
+// mineStop();
 
 document.forms["new-wallet"].onsubmit = async function (e) {
   e.preventDefault();
@@ -141,7 +141,7 @@ document.forms["new-wallet"].onsubmit = async function (e) {
 
   await request({
     data: {
-      id: 50,
+      id: 1337,
       jsonrpc: "2.0",
       method: "personal_newAccount",
       params: [e.target["new-pw"].value],
@@ -159,7 +159,7 @@ document.getElementById("start").onclick = async function () {
   // 위에 지갑주소 없으면 돌리면 안돼서 if적어줘야함
   await request({
     data: {
-      id: 50,
+      id: 1337,
       jsonrpc: "2.0",
       method: "miner_setEtherbase",
       params: [accountElem.innerHTML],
@@ -168,7 +168,7 @@ document.getElementById("start").onclick = async function () {
   // miner할 이더계정 설정
   await request({
     data: {
-      id: 50,
+      id: 1337,
       jsonrpc: "2.0",
       method: "miner_start",
     },
@@ -193,7 +193,7 @@ document.forms["transaction"].onsubmit = async function (e) {
     to = e.target["transaction-account"].value;
   const datatest = await request({
     data: {
-      id: 50,
+      id: 1337,
       jsonrpc: "2.0",
       method: "personal_unlockAccount",
       params: [accountElem.innerHTML, e.target["tran-pw"].value],
@@ -203,7 +203,7 @@ document.forms["transaction"].onsubmit = async function (e) {
   //   console.log(datatest);
   const data = await request({
     data: {
-      id: 50,
+      id: 1337,
       jsonrpc: "2.0",
       method: "eth_sendTransaction",
       params: [
@@ -218,6 +218,6 @@ document.forms["transaction"].onsubmit = async function (e) {
       ],
     },
   });
-
+  getBalance(accountElem.innerHTML);
   //   console.log(data);
 };
