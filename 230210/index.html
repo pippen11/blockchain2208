@@ -16,6 +16,22 @@
   <body>
     <h1>현재 지갑 : <span id="account"></span></h1>
     <h2>잔액: <span id="balance"></span>ETH</h2>
+    <div>
+      현재 블록 정보
+
+      <div id="number"></div>
+      <div id="hash"></div>
+      <div id="parentHash"></div>
+      <div id="nonce"></div>
+      <div id="stateRoot"></div>
+      <div id="miner"></div>
+      <div id="difficulty"></div>
+      <div id="totalDifficulty"></div>
+      <div id="timestamp"></div>
+    </div>
+    <form id="blockcheck">
+      <button>현재 블록 정보 조회</button>
+    </form>
     <button id="start">채굴 시작</button>
     <button id="stop">채굴 중지</button>
     <form id="confirmaccount">
@@ -45,6 +61,18 @@
       />
       <!-- step으로 이더보내는거 제한둘려고 적어줌 0.001단위로 늘리고 줄이고하겠다-->
       <button>이더 보내기</button>
+    </form>
+    <form id="transactionconfirm">
+      <button>트랜잭션 정보 확인하기</button>
+
+      <div id="tshash"></div>
+      <div id="tsblockHash"></div>
+      <div id="tsblockNumber"></div>
+      <div id="tsindex"></div>
+      <div id="from"></div>
+      <div id="to"></div>
+      <div id="value"></div>
+      <div id="gas"></div>
     </form>
     <form id="new-wallet">
       <input

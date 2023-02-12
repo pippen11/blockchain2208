@@ -24,6 +24,24 @@ const walletListElem = document.getElementById("wallet-list");
 const accountElem = document.getElementById("account");
 const balanceElem = document.getElementById("balance");
 const selectElem = document.getElementById("select-account");
+const numberElem = document.getElementById("number");
+const hashElem = document.getElementById("hash");
+const parentHashElem = document.getElementById("parentHash");
+const noneElem = document.getElementById("nonce");
+const stateRootElem = document.getElementById("stateRoot");
+const minetElem = document.getElementById("miner");
+const difficultyElem = document.getElementById("difficulty");
+const totalDifficultyElem = document.getElementById("totalDifficulty");
+const timestampElem = document.getElementById("timestamp");
+// const tsallElem = document.getElementById("tsall");
+const tshashElem = document.getElementById("tshash");
+const tsblockHashElem = document.getElementById("tsblockHash");
+const tsblockNumberElem = document.getElementById("tsblockNumber");
+const tsindexElem = document.getElementById("tsindex");
+const fromElem = document.getElementById("from");
+const toElem = document.getElementById("to");
+const valueElem = document.getElementById("value");
+const gasElem = document.getElementById("gas");
 
 let isCreating = false;
 let interval;
@@ -33,6 +51,61 @@ let accounts = [];
 document.forms["confirmaccount"].onsubmit = function (e) {
   e.preventDefault();
   getWallet(e.target["confirm"].value);
+};
+
+document.forms["blockcheck"].onsubmit = async function (e) {
+  e.preventDefault();
+  const {
+    data: { result },
+  } = await request({
+    data: {
+      id: 1337,
+      jsonrpc: "2.0",
+      method: "eth_getBlockByNumber",
+      params: ["latest", true],
+    },
+  });
+  numberElem.innerHTML = "블록높이: " + result.number;
+  hashElem.innerHTML = "해시값: " + result.hash;
+  parentHashElem.innerHTML = "부모해시: " + result.parentHash;
+  noneElem.innerHTML = "논스값:" + result.nonce;
+  stateRootElem.innerHTML = "블록포함트잭 머클루트: " + result.stateRoot;
+  difficultyElem.innerHTML = "난이도: " + result.difficulty;
+  totalDifficultyElem.innerHTML =
+    "이블록까지 체인 총 난이도: " + result.totalDifficulty;
+  timestampElem.innerHTML = "타임스탬프: " + result.timestamp;
+};
+
+document.forms["transactionconfirm"].onsubmit = async function (e) {
+  e.preventDefault();
+  const {
+    data: { result },
+  } = await request({
+    data: {
+      id: 1337,
+      jsonrpc: "2.0",
+      method: "eth_getBlockByNumber",
+      params: ["latest", true],
+    },
+  });
+  console.log(result.transactions[0]);
+  if (result.transactions[0] == undefined) {
+    alert("확인할 트랜잭션이 없습니다");
+  } else {
+    tshashElem.innerHTML =
+      "현재트랜잭션의 해시값: " + result.transactions[0].hash;
+    tsblockHash.innerHTML =
+      "트랜잭션에 포함된 블록의 해시값: " + result.transactions[0].blockHash;
+    tsblockNumberElem.innerHTML =
+      "블록의 높이: " + result.transactions[0].blockNumber;
+    tsindexElem.innerHTML =
+      "블록내 트랜잭션의 인덱스: " + result.transactions[0].transactionIndex;
+    fromElem.innerHTML = "보낸 주소: " + result.transactions[0].from;
+    toElem.innerHTML = "전송된 주소: " + result.transactions[0].to;
+    valueElem.innerHTML = "보낸 이더 량: " + result.transactions[0].value;
+    gasElem.innerHTML =
+      "트랜잭션 수행 사용된 가스량: " + result.transactions[0].gas;
+  }
 };
 
 async function mineStop() {

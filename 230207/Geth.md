@@ -21,6 +21,8 @@ Chain ID: 1(mainnet)
 
 - 이건 보여줄려고 만든것
 
+- 이거랑 clef로 만든거랑 다른가?
+
 ```json
 {
   "difficulty": "200000",
@@ -114,6 +116,8 @@ geth attach ~/myGeth/geth.ipc
 ```sh
 # eth.getBalance(지갑주소)=> 지갑의 돈을 받아 출력한다.
 eth.getBalance("0xb18fBAd70a07D4CAB5510e2f87Fae20eE22cF2b4") # 100000000
+
+# 50000000000000000000 20개나옴 이더로치면 50이더 19자리
 eth.getBlock(0) # 제네시스 블록 가져와 출력
 web3.fromWei(eth.getBalance("0xb18fBAd70a07D4CAB5510e2f87Fae20eE22cF2b4"),"ether")
 ```
@@ -235,5 +239,7 @@ source ......./.bash_profile
 - 입력 후에 터미널 재실행
 
 # 이더 보낼때
+
+<!--  집에서 했는데 unlock안되는이유? -->
 
 - geth --datadir ~/myGeth --unlock "0x260b222aa16c244b0be74cfacfebbf71de221ff3" 이렇게 보낼지갑 unlock으로 서버에서 풀어야함

@@ -38,7 +38,7 @@ document.forms["confirmaccount"].onsubmit = function (e) {
 async function mineStop() {
   await request({
     data: {
-      id: 50,
+      id: 60,
       jsonrpc: "2.0",
       method: "miner_stop",
     },
@@ -54,7 +54,7 @@ async function getBalance(_account) {
     data: { result },
   } = await request({
     data: {
-      id: 50,
+      id: 60,
       jsonrpc: "2.0",
       method: "eth_getBalance",
       params: [_account, "latest"],
@@ -65,7 +65,7 @@ async function getBalance(_account) {
   //   const balanceData = (
   //     await request({
   //       data: {
-  //         id: 50,
+  //         id: 60,
   //         jsonrpc: "2.0",
   //         method: "eth_getBalance",
   //         params: [_account, "latest"],
@@ -97,7 +97,7 @@ function getWallet(_account) {
   //   let address = _account;
   //   const data = await request({
   //     data: {
-  //       id: 50,
+  //       id: 60,
   //       jsonrpc: "2.0",
   //       method: "eth_getBalance",
   //       params: [`${address}`],
@@ -113,7 +113,7 @@ async function getAccounts() {
     //data여러개나오니 result로 구조분해할당해서 띄우려고씀
   } = await request({
     data: {
-      id: 50,
+      id: 60,
       jsonrpc: "2.0",
       method: "eth_accounts",
     },
@@ -141,7 +141,7 @@ document.forms["new-wallet"].onsubmit = async function (e) {
 
   await request({
     data: {
-      id: 50,
+      id: 60,
       jsonrpc: "2.0",
       method: "personal_newAccount",
       params: [e.target["new-pw"].value],
@@ -159,7 +159,7 @@ document.getElementById("start").onclick = async function () {
   // 위에 지갑주소 없으면 돌리면 안돼서 if적어줘야함
   await request({
     data: {
-      id: 50,
+      id: 60,
       jsonrpc: "2.0",
       method: "miner_setEtherbase",
       params: [accountElem.innerHTML],
@@ -168,7 +168,7 @@ document.getElementById("start").onclick = async function () {
   // miner할 이더계정 설정
   await request({
     data: {
-      id: 50,
+      id: 60,
       jsonrpc: "2.0",
       method: "miner_start",
     },
@@ -193,7 +193,7 @@ document.forms["transaction"].onsubmit = async function (e) {
     to = e.target["transaction-account"].value;
   const datatest = await request({
     data: {
-      id: 50,
+      id: 60,
       jsonrpc: "2.0",
       method: "personal_unlockAccount",
       params: [accountElem.innerHTML, e.target["tran-pw"].value],
@@ -203,7 +203,7 @@ document.forms["transaction"].onsubmit = async function (e) {
   //   console.log(datatest);
   const data = await request({
     data: {
-      id: 50,
+      id: 60,
       jsonrpc: "2.0",
       method: "eth_sendTransaction",
       params: [

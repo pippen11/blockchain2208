@@ -79,6 +79,7 @@ make geth
 
 - pwd로 확인한 geth의 경로
 - /home/ssm/geth/go-ethereum/build/bin
+- /home/ssm/geth/go-ethereum/build/bin
 - 파일 하나를 만들자
   - 이름은 .bash_profile
   - 방법은 vi

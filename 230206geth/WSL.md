@@ -92,6 +92,11 @@ wsl --install -d Ubuntu
 7. WSL2를 사용하기 위해 아래 프로그램 설치
    https://learn.microsoft.com/ko-kr/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package
 
+- 4단계 - Linux 커널 업데이트 패키지 다운로드
+- 최신 패키지를 다운로드합니다.
+
+- x64 머신용 최신 WSL2 Linux 커널 업데이트 패키지 이거다운인듯
+
 -설치가 끝나면 다시시작
 
 8. WSL의 버전을 확인하기 위해 아래의 명령어 사용
@@ -216,7 +221,4 @@ sudo apt-get install nodejs
   npm list -g
   ts-node src
 
-- 예성이한테 줄 선물 고르기
-- 예성이한테 해줄 서프라이즈 이벤트 계획 세우기
-- 예성이한테 용돈주기
-- 예성이한테 근육주기
+-

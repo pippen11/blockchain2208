@@ -1,10 +1,12 @@
 ## geth를 HTTP 통신으로 사용할 수 있도록 실행에 추가
 
+<!--  메타마스크에서 8080으로 열어야 연결되는거맞나? 여기서 chainid는 우리가만든json파일 기준? -->
+
 ```sh
 geth --datadir ~/myGeth --http --http.addr "0.0.0.0" --http.port 8080 --http.corsdomain "*" --http.api "admin,miner,txpool,web3,personal,eth,net" --allow-insecure-unlock --syncmode full --networkid 50 console
 ```
 
-- 옵션으로 console을 붙일 시 ipc에 자동으로 연결된다.(창을 따로 안띄우고 접근가능 ex) eth 등 curl은 안됨)
+- 옵션으로 console을 붙일 시 ipc에 자동으로 연결된다.(창을 따로 안띄우고 서버연곳에서 명령어 접근가능 ex) eth 등 curl은 안됨)
 - 서버연거와 동시에 ipc에 동시에 연결
 
 - 메타마스크 우축위동그라미 설정-> 네트워크-> localhost8545로 변경
