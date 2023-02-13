@@ -2645,40 +2645,40 @@ let db = [
 // console.log(sum.sort((a, b) => a - b));
 
 // console.log(Math.sqrt(n));
-let alpa = {
-  1: a,
-  2: b,
-  3: c,
-  4: d,
-  5: e,
-  6: f,
-  7: g,
-  8: h,
-  9: i,
-  10: j,
-  11: k,
-  12: l,
-  13: m,
-  14: n,
-  15: o,
-  16: p,
-  q: 17,
-  r: 18,
-  s: 19,
-  t: 20,
-  u: 21,
-  v: 22,
-  w: 23,
-  x: 24,
-  y: 25,
-  z: 26,
-};
+// let alpa = {
+//   1: a,
+//   2: b,
+//   3: c,
+//   4: d,
+//   5: e,
+//   6: f,
+//   7: g,
+//   8: h,
+//   9: i,
+//   10: j,
+//   11: k,
+//   12: l,
+//   13: m,
+//   14: n,
+//   15: o,
+//   16: p,
+//   q: 17,
+//   r: 18,
+//   s: 19,
+//   t: 20,
+//   u: 21,
+//   v: 22,
+//   w: 23,
+//   x: 24,
+//   y: 25,
+//   z: 26,
+// };
 
-console.log(alpa.[1]);
-let s = "aukks";
-let skip = "wbqd";
-let index = 5;
+// console.log(alpa.[1]);
+// let s = "aukks";
+// let skip = "wbqd";
+// let index = 5;
 
-let test = s.replace(s[0], alpa[1]);
-console.log(test);
-for (let i = 0; i < s.length; i++) {}
+// let test = s.replace(s[0], alpa[1]);
+// console.log(test);
+// for (let i = 0; i < s.length; i++) {}
