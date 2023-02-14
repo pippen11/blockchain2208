@@ -43,6 +43,8 @@ npm i -g ganache-cli
 npx ganache-cli
 ```
 
+- npx ganache-cli --chainid 1234
+- 이렇게하면 1234chain id로 실행한다
 - cli = comment Line Interface
 - npx = node pakage excute 실행한다
 

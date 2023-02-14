@@ -2645,40 +2645,118 @@ let db = [
 // console.log(sum.sort((a, b) => a - b));
 
 // console.log(Math.sqrt(n));
-let alpa = {
-  1: a,
-  2: b,
-  3: c,
-  4: d,
-  5: e,
-  6: f,
-  7: g,
-  8: h,
-  9: i,
-  10: j,
-  11: k,
-  12: l,
-  13: m,
-  14: n,
-  15: o,
-  16: p,
-  q: 17,
-  r: 18,
-  s: 19,
-  t: 20,
-  u: 21,
-  v: 22,
-  w: 23,
-  x: 24,
-  y: 25,
-  z: 26,
-};
+// let alpa = {
+//   1: a,
+//   2: b,
+//   3: c,
+//   4: d,
+//   5: e,
+//   6: f,
+//   7: g,
+//   8: h,
+//   9: i,
+//   10: j,
+//   11: k,
+//   12: l,
+//   13: m,
+//   14: n,
+//   15: o,
+//   16: p,
+//   q: 17,
+//   r: 18,
+//   s: 19,
+//   t: 20,
+//   u: 21,
+//   v: 22,
+//   w: 23,
+//   x: 24,
+//   y: 25,
+//   z: 26,
+// };
 
-console.log(alpa.[1]);
-let s = "aukks";
-let skip = "wbqd";
-let index = 5;
+// console.log(alpa.[1]);
+// let s = "aukks";
+// let skip = "wbqd";
+// let index = 5;
 
-let test = s.replace(s[0], alpa[1]);
-console.log(test);
-for (let i = 0; i < s.length; i++) {}
+// let test = s.replace(s[0], alpa[1]);
+// console.log(test);
+// for (let i = 0; i < s.length; i++) {}
+
+// let n = 12;
+// for (let i = 2; i < n; i++) {
+//   if (n % i == 0) {
+//     for (let j = 1; j < n; j++) {
+//       if (i % j == 0) {
+//         if (j == 1 && j == i) {
+//           console.log(j);
+//         }
+//       }
+//     }
+//   }
+// }
+
+// let s = "3people unFollowed me";
+// let test = s.toLowerCase();
+// // console.log(test);
+
+// let a = test.split(" ");
+// // console.log(a);
+// let b;
+// let c;
+// let d = "";
+// let e = [];
+// // console.log(a);
+// // console.log(a[2]);
+// for (let i = 0; i < a.length; i++) {
+//   if (a[i][0]) {
+//     b = a[i][0].toUpperCase();
+//   }
+
+//   c = a[i].replace(a[i][0], b);
+//   // console.log(c);
+//   e.push(c);
+// }
+// console.log(e.join(" "));
+// //   e.push(c);
+// // }
+// // console.log(e.join(" "));
+// // for (let i = 0; i < e.length; i++) {
+// // e.shift();
+// // }
+
+// // console.log(e);
+
+// // console.log(0.1 + 0.2);
+
+// let A = [1, 4, 2];
+// let B = [5, 4, 4];
+// let sum = 0;
+// let test = A.map((item, index) => {
+//   console.log(item * B[index]);
+// });
+// console.log(test);
+
+// let s = "(())()(())";
+// let plus = 0;
+// let minus = 0;
+// let count = 0;
+// let test = s.split("");
+
+// for (let i = 0; i < test.length; i++) {
+//   if (s[0] == ")" || s[s.length - 1] == "(") {
+//     console.log(false);
+//     count++;
+//     break;
+//   }
+//   if (test[i] == "(") {
+//     plus++;
+//   } else {
+//     minus++;
+//   }
+//   if (plus !== minus && test[i] == ")" && test[i + 1] == "(") {
+//     console.log(false);
+//     break;
+//   }
+// }
+// if (minus == plus && count == 0) console.log(true);
