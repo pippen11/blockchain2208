@@ -52,7 +52,14 @@ document.forms["confirmaccount"].onsubmit = function (e) {
   e.preventDefault();
   getWallet(e.target["confirm"].value);
 };
-
+request({
+  data: {
+    id: 1337,
+    jsonrpc: "2.0",
+    method: "eth_getBlockByNumber",
+    params: ["latest", true],
+  },
+});
 document.forms["blockcheck"].onsubmit = async function (e) {
   e.preventDefault();
   const {
