@@ -14,6 +14,8 @@ const web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8080"));
 
 console.log(web3.eth);
 
+/////////////////////
+
 // const txpool = (
 //   await request({
 //     data: {
@@ -27,6 +29,7 @@ console.log(web3.eth);
 // console.log(txpool);
 // console.log(web3.eth.txpool);
 // web3.eth.txpool.content()
+/////////////
 
 // console.log(web3.eth.getAccounts());
 // 10분 동안 지갑 계정 주소 받아오자
