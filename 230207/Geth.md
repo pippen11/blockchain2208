@@ -64,6 +64,7 @@ Chain ID: 1(mainnet)
 geth --datadir myGeth init genesis.json
 ```
 
+- genesis.json없으면 다시 생성해줘야한다
 - 위 명령어 입력시 myGeth 폴더가 생성되고 그 안에 아래와 같이 폴더와 파일이 생성된다.
 - tab하면 쓰다가 자동완성
 

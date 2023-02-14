@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Web3.js Transaction Pool Example</title>
+  </head>
+  <body>
+    <div id="txpool"></div>
+
+    <script>
+      async function getTxPool() {
+        const response = await fetch("http://localhost:8080", {
+          method: "POST",
+          body: JSON.stringify({
+            jsonrpc: "2.0",
+            id: 1,
+            method: "txpool_content",
+            params: [],
+          }),
+          headers: {
+            "Content-type": "application/json",
+          },
+        });
+        const json = await response.json();
+        const txpool = json.result;
+        console.log(txpool);
+        document.getElementById("txpool").textContent = JSON.stringify(
+          txpool,
+          null,
+          2
+        );
+      }
+
+      getTxPool();
+    </script>
+  </body>
+</html>
