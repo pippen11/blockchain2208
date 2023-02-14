@@ -2682,6 +2682,7 @@ let db = [
 // let test = s.replace(s[0], alpa[1]);
 // console.log(test);
 // for (let i = 0; i < s.length; i++) {}
+<<<<<<< HEAD
 
 // let n = 12;
 // for (let i = 2; i < n; i++) {
@@ -2760,3 +2761,5 @@ let db = [
 //   }
 // }
 // if (minus == plus && count == 0) console.log(true);
+=======
+>>>>>>> ec54d32bceeaccc1f476be95ca1c53764faca052
