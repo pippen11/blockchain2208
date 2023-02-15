@@ -11,7 +11,12 @@ console.log(Web3);
 // Web3라는 클래스로나옴
 
 const web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8080"));
-// 가나슈 포트번호 8545
+// const web3=new Web3("http://localhost:8080")
+// 위에 둘중하나쓰면됨
+// geth에서 사용하는 모듈들을 사용할수있다.(RPC)
+// geth attach http://localhost:8080 이랑 같다
+
+// 가나슈 포트번호 8545 geth도 8545 8080은 그냥 우리가 설정해준거
 // const etherElem = document.getElementById("transfer");
 
 console.log(web3.eth);
@@ -65,44 +70,52 @@ const test = async () => {
     // console.log("(" + i + ")" + accounts[i] + " (" + balance + " Wei)");
     console.log("(" + i + ")" + accounts[i] + " (" + balance + " Eth)");
   }
-  // id 1337이맞나?
+  // id 1337이맞나? 아님 바꿔줘야함 그에맞는 아이디로
   document.getElementById("send").onclick = async () => {
     await request({
       data: {
         id: 1337,
         jsonrpc: "2.0",
         method: "personal_unlockAccount",
-        params: [accounts[0], "1234567891"],
+        params: [accounts[0], "1234"],
       },
     });
+    // web3.personal.unlockAccount()
+
     const transaction = await web3.eth.sendTransaction({
       from: accounts[0],
       to: accounts[1],
       value: web3.utils.toWei("1"),
+      //1이더를 보낸다
     });
+    // 가나슈는 이것만해도 괜찮다 unlock할필요없음
+
     // console.log(web3.utils.toWei("1"));
     // Submitted transaction
     // hash=0x60318b85be9e3047e5756d8f0949d57aea9e7c6fa24b68bc3d341e13fec188b9
     //from=0x36d141119AEc36cA3b38e5Dd6fd23FAC511aD5b5 nonce=6
     //recipient=0xF9fDF98D4A437aAb5ecbb62739755Fc47E634216 value=1,000,000,000,000,000,000
-    // console.log(transaction);
+    console.log(transaction);
+    // 이건 블록의 해시까지 나옴
     //이것도 안뜸 그냥 보낼때 서버에서만 나옴
 
     const transaction1 = await web3.eth.getTransaction(
       transaction.transactionHash
       // transacion.trasacionHash는무엇?
     );
-    console.log(transaction1);
+    console.log(transaction1); //이건 트랜잭션의 hash
     //이거안뜨는게 맞나? 갑자기뜰때가 있던데 어떨때 뜸?
   };
+
+  // 이건 바로 실행된다 라이브서버 열자마자 바로실행
   const transaction = await web3.eth.getTransaction(
-    "0x6be0ebcc9b9482e016432cc491448e48fb50a3deabb837f66a33ca580cc044d4"
+    "0xaf89151bcf52cf69b1b00c62f496310016e2867d3152fa8463f396554c0eae1c"
   );
   // 여기에 뜨는 트랜잭션으로 바꿔줌
   console.log(transaction);
 
   // blockHash: null;
-  //null로 뜨는이유?
+  //null로 뜨는이유? 블록에 추가됐을때의 hash
   // blockNumber: null;
   // null로 뜨는이유? 나중에 blocknumber랑 blockhash값 채굴후 생기는이유? 계속 blocknumber 48로남아있는이유?
   // chainId: "0x3c";
@@ -176,6 +189,49 @@ const test = async () => {
       },
     });
   };
+
+  // web3.eth
+  //   .sendTransaction({
+  //     from: accounts[0],
+  //     to: accounts[1],
+  //     value: web3.utils.toWei("1"),
+  //   })
+  //   .on("transactionHash", (hash) => {
+  //     // 블록추가하기전엔 이거까지
+  //     // on이벤트 로 async await로 confirmation 응답값 과정을 볼수있따
+
+  //     // 트랜잭션 보낼시 해당 트랜잭션의 정보를 기준으로 hash를 생성한다
+  //     console.log("transactionHash", hash);
+  //   })
+  //   .on("receipt", (receipt) => {
+  //     // block에 추가 시 영수증을 발행한다
+  //     console.log("receipt", receipt);
+  //   })
+  //   .on("confrimation", (confirmmation, receipt) => {
+  //     // 완료
+  //     console.log("confrimation", confirmmation);
+  //     console.log(receipt);
+  //   })
+  //   .on("error", (error) => {
+  //     console.log(error);
+  //   });
+  web3.eth.extend({
+    // RPC에 대한 메서드를 추가한다
+    property: "txpool",
+
+    methods: [
+      {
+        name: "content",
+        //호출할때 이름(선언되는 메서드의 이름)
+        call: "txpool_content",
+        //RPC 이름
+      },
+    ],
+  });
+
+  web3.eth.txpool.content().then((data) => console.log(data));
 };
+//0x1d1cce6e9e3223eaabde4900ed89268666266ca357bbdde77694b905157e14c5
+//0xb194432123408447057aaa6e05386a24166aea03a36e54cc6d30ffe7ff2e9429
 
 test();
