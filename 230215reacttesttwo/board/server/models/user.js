@@ -1,6 +1,6 @@
 const Sequelize = require("sequelize");
 
-module.exports = class Board extends Sequelize.Model {
+module.exports = class User extends Sequelize.Model {
   static init(sequelize) {
     return super.init(
       {
@@ -19,7 +19,7 @@ module.exports = class Board extends Sequelize.Model {
       {
         sequelize,
         modelName: "User",
-        tableName: "User",
+        tableName: "user",
         paranoid: true,
         underscored: true,
         timestamps: true,
