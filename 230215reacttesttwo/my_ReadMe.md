@@ -67,3 +67,5 @@ npx nodemon index #in board/server
   "start:server":"nodemon ./server",
   "start:client":"react-scripts start",
   패키지 json에 이거 넣어준다
+
+.env 밖이랑 안에 둘다생성
