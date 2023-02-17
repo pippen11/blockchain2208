@@ -14,11 +14,31 @@ import axios from "axios";
 
 function App() {
   // console.log(web3.eth);
-  // let BlockInfo = [];
+  const [BlockInfodata, setBlockInfodata] = useState([]);
 
   useEffect(() => {
     BlockInfo();
   }, []);
+
+  useEffect(() => {
+    findBlock();
+  }, []);
+
+  const findBlock = async () => {
+    try {
+      const data = await axios.post(
+        "http://localhost:8080/api/block/findblock",
+        {
+          block: "block",
+        }
+      );
+
+      // console.log(data.data[0].hash);
+      setBlockInfodata(data.data);
+    } catch (error) {
+      console.error("err");
+    }
+  };
 
   const BlockInfo = async () => {
     try {
@@ -36,7 +56,7 @@ function App() {
       </Routes>
       <SearchContainer />
       <EtherstatusContainer />
-      <BlockandTxContainer />
+      <BlockandTxContainer BlockInfodata={BlockInfodata} />
     </div>
   );
 }

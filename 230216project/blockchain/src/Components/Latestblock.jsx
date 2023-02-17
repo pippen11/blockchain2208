@@ -2,24 +2,29 @@ import styled from "styled-components";
 import blockimg from "./img/block.png";
 
 const LatestblockComponent = ({ item, index }) => {
+  // console.log(item);
+  // let arr = {};
+  // for (let i = 0; i <= 10; i++) {
+  //   arr += item;
+  // }
+  // console.log(arr);
+  // let temp = arr.splice(0, 10);
+  // console.log(temp);
   return (
     <LatestBlockBoxs>
-      <LastestBlockTitle>Latest Blocks</LastestBlockTitle>
       <LatestBlockBox>
         <BlockTable>
           <Block>
             <BlockImg src={blockimg}></BlockImg>
-            <BlockHeight>{item.height}</BlockHeight>
+            <BlockHeight>{item.number}</BlockHeight>
           </Block>
           <TXDetail>
-            <FeeRecipient>Fee Recipient: {item.recipient}</FeeRecipient>
-            <TxCount>{item.txn} txns</TxCount>
+            <FeeRecipient>hash: {item.hash}</FeeRecipient>
+            {/* <TxCount>transactions:{item.transactions}</TxCount> */}
           </TXDetail>
-          <BlockReward>{item.BlockReward} Eth</BlockReward>
+          {/* <BlockReward></BlockReward> */}
         </BlockTable>
       </LatestBlockBox>
-
-      <ViewBlocks>VIEW ALL BLOCKS</ViewBlocks>
     </LatestBlockBoxs>
   );
 };
@@ -37,14 +42,6 @@ const LatestBlockBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
-
-const LastestBlockTitle = styled.div`
-  margin-top: 20px;
-  font-size: 20px;
-  width: 100%;
-  border-style: solid;
-  border-color: lightgray;
 `;
 
 const BlockTable = styled.div`
@@ -71,9 +68,3 @@ const FeeRecipient = styled.div``;
 const TxCount = styled.div``;
 
 const BlockReward = styled.div``;
-
-const ViewBlocks = styled.div`
-  display: flex;
-  width: 100%;
-  justify-content: center;
-`;

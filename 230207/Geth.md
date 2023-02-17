@@ -144,6 +144,7 @@ eth.coinbase # 현재 채굴 보상을 받는 계정을 확인
 miner.start() # 채굴 시작 치면 null을 반환한다
 miner.stop() # 채굴 중단
 eth.getBlock('latest') # 마지막 블록을 가져온다. number는 몇개채굴했는지
+
 web3.fromWei(eth.getBalance(eth.accounts[0]),'ether')
 eth.sendTransaction({from:eth.accounts[0],to:eth.accounts[1],value: web3.toWei(1,"ether"),}) # 이거하기전 서버에서 geth --datadir ~/myGeth --unlock "0x260b222aa16c244b0be74cfacfebbf71de221ff3" 이렇게 보낼지갑 unlock으로 서버에서 풀어야함
 # 계정 잠금 해재후 보내기 가능
