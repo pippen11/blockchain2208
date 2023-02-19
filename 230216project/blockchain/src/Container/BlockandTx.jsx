@@ -2,12 +2,12 @@ import LatestblockContainer from "./Latestblock";
 import LatesttransactionContainer from "./Latesttransaction";
 import styled from "styled-components";
 
-const BlockandTxContainer = ({ BlockInfodata }) => {
+const BlockandTxContainer = ({ BlockInfodata, Transactiondata }) => {
   return (
     <>
       <Latest>
         <LatestblockContainer BlockInfodata={BlockInfodata} />
-        <LatesttransactionContainer />
+        <LatesttransactionContainer Transactiondata={Transactiondata} />
       </Latest>
     </>
   );

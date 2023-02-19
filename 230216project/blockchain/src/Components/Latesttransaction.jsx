@@ -1,24 +1,22 @@
 import styled from "styled-components";
 import transactionimg from "./img/transaction.png";
 
-const LatesttransactionComponent = () => {
+const LatesttransactionComponent = ({ item, index }) => {
   return (
     <TransactionBoxs>
-      <LastestTransactionsTitle>Latest Transactions</LastestTransactionsTitle>
       <TransactionBox>
         <TransactionTable>
           <Transaction>
             <TransactionImg src={transactionimg}></TransactionImg>
-            <Transactionhash>0x74e8f3bd8c3a2</Transactionhash>
+            <Transactionhash>{item.hash}</Transactionhash>
           </Transaction>
           <TXDetail>
-            <From>From 0x74e8f3bd8c3a2</From>
-            <To>To 0x74e8f3bd8c3a2</To>
+            <From>From: {item.from}</From>
+            <To>To: {item.to}</To>
           </TXDetail>
-          <Amount>0.08451 Eth</Amount>
+          <Amount>{item.value} Eth</Amount>
         </TransactionTable>
       </TransactionBox>
-      <ViewTransactions>VIEW ALL TRANSACTIONS</ViewTransactions>
     </TransactionBoxs>
   );
 };

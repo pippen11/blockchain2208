@@ -7,7 +7,7 @@ import MainbarContainer from "./Container/Mainbar";
 import SearchContainer from "./Container/Search";
 import EtherstatusContainer from "./Container/Etherstatus";
 import BlockandTxContainer from "./Container/BlockandTx";
-import styled from "styled-components";
+// import styled from "styled-components";
 import axios from "axios";
 // import Web3 from "web3";
 // import { Block } from "./api";
@@ -15,6 +15,7 @@ import axios from "axios";
 function App() {
   // console.log(web3.eth);
   const [BlockInfodata, setBlockInfodata] = useState([]);
+  const [Transactiondata, setTransactiondata] = useState([]);
 
   useEffect(() => {
     BlockInfo();
@@ -23,6 +24,29 @@ function App() {
   useEffect(() => {
     findBlock();
   }, []);
+
+  useEffect(() => {
+    TransactionInfo();
+  }, []);
+
+  useEffect(() => {
+    findTransaction();
+  }, []);
+
+  const findTransaction = async () => {
+    try {
+      const data = await axios.post(
+        "http://localhost:8080/api/transaction/findTransaction",
+        {
+          transaction: "transaction",
+        }
+      );
+      // console.log(data.data);
+      setTransactiondata(data.data);
+    } catch (error) {
+      console.error("err");
+    }
+  };
 
   const findBlock = async () => {
     try {
@@ -48,6 +72,16 @@ function App() {
     } catch (error) {}
   };
 
+  const TransactionInfo = async () => {
+    try {
+      const data = await axios.post("http://localhost:8080/api/transaction", {
+        transaction: "transactiontest",
+      });
+    } catch (error) {
+      console.error("err");
+    }
+  };
+
   return (
     <div className="App">
       <Routes>
@@ -56,7 +90,10 @@ function App() {
       </Routes>
       <SearchContainer />
       <EtherstatusContainer />
-      <BlockandTxContainer BlockInfodata={BlockInfodata} />
+      <BlockandTxContainer
+        BlockInfodata={BlockInfodata}
+        Transactiondata={Transactiondata}
+      />
     </div>
   );
 }

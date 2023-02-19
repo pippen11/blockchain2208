@@ -6,7 +6,8 @@ const process = require("process");
 const env = process.env.NODE_ENV || "development";
 const config = require(__dirname + "/../config/config.json")[env];
 const Block = require("./block");
-const db = { Block };
+const Transaction = require("./transaction");
+const db = { Block, Transaction };
 
 let sequelize = new Sequelize(
   config.database,
@@ -16,6 +17,7 @@ let sequelize = new Sequelize(
 );
 
 Block.init(sequelize);
+Transaction.init(sequelize);
 
 Object.keys(db).forEach((modelName) => {
   if (db[modelName].associate) {
