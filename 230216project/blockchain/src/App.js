@@ -89,7 +89,7 @@ function App() {
         {/* <Route path="/" element={<SearchContainer />} /> */}
       </Routes>
       <SearchContainer />
-      <EtherstatusContainer />
+      <EtherstatusContainer Transactiondata={Transactiondata} />
       <BlockandTxContainer
         BlockInfodata={BlockInfodata}
         Transactiondata={Transactiondata}

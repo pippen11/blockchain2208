@@ -21,22 +21,22 @@ web3.eth.subscribe("newBlockHeaders", async (error, result) => {
       //   console.log("resultNumber", resultNumber);
 
       test = await web3.eth.getBlock(BlockNumber);
-
+      let testtransaction;
       if (test.transactions[0] !== undefined) {
-        let testtransaction = await web3.eth.getTransaction(
-          test.transactions[0]
-        );
-        await Transaction.create({
-          blockHash: testtransaction.blockHash,
-          blockNumber: testtransaction.blockNumber,
-          from: testtransaction.from,
-          gas: testtransaction.gas,
-          gasPrice: testtransaction.gasPrice,
-          hash: testtransaction.hash,
-          to: testtransaction.to,
-          transactionIndex: testtransaction.transactionIndex,
-          value: testtransaction.value,
-        });
+        for (let i = 0; i < test.transactions.length; i++) {
+          testtransaction = await web3.eth.getTransaction(test.transactions[i]);
+          await Transaction.create({
+            blockHash: testtransaction.blockHash,
+            blockNumber: testtransaction.blockNumber,
+            from: testtransaction.from,
+            gas: testtransaction.gas,
+            gasPrice: testtransaction.gasPrice,
+            hash: testtransaction.hash,
+            to: testtransaction.to,
+            transactionIndex: testtransaction.transactionIndex,
+            value: testtransaction.value,
+          });
+        }
       }
     } catch (err) {
       console.error(err);

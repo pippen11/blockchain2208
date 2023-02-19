@@ -48,23 +48,42 @@ web3.eth.subscribe("newBlockHeaders", async (error, result) => {
       //   '0x6f9e8463627ef23c66da69e9d44fdee485f18338d34a9ffa24105bde3e88103e',
       //   '0x53bc6702492b3b9cb7932e318d4c991a0296898de604a370bbe882e8dd70b198'
       // ]
-
-      await Block.create({
-        gasLimit: test.gasLimit,
-        gasUsed: test.gasUsed,
-        hash: test.hash,
-        number: test.number,
-        timestamp: test.timestamp,
-        totalDifficulty: test.totalDifficulty,
-        transactions: test.transactions[0],
-      });
-
-      console.log("tx :", test.transactions[0]);
-
-      if (test.transactions[0] !== undefined) {
-        testtransaction = await web3.eth.getTransaction(test.transactions[0]);
-        console.log(testtransaction);
+      console.log(test.transactions.length);
+      let tx = "";
+      for (let i = 0; i < test.transactions.length; i++) {
+        tx += test.transactions[i];
       }
+      console.log(tx.slice(0, 198));
+      if (test.transactions.length < 4) {
+        await Block.create({
+          gasLimit: test.gasLimit,
+          gasUsed: test.gasUsed,
+          hash: test.hash,
+          number: test.number,
+          timestamp: test.timestamp,
+          totalDifficulty: test.totalDifficulty,
+          transactions: tx,
+        });
+      }
+      if (test.transactions.length >= 4) {
+        await Block.create({
+          gasLimit: test.gasLimit,
+          gasUsed: test.gasUsed,
+          hash: test.hash,
+          number: test.number,
+          timestamp: test.timestamp,
+          totalDifficulty: test.totalDifficulty,
+          transactions: tx.slice(0, 198),
+        });
+      }
+
+      // console.log("tx :", test.transactions[0]);
+
+      // if (test.transactions[0] !== undefined) {
+      //   testtransaction = await web3.eth.getTransaction(test.transactions[0]);
+      //   console.log(testtransaction);
+      // }
+
       // {
       //   blockHash: '0x0bfd43201ad71ce6f23feb0e7845891ba9d49ba94dd28efd1f5ec79c29c6e2c7',
       // 트잭이 포함된 블록의 해시

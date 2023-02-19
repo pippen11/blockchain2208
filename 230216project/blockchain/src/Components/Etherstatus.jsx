@@ -2,7 +2,9 @@ import styled from "styled-components";
 import etherIcon from "./img/ethereum.png";
 import transactionIcon from "./img/Transactions.png";
 
-const EtherstatusComponent = () => {
+const EtherstatusComponent = ({ Transactiondata }) => {
+  // console.log(Transactiondata);
+
   return (
     <StatusBox>
       <Status>

@@ -2,6 +2,8 @@ import styled from "styled-components";
 import transactionimg from "./img/transaction.png";
 
 const LatesttransactionComponent = ({ item, index }) => {
+  let Ethvalue = parseInt(item.value) / Math.pow(10, 18);
+  // console.log(item.createdAt);
   return (
     <TransactionBoxs>
       <TransactionBox>
@@ -14,7 +16,7 @@ const LatesttransactionComponent = ({ item, index }) => {
             <From>From: {item.from}</From>
             <To>To: {item.to}</To>
           </TXDetail>
-          <Amount>{item.value} Eth</Amount>
+          <Amount>{Ethvalue} Eth</Amount>
         </TransactionTable>
       </TransactionBox>
     </TransactionBoxs>
@@ -24,30 +26,22 @@ const LatesttransactionComponent = ({ item, index }) => {
 export default LatesttransactionComponent;
 
 const TransactionBoxs = styled.div`
-  display: flex;
-  flex-direction: column;
+  /* display: flex; */
+  /* flex-direction: column; */
   width: 800px;
 `;
 
 const TransactionBox = styled.div`
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
-const LastestTransactionsTitle = styled.div`
-  margin-top: 20px;
-  font-size: 20px;
-  width: 100%;
-  border-style: solid;
-  border-color: lightgray;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* align-items: center; */
 `;
 
 const TransactionTable = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: space-between; */
   width: 100%;
   border-style: solid;
   border-color: lightgray;
