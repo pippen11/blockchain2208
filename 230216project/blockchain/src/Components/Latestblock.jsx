@@ -1,7 +1,9 @@
 import styled from "styled-components";
 import blockimg from "./img/block.png";
+import { useNavigate, Link } from "react-router-dom";
 
 const LatestblockComponent = ({ item, index }) => {
+  const navigate = useNavigate();
   // console.log(item);
   // let arr = {};
   // for (let i = 0; i <= 10; i++) {
@@ -16,10 +18,14 @@ const LatestblockComponent = ({ item, index }) => {
         <BlockTable>
           <Block>
             <BlockImg src={blockimg}></BlockImg>
-            <BlockHeight>{item.number}</BlockHeight>
+            <BlockHeight>
+              <Link to={`/block/${item.number}`}>{item.number}</Link>
+            </BlockHeight>
           </Block>
           <TXDetail>
-            <FeeRecipient>hash: {item.hash}</FeeRecipient>
+            <FeeRecipient>
+              <Link to={`/block/${item.number}`}>hash: {item.hash}</Link>
+            </FeeRecipient>
             {/* <TxCount>transactions:{item.transactions}</TxCount> */}
           </TXDetail>
           {/* <BlockReward></BlockReward> */}
@@ -55,7 +61,12 @@ const BlockTable = styled.div`
 
 const BlockImg = styled.img``;
 
-const BlockHeight = styled.div``;
+const BlockHeight = styled.div`
+  a {
+    text-decoration: none;
+    color: rgba(7, 132, 195, 1);
+  }
+`;
 
 const Block = styled.div`
   display: flex;
@@ -63,7 +74,12 @@ const Block = styled.div`
 
 const TXDetail = styled.div``;
 
-const FeeRecipient = styled.div``;
+const FeeRecipient = styled.div`
+  a {
+    text-decoration: none;
+    color: #065076;
+  }
+`;
 
 const TxCount = styled.div``;
 

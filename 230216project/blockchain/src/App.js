@@ -1,22 +1,29 @@
 // import logo from './logo.svg';
 // import './App.css';
-import { Route, Routes, Link } from "react-router-dom";
+import { Route, Routes, Link, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 import MainbarContainer from "./Container/Mainbar";
-import SearchContainer from "./Container/Search";
-import EtherstatusContainer from "./Container/Etherstatus";
-import BlockandTxContainer from "./Container/BlockandTx";
+import TransactionDetailContainer from "./Container/Transactiondetail";
+
+// import EtherstatusContainer from "./Container/Etherstatus";
+import BlockdetailContainer from "./Container/Blockdetail";
+import MainContainer from "./Container/Main";
+// import MainContainer from "./Container/Main";
 // import styled from "styled-components";
 import axios from "axios";
 // import Web3 from "web3";
 // import { Block } from "./api";
+import BlocksContainer from "./Container/Blocks";
 
 function App() {
   // console.log(web3.eth);
   const [BlockInfodata, setBlockInfodata] = useState([]);
   const [Transactiondata, setTransactiondata] = useState([]);
+  const [Blocksdata, setBlocksdata] = useState([]);
+  const params = useParams();
 
+  // console.log(params);
   useEffect(() => {
     BlockInfo();
   }, []);
@@ -31,6 +38,10 @@ function App() {
 
   useEffect(() => {
     findTransaction();
+  }, []);
+
+  useEffect(() => {
+    BlocksdetailInfo();
   }, []);
 
   const findTransaction = async () => {
@@ -82,18 +93,50 @@ function App() {
     }
   };
 
+  const BlocksdetailInfo = async () => {
+    try {
+      const data = await axios.post(
+        "http://localhost:8080/api/block/blocksdetailInfo",
+        { blockdetail: "blockdetail" }
+      );
+      // console.log(data.data);
+      setBlocksdata(data.data);
+    } catch (error) {
+      console.error("err");
+    }
+  };
+
   return (
     <div className="App">
+      <MainbarContainer />
+
       <Routes>
-        <Route path="/" element={<MainbarContainer />} />
-        {/* <Route path="/" element={<SearchContainer />} /> */}
+        <Route path="/block/:number" element={<BlockdetailContainer />} />
+        <Route
+          path="/transaction/:id"
+          element={<TransactionDetailContainer />}
+        />
+
+        <Route
+          path="/blocks"
+          element={
+            <BlocksContainer
+              Transactiondata={Transactiondata}
+              Blocksdata={Blocksdata}
+            />
+          }
+        />
+
+        <Route
+          path="/"
+          element={
+            <MainContainer
+              Transactiondata={Transactiondata}
+              BlockInfodata={BlockInfodata}
+            />
+          }
+        />
       </Routes>
-      <SearchContainer />
-      <EtherstatusContainer Transactiondata={Transactiondata} />
-      <BlockandTxContainer
-        BlockInfodata={BlockInfodata}
-        Transactiondata={Transactiondata}
-      />
     </div>
   );
 }

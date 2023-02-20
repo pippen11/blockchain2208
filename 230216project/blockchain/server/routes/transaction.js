@@ -4,7 +4,7 @@ const router = require("express").Router();
 
 const axios = require("axios");
 
-const { Transaction } = require("../models");
+const { Transaction, Block } = require("../models");
 
 const web3 = new Web3(
   new Web3.providers.WebsocketProvider("ws://localhost:8082")
@@ -51,6 +51,7 @@ router.post("/", async (req, res) => {
     //   console.log("resultNumber", resultNumber);
 
     test = await web3.eth.getBlock(BlockNumber);
+    console.log(test);
 
     if (test.transactions[0] !== undefined) {
       let testtransaction = await web3.eth.getTransaction(test.transactions[0]);
@@ -86,4 +87,19 @@ router.post("/findTransaction", async (req, res) => {
   });
   res.send(data);
 });
+
+router.post("/transactiondetail", async (req, res) => {
+  console.log(req.body);
+  let data = await Transaction.findOne({
+    where: { id: req.body.id },
+  });
+  let blocknumber = data.blockNumber;
+  let datatwo = await Block.findOne({
+    where: { number: blocknumber },
+  });
+
+  // console.log("data :", data);
+  res.send({ data, datatwo });
+});
+
 module.exports = router;

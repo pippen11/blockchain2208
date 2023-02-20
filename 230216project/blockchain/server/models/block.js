@@ -25,7 +25,7 @@ module.exports = class Block extends Sequelize.Model {
         totalDifficulty: {
           type: Sequelize.STRING(255),
         },
-        transactions: {
+        txs: {
           type: Sequelize.STRING(255),
         },
       },
@@ -41,6 +41,9 @@ module.exports = class Block extends Sequelize.Model {
     );
   }
   // static associate(db) {
-  //   db.User.hasMany(db.Board);
+  //   db.Block.hasMany(db.Transaction, {
+  //     foreignKey: "blockheight",
+  //     sourceKey: "number",
+  //   });
   // }
 };

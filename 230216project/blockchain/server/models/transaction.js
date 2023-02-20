@@ -44,6 +44,9 @@ module.exports = class Transaction extends Sequelize.Model {
     );
   }
   // static associate(db) {
-  //   db.User.hasMany(db.Board);
+  //   db.Transaction.belongsTo(db.Block, {
+  //     foreignKey: "blockheight",
+  //     targetKey: "number",
+  //   });
   // }
 };

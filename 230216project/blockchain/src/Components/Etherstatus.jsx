@@ -14,7 +14,9 @@ const EtherstatusComponent = ({ Transactiondata }) => {
         </Ether>
         <Transactions>
           <TransactionImg src={transactionIcon} />
-          <Transactiontitle>TRANSACTIONS: 45</Transactiontitle>
+          <Transactiontitle>
+            TRANSACTIONS: {Transactiondata.length}
+          </Transactiontitle>
         </Transactions>
       </Status>
     </StatusBox>

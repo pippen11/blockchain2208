@@ -4,7 +4,7 @@ const router = require("express").Router();
 
 const axios = require("axios");
 
-const { Block } = require("../models");
+const { Block, Transaction } = require("../models");
 
 // const request = axios.create({
 //   method: "POST",
@@ -48,34 +48,35 @@ web3.eth.subscribe("newBlockHeaders", async (error, result) => {
       //   '0x6f9e8463627ef23c66da69e9d44fdee485f18338d34a9ffa24105bde3e88103e',
       //   '0x53bc6702492b3b9cb7932e318d4c991a0296898de604a370bbe882e8dd70b198'
       // ]
-      console.log(test.transactions.length);
-      let tx = "";
-      for (let i = 0; i < test.transactions.length; i++) {
-        tx += test.transactions[i];
-      }
-      console.log(tx.slice(0, 198));
-      if (test.transactions.length < 4) {
-        await Block.create({
-          gasLimit: test.gasLimit,
-          gasUsed: test.gasUsed,
-          hash: test.hash,
-          number: test.number,
-          timestamp: test.timestamp,
-          totalDifficulty: test.totalDifficulty,
-          transactions: tx,
-        });
-      }
-      if (test.transactions.length >= 4) {
-        await Block.create({
-          gasLimit: test.gasLimit,
-          gasUsed: test.gasUsed,
-          hash: test.hash,
-          number: test.number,
-          timestamp: test.timestamp,
-          totalDifficulty: test.totalDifficulty,
-          transactions: tx.slice(0, 198),
-        });
-      }
+      // console.log(test.transactions.length);
+      // let tx = "";
+      // for (let i = 0; i < test.transactions.length; i++) {
+      //   tx += test.transactions[i];
+      // }
+      // console.log(tx.slice(0, 198));
+      // if (test.transactions.length < 4) {
+      await Block.create({
+        gasLimit: test.gasLimit,
+        gasUsed: test.gasUsed,
+        hash: test.hash,
+        number: test.number,
+        timestamp: test.timestamp,
+        totalDifficulty: test.totalDifficulty,
+        // transactions: tx,
+        txs: test.transactions.length,
+      });
+      // }
+      // if (test.transactions.length >= 4) {
+      //   await Block.create({
+      //     gasLimit: test.gasLimit,
+      //     gasUsed: test.gasUsed,
+      //     hash: test.hash,
+      //     number: test.number,
+      //     timestamp: test.timestamp,
+      //     totalDifficulty: test.totalDifficulty,
+      //     transactions: tx.slice(0, 198),
+      //   });
+      // }
 
       // console.log("tx :", test.transactions[0]);
 
@@ -125,7 +126,7 @@ router.post("/", async (req, res) => {
     // console.log(BlockInfo.transactions[0]);
   }
 
-  // console.log(BlockInfo);
+  // console.log(BlockInfo.transactions.length);
   // console.log(testtwo);
   if (
     await Block.findOne({
@@ -142,7 +143,8 @@ router.post("/", async (req, res) => {
       number: BlockInfo[i].number,
       timestamp: BlockInfo[i].timestamp,
       totalDifficulty: BlockInfo[i].totalDifficulty,
-      transactions: BlockInfo[i].transactions[0],
+      // transactions: BlockInfo[i].transactions[0],
+      txs: BlockInfo[i].transactions.length,
     });
     // count = BlockNumber;
   }
@@ -155,6 +157,21 @@ router.post("/", async (req, res) => {
 router.post("/findblock", async (req, res) => {
   let data = await Block.findAll({ order: [["timestamp", "DESC"]], limit: 10 });
   // timstamp를 기준으로 내림차순 모든걸 찾아서 limit 10개만 잘라서 가져온다
+  res.send(data);
+});
+
+router.post("/blockdetail", async (req, res) => {
+  console.log("req.body", req.body.number);
+  const number = await Block.findOne({
+    where: { number: req.body.number },
+  });
+  console.log("number", number);
+
+  res.send({ number });
+});
+
+router.post("/blocksdetailInfo", async (req, res) => {
+  let data = await Block.findAll({ order: [["timestamp", "DESC"]] });
   res.send(data);
 });
 

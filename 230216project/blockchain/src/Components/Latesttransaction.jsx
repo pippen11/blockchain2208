@@ -1,20 +1,25 @@
 import styled from "styled-components";
 import transactionimg from "./img/transaction.png";
+import { useNavigate, Link } from "react-router-dom";
 
 const LatesttransactionComponent = ({ item, index }) => {
   let Ethvalue = parseInt(item.value) / Math.pow(10, 18);
-  // console.log(item.createdAt);
+  console.log(item.id);
   return (
     <TransactionBoxs>
       <TransactionBox>
         <TransactionTable>
           <Transaction>
             <TransactionImg src={transactionimg}></TransactionImg>
-            <Transactionhash>{item.hash}</Transactionhash>
+            <Link to={`/transaction/${item.id}`}>
+              <Transactionhash>{item.hash}</Transactionhash>
+            </Link>
           </Transaction>
           <TXDetail>
-            <From>From: {item.from}</From>
-            <To>To: {item.to}</To>
+            <Link to={`/transaction/${item.id}`}>
+              <From>From: {item.from}</From>
+              <To>To: {item.to}</To>
+            </Link>
           </TXDetail>
           <Amount>{Ethvalue} Eth</Amount>
         </TransactionTable>
@@ -53,9 +58,18 @@ const Transactionhash = styled.div``;
 
 const Transaction = styled.div`
   display: flex;
+  a {
+    text-decoration: none;
+    color: rgba(7, 132, 195, 1);
+  }
 `;
 
-const TXDetail = styled.div``;
+const TXDetail = styled.div`
+  a {
+    text-decoration: none;
+    color: #065076;
+  }
+`;
 
 const From = styled.div``;
 
