@@ -1,7 +1,13 @@
 import styled from "styled-components";
 import ethermainbar from "./img/ethereum.png";
 
-const MainbarComponent = () => {
+const MainbarComponent = ({
+  isConnect,
+  getChainId,
+  getRequestAccounts,
+  accounts,
+  Balance,
+}) => {
   return (
     <MainbarBox>
       <Mainicon>
@@ -18,7 +24,17 @@ const MainbarComponent = () => {
         <div>Resources</div>
         <div>Developers</div>
         <div>More</div>
-        <div>Sign In</div>
+        <div
+          onClick={() => {
+            // isConnect();
+
+            // getChainId();
+            getRequestAccounts();
+          }}
+        >
+          Sign In
+        </div>
+        <div>MyETH: {Balance}</div>
       </MainMenu>
     </MainbarBox>
   );

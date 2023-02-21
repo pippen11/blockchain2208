@@ -5,44 +5,45 @@ import { useEffect } from "react";
 // import transactionIcon from "./img/Transactions.png";
 import SearchContainer from "../Container/Search";
 
-const BlockdetailComponent = ({ BlockDetailInfo, BlockDetail }) => {
-  // console.log(BlockDetailInfo);
+const AddressComponent = ({ addressdetail, addressdetails }) => {
+  console.log(addressdetails);
+  let balance = addressdetails.addressbalance;
+  let test = parseInt(balance) / Math.pow(10, 18);
+  //10의 18승으로나눔
+  console.log(test);
   useEffect(() => {
-    BlockDetail();
+    addressdetail();
   }, []);
-
   return (
     <>
       <SearchContainer />
       <BlockdetailBox>
-        <Blockheight>Block #{BlockDetailInfo.number}</Blockheight>
+        <Blockheight>Address #{addressdetails.address}</Blockheight>
         <DetailBox>
           <Height>
-            <BlockHeight>Block Height:</BlockHeight>
-            <BlockHeightNumber>{BlockDetailInfo.number}</BlockHeightNumber>
+            <BlockHeight>Eth Balance: {test}</BlockHeight>
+            <BlockHeightNumber></BlockHeightNumber>
           </Height>
           <Timestamp>
-            <Timestamptitle>Timestamp:</Timestamptitle>
-            <Timestampvalue>{BlockDetailInfo.timestamp}</Timestampvalue>
+            <Timestamptitle>firsttx: {addressdetails.firsttx}</Timestamptitle>
+            <Timestampvalue></Timestampvalue>
           </Timestamp>
           <Transactions>
-            <Transactiontitle>Transaction: </Transactiontitle>
-            <Transactionvalue> {BlockDetailInfo.txs}</Transactionvalue>
+            <Transactiontitle>lasttx: {addressdetails.lasttx}</Transactiontitle>
+            <Transactionvalue> </Transactionvalue>
           </Transactions>
-          <TotalDifficulty>
+          {/* <TotalDifficulty>
             <TotalDifficultytitle>TotalDifficulty: </TotalDifficultytitle>
-            <TotalDifficultyvalue>
-              {BlockDetailInfo.totalDifficulty}
-            </TotalDifficultyvalue>
+            <TotalDifficultyvalue></TotalDifficultyvalue>
           </TotalDifficulty>
           <GasUsed>
             <GasUsedtitle>GasUsed: </GasUsedtitle>
-            <GasUsedvalue> {BlockDetailInfo.gasUsed}</GasUsedvalue>
+            <GasUsedvalue></GasUsedvalue>
           </GasUsed>
           <GasLimit>
             <GasLimittitle>GasLimit: </GasLimittitle>
-            <GasLimitvalue> {BlockDetailInfo.gasLimit}</GasLimitvalue>
-          </GasLimit>
+            <GasLimitvalue> </GasLimitvalue>
+          </GasLimit> */}
         </DetailBox>
       </BlockdetailBox>
     </>
@@ -110,4 +111,4 @@ const GasUsedvalue = styled.div``;
 const GasLimitvalue = styled.div``;
 const GasLimittitle = styled.div``;
 
-export default BlockdetailComponent;
+export default AddressComponent;

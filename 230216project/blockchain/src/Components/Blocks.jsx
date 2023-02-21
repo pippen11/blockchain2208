@@ -3,7 +3,6 @@ import blockimg from "./img/block.png";
 import { useNavigate, Link } from "react-router-dom";
 
 const BlocksComponent = ({ item, index }) => {
-  console.log(item);
   return (
     <LatestBlockBoxs>
       <LatestBlockBox>
@@ -33,23 +32,23 @@ const BlockgasLimit = styled.div``;
 const BlockgasUsed = styled.div``;
 
 const LatestBlockBoxs = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* width: 100%; */
 `;
 
 const LatestBlockBox = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
+  /* width: 100%; */
+  /* display: flex; */
+  /* flex-direction: column; */
   /* justify-content: space-around; */
-  align-items: center;
+  /* align-items: center; */
 `;
 
 const BlockTable = styled.div`
   /* display: flex; */
-  align-items: center;
-  /* justify-content: space-evenly */
+  /* align-items: center; */
+  /* justify-content: space-around; */
   width: 100%;
   border-style: solid;
   border-color: lightgray;
@@ -62,6 +61,7 @@ const BlockHeight = styled.div``;
 const Block = styled.div`
   display: flex;
   justify-content: space-around;
+  /* width: 100%; */
   /* justify-items: center; */
   align-items: center;
 `;

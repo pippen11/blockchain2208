@@ -1,15 +1,31 @@
+import { useState } from "react";
 import styled from "styled-components";
 // import SearchBackground from "./img/background.png";
 
-const SearchComponent = () => {
+const SearchComponent = ({ SearchFx }) => {
+  const [search, setSearch] = useState("");
   return (
     <SearchBox>
       <h2 style={{ color: "white" }}>The Ether Blockchain Explorer</h2>
       <SerchForm>
         {/* <select value={1}>1</select> */}
         {/* 셀렉어떻게쓰는지 보기 */}
-        <SearchInput placeholder="Search by Address/ Txn Hash/ Block/ Token/ Domain Name"></SearchInput>
-        <SearchButton>search</SearchButton>
+        {/* adress 42 hash 66  */}
+        <SearchInput
+          placeholder="Search by Address/ Txn Hash/ Block"
+          value={search}
+          onInput={(e) => {
+            setSearch(e.target.value);
+          }}
+        ></SearchInput>
+        <SearchButton
+          onClick={(e) => {
+            e.preventDefault();
+            SearchFx(search);
+          }}
+        >
+          search
+        </SearchButton>
       </SerchForm>
     </SearchBox>
   );

@@ -165,7 +165,7 @@ router.post("/blockdetail", async (req, res) => {
   const number = await Block.findOne({
     where: { number: req.body.number },
   });
-  console.log("number", number);
+  // console.log("number", number);
 
   res.send({ number });
 });
@@ -175,6 +175,28 @@ router.post("/blocksdetailInfo", async (req, res) => {
   res.send(data);
 });
 
+router.post("/confirm", async (req, res) => {
+  const number = await Block.findAll({
+    where: { number: req.body.confirm },
+  });
+  const txhash = await Transaction.findAll({
+    where: { hash: req.body.confirm },
+  });
+  const address = await Transaction.findAll({
+    where: { from: req.body.confirm },
+  });
+  const addresstwo = await Transaction.findAll({
+    where: { to: req.body.confirm },
+  });
+
+  // console.log(txid.length); 없으면 0
+  console.log(number);
+  console.log(txhash);
+  console.log(address);
+  console.log(addresstwo);
+
+  res.send({ number, txhash, address, addresstwo });
+});
 // try {
 //   ;
 

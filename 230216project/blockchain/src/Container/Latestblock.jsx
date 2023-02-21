@@ -1,6 +1,7 @@
 import LatestblockComponent from "../Components/Latestblock";
 import { useState } from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const LatestblockContainer = ({ BlockInfodata }) => {
   // BlockInfodata.reverse();
@@ -25,7 +26,9 @@ const LatestblockContainer = ({ BlockInfodata }) => {
           ></LatestblockComponent>
         );
       })}
-      <ViewBlocks>VIEW ALL BLOCKS</ViewBlocks>
+      <Link to={`/blocks`}>
+        <ViewBlocks>VIEW ALL BLOCKS</ViewBlocks>
+      </Link>
     </LatestBlock>
   );
 };

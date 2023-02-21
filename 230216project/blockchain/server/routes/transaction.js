@@ -4,6 +4,9 @@ const router = require("express").Router();
 
 const axios = require("axios");
 
+const { Op } = require("sequelize");
+// or쓰려면 Op써야한다
+
 const { Transaction, Block } = require("../models");
 
 const web3 = new Web3(
@@ -51,7 +54,7 @@ router.post("/", async (req, res) => {
     //   console.log("resultNumber", resultNumber);
 
     test = await web3.eth.getBlock(BlockNumber);
-    console.log(test);
+    // console.log(test);
 
     if (test.transactions[0] !== undefined) {
       let testtransaction = await web3.eth.getTransaction(test.transactions[0]);
@@ -88,6 +91,14 @@ router.post("/findTransaction", async (req, res) => {
   res.send(data);
 });
 
+router.post("/hashsearch", async (req, res) => {
+  let data = await Transaction.findOne({
+    where: { hash: req.body.hash },
+  });
+
+  res.send(data);
+});
+
 router.post("/transactiondetail", async (req, res) => {
   console.log(req.body);
   let data = await Transaction.findOne({
@@ -100,6 +111,28 @@ router.post("/transactiondetail", async (req, res) => {
 
   // console.log("data :", data);
   res.send({ data, datatwo });
+});
+
+router.post("/transactionsdetailInfo", async (req, res) => {
+  let data = await Transaction.findAll({ order: [["id", "DESC"]] });
+  res.send(data);
+});
+
+router.post("/addressbalance", async (req, res) => {
+  let address = req.body.address;
+  const addressbalance = await web3.eth.getBalance(req.body.address);
+
+  // console.log(addressbalance);
+  const detailaddress = await Transaction.findAll({
+    where: { from: req.body.address },
+  });
+  if (detailaddress.length) {
+    let firsttx = detailaddress[0].hash;
+    let lasttx = detailaddress[detailaddress.length - 1].hash;
+    res.send({ addressbalance, firsttx, lasttx, address });
+  } else {
+    res.send({ addressbalance, address, firsttx: "no tx", lasttx: "no tx" });
+  }
 });
 
 module.exports = router;

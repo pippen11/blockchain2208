@@ -1,5 +1,6 @@
 import LatesttransactionComponent from "../Components/Latesttransaction";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const LatesttransactionContainer = ({ Transactiondata }) => {
   // console.log(Transactiondata);
@@ -16,7 +17,9 @@ const LatesttransactionContainer = ({ Transactiondata }) => {
           ></LatesttransactionComponent>
         );
       })}
-      <ViewTransactions>VIEW ALL TRANSACTIONS</ViewTransactions>
+      <Link to={`/transactions`}>
+        <ViewTransactions>VIEW ALL TRANSACTIONS</ViewTransactions>
+      </Link>
     </LastestTransactions>
   );
 };

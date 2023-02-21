@@ -15,12 +15,16 @@ import axios from "axios";
 // import Web3 from "web3";
 // import { Block } from "./api";
 import BlocksContainer from "./Container/Blocks";
-
+import TransactionsContainer from "./Container/Transactions";
+import AddressContainer from "./Container/Address";
+import MetamaskContainer from "./Container/Metamask";
 function App() {
   // console.log(web3.eth);
   const [BlockInfodata, setBlockInfodata] = useState([]);
   const [Transactiondata, setTransactiondata] = useState([]);
   const [Blocksdata, setBlocksdata] = useState([]);
+  const [Transactionsdata, setTransactionsdata] = useState([]);
+
   const params = useParams();
 
   // console.log(params);
@@ -43,6 +47,13 @@ function App() {
   useEffect(() => {
     BlocksdetailInfo();
   }, []);
+  useEffect(() => {
+    TransactionsdetailInfo();
+  }, []);
+
+  // useEffect(() => {
+  //   Addressbalance();
+  // }, []);
 
   const findTransaction = async () => {
     try {
@@ -99,12 +110,38 @@ function App() {
         "http://localhost:8080/api/block/blocksdetailInfo",
         { blockdetail: "blockdetail" }
       );
-      // console.log(data.data);
+
       setBlocksdata(data.data);
     } catch (error) {
       console.error("err");
     }
   };
+
+  const TransactionsdetailInfo = async () => {
+    try {
+      const data = await axios.post(
+        "http://localhost:8080/api/transaction/transactionsdetailInfo",
+        { transactions: "transactions" }
+      );
+      // console.log(data.data);
+      setTransactionsdata(data.data);
+    } catch (error) {
+      console.error("err");
+    }
+  };
+
+  // const Addressbalance = async () => {
+  //   try {
+  //     const data = await axios.post(
+  //       "http://localhost:8080/api/transaction/addressbalance",
+  //       {
+  //         address: "address",
+  //       }
+  //     );
+  //   } catch (error) {
+  //     console.error("err");
+  //   }
+  // };
 
   return (
     <div className="App">
@@ -122,6 +159,18 @@ function App() {
           element={
             <BlocksContainer
               Transactiondata={Transactiondata}
+              Blocksdata={Blocksdata}
+            />
+          }
+        />
+        <Route path="/address/:address" element={<AddressContainer />} />
+
+        <Route
+          path="/transactions"
+          element={
+            <TransactionsContainer
+              Transactiondata={Transactiondata}
+              Transactionsdata={Transactionsdata}
               Blocksdata={Blocksdata}
             />
           }

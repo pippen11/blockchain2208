@@ -4,7 +4,7 @@ import { useNavigate, Link } from "react-router-dom";
 
 const LatesttransactionComponent = ({ item, index }) => {
   let Ethvalue = parseInt(item.value) / Math.pow(10, 18);
-  console.log(item.id);
+  // console.log(item.id);
   return (
     <TransactionBoxs>
       <TransactionBox>
@@ -16,8 +16,10 @@ const LatesttransactionComponent = ({ item, index }) => {
             </Link>
           </Transaction>
           <TXDetail>
-            <Link to={`/transaction/${item.id}`}>
+            <Link to={`/address/${item.from}`}>
               <From>From: {item.from}</From>
+            </Link>
+            <Link to={`/address/${item.to}`}>
               <To>To: {item.to}</To>
             </Link>
           </TXDetail>
