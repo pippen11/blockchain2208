@@ -6,7 +6,7 @@ import AddressComponent from "../Components/Address";
 
 const AddressContainer = () => {
   const params = useParams();
-  //   console.log(params);
+  console.log(params);
   const [addressdetails, setAddressdetails] = useState([]);
 
   const addressdetail = async () => {
@@ -20,6 +20,10 @@ const AddressContainer = () => {
       console.error("error");
     }
   };
+  useEffect(() => {
+    addressdetail();
+  }, [params.address]);
+  // 주소는 이동이되도 함수호출을 해서 다시 컴포넌트를 그리지않아서그대로
 
   return (
     <AddressComponent

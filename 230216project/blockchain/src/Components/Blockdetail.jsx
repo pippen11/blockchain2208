@@ -1,5 +1,10 @@
 import styled from "styled-components";
 import { useEffect } from "react";
+import "./Paging.css";
+import { useState } from "react";
+import Pagination from "react-js-pagination";
+import { useNavigate, useParams } from "react-router-dom";
+import blockimg from "./img/block.png";
 
 // import etherIcon from "./img/ethereum.png";
 // import transactionIcon from "./img/Transactions.png";
@@ -7,15 +12,28 @@ import SearchContainer from "../Container/Search";
 
 const BlockdetailComponent = ({ BlockDetailInfo, BlockDetail }) => {
   // console.log(BlockDetailInfo);
-  useEffect(() => {
-    BlockDetail();
-  }, []);
+  // const navigate = useNavigate();
+
+  // let params = useParams();
+  // console.log(params);
+  // useEffect(() => {
+  //   // navigate(`/block/${params}`);
+  // }, [params]);
+  // useEffect(() => {
+  //   // window.location.reload();
+  // }, [params]);
+  // window.location.reload();
+  // useEffect(() => {
+  //   BlockDetail();
+  // }, []);
 
   return (
     <>
       <SearchContainer />
       <BlockdetailBox>
-        <Blockheight>Block #{BlockDetailInfo.number}</Blockheight>
+        <Blockheight>
+          <img src={blockimg} width="50"></img>Block #{BlockDetailInfo.number}
+        </Blockheight>
         <DetailBox>
           <Height>
             <BlockHeight>Block Height:</BlockHeight>
@@ -50,26 +68,38 @@ const BlockdetailComponent = ({ BlockDetailInfo, BlockDetail }) => {
 };
 
 const BlockdetailBox = styled.div`
-  margin: auto;
-  width: 60%;
+  /* margin: auto; */
+  /* width: 30%; */
+  border-style: solid;
+  border-color: yellow;()
+  /* display: flex; */
 `;
 const Blockheight = styled.div`
   font-size: 20px;
-  margin-bottom: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
-const DetailBox = styled.div``;
+const DetailBox = styled.div`
+  width: 20%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  /* align-items: center; */
+  /* margin: auto; */
+`;
 const Height = styled.div`
   display: flex;
   justify-content: space-between;
   font-size: 20px;
-  width: 30%;
 `;
 const Transactions = styled.div`
   display: flex;
   justify-content: space-between;
   font-size: 20px;
-  width: 30%;
 `;
 const BlockHeight = styled.div``;
 const BlockHeightNumber = styled.div``;
@@ -78,14 +108,12 @@ const TotalDifficulty = styled.div`
   display: flex;
   justify-content: space-between;
   font-size: 20px;
-  width: 30%;
 `;
 
 const Timestamp = styled.div`
   display: flex;
   justify-content: space-between;
   font-size: 20px;
-  width: 30%;
 `;
 const TotalDifficultytitle = styled.div``;
 const Timestamptitle = styled.div``;
@@ -93,14 +121,12 @@ const GasUsed = styled.div`
   display: flex;
   justify-content: space-between;
   font-size: 20px;
-  width: 30%;
 `;
 const Timestampvalue = styled.div``;
 const GasLimit = styled.div`
   display: flex;
   justify-content: space-between;
   font-size: 20px;
-  width: 30%;
 `;
 const Transactiontitle = styled.div``;
 const Transactionvalue = styled.div``;

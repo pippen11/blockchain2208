@@ -7,6 +7,7 @@ import BlockdetailComponent from "../Components/Blockdetail";
 import TransactionDetailComponent from "../Components/Transactiondetail";
 const TransactionDetailContainer = () => {
   const params = useParams();
+  console.log(params);
   const [TransactionDetailInfo, setTransactionDetailInfo] = useState([]);
 
   const TransactionDetail = async () => {
@@ -23,6 +24,11 @@ const TransactionDetailContainer = () => {
       console.error("error");
     }
   };
+
+  useEffect(() => {
+    TransactionDetail();
+  }, [params.id]);
+
   return (
     <TransactionDetailComponent
       TransactionDetailInfo={TransactionDetailInfo}

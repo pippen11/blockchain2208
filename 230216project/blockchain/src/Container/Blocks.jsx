@@ -1,10 +1,38 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import SearchContainer from "./Search";
 import EtherstatusContainer from "./Etherstatus";
 import BlocksComponent from "../Components/Blocks";
+import PagingContainer from "./Paging";
+const BlocksContainer = ({ Blocksdata, Transactiondata, Transactionsdata }) => {
+  // const [blockslength, setblocksLength] = useState(0);
 
-const BlocksContainer = ({ Blocksdata, Transactiondata }) => {
+  // useEffect(() => {
+  //   setblocksLength(Blocksdata.length);
+  // }, []);
+  // console.log(Transactionsdata);
+  // console.log(Blocksdata.length);
+
+  const [count, setCount] = useState(0);
+  const [currentpage, setCurrentpage] = useState(1); //현재페이지
+  const [postPerPage] = useState(10); // 보여주는아이템수
+
+  const [indexOfLastPost, setIndexOfLastPost] = useState(0);
+  const [indexOfFirstPost, setIndexOfFirstPost] = useState(0);
+  const [currentPosts, setCurrentPosts] = useState([]);
+
+  useEffect(() => {
+    setCount(Blocksdata.length);
+
+    setIndexOfLastPost(currentpage * postPerPage);
+    setIndexOfFirstPost(indexOfLastPost - postPerPage);
+    setCurrentPosts(Blocksdata.slice(indexOfFirstPost, indexOfLastPost));
+  }, [currentpage, indexOfFirstPost, indexOfLastPost, Blocksdata, postPerPage]);
+
+  const setPage = (e) => {
+    setCurrentpage(e);
+  };
+
   // console.log(BlockInfodata);
   // BlockInfodata.reverse();
   // console.log(BlockInfodata);
@@ -19,7 +47,10 @@ const BlocksContainer = ({ Blocksdata, Transactiondata }) => {
   return (
     <>
       <SearchContainer />
-      <EtherstatusContainer Transactiondata={Transactiondata} />
+      <EtherstatusContainer
+        Transactiondata={Transactiondata}
+        Transactionsdata={Transactionsdata}
+      />
       <BlocksDetail>
         <BlocksTitle>
           <Blocks>Blocks</Blocks>
@@ -29,15 +60,21 @@ const BlocksContainer = ({ Blocksdata, Transactiondata }) => {
           <BlocksgasLimit>gasLimit</BlocksgasLimit>
           <BlocksgasUsed>gasUsed</BlocksgasUsed>
         </BlocksTitle>
-        {Blocksdata.map((item, index) => {
+        {currentPosts.map((item, index) => {
           return (
             <BlocksComponent
+              currentpage={currentpage}
+              setPage={setPage}
+              count={count}
+              Blocksdata={Blocksdata}
+              // blockslength={blockslength}
               key={`list-${index}`}
               item={item}
               index={index}
             ></BlocksComponent>
           );
         })}
+        <PagingContainer page={currentpage} count={count} setPage={setPage} />
         {/* <ViewBlocks>VIEW ALL BLOCKS</ViewBlocks> */}
       </BlocksDetail>
     </>

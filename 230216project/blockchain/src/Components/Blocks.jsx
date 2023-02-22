@@ -1,28 +1,43 @@
 import styled from "styled-components";
 import blockimg from "./img/block.png";
 import { useNavigate, Link } from "react-router-dom";
+import PagingContainer from "../Container/Paging";
+import { useEffect, useState } from "react";
 
-const BlocksComponent = ({ item, index }) => {
+const BlocksComponent = ({
+  currentpage,
+  count,
+  setPage,
+  // blockslength,
+  item,
+  index,
+  Blocksdata,
+}) => {
+  // console.log(item);
+
+  // setPage();
   return (
-    <LatestBlockBoxs>
-      <LatestBlockBox>
-        <BlockTable>
-          <Block>
-            <BlockImg src={blockimg}></BlockImg>
-            <BlockHeight>{item.number}</BlockHeight>{" "}
-            <Blocktimestamp>{item.timestamp}</Blocktimestamp>
-            <Blocktxs>{item.txs}</Blocktxs>
-            {/* <TXDetail>
+    <>
+      <LatestBlockBoxs>
+        <LatestBlockBox>
+          <BlockTable>
+            <Block>
+              <BlockImg src={blockimg}></BlockImg>
+              <BlockHeight>{item.number}</BlockHeight>{" "}
+              <Blocktimestamp>{item.timestamp}</Blocktimestamp>
+              <Blocktxs>{item.txs}</Blocktxs>
+              {/* <TXDetail>
               <FeeRecipient>hash: {item.hash}</FeeRecipient>
             </TXDetail> */}
-            <BlockgasLimit>{item.gasLimit}</BlockgasLimit>
-            <BlockgasUsed>{item.gasUsed}</BlockgasUsed>
-          </Block>
+              <BlockgasLimit>{item.gasLimit}</BlockgasLimit>
+              <BlockgasUsed>{item.gasUsed}</BlockgasUsed>
+            </Block>
 
-          {/* <BlockReward></BlockReward> */}
-        </BlockTable>
-      </LatestBlockBox>
-    </LatestBlockBoxs>
+            {/* <BlockReward></BlockReward> */}
+          </BlockTable>
+        </LatestBlockBox>
+      </LatestBlockBoxs>
+    </>
   );
 };
 

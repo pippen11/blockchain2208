@@ -2,9 +2,8 @@ import styled from "styled-components";
 import etherIcon from "./img/ethereum.png";
 import transactionIcon from "./img/Transactions.png";
 
-const EtherstatusComponent = ({ Transactiondata }) => {
-  // console.log(Transactiondata);
-
+const EtherstatusComponent = ({ Transactiondata, Transactionsdata }) => {
+  // console.log(Transactionsdata);
   return (
     <StatusBox>
       <Status>
@@ -15,7 +14,7 @@ const EtherstatusComponent = ({ Transactiondata }) => {
         <Transactions>
           <TransactionImg src={transactionIcon} />
           <Transactiontitle>
-            TRANSACTIONS: {Transactiondata.length}
+            TRANSACTIONS: {Transactionsdata.length}
           </Transactiontitle>
         </Transactions>
       </Status>

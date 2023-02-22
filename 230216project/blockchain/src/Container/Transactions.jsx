@@ -4,29 +4,46 @@ import SearchContainer from "./Search";
 import EtherstatusContainer from "./Etherstatus";
 // import BlocksComponent from "../Components/Blocks";
 import TransactionsComponent from "../Components/Transactions";
+import { useEffect } from "react";
+import PagingContainer from "./Paging";
 
 const TransactionsContainer = ({
   Blocksdata,
   Transactiondata,
   Transactionsdata,
 }) => {
-  //   console.log("Blocksdata :", Blocksdata);
-  //   console.log("Transactiondata", Transactiondata);
-  // console.log(BlockInfodata);
-  // BlockInfodata.reverse();
-  // console.log(BlockInfodata);
-  // const [list, setList] = useState([
-  //   {
-  //     height: "16638393",
-  //     recipient: "ssm",
-  //     txn: "163",
-  //     BlockReward: "0.8451",
-  //   },
-  // ]);
+  const [count, setCount] = useState(0);
+  const [currentpage, setCurrentpage] = useState(1); //현재페이지
+  const [postPerPage] = useState(10); // 보여주는아이템수
+
+  const [indexOfLastPost, setIndexOfLastPost] = useState(0);
+  const [indexOfFirstPost, setIndexOfFirstPost] = useState(0);
+  const [currentPosts, setCurrentPosts] = useState([]);
+
+  useEffect(() => {
+    setCount(Transactionsdata.length);
+
+    setIndexOfLastPost(currentpage * postPerPage);
+    setIndexOfFirstPost(indexOfLastPost - postPerPage);
+    setCurrentPosts(Transactionsdata.slice(indexOfFirstPost, indexOfLastPost));
+  }, [
+    currentpage,
+    indexOfFirstPost,
+    indexOfLastPost,
+    Transactionsdata,
+    postPerPage,
+  ]);
+
+  const setPage = (e) => {
+    setCurrentpage(e);
+  };
   return (
     <>
       <SearchContainer />
-      <EtherstatusContainer Transactiondata={Transactiondata} />
+      <EtherstatusContainer
+        Transactiondata={Transactiondata}
+        Transactionsdata={Transactionsdata}
+      />
       <BlocksDetail>
         {/* <BlocksTitle>
           <Blocks>Transaction Hash</Blocks>
@@ -38,15 +55,20 @@ const TransactionsContainer = ({
           <TransactionsFee>Transactions Fee</TransactionsFee>
           <GasPrice>Gas Price</GasPrice>
         </BlocksTitle> */}
-        {Transactionsdata.map((item, index) => {
+        {currentPosts.map((item, index) => {
           return (
             <TransactionsComponent
+              currentpage={currentpage}
+              setPage={setPage}
+              count={count}
+              Transactionsdata={Transactionsdata}
               key={`list-${index}`}
               item={item}
               index={index}
             ></TransactionsComponent>
           );
         })}
+        <PagingContainer page={currentpage} count={count} setPage={setPage} />
         {/* <ViewBlocks>VIEW ALL BLOCKS</ViewBlocks> */}
       </BlocksDetail>
     </>

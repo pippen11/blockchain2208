@@ -18,6 +18,7 @@ import BlocksContainer from "./Container/Blocks";
 import TransactionsContainer from "./Container/Transactions";
 import AddressContainer from "./Container/Address";
 import MetamaskContainer from "./Container/Metamask";
+import FooterContainer from "./Container/Footer";
 function App() {
   // console.log(web3.eth);
   const [BlockInfodata, setBlockInfodata] = useState([]);
@@ -158,6 +159,7 @@ function App() {
           path="/blocks"
           element={
             <BlocksContainer
+              Transactionsdata={Transactionsdata}
               Transactiondata={Transactiondata}
               Blocksdata={Blocksdata}
             />
@@ -180,12 +182,14 @@ function App() {
           path="/"
           element={
             <MainContainer
+              Transactionsdata={Transactionsdata}
               Transactiondata={Transactiondata}
               BlockInfodata={BlockInfodata}
             />
           }
         />
       </Routes>
+      <FooterContainer />
     </div>
   );
 }

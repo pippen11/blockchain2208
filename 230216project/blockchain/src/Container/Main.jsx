@@ -7,11 +7,18 @@ import BlockandTxContainer from "./BlockandTx";
 import BlocksContainer from "./Blocks";
 import { Route, Routes, Link, useParams } from "react-router-dom";
 
-const MainContainer = ({ Transactiondata, BlockInfodata }) => {
+const MainContainer = ({
+  Transactiondata,
+  BlockInfodata,
+  Transactionsdata,
+}) => {
   return (
     <>
       <SearchContainer />
-      <EtherstatusContainer Transactiondata={Transactiondata} />
+      <EtherstatusContainer
+        Transactiondata={Transactiondata}
+        Transactionsdata={Transactionsdata}
+      />
       <BlockandTxContainer
         BlockInfodata={BlockInfodata}
         Transactiondata={Transactiondata}

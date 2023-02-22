@@ -2,7 +2,13 @@ import styled from "styled-components";
 import blockimg from "./img/block.png";
 import { useNavigate, Link } from "react-router-dom";
 
-const TransactionsComponent = ({ item, index }) => {
+const TransactionsComponent = ({
+  currentpage,
+  count,
+  setPage,
+  item,
+  index,
+}) => {
   console.log(item);
   let Ethvalue = parseInt(item.value) / Math.pow(10, 18);
 

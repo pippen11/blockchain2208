@@ -4,16 +4,16 @@ import { useEffect } from "react";
 // import etherIcon from "./img/ethereum.png";
 // import transactionIcon from "./img/Transactions.png";
 import SearchContainer from "../Container/Search";
+import { useParams } from "react-router-dom";
 
 const AddressComponent = ({ addressdetail, addressdetails }) => {
-  console.log(addressdetails);
+  // console.log(addressdetails);
+
   let balance = addressdetails.addressbalance;
   let test = parseInt(balance) / Math.pow(10, 18);
   //10의 18승으로나눔
-  console.log(test);
-  useEffect(() => {
-    addressdetail();
-  }, []);
+  // console.log(test);
+
   return (
     <>
       <SearchContainer />

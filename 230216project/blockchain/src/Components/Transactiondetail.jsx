@@ -9,9 +9,6 @@ const TransactionDetailComponent = ({
   TransactionDetail,
   TransactionDetailInfo,
 }) => {
-  useEffect(() => {
-    TransactionDetail();
-  }, []);
   let Ethvalue;
 
   if (TransactionDetailInfo.data) {
