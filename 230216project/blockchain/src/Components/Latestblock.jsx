@@ -17,7 +17,9 @@ const LatestblockComponent = ({ item, index }) => {
       <LatestBlockBox>
         <BlockTable>
           <Block>
-            <BlockImg src={blockimg}></BlockImg>
+            <BlockImg
+              src={"https://media.giphy.com/media/XCTCBcDXbhtUfMLwRm/giphy.gif"}
+            ></BlockImg>
             <BlockHeight>
               <Link to={`/block/${item.number}`}>{item.number}</Link>
             </BlockHeight>
@@ -55,11 +57,15 @@ const BlockTable = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  border-style: solid;
-  border-color: lightgray;
+  border: 1px solid lightgray;
+  box-shadow: 2px 2px 2px 2px lightgray;
+  border-radius: 10px;
+  padding: 10px;
 `;
 
-const BlockImg = styled.img``;
+const BlockImg = styled.img`
+  width: 70px;
+`;
 
 const BlockHeight = styled.div`
   a {
@@ -70,6 +76,7 @@ const BlockHeight = styled.div`
 
 const Block = styled.div`
   display: flex;
+  align-items: center;
 `;
 
 const TXDetail = styled.div``;

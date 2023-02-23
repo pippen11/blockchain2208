@@ -106,7 +106,7 @@ const Footertop = styled.div`
   border-right: 1px;
   border-style: solid;
   border-color: lightgray;
-  background-image: url(./img/back.png);
+  background-color: rgba(248, 249, 250, 1);
 `;
 
 const Footermiddle = styled.div`
@@ -114,6 +114,7 @@ const Footermiddle = styled.div`
   width: 100%;
   justify-content: space-around;
   align-items: center;
+  background-color: rgba(248, 249, 250, 1);
   .test {
     display: flex;
     flex-direction: column;

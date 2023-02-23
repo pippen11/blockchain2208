@@ -26,20 +26,34 @@ const LatesttransactionContainer = ({ Transactiondata }) => {
 const LastestTransactions = styled.div`
   display: flex;
   flex-direction: column;
+  a {
+    text-decoration: none;
+  }
 `;
 
 const LastestTransactionTitle = styled.div`
   margin-top: 20px;
   font-size: 20px;
   width: 100%;
-  border-style: solid;
-  border-color: lightgray;
+  border: 1px solid lightgray;
+  box-shadow: 2px 2px 2px 2px grey;
+  border-radius: 10px;
+  padding: 10px;
 `;
 
 const ViewTransactions = styled.div`
   display: flex;
   width: 100%;
   justify-content: center;
+  :hover {
+    background-color: lightgray;
+  }
+
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 2px lightgray;
+  /* background-color: lightgray; */
 `;
 
 export default LatesttransactionContainer;

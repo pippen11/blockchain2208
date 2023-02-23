@@ -49,9 +49,11 @@ const TransactionTable = styled.div`
   /* display: flex; */
   /* align-items: center; */
   /* justify-content: space-between; */
+  padding: 10px;
   width: 100%;
-  border-style: solid;
-  border-color: lightgray;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 2px lightgray;
 `;
 
 const TransactionImg = styled.img``;

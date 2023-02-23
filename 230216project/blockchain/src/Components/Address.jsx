@@ -21,15 +21,15 @@ const AddressComponent = ({ addressdetail, addressdetails }) => {
         <Blockheight>Address #{addressdetails.address}</Blockheight>
         <DetailBox>
           <Height>
-            <BlockHeight>Eth Balance: {test}</BlockHeight>
+            <ETHBalance>Eth Balance: {test}</ETHBalance>
             <BlockHeightNumber></BlockHeightNumber>
           </Height>
           <Timestamp>
-            <Timestamptitle>firsttx: {addressdetails.firsttx}</Timestamptitle>
+            <Timestamptitle>FirstTx: {addressdetails.firsttx}</Timestamptitle>
             <Timestampvalue></Timestampvalue>
           </Timestamp>
           <Transactions>
-            <Transactiontitle>lasttx: {addressdetails.lasttx}</Transactiontitle>
+            <Transactiontitle>LastTx: {addressdetails.lasttx}</Transactiontitle>
             <Transactionvalue> </Transactionvalue>
           </Transactions>
           {/* <TotalDifficulty>
@@ -51,15 +51,33 @@ const AddressComponent = ({ addressdetail, addressdetails }) => {
 };
 
 const BlockdetailBox = styled.div`
-  margin: auto;
-  width: 60%;
+  /* margin: auto;
+  width: 60%; */
+  margin: 30px auto;
+
+  width: 900px;
+  border: 1px solid black;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 2px lightgray;
+  padding: 10px;
+`;
+const ETHBalance = styled.div`
+  font-size: 20px;
+  font-weight: 500;
 `;
 const Blockheight = styled.div`
+  /* font-size: 20px;
+  margin-bottom: 50px; */
   font-size: 20px;
+  font-weight: 750;
+  border-bottom: 1px solid black;
+
   margin-bottom: 50px;
 `;
 
-const DetailBox = styled.div``;
+const DetailBox = styled.div`
+  line-height: 50px;
+`;
 const Height = styled.div`
   display: flex;
   justify-content: space-between;
@@ -89,7 +107,10 @@ const Timestamp = styled.div`
   width: 30%;
 `;
 const TotalDifficultytitle = styled.div``;
-const Timestamptitle = styled.div``;
+const Timestamptitle = styled.div`
+  font-size: 20px;
+  font-weight: 600;
+`;
 const GasUsed = styled.div`
   display: flex;
   justify-content: space-between;
@@ -103,7 +124,9 @@ const GasLimit = styled.div`
   font-size: 20px;
   width: 30%;
 `;
-const Transactiontitle = styled.div``;
+const Transactiontitle = styled.div`
+  font-weight: 600;
+`;
 const Transactionvalue = styled.div``;
 const TotalDifficultyvalue = styled.div``;
 const GasUsedtitle = styled.div``;

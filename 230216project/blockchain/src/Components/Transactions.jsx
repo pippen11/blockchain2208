@@ -13,27 +13,45 @@ const TransactionsComponent = ({
   let Ethvalue = parseInt(item.value) / Math.pow(10, 18);
 
   return (
-    <LatestBlockBoxs>
-      <LatestBlockBox>
-        <BlockTable>
-          <Block>
-            <BlockImg>hash: {item.hash}</BlockImg>
-            <BlockHeight>height: {item.blockNumber}</BlockHeight>{" "}
-            <Blocktimestamp>timestamp: {item.createdAt}</Blocktimestamp>
-            <Blocktxs>From: {item.from}</Blocktxs>
-            {/* <TXDetail>
+    <>
+      <LatestBlockBoxs>
+        <LatestBlockBox>
+          <BlockTable>
+            <Block>
+              <BlockImg>
+                <div>hash:</div> <div>{item.hash}</div>
+              </BlockImg>
+              <BlockHeight>
+                <div>height:</div> <div>{item.blockNumber}</div>
+              </BlockHeight>{" "}
+              <Blocktimestamp>
+                <div>timestamp:</div> {item.createdAt}
+              </Blocktimestamp>
+              <Blocktxs>
+                <div>From:</div> {item.from}
+              </Blocktxs>
+              {/* <TXDetail>
               <FeeRecipient>hash: {item.hash}</FeeRecipient>
             </TXDetail> */}
-            <BlockgasLimit>To: {item.to}</BlockgasLimit>
-            <BlockgasUsed>ETh: {Ethvalue}</BlockgasUsed>
-            <TransactionFee>gas: {item.gas}</TransactionFee>
-            <Transactiongasprice>gasPrice: {item.gasPrice}</Transactiongasprice>
-          </Block>
+              <BlockgasLimit>
+                <div>To:</div> {item.to}
+              </BlockgasLimit>
+              <BlockgasUsed>
+                <div>ETh:</div> {Ethvalue}
+              </BlockgasUsed>
+              <TransactionFee>
+                <div>gas:</div> {item.gas}
+              </TransactionFee>
+              <Transactiongasprice>
+                <div>gasPrice:</div> {item.gasPrice}
+              </Transactiongasprice>
+            </Block>
 
-          {/* <BlockReward></BlockReward> */}
-        </BlockTable>
-      </LatestBlockBox>
-    </LatestBlockBoxs>
+            {/* <BlockReward></BlockReward> */}
+          </BlockTable>
+        </LatestBlockBox>
+      </LatestBlockBoxs>
+    </>
   );
 };
 
@@ -71,10 +89,12 @@ const BlockTable = styled.div`
   /* align-items: center; */
   /* justify-content: space-around; */
   /* width: 1900px; */
-  margin: auto;
+  margin: 30px auto 0 auto;
   width: 50%;
-  border-style: solid;
-  border-color: lightgray;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  padding: 10px 20px;
+  box-shadow: 2px 2px 2px 2px lightgray;
 `;
 
 const BlockImg = styled.div`
@@ -98,9 +118,17 @@ const Block = styled.div`
   word-break: break-all;
   overflow: hidden;
   width: 100px; */
+  line-height: 40px;
 
   /* justify-items: center; */
   /* align-items: center; */
+  & > div {
+    display: flex;
+    & > div:first-child {
+      width: 200px;
+      font-weight: 700;
+    }
+  }
 `;
 
 const Blocktxs = styled.div`

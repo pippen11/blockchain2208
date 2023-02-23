@@ -3,9 +3,11 @@ import SearchComponent from "../Components/Search";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import MordalContainer from "./MordalContainer";
 
 const SearchContainer = () => {
   const navigate = useNavigate();
+  const [mordal, SetMordal] = useState(false);
 
   let SearchFx = async (search) => {
     const data = await axios.post("http://localhost:8080/api/block/confirm", {
@@ -33,10 +35,17 @@ const SearchContainer = () => {
       !data.data.txhash.length &&
       !data.data.addresstwo.length
     ) {
-      alert("not found");
+      // alert("not found");
+      SetMordal(true);
     }
   };
-  return <SearchComponent SearchFx={SearchFx}></SearchComponent>;
+  return (
+    <SearchComponent
+      SearchFx={SearchFx}
+      mordal={mordal}
+      SetMordal={SetMordal}
+    ></SearchComponent>
+  );
 };
 
 export default SearchContainer;

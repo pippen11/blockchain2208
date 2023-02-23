@@ -19,7 +19,7 @@ const TransactionDetailComponent = ({
     <>
       <SearchContainer />
       <BlockdetailBox>
-        <Blockheight>Transaction Details</Blockheight>
+        <BlockheightTitle>Transaction Details</BlockheightTitle>
         <DetailBox>
           <Height>
             <BlockHeight>Hash:</BlockHeight>
@@ -93,15 +93,34 @@ const TransactionHash = styled.div``;
 const TransactionHashvalue = styled.div``;
 
 const BlockdetailBox = styled.div`
-  margin: auto;
-  width: 60%;
+  /* margin: auto;
+  width: 60%; */
+  margin: 30px auto;
+  width: 900px;
+  border: 1px solid black;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 2px lightgray;
+  padding: 10px;
 `;
 const Blockheight = styled.div`
-  font-size: 20px;
+  font-size: 30px;
+  font-weight: 750;
+  border-bottom: 1px solid black;
+  width: 50%;
   margin-bottom: 50px;
 `;
 
-const DetailBox = styled.div``;
+const BlockheightTitle = styled.div`
+  font-size: 30px;
+  font-weight: 750;
+  border-bottom: 1px solid black;
+  /* width: 30%; */
+  margin-bottom: 50px;
+`;
+
+const DetailBox = styled.div`
+  line-height: 50px;
+`;
 const Height = styled.div`
   display: flex;
   justify-content: space-between;
@@ -112,10 +131,15 @@ const Transactions = styled.div`
   display: flex;
   justify-content: space-between;
   font-size: 20px;
-  width: 30%;
+  width: 67%;
 `;
-const BlockHeight = styled.div``;
-const BlockHeightNumber = styled.div``;
+const BlockHeight = styled.div`
+  font-size: 20px;
+`;
+const BlockHeightNumber = styled.div`
+  /* margin-left: 20px; */
+  width: 50%;
+`;
 
 const TotalDifficulty = styled.div`
   display: flex;
@@ -125,13 +149,16 @@ const TotalDifficulty = styled.div`
 `;
 
 const Timestamp = styled.div`
+  width: 100%;
   display: flex;
   justify-content: space-between;
   font-size: 20px;
-  width: 30%;
+  width: 27%;
 `;
 const TotalDifficultytitle = styled.div``;
-const Timestamptitle = styled.div``;
+const Timestamptitle = styled.div`
+  /* width: 100px; */
+`;
 const GasUsed = styled.div`
   display: flex;
   justify-content: space-between;
@@ -145,12 +172,23 @@ const GasLimit = styled.div`
   font-size: 20px;
   width: 30%;
 `;
-const Transactiontitle = styled.div``;
-const Transactionvalue = styled.div``;
-const TotalDifficultyvalue = styled.div``;
+const Transactiontitle = styled.div`
+  width: 50px;
+`;
+const Transactionvalue = styled.div`
+  /* padding-left: 20px; */
+`;
+const TotalDifficultyvalue = styled.div`
+  /* padding-left: 44px; */
+  width: 50%;
+`;
 const GasUsedtitle = styled.div``;
-const GasUsedvalue = styled.div``;
-const GasLimitvalue = styled.div``;
+const GasUsedvalue = styled.div`
+  width: 50%;
+`;
+const GasLimitvalue = styled.div`
+  width: 50%;
+`;
 const GasLimittitle = styled.div``;
 
 export default TransactionDetailComponent;

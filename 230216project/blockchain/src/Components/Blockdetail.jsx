@@ -32,7 +32,11 @@ const BlockdetailComponent = ({ BlockDetailInfo, BlockDetail }) => {
       <SearchContainer />
       <BlockdetailBox>
         <Blockheight>
-          <img src={blockimg} width="50"></img>Block #{BlockDetailInfo.number}
+          <img
+            src={"https://media.giphy.com/media/XCTCBcDXbhtUfMLwRm/giphy.gif"}
+            width="50"
+          ></img>
+          Block #{BlockDetailInfo.number}
         </Blockheight>
         <DetailBox>
           <Height>
@@ -70,24 +74,35 @@ const BlockdetailComponent = ({ BlockDetailInfo, BlockDetail }) => {
 const BlockdetailBox = styled.div`
   /* margin: auto; */
   /* width: 30%; */
-  border-style: solid;
-  border-color: yellow;()
+
   /* display: flex; */
+  margin: 20px auto;
+  width: 500px;
+  border: 1px solid black;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 2px lightgray;
+  padding: 10px;
 `;
 const Blockheight = styled.div`
-  font-size: 20px;
-  width: 100%;
+  font-weight: 750;
+  font-size: 22px;
+  /* width: 100%; */
   display: flex;
   justify-content: center;
   align-items: center;
+  border-bottom: 1px solid black;
 `;
 
 const DetailBox = styled.div`
-  width: 20%;
-  margin: auto;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  line-height: 50px;
+
+  /* width: 50%; */
+  /* margin: auto; */
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: space-around; */
   /* align-items: center; */
   /* margin: auto; */
 `;

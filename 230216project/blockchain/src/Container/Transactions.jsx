@@ -44,6 +44,7 @@ const TransactionsContainer = ({
         Transactiondata={Transactiondata}
         Transactionsdata={Transactionsdata}
       />
+      <TransactionsTitle>Transactions</TransactionsTitle>
       <BlocksDetail>
         {/* <BlocksTitle>
           <Blocks>Transaction Hash</Blocks>
@@ -74,6 +75,15 @@ const TransactionsContainer = ({
     </>
   );
 };
+const TransactionsTitle = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+  font-size: 30px;
+  font-weight: 700;
+`;
+
 const GasPrice = styled.div``;
 
 const TransactionsFee = styled.div``;

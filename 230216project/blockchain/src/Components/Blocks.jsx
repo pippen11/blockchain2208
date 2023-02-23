@@ -22,7 +22,11 @@ const BlocksComponent = ({
         <LatestBlockBox>
           <BlockTable>
             <Block>
-              <BlockImg src={blockimg}></BlockImg>
+              <BlockImg
+                src={
+                  "https://media.giphy.com/media/XCTCBcDXbhtUfMLwRm/giphy.gif"
+                }
+              ></BlockImg>
               <BlockHeight>{item.number}</BlockHeight>{" "}
               <Blocktimestamp>{item.timestamp}</Blocktimestamp>
               <Blocktxs>{item.txs}</Blocktxs>
@@ -43,8 +47,12 @@ const BlocksComponent = ({
 
 export default BlocksComponent;
 
-const BlockgasLimit = styled.div``;
-const BlockgasUsed = styled.div``;
+const BlockgasLimit = styled.div`
+  width: 50px;
+`;
+const BlockgasUsed = styled.div`
+  width: 50px;
+`;
 
 const LatestBlockBoxs = styled.div`
   /* display: flex; */
@@ -65,13 +73,19 @@ const BlockTable = styled.div`
   /* align-items: center; */
   /* justify-content: space-around; */
   width: 100%;
-  border-style: solid;
-  border-color: lightgray;
+  border: 1px solid lightgrey;
+  padding: 10px;
+  /* border-style: solid; */
+  /* border-color: lightgray; */
 `;
 
-const BlockImg = styled.img``;
+const BlockImg = styled.img`
+  width: 50px;
+`;
 
-const BlockHeight = styled.div``;
+const BlockHeight = styled.div`
+  width: 50px;
+`;
 
 const Block = styled.div`
   display: flex;
@@ -81,9 +95,13 @@ const Block = styled.div`
   align-items: center;
 `;
 
-const Blocktxs = styled.div``;
+const Blocktxs = styled.div`
+  width: 50px;
+`;
 
-const Blocktimestamp = styled.div``;
+const Blocktimestamp = styled.div`
+  width: 50px;
+`;
 const TXDetail = styled.div``;
 
 const FeeRecipient = styled.div``;

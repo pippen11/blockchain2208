@@ -120,6 +120,33 @@ web3.eth.subscribe("newBlockHeaders", async (error, result) => {
 router.post("/", async (req, res) => {
   // console.log(req.body);
   const BlockNumber = await web3.eth.getBlockNumber();
+  console.log(BlockNumber);
+
+  let testblock = await Block.findOne({
+    order: [["id", "DESC"]],
+    limit: 1,
+  });
+
+  console.log("test", testblock.number);
+
+  test = await web3.eth.getBlock(BlockNumber);
+  console.log(test);
+
+  if (testblock.number !== BlockNumber) {
+    for (let i = testblock.number + 1; i <= BlockNumber; i++) {
+      BlockInfo.push(await web3.eth.getBlock(i));
+      await Block.create({
+        gasLimit: BlockInfo[i].gasLimit,
+        gasUsed: BlockInfo[i].gasUsed,
+        hash: BlockInfo[i].hash,
+        number: BlockInfo[i].number,
+        timestamp: BlockInfo[i].timestamp,
+        totalDifficulty: BlockInfo[i].totalDifficulty,
+        // transactions: BlockInfo[i].transactions[0],
+        txs: BlockInfo[i].transactions.length,
+      });
+    }
+  }
 
   for (let i = 0; i <= BlockNumber; i++) {
     BlockInfo.push(await web3.eth.getBlock(i));
@@ -190,10 +217,10 @@ router.post("/confirm", async (req, res) => {
   });
 
   // console.log(txid.length); 없으면 0
-  console.log(number);
-  console.log(txhash);
-  console.log(address);
-  console.log(addresstwo);
+  // console.log(number);
+  // console.log(txhash);
+  // console.log(address);
+  // console.log(addresstwo);
 
   res.send({ number, txhash, address, addresstwo });
 });

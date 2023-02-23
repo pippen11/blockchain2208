@@ -8,7 +8,9 @@ const EtherstatusComponent = ({ Transactiondata, Transactionsdata }) => {
     <StatusBox>
       <Status>
         <Ether>
-          <EtherImg src={etherIcon} />
+          <EtherImg
+            src={"https://media.giphy.com/media/DdpmhAQpQZzwHSrQ3f/giphy.gif"}
+          />
           <EtherPrice>ETHER PRICE: 200000000</EtherPrice>
         </Ether>
         <Transactions>
@@ -37,8 +39,8 @@ const Status = styled.div`
 `;
 
 const StatusBox = styled.div`
-  border-color: blue;
-  border-style: dashed;
+  border-bottom: 3px solid rgb(9, 12, 109);
+
   display: flex;
   justify-content: center;
   align-items: center;

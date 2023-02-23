@@ -80,27 +80,40 @@ const BlocksContainer = ({ Blocksdata, Transactiondata, Transactionsdata }) => {
     </>
   );
 };
-const Blockstxs = styled.div``;
+const Blockstxs = styled.div`
+  width: 50px;
+`;
 
-const BlocksgasLimit = styled.div``;
+const BlocksgasLimit = styled.div`
+  width: 50px;
+`;
 
-const BlocksgasUsed = styled.div``;
+const BlocksgasUsed = styled.div`
+  width: 50px;
+`;
 
-const Blocks = styled.div``;
+const Blocks = styled.div`
+  width: 50px;
+`;
 
-const Blocksheight = styled.div``;
+const Blocksheight = styled.div`
+  width: 50px;
+`;
 
-const Blockstimestamp = styled.div``;
+const Blockstimestamp = styled.div`
+  width: 50px;
+`;
 
 const BlocksTitle = styled.div`
   margin-top: 20px;
-  margin-left: 5px;
+  /* margin-left: 5px; */
   font-size: 20px;
   width: 100%;
-  border-style: solid;
-  border-color: lightgray;
+  border: 1px solid lightgray;
   display: flex;
   justify-content: space-around;
+  box-shadow: 2px 2px 2px 2px lightgray;
+  padding: 10px;
 `;
 
 const BlocksDetail = styled.div`

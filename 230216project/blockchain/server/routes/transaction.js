@@ -131,7 +131,7 @@ router.post("/addressbalance", async (req, res) => {
     let lasttx = detailaddress[detailaddress.length - 1].hash;
     res.send({ addressbalance, firsttx, lasttx, address });
   } else {
-    res.send({ addressbalance, address, firsttx: "no tx", lasttx: "no tx" });
+    res.send({ addressbalance, address, firsttx: "No Tx", lasttx: "No Tx" });
   }
 });
 
