@@ -62,7 +62,7 @@ router.post("/", async (req, res) => {
     //[0은 처음보낸게나옴]
     // 배열안에 세개나옴 길이 3
     // 한개캐면 나오고 두개캐면 마지막꺼가져와서 안나옴
-    let testtransaction = await web3.eth.getTransaction(test.transactions[0]);
+    // let testtransaction = await web3.eth.getTransaction(test.transactions[0]);
 
     let testblock = await Block.findOne({
       order: [["id", "DESC"]],
@@ -93,25 +93,25 @@ router.post("/", async (req, res) => {
         });
       }
     }
-    // if (BlockNumber - numberchange>1) {
-    //   test = await web3.eth.getBlock(numberchange + 1);
-    //   for (let i = 0; i < test.transactions.length; i++) {
-    //     let testtransaction = await web3.eth.getTransaction(
-    //       test.transactions[i]
-    //     );
-    //     await Transaction.create({
-    //       blockHash: testtransaction.blockHash,
-    //       blockNumber: testtransaction.blockNumber,
-    //       from: testtransaction.from,
-    //       gas: testtransaction.gas,
-    //       gasPrice: testtransaction.gasPrice,
-    //       hash: testtransaction.hash,
-    //       to: testtransaction.to,
-    //       transactionIndex: testtransaction.transactionIndex,
-    //       value: testtransaction.value,
-    //     });
-    //   }
-    // }
+    if (BlockNumber - numberchange > 1) {
+      test = await web3.eth.getBlock(numberchange + 1);
+      for (let i = 0; i < test.transactions.length; i++) {
+        let testtransaction = await web3.eth.getTransaction(
+          test.transactions[i]
+        );
+        await Transaction.create({
+          blockHash: testtransaction.blockHash,
+          blockNumber: testtransaction.blockNumber,
+          from: testtransaction.from,
+          gas: testtransaction.gas,
+          gasPrice: testtransaction.gasPrice,
+          hash: testtransaction.hash,
+          to: testtransaction.to,
+          transactionIndex: testtransaction.transactionIndex,
+          value: testtransaction.value,
+        });
+      }
+    }
 
     // if (numberchange !== BlockNumber && test.transactions[0] !== undefined) {
     //   let testtransaction = await web3.eth.getTransaction(test.transactions[0]);
