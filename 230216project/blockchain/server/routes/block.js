@@ -120,21 +120,28 @@ web3.eth.subscribe("newBlockHeaders", async (error, result) => {
 router.post("/", async (req, res) => {
   // console.log(req.body);
   const BlockNumber = await web3.eth.getBlockNumber();
-  console.log(BlockNumber);
+  // console.log("BlockNumber", BlockNumber);
 
   let testblock = await Block.findOne({
     order: [["id", "DESC"]],
     limit: 1,
   });
 
-  console.log("test", testblock.number);
+  // console.log("test", testblock.number);
+
+  let numberchange = Number(testblock.number);
+
+  // console.log("numberchange", numberchange);
 
   test = await web3.eth.getBlock(BlockNumber);
-  console.log(test);
+  // console.log(test);
 
-  if (testblock.number !== BlockNumber) {
-    for (let i = testblock.number + 1; i <= BlockNumber; i++) {
+  if (numberchange !== BlockNumber) {
+    for (let i = numberchange + 1; i <= BlockNumber; i++) {
+      // console.log(BlockNumber - numberchange);
       BlockInfo.push(await web3.eth.getBlock(i));
+    }
+    for (let i = 0; i < BlockInfo.length; i++) {
       await Block.create({
         gasLimit: BlockInfo[i].gasLimit,
         gasUsed: BlockInfo[i].gasUsed,
@@ -147,6 +154,7 @@ router.post("/", async (req, res) => {
       });
     }
   }
+  // console.log(BlockInfo.length);
 
   for (let i = 0; i <= BlockNumber; i++) {
     BlockInfo.push(await web3.eth.getBlock(i));

@@ -24,6 +24,7 @@ web3.eth.subscribe("newBlockHeaders", async (error, result) => {
       //   console.log("resultNumber", resultNumber);
 
       test = await web3.eth.getBlock(BlockNumber);
+
       let testtransaction;
       if (test.transactions[0] !== undefined) {
         for (let i = 0; i < test.transactions.length; i++) {
@@ -54,7 +55,35 @@ router.post("/", async (req, res) => {
     //   console.log("resultNumber", resultNumber);
 
     test = await web3.eth.getBlock(BlockNumber);
-    // console.log(test);
+    console.log("보자", test.transactions[0]);
+
+    let testblock = await Block.findOne({
+      order: [["id", "DESC"]],
+      limit: 1,
+    });
+
+    let numberchange = Number(testblock.number);
+
+    if (numberchange !== BlockNumber && test.transactions[0] !== undefined) {
+      let testtransaction = await web3.eth.getTransaction(test.transactions[0]);
+      // let confirmtx = await Transaction.findOne({
+      //   where: { hash: test.transactions[0] },
+      // });
+
+      // if (!confirmtx) {
+      await Transaction.create({
+        blockHash: testtransaction.blockHash,
+        blockNumber: testtransaction.blockNumber,
+        from: testtransaction.from,
+        gas: testtransaction.gas,
+        gasPrice: testtransaction.gasPrice,
+        hash: testtransaction.hash,
+        to: testtransaction.to,
+        transactionIndex: testtransaction.transactionIndex,
+        value: testtransaction.value,
+      });
+      // }
+    }
 
     if (test.transactions[0] !== undefined) {
       let testtransaction = await web3.eth.getTransaction(test.transactions[0]);

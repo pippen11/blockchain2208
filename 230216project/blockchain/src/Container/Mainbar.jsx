@@ -23,24 +23,24 @@ const MainbarContainer = () => {
   //   console.log(disConnected);
   // };
 
-  const addNetwork = async (_chainId) => {
-    // 메타마스크에서 네트워크 추가를 할 때 들어가는 속성들
-    const network = {
-      chainId: _chainId,
-      chainName: "test",
-      rpcUrls: ["http://127.0.0.1:8081"],
-      nativeCurrency: {
-        name: "Ethereum",
-        symbol: "ETH", // 통화 단위
-        decimals: 18, // 소수점 자리수
-      },
-    };
+  // const addNetwork = async (_chainId) => {
+  //   // 메타마스크에서 네트워크 추가를 할 때 들어가는 속성들
+  //   const network = {
+  //     chainId: _chainId,
+  //     chainName: "test",
+  //     rpcUrls: ["http://127.0.0.1:8081"],
+  //     nativeCurrency: {
+  //       name: "Ethereum",
+  //       symbol: "ETH", // 통화 단위
+  //       decimals: 18, // 소수점 자리수
+  //     },
+  //   };
 
-    await window.ethereum.request({
-      method: "wallet_addEthereumChain",
-      params: [network],
-    });
-  };
+  //   await window.ethereum.request({
+  //     method: "wallet_addEthereumChain",
+  //     params: [network],
+  //   });
+  // };
 
   const getChainId = async () => {
     const chainId = await window.ethereum.request({
