@@ -128,30 +128,31 @@ router.post("/", async (req, res) => {
   });
 
   // console.log("test", testblock.number);
+  if (testblock) {
+    let numberchange = Number(testblock.number);
 
-  let numberchange = Number(testblock.number);
+    // console.log("numberchange", numberchange);
 
-  // console.log("numberchange", numberchange);
+    test = await web3.eth.getBlock(BlockNumber);
+    // console.log(test);
 
-  test = await web3.eth.getBlock(BlockNumber);
-  // console.log(test);
-
-  if (numberchange !== BlockNumber) {
-    for (let i = numberchange + 1; i <= BlockNumber; i++) {
-      // console.log(BlockNumber - numberchange);
-      BlockInfo.push(await web3.eth.getBlock(i));
-    }
-    for (let i = 0; i < BlockInfo.length; i++) {
-      await Block.create({
-        gasLimit: BlockInfo[i].gasLimit,
-        gasUsed: BlockInfo[i].gasUsed,
-        hash: BlockInfo[i].hash,
-        number: BlockInfo[i].number,
-        timestamp: BlockInfo[i].timestamp,
-        totalDifficulty: BlockInfo[i].totalDifficulty,
-        // transactions: BlockInfo[i].transactions[0],
-        txs: BlockInfo[i].transactions.length,
-      });
+    if (numberchange !== BlockNumber) {
+      for (let i = numberchange + 1; i <= BlockNumber; i++) {
+        // console.log(BlockNumber - numberchange);
+        BlockInfo.push(await web3.eth.getBlock(i));
+      }
+      for (let i = 0; i < BlockInfo.length; i++) {
+        await Block.create({
+          gasLimit: BlockInfo[i].gasLimit,
+          gasUsed: BlockInfo[i].gasUsed,
+          hash: BlockInfo[i].hash,
+          number: BlockInfo[i].number,
+          timestamp: BlockInfo[i].timestamp,
+          totalDifficulty: BlockInfo[i].totalDifficulty,
+          // transactions: BlockInfo[i].transactions[0],
+          txs: BlockInfo[i].transactions.length,
+        });
+      }
     }
   }
   // console.log(BlockInfo.length);
