@@ -11,6 +11,7 @@ const MainContainer = ({
   Transactiondata,
   BlockInfodata,
   Transactionsdata,
+  Blocksdata,
 }) => {
   return (
     <>
@@ -18,6 +19,7 @@ const MainContainer = ({
       <EtherstatusContainer
         Transactiondata={Transactiondata}
         Transactionsdata={Transactionsdata}
+        Blocksdata={Blocksdata}
       />
       <BlockandTxContainer
         BlockInfodata={BlockInfodata}

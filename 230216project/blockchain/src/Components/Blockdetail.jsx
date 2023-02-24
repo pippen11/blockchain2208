@@ -26,6 +26,7 @@ const BlockdetailComponent = ({ BlockDetailInfo, BlockDetail }) => {
   // useEffect(() => {
   //   BlockDetail();
   // }, []);
+  console.log(BlockDetailInfo);
 
   return (
     <>

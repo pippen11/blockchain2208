@@ -4,6 +4,7 @@ import { useNavigate, Link } from "react-router-dom";
 
 const LatestblockComponent = ({ item, index }) => {
   const navigate = useNavigate();
+
   // console.log(item);
   // let arr = {};
   // for (let i = 0; i <= 10; i++) {

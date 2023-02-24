@@ -24,7 +24,7 @@ web3.eth.subscribe("newBlockHeaders", async (error, result) => {
       //   console.log("resultNumber", resultNumber);
 
       test = await web3.eth.getBlock(BlockNumber);
-
+      console.log("hh");
       let testtransaction;
       if (test.transactions[0] !== undefined) {
         for (let i = 0; i < test.transactions.length; i++) {
@@ -56,9 +56,10 @@ router.post("/", async (req, res) => {
     //하나캐서 20
     // 세개캐면 23
 
-    test = await web3.eth.getBlock(BlockNumber);
+    let test = await web3.eth.getBlock(BlockNumber);
 
     console.log("보자", test.transactions);
+
     //[0은 처음보낸게나옴]
     // 배열안에 세개나옴 길이 3
     // 한개캐면 나오고 두개캐면 마지막꺼가져와서 안나옴
@@ -69,10 +70,14 @@ router.post("/", async (req, res) => {
       limit: 1,
     });
 
+    // console.log(testblock);
     let numberchange = Number(testblock.number);
     console.log("numberchange", numberchange);
     //19
     //한개캣으니20
+
+    // console.log(testa);
+    // test = await web3.eth.getBlock(BlockNumber);
 
     if (BlockNumber - numberchange == 1) {
       test = await web3.eth.getBlock(BlockNumber);
@@ -112,6 +117,87 @@ router.post("/", async (req, res) => {
         });
       }
     }
+    let Txcomplex;
+    if (BlockNumber == numberchange) {
+      let tm = [];
+      for (let i = 0; i <= BlockNumber; i++) {
+        test = await web3.eth.getBlock(i);
+        // console.log(test.transactions[0]);
+        // console.log("test", test);
+
+        if (test.transactions[0] !== undefined) {
+          console.log(test.transactions.length);
+          for (let i = 0; i < test.transactions.length; i++) {
+            // console.log(test.transactions[i]);
+            Txcomplex = await web3.eth.getTransaction(test.transactions[i]);
+            let retx = await Transaction.findAll({
+              where: { hash: test.transactions[i] },
+            });
+            console.log("retx", retx.length);
+            if (retx.length == 0) {
+              await Transaction.create({
+                blockHash: Txcomplex.blockHash,
+                blockNumber: Txcomplex.blockNumber,
+                from: Txcomplex.from,
+                gas: Txcomplex.gas,
+                gasPrice: Txcomplex.gasPrice,
+                hash: Txcomplex.hash,
+                to: Txcomplex.to,
+                transactionIndex: Txcomplex.transactionIndex,
+                value: Txcomplex.value,
+              });
+            }
+          }
+        }
+      }
+    }
+
+    // let testb = await Block.findAll({
+    //   where: {
+    //     txs: { [Op.gt]: 0 },
+    //     // txs가 0보다 큰것만
+    //   },
+    // });
+    // // console.log(testb[0].number);
+
+    // if (testb) {
+    //   let arr = [];
+    //   for (let i = 0; i < testb.length; i++) {
+    //     let test = await web3.eth.getBlock(testb[i].number);
+
+    //     let testtransaction = await web3.eth.getTransaction(
+    //       test.transactions[i]
+    //     );
+    //     arr.push(testtransaction);
+    //     let confirmtxs;
+    //     // console.log("arr", arr);
+    //     for (let i = 0; i < arr.length; i++) {
+    //       confirmtxs = await Transaction.findAll({
+    //         where: { hash: arr[i].hash },
+    //       });
+    //     }
+
+    //     console.log("confirmtxs", confirmtxs);
+    // console.log("1", test.transactions[0]);
+    // let confirmtx = await Transaction.find({
+    //   where: { hash: test.transactions[0] },
+    // });
+    // console.log("confirmtx", confirmtx);
+    // if (!confirmtx) {
+    // await Transaction.create({
+    //   blockHash: testtransaction.blockHash,
+    //   blockNumber: testtransaction.blockNumber,
+    //   from: testtransaction.from,
+    //   gas: testtransaction.gas,
+    //   gasPrice: testtransaction.gasPrice,
+    //   hash: testtransaction.hash,
+    //   to: testtransaction.to,
+    //   transactionIndex: testtransaction.transactionIndex,
+    //   value: testtransaction.value,
+    // });
+    // }
+    //   }
+    // }
 
     // if (numberchange !== BlockNumber && test.transactions[0] !== undefined) {
     //   let testtransaction = await web3.eth.getTransaction(test.transactions[0]);
@@ -134,27 +220,27 @@ router.post("/", async (req, res) => {
     //   }
     // }
 
-    if (test.transactions[0] !== undefined) {
-      let testtransaction = await web3.eth.getTransaction(test.transactions[0]);
+    // if (test.transactions[0] !== undefined) {
+    //   let testtransaction = await web3.eth.getTransaction(test.transactions[0]);
 
-      let confirmtx = await Transaction.findOne({
-        where: { hash: test.transactions[0] },
-      });
+    //   let confirmtx = await Transaction.findOne({
+    //     where: { hash: test.transactions[0] },
+    //   });
 
-      if (!confirmtx) {
-        await Transaction.create({
-          blockHash: testtransaction.blockHash,
-          blockNumber: testtransaction.blockNumber,
-          from: testtransaction.from,
-          gas: testtransaction.gas,
-          gasPrice: testtransaction.gasPrice,
-          hash: testtransaction.hash,
-          to: testtransaction.to,
-          transactionIndex: testtransaction.transactionIndex,
-          value: testtransaction.value,
-        });
-      }
-    }
+    //   if (!confirmtx) {
+    //     await Transaction.create({
+    //       blockHash: testtransaction.blockHash,
+    //       blockNumber: testtransaction.blockNumber,
+    //       from: testtransaction.from,
+    //       gas: testtransaction.gas,
+    //       gasPrice: testtransaction.gasPrice,
+    //       hash: testtransaction.hash,
+    //       to: testtransaction.to,
+    //       transactionIndex: testtransaction.transactionIndex,
+    //       value: testtransaction.value,
+    //     });
+    //   }
+    // }
   } catch (err) {
     console.error(err);
   }

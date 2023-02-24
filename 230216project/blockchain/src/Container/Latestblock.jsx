@@ -14,6 +14,7 @@ const LatestblockContainer = ({ BlockInfodata }) => {
   //     BlockReward: "0.8451",
   //   },
   // ]);
+
   return (
     <LatestBlock>
       <LastestBlockTitle>Latest Blocks</LastestBlockTitle>

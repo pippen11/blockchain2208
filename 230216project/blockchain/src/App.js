@@ -182,6 +182,7 @@ function App() {
           path="/"
           element={
             <MainContainer
+              Blocksdata={Blocksdata}
               Transactionsdata={Transactionsdata}
               Transactiondata={Transactiondata}
               BlockInfodata={BlockInfodata}

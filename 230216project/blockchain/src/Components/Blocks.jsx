@@ -13,8 +13,6 @@ const BlocksComponent = ({
   index,
   Blocksdata,
 }) => {
-  // console.log(item);
-
   // setPage();
   return (
     <>

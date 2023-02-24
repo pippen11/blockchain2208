@@ -2,8 +2,13 @@ import styled from "styled-components";
 import etherIcon from "./img/ethereum.png";
 import transactionIcon from "./img/Transactions.png";
 
-const EtherstatusComponent = ({ Transactiondata, Transactionsdata }) => {
+const EtherstatusComponent = ({
+  Blocksdata,
+  Transactiondata,
+  Transactionsdata,
+}) => {
   // console.log(Transactionsdata);
+  console.log(Blocksdata);
   return (
     <StatusBox>
       <Status>
@@ -13,8 +18,16 @@ const EtherstatusComponent = ({ Transactiondata, Transactionsdata }) => {
           />
           <EtherPrice>ETHER PRICE: 200000000</EtherPrice>
         </Ether>
+        <Blockscount>
+          <Blockimg
+            src={"https://media.giphy.com/media/XCTCBcDXbhtUfMLwRm/giphy.gif"}
+          ></Blockimg>
+          Blocks: {Blocksdata.length}
+        </Blockscount>
         <Transactions>
           <TransactionImg src={transactionIcon} />
+          {/* <div>{Blocksdata.length}</div> */}
+
           <Transactiontitle>
             TRANSACTIONS: {Transactionsdata.length}
           </Transactiontitle>
@@ -25,6 +38,16 @@ const EtherstatusComponent = ({ Transactiondata, Transactionsdata }) => {
 };
 
 export default EtherstatusComponent;
+
+const Blockimg = styled.img`
+  width: 60px;
+`;
+
+const Blockscount = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 const Ether = styled.div`
   display: flex;
