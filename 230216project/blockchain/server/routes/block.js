@@ -27,6 +27,7 @@ let test;
 let testtwo = [];
 
 web3.eth.subscribe("newBlockHeaders", async (error, result) => {
+  // console.log("블록생성됨");
   console.log("error", error);
   if (!error) {
     // console.log("result", result);

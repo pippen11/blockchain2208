@@ -27,6 +27,7 @@ web3.eth.subscribe("newBlockHeaders", async (error, result) => {
       console.log("hh");
       let testtransaction;
       if (test.transactions[0] !== undefined) {
+        // console.log("트랜잭션생성됨");
         for (let i = 0; i < test.transactions.length; i++) {
           testtransaction = await web3.eth.getTransaction(test.transactions[i]);
           await Transaction.create({
