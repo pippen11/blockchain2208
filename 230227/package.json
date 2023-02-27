@@ -1,7 +1,6 @@
 {
   "name": "230227",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -14,5 +13,6 @@
   },
   "dependencies": {
     "solc": "^0.8.19"
-  }
+  },
+  "description": ""
 }
