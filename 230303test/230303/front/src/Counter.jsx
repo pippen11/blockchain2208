@@ -35,7 +35,8 @@ const Counter = ({ web3, account }) => {
         // console.log(log);
         const params = [
           { type: "int256", name: "count" },
-          { type: "string", name: "text" },
+
+          // { type: "string", name: "text" },
         ];
         // Counter.sol파일참고
         // Solidity에서 log로 받아오는 데이터에 대한 타입과 변수명
@@ -43,7 +44,7 @@ const Counter = ({ web3, account }) => {
         // console.log(params);
         const value = web3.eth.abi.decodeLog(params, log.data);
         // console.log(value);
-        console.log(value.text);
+        // console.log(value.text);
         setCount(value.count);
       });
     })();
