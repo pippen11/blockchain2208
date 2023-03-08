@@ -28,19 +28,23 @@ export const BreadShop = ({ web3, account }) => {
     setBread(_bread);
 
     const temp = await _deployed.methods.getSender().call({ from: account });
-    console.log(temp);
+    // console.log(temp);
 
     setIsOwner(await _deployed.methods.isOwner().call({ from: account }));
     // setIsOwner()안에 true, false값을 반환해서 owner인지 확인하는 state
     const _price = (
       await _deployed.methods.getPrice().call({ from: account })
     ).map((item) => web3.utils.fromWei(item));
+
     // map돌려서 이더단위로 바꿔준다
-    // console.log(_price); [1,0.9]가나옴
+    // console.log(_price);
+    // ['1', '0.9']
+
     setPrice(_price);
     setInputPrice(_price[0]);
   };
 
+  //처음에 0이맞는건지?(CA라그런듯?) CA잔액
   useEffect(() => {
     if (isOwner) {
       (async () => {
@@ -49,11 +53,15 @@ export const BreadShop = ({ web3, account }) => {
     }
   }, [isOwner, price]);
 
+  // owner인지확인후 가격조정(온클릭시 호출)
   const sendPrice = async () => {
     await deployed.methods.setPrice(web3.utils.toWei(inputPrice)).send({
       from: account,
       to: CA,
     });
+    // 보내는사람 받는사람 적어야함 setPrice에서 비교
+
+    // map돌려서 이더단위로 바꿔준다
     const _price = (
       await deployed.methods.getPrice().call({ from: account })
     ).map((item) => web3.utils.fromWei(item));
@@ -61,7 +69,6 @@ export const BreadShop = ({ web3, account }) => {
     setInputPrice(_price[0]);
   };
 
-  // 추가해보자~(힌트 : constructor도 수정 필요) 10:20까지
   const buy = async () => {
     console.log(web3.utils.toWei((price[0] * buyAmount).toString()));
     await deployed.methods.buyBread(buyAmount).send({
@@ -119,6 +126,7 @@ export const BreadShop = ({ web3, account }) => {
   );
 };
 
+// Input컴포넌트따로만듬
 const Input = ({ setState, value, max }) => {
   const onInput = (e) => {
     setState(parseInt(e.target.value));
