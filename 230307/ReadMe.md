@@ -6,7 +6,7 @@ yarn create react-app front
 mkdir back
 cd back
 npm init -y
-np i -D prettier-plugin-solidity
+npm i -D prettier-plugin-solidity
 npm i truffle express web3 cors
 npx truffle init
 npm i -D nodemon
