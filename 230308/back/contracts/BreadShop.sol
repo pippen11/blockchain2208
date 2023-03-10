@@ -1,25 +1,13 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.19;
 
+//npx ganache-cli
 contract BreadShop {
   mapping(address => uint) public breads;
 
-  //빵을 키는 주소 값은 숫자로 매핑
-
-  //   struct BreadInfo {
-  //     address owner;
-  //     uint price;
-  //     uint amount;
-  //   }
-
-  //   mapping(address => BreadInfo) public sellingBread;
-
-  //   constructor(){
-
-  //   }
-
   function buyBread() public payable {
     // require(msg.value >= 10 ** 18);
+    
     require(msg.value >= 10 ** 18);
     //1이더보냐크냐-> 작으면 에러 밑으로안내려감
     // if (msg.value > 2 * 10 * 18) {
