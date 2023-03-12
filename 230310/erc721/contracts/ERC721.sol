@@ -11,15 +11,19 @@ contract ERC721 is IERC721, IERC721Metadata {
 
   mapping(address => uint) private _balances;
   // 소유자의 토큰 총 개수
+  // 특정 계정이 몇개의 NFT를 가지고 있는지 조회
 
   mapping(uint => address) private _owners;
   // 토큰에 대한 소유자
+   // tokenId 값을 기준으로 누가 소유하고 있는지 조회
 
   mapping(uint => address) private _tokenApprovals;
   // 토큰을 위임 받은 대리인 | {tokenId : operator}
+    // tokenId 값를 받아서 대리인이 있는지 조회 가능한 상태변수 (토큰 한 개에 대해)
+
 
   mapping(address => mapping(address => bool)) private _operatorApporvals;
-
+    // 모든 NFT에 대한 대리인 권한 조회
   //   모든 토큰에 대한 대리인이 권한 받았는지 확인 |
 
   //   {owner : {operator: approved}}
@@ -35,7 +39,7 @@ contract ERC721 is IERC721, IERC721Metadata {
     return _balances[_owner];
   }
 
-  // 소유자의 토큰 총 개수
+  // 소유자의 토큰 총 개수( owner가 가지고 있는 총 NFT 개수 반환)
 
   function ownerOf(uint _tokenId) public view override returns (address) {
     address owner = _owners[_tokenId];
@@ -43,9 +47,9 @@ contract ERC721 is IERC721, IERC721Metadata {
     return owner;
   }
 
-  // 토큰의 소유자
+  // 토큰의 소유자(_tokenId <- 소유하고 있는 address 반환)
 
-  // 토큰 보내는것(보내는 계정이 토큰에대해서 권한이 있는지 확인,토큰인덱스 정리,그러고나서 전송)
+ 
   function transferFrom(
     address _from,
     address _to,
@@ -64,9 +68,17 @@ contract ERC721 is IERC721, IERC721Metadata {
 
     emit Transfer(_from, _to, _tokenId);
   }
+   // 토큰 보내는것(보내는 계정이 토큰에대해서 권한이 있는지 확인,토큰인덱스 정리,그러고나서 전송)
+  // 본인이 from일 경우
+  // 대리인이 from
+  // approve일 경우 -> getApproved() 체크
+  // setApprovalForAll일 경우 -> isApprovedForAll() 체크
+
+
 
   // _to에게 _tokenId에 대한 권한을 위임한다
   function approve(address _to, uint _tokenId) external override {
+     // msg.sender 가 _to 에게 msg.sender가 가지고 있는 tokenId 값의 NFT를 사용할 수 있게끔 대리인 설정
     address owner = _owners[_tokenId];
     //address owner = ownerOf(_tokenId);랑 같은기능인데 호출안하는이유가 gas소모가되기때문<< 수수료들기때문
     require(_to != owner, "ERC721: approval to current owner");
@@ -84,8 +96,7 @@ contract ERC721 is IERC721, IERC721Metadata {
     //권한 위임을 로그로 남긴다
   }
 
-  // 트랜잭션 보낸 계정의 모든 토큰에 대한 권한을 _operator에게 _approved로 설정한다
-  // _apporved==true <<모든 권한 위임 | _approved ==false <<권한위임취소
+  
   function setApprovalForAll(
     address _operator,
     bool _approved
@@ -95,10 +106,15 @@ contract ERC721 is IERC721, IERC721Metadata {
     _operatorApporvals[msg.sender][_operator] = _approved;
     emit ApprovalForAll(msg.sender, _operator, _approved);
   }
+   // msg.sender가 _operator에게 자신이 소유한 모든 NFT에 대한 권한 위임
+  // 트랜잭션 보낸 계정의 모든 토큰에 대한 권한을 _operator에게 _approved로 설정한다
+  // _apporved==true <<모든 권한 위임 | _approved ==false <<권한위임취소
 
   function getApproved(uint _tokenId) public view override returns (address) {
+  // 1. tokenId 값에 해당하는 NFT의 실제 소유자가 있는지 확인
     require(_owners[_tokenId] != address(0), "ERC721: invalid tokenId");
     return _tokenApprovals[_tokenId];
+    // address를 return 한다면 승인 완료된 토큰
   }
 
   // 토큰에 대한 대리인 확인
@@ -109,7 +125,7 @@ contract ERC721 is IERC721, IERC721Metadata {
   ) public view override returns (bool) {
     return _operatorApporvals[_owner][_operator];
   }
-
+ // _owner 의 대리인이 _operator인지 확인 (모든 NFT에 대한 대리인)
   // 소유주의 토큰에 대해서 대리인이 모든 권한을 갖고있는지 확인
 
   function _isApproveOrOwner(
@@ -128,6 +144,10 @@ contract ERC721 is IERC721, IERC721Metadata {
       getApproved(_tokenId) == _spender);
     //토큰에대한 대리인확인
   }
+     // transferFrom에서 사용되는 함수
+       // _spender == owner : from이 본인일 경우
+        // isApprovedForAll(owner, _spender) // from이 모든 NFT에 대한 대리인일 경우
+        // getApproved(_tokenId) == _spender // from이 하나의 NFT에 대한 대리인일 경우
 
   // 보내는 계정이 토큰에대해서 권한이 있는지 확인
   // 1. 어떤코큰에대해 1.내소유주면 내맘대로2. 그토큰에대해 권한을 받았는가(마음대로사용할수잇는지) 3. 그 토큰소유주의 토큰에대한 모든권한을받았는가
@@ -139,6 +159,7 @@ contract ERC721 is IERC721, IERC721Metadata {
   //tokenURI 메서드는 상속받아서 override 했지만 다시 상속해서 재정의 할것이다 그래서 =>virtual옵션추가
 
   function _mint(address _to, uint _tokenId) public {
+     // NFT 발행 함수    
     require(_to != address(0));
     // 받는계정이 있는지 확인
 
@@ -153,6 +174,7 @@ contract ERC721 is IERC721, IERC721Metadata {
 
     emit Transfer(address(0), _to, _tokenId);
     // 토큰발행(보내는사람이 null)
+    // Transfer 이벤트의 from 값이 address(0) 이면 Minting이라고 해석
   }
 
   // 토큰 추가
@@ -162,5 +184,5 @@ contract ERC721 is IERC721, IERC721Metadata {
     address _to,
     uint _tokenId
   ) internal virtual {}
-  //상속후 구현
+     // _mint() 함수와 transferFrom() 함수 안에서 실행시키지만 함수의 기능은 ERC721Enumerable 컨트랙트 안에서 구현
 }
