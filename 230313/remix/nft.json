@@ -1,0 +1,15 @@
+{
+  "name": "Moonbirds",
+  "description": "Moonbirds with Pinata",
+  "image": "http://gateway.pinata.cloud/ipfs/QmacLa5jg39ZnYsCbphPGLSyCeHpRVVe7oWzkq4qMu42PV",
+  "attributes": [
+    {
+      "trait_type": "Rank",
+      "value": 1
+    },
+    {
+      "trait_type": "Type",
+      "value": 1
+    }
+  ]
+}

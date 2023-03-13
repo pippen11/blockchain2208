@@ -1,0 +1,15 @@
+{
+  "name": "test",
+  "description": "test with ipfs",
+  "image": "ipfs://QmR1tzMuSNJJDRk2LcrGPa6ygnKrzj5ZnfR9PVT7UkH62V",
+  "attributes": [
+    {
+      "trait_type": "Rank",
+      "value": 1
+    },
+    {
+      "trait_type": "Type",
+      "value": 1
+    }
+  ]
+}
