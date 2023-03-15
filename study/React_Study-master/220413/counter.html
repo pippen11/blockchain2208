@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    
+    <script type="text/babel">
+
+        class Counter extends React.Component {
+            
+            state = {
+                number: 0
+            }
+
+            incre = (index) => {
+                const increase = {
+                    ...this.state,
+                    number: this.state.number + index
+                }
+
+                this.setState(increase)
+            }
+
+            decre = (index) => {
+                const decrease = {
+                    ...this.state,
+                    number: this.state.number - index
+                }
+
+                this.setState(decrease)
+            }
+
+            render() {
+
+                return (
+                    <div>
+                        <h3>{this.state.number}</h3>                    
+                        <button onClick={ ()=>{ this.incre(1) } }>+</button>
+                        <button onClick={ ()=>{ this.decre(1) } }>-</button>
+                    </div>
+                )
+            }
+        }
+        
+        class App extends React.Component {
+            render() {
+                return (
+                    <div>
+                        <Counter />
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(
+            <App />,
+            document.querySelector('#root')
+        )
+    </script>
+</body>
+</html>

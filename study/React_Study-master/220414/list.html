@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    
+    <script type="text/babel">
+
+        // SELECT query 날리면, 데이터 타입이 어떻게 되었죠? Array
+        // 프론트에 배열로 받으면, 화면을 어떻게 꾸몄었죠?
+        // 배열을 반복해서 해당 객체 내용을 뽑아온 다음 각각 정해진 템플릿을 활용해서 데이터를 바꿔서 껴넣었다.
+
+
+        // List 컴포넌트
+        class List extends React.Component {
+
+            state = {
+                board: [
+                    {id: 1, subject: 'ingoo'},
+                    {id: 2, subject: 'ingoo'},
+                    {id: 3, subject: 'ingoo'},
+                    {id: 4, subject: 'ingoo'}
+                ]  // DB 통신해서 결과물을 받은 객체
+            }
+
+            // Array 반복문 : forEach, filter, map, reduce
+
+            list = this.state.board.map( (v, k) => {
+                return (
+                    <li key={k}>
+                        <span>{v.id}</span>
+                        <span>{v.subject}</span>
+                    </li>
+                )
+            })
+
+            render() {
+                return(
+                    <ul>
+                        {this.list}
+                    </ul>
+                )
+            }
+        }
+
+        class App extends React.Component {
+            render() {
+                return(
+                    <div>
+                        <List />
+                    </div>
+                )
+            }
+        }
+        
+        ReactDOM.render(
+            <App />,
+            document.querySelector('#root')
+        )
+
+    </script>
+</body>
+</html>

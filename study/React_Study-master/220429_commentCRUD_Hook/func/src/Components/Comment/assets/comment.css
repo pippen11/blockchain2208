@@ -1,0 +1,8 @@
+li {
+    list-style: none;
+}
+
+.comment-list {
+    display: flex;
+    justify-content: space-between;
+}

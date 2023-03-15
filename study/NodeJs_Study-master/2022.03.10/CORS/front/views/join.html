@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <h1><a href='/'>LOGO</a></h1>
+    <form method="POST" id="join_frm" action="/">
+        <!-- 8개 -->
+        <ul class="join_frm">
+            <li>
+                <span class="join_label">아이디</span>
+                <span class="join_input">
+                    <input type="text" name="userid" id="userid">
+                </span>
+            </li>
+            <li>
+                <span class="join_label">패스워드</span>
+                <span class="join_input">
+                    <input type="text" name="userpw" id="userpw">
+                </span>
+            </li>
+            <li>
+                <span class="join_label">이름</span>
+                <span class="join_input">
+                    <input type="text" name="name" id="name">
+                </span>
+            </li>
+            <li>
+                <span class="join_label">별명</span>
+                <span class="join_input">
+                    <input type="text" name="nickname" id="nickname">
+                </span>
+            </li>
+            <li>
+                <span class="join_label">생년월일</span>
+                <span class="join_input">
+                    <input type="text" name="birth" id="birth">
+                </span>
+            </li>
+            <li>
+                <span class="join_label">성별</span>
+                <span class="join_input">
+                    <input type="radio" name="gender" value="남자" id="gender1" checked> <label for="gender1">남자</label>
+                    <input type="radio" name="gender" value="여자" id="gender2" > <label for="gender2">여자</label>
+                </span>
+            </li>
+            <li>
+                <span class="join_label">전화번호</span>
+                <span class="join_input">
+                    <input type="text" name="phone" id="phone">
+                </span>
+            </li>
+            <li>
+                <span class="join_label">핸드폰</span>
+                <span class="join_input">
+                    <input type="text" name="mobile" id="mobile">
+                </span>
+            </li>
+        </ul>
+        <input type="submit" id="btn" value="회원가입">
+    </form>
+    <script type="text/javascript">
+        // 1. submit 이벤트를 만들고 그이벤트를 막는 기능 
+        const frm = document.querySelector('#join_frm')
+        frm.addEventListener('submit',async (e)=>{
+            e.preventDefault()
+            const btn = document.querySelector('#btn')
+            btn.value='로딩중~~'
+            btn.disabled = true
+
+
+            const data = { 
+                userid:document.querySelector('#userid').value,
+                userpw:document.querySelector('#userpw').value,
+                name:document.querySelector('#name').value,
+                nickname:document.querySelector('#nickname').value,
+                birth:document.querySelector('#birth').value,
+                gender:document.querySelector('input[name="gender"]:checked').value,
+                phone:document.querySelector('#phone').value,
+                mobile:document.querySelector('#mobile').value, 
+            }
+
+            const option = { 
+                'Content-type':'application/json',
+                withCredentials:true,
+            }   
+            // // return ? promise 객체 
+            // // async / await 
+            const response = await axios.post('http://localhost:4001/api/user/join',data,option)
+            console.log(response.data)
+
+            
+            
+            console.log(response.data.errno, response.data.errno===0)
+            if(response.data.errno === 0){
+                // 성공
+                console.log('왜안옴?')
+                location.href='/'
+            } else {
+                // 실패
+                alert('너에게 에러가 있단다...')
+                btn.value='회원가입'
+                btn.disabled = false
+            }
+        })
+    </script>
+</body>
+</html>
+
+<!-- 
+    POST http://localhost:4001/api/user/join
+    
+    프론트 앤드 개발자
+    입력폼 제작할려면 뭘보고만드냐
+    스키마 봐야지..
+    CREATE TABLE user(
+    userid VARCHAR(10) NOT NULL ,
+    userpw VARCHAR(10) NOT NULL,
+    name VARCHAR(10) NOT NULL,
+    nickname VARCHAR(10) NOT NULL,
+    birth DATE,
+    gender CHAR(1),
+    phone VARCHAR(11),
+    mobile VARCHAR(11) NOT NULL,
+);
+
+스키마를 우선시를 좀 해주시는게 좋습니다. 
+어떤것을 만들지. 
+
+스키마를 제작하고 - DB테이블 
+백앤드 구현하고 전부다 X 라우터 세팅 다해놓고
+프론트 들어가는거죠
+
+-->

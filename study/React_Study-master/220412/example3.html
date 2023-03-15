@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>example3</title>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+        // table 컴포넌트
+        class Tables extends React.Component {
+            render() {
+                return (
+                    <table>
+                        <Subject />
+                        <Content />
+                        <Content />
+                        <Content />
+                        <tr>
+                            <Tail />
+                        </tr>
+                    </table>
+                )
+            }
+        }
+
+        // tail 컴포넌트
+        class Tail extends React.Component {
+            render() {
+                // Fragment 
+                // 빈 태그라는 뜻, 실제 화면에 표현되지는 않는다.
+                // 리액트 컴포넌트가 작동되게끔 하는 가상의 엘리먼트.
+                return (
+                    <React.Fragment>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                    </React.Fragment>
+                )
+            }
+        }
+
+
+        // subject 컴포넌트
+        class Subject extends React.Component {
+            render() {
+                return (
+                    <tr>
+                        <th>번호</th>
+                        <th>제목</th>
+                        <th>작성자</th>
+                        <th>작성일</th>
+                        <th>조회수</th>    
+                    </tr>
+                )
+            }
+        }
+
+        // content 컴포넌트
+        class Content extends React.Component {
+            render() {
+                return (
+                    <tr>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>    
+                    </tr>
+                )
+            }
+        }
+
+
+        class App extends React.Component {
+            render() {
+                return (
+                    <div>
+                        <Tables />
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(<App />, document.querySelector('#root'))
+
+    </script>
+
+    <!-- <table>
+        <tr>
+            <th>번호</th>
+            <th>제목</th>
+            <th>작성자</th>
+            <th>작성일</th>
+            <th>조회수</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+        </tr>
+    </table> -->
+
+</body>
+</html>

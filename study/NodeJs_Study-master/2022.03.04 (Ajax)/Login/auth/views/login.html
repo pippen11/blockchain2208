@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        // 1. 폼이 실행되지 않게 하고 싶다. (submit 버튼을 누를 때)
+            // 1.1 DOMContentLoaded 이벤트 작성
+            // 1.2 form 가져오기 or 조작할 수 있는 환경 만들기
+        // 2. submit 버튼을 눌렀을 때 userid input의 내용과 userpw input의 내용을 console.log로 찍어보자
+        // DOMContentLoaded
+        document.addEventListener('DOMContentLoaded', init)
+        function init() {
+            const frm = document.querySelector('#loginFrm')
+            const userid = document.querySelector('#userid')
+            const userpw = document.querySelector('#userpw')
+            frm.addEventListener('submit', submitHandler)
+            function submitHandler(e) {
+                e.preventDefault()
+                // input에서 받은 아이디와 패스워드를 back 서버에 보낸다. - submit 버튼을 눌렀을 때
+                    // 서버로 보내는 즉시 로딩화면을 보여준다.
+                // back 서버는 아이디와 패스워드를 검증하고, JWT 토큰을 생성해서 cookie로 보내준다.
+                // 그 결과물을 받을 시 메인페이지로 이동시킨다. 혹은 화면에 성공여부를 보여준다.
+
+                const data = {
+                    userid: userid.value,
+                    userpw: userpw.value
+                }
+
+                ajax(data)
+            }
+
+            function ajax(item) {
+                // Ajax
+                const xhr = new XMLHttpRequest()  // datatype: object
+                // 1. 요청 보내기
+                // 2. 요청에 body 내용 넣기 가능
+                // 3. 요청 header 조작 가능
+                // 4. 응답받기 가능
+                    // 4.1 콜백이 총 3번 된다는 사실을 알았다.
+                    // 4.2 그 콜백 3번을 컨트롤 하는 것이 가능한가?
+                
+                // 첫번째 인자값은 request method, 두번째 인자값은 url
+                xhr.open('POST', 'http://localhost:3000/login', true)
+                xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
+                xhr.send(`userid=${item.userid}&userpw=${item.userpw}`)
+
+                document.querySelector('#msg').innerHTML = '로딩중'
+
+                // send에 의해 서버로 내용이 전달되고 응답이 떨어진다면 아래의 콜백함수가 실행된다.
+                xhr.onreadystatechange = () => {
+                    console.log('ajax 실행됨?')
+                    switch(xhr.readyState) {  // 숫자는 ajax의 상태값을 가지고 있는 속성
+                        case 2:
+                            // HEADERS_RECEIVED
+                            console.log('HEADERS_RECEIVED')
+                            document.querySelector('#msg').innerHTML = '로딩중'
+                        break;
+                        case 3:
+                            // LOADING
+                            console.log('LOADING')
+                        break;
+                        case 4:
+                            // DONE
+                            console.log('DONE', xhr.response)
+                            document.querySelector('#msg').innerHTML = ''
+                            location.href='http://localhost:3000'
+                        break;
+                    }
+                }
+            }
+        }
+        
+    </script>
+</head>
+<body>
+    <p id="msg"></p>
+    <form method="post" action="/login" id="loginFrm">
+        <input type="text" name="userid" id="userid">
+        <input type="text" name="userpw" id="userpw">
+        <input type="submit" value="로그인">
+    </form>
+    <button onclick="ajax()">xml</button>
+    <!-- userid=ingoo&userpw=1234 -->
+</body>
+</html>

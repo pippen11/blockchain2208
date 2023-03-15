@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="https://unpkg.com/axios@0.26.0/dist/axios.min.js"></script>
+    <!-- 3가지 버전 -->
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', init)
+        function init(){
+            const btn = document.querySelector('#idcheck_btn')
+            btn.addEventListener('click', clickHandler)
+
+            function clickHandler() {
+                const userid = document.querySelector('#userid')
+                const msg = document.querySelector('#msg')
+                const data = JSON.stringify({userid: userid.value})
+
+                // Ajax
+                const xhr = new XMLHttpRequest()
+                xhr.open('POST', '/idcheck', true)  // 보낼 url Request Method 정보를 넣는곳
+                xhr.setRequestHeader('Content-type', 'application/json')  // header 내용 변경 가능
+                xhr.send(data)  // body에 넣어서 보낼 수 있다.
+                // JSON을 스트링으로 변환한 후 보내줘야만 한다.
+                xhr.onreadystatechange = () => {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        try {
+                            // 가입가능은 1 , 가입불가능은 2    
+                            const {result} = JSON.parse(xhr.response)
+                            if (result === 2) throw new Error('아이디가 중복되었습니다.')
+                            msg.innerHTML = '사용이 가능합니다.'
+                            msg.style.color = "green"
+                        } catch(err) {
+                            // 가입이 불가능할 경우
+                            msg.innerHTML = '사용이 불가능합니다.'
+                            msg.style.color = 'red'
+                        }
+
+                    } 
+                }
+
+            }
+
+            // fetch -> 내장객체, javascript 대부분 지원한다.
+            function clickHandler2() {
+                const userid = document.querySelector('#userid')
+                const data = JSON.stringify({userid: userid.value})
+
+                const opt = {
+                    method: "POST",
+                    headers: {
+                        "Content-type": "application/json"
+                    },
+                    body: data
+                }
+
+                // fetch문은 프로미스 객체
+                fetch('http://localhost:3000/idcheck', opt)
+                .then((res)=>{
+                    // console.log(res)
+                    return res.json()
+                })
+                .then((result)=>{
+                    console.log(result)
+                })
+            }
+
+            // axios -> 외부라이브러리, 실제 작업환경에서는 axios 사용
+            function clickHandler3() {
+                const data = JSON.stringify({userid: userid.value})
+
+                // app.get('url', ()=.{})
+                axios.post('http://localhost:3000/idcheck', data, {"Content-type": "application/json"})  // body와 header 부분을 구분지어서 인자값으로 전달
+                .then((res) => {
+                    console.log(res)
+                })
+            }
+
+
+
+
+        }
+
+
+    </script>
+</head>
+<body>
+    <form method="POST" action="/join">
+        <input type="text" id="userid" name="userid">
+        <input type="button" id="idcheck_btn" value="중복체크">
+        <div id="msg">
+
+        </div>
+    </form>
+</body>
+</html>

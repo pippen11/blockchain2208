@@ -1,0 +1,44 @@
+{
+  "property1": {
+    "imageUrl": "/item1.webp",
+    "imageAlt": "CHANNEL Perfume",
+    "title": "CHANNEL Perfume",
+    "formattedPrice": 1500,
+    "reviewCount": 34
+  },
+  "property2": {
+    "imageUrl": "/item2.webp",
+    "imageAlt": "CHANNEL Watch",
+    "title": "CHANNEL Watch",
+    "formattedPrice": 3500,
+    "reviewCount": 29
+  },
+  "property3": {
+    "imageUrl": "/item3.webp",
+    "imageAlt": "CHANNEL Eyewear",
+    "title": "CHANNEL Eyewear",
+    "formattedPrice": 2000,
+    "reviewCount": 17
+  },
+  "property4": {
+    "imageUrl": "/item4.webp",
+    "imageAlt": "CHANNEL Bag",
+    "title": "CHANNEL Bag",
+    "formattedPrice": 5000,
+    "reviewCount": 87
+  },
+  "property5": {
+    "imageUrl": "/item5.webp",
+    "imageAlt": "CHANNEL Skincare",
+    "title": "CHANNEL Skincare",
+    "formattedPrice": 200,
+    "reviewCount": 24
+  },
+  "property6": {
+    "imageUrl": "/item6.webp",
+    "imageAlt": "CHANNEL Jewelry",
+    "title": "CHANNEL Jewelry",
+    "formattedPrice": 1000,
+    "reviewCount": 13
+  }
+}

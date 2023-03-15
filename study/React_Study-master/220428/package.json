@@ -1,0 +1,16 @@
+{
+  "name": "220428",
+  "version": "1.0.0",
+  "description": "Hook 등장 이후 나온 개념.\r <br>\r Redux 없이 Hook만을 이용해서 전역 상태 관리를 해줄 수 있다.",
+  "main": "fibo.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.19.0"
+  }
+}

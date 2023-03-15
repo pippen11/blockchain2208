@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const Subject = () => {
+            // 함수형 컴포넌트는 함수 안의 코드를 전부 실행하게 된다.
+            // 클래스형 컴포넌트는 실행되는 부분만 가져와서 실행하게 된다. (그래서 상속이 필수)
+            const a = 'aaaa'
+
+            const ab = () => {
+                console.log('aaaa')
+            }
+
+            return (
+                <tr>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                    <th>4</th>
+                    <th>5</th>
+                </tr>
+            )
+        }
+
+        const Tables = () => {
+            return (
+                <table>
+                    <Subject/>
+                </table>
+            )
+        }
+
+        const App = () => {
+            return (
+                <div>
+                    <Tables/>
+                </div>
+            )
+        }
+
+        ReactDOM.render(<App />, document.querySelector('#root'))
+    </script>
+
+</body>
+</html>

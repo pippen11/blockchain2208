@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1><a href="/">Logo</a></h1>
+    <ul>
+        {% if user %}
+        <h2>안녕하세요 {{user.username}}님</h2>
+        <li><a href='/user/profile'>프로필</a></li>
+        <li><a href="/user/logout">로그아웃</a></li>
+        <li><a href='/board/list'>게시판</a></li>
+        {% else %}
+        <h2>메인페이지</h2>
+        <li><a href="/user/login">로그인</a></li>
+        <li><a href='/board/list'>게시판</a></li>
+        {% endif %}
+    </ul>
+</body>
+</html>

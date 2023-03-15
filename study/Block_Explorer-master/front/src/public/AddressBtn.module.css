@@ -1,0 +1,21 @@
+.addressBtn {
+    width: 50%;
+    display: flex;
+    justify-content: flex-start;
+    font-size: 30px;
+    padding: 0;
+    margin-left: 5%;
+}
+
+.Btn {
+    list-style: none;
+    width: 25%;
+    border: 3px solid;
+    text-align: center;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.Btn:not(:first-of-type) {
+    margin-left: 30px;
+}

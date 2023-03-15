@@ -1,0 +1,27 @@
+{% extends "_layout.html" %}
+
+{% block content %}
+<h2>글보기 페이지</h2>
+<p></p>
+<ul>
+    <li>제목 : {{data.title}}</li>
+    <p></p>
+    <li>내용 : 
+        <p></p>
+        {{data.content}}
+    </li>
+    <p></p>
+    <li>작성자 : {{data.author}}</li>
+    <p></p>
+    <li>작성일 : {{date}}</li>
+</ul>
+<p></p>
+<a href="/board/list/{{userId}}">게시판 돌아가기</a>
+<p></p>
+<a href="/board/update/{{userId}}/?id={{data.id}}">수정하기</a>
+<p></p>
+<form method="post" action="/board/delete/{{userId}}/?id={{data.id}}">
+    <input type="hidden" value="{{data.id}}">
+    <button type="submit">삭제하기</button>
+</form>
+{% endblock %}

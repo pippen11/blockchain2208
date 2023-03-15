@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo2</title>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <style>
+        .list {
+            margin-top: 20px;
+        }
+
+        .deleteBtn {
+            margin-left: 50px;
+            cursor: pointer;
+        }
+
+        .content {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+    
+    <script type="text/babel">
+
+        class UpdateTodo extends React.Component {
+
+            submitUpdate = (e) => {
+                e.preventDefault()
+                const {
+                    updateValue,
+                    idx,
+                    updateTodoArr
+                } = this.props
+                updateTodoArr(updateValue, idx)
+            }
+
+            handleChange = (e) => {
+                const {changeU} = this.props
+                changeU(e.target.value)
+            }
+
+            render() {
+                const {
+                    updateValue,
+                } = this.props
+
+                return(
+                    <form onSubmit={this.submitUpdate}>
+                        <input type='text' value={updateValue} onChange={this.handleChange} />
+                        <input type='submit' value='수정' />
+                    </form>
+                )
+            }
+        }
+
+        class TodoList extends React.Component {
+
+            list = () => {
+                const {
+                    todo,
+                    del,
+                    update,
+                    idx,
+                    changeU,
+                    updateValue,
+                    updateTodoArr
+                } = this.props
+
+                return todo.map((v, k) => {
+                    const value = todo[idx]
+                    return (
+                        <li key={k} className='list'>
+                            {
+                                idx === k ? (
+                                    <UpdateTodo todo={todo} changeU={changeU} updateValue={updateValue} idx={idx} updateTodoArr={updateTodoArr} />
+                                ) : (
+                                    <div>
+                                        <span className='content' onClick={ ()=>{ update(v, k) } }>{v}</span>
+                                        <span className='deleteBtn' onClick={ ()=>{ del(k) } }>X</span>
+                                    </div>
+                                )
+                            }
+                        </li>
+                    )
+                })
+            }
+
+            render() {
+                return(
+                    <ul>
+                        {this.list()}
+                    </ul>
+                )
+            }
+        }
+
+        class Form extends React.Component {
+
+            handleSubmit = (e) => {
+                e.preventDefault()
+                const {value, clear, changeTodo} = this.props
+                changeTodo(value)
+            }
+
+            handleChange = (e) => {
+                const {value, change} = this.props
+                change(e.target.value)
+            }
+
+            render() {
+                const {
+                    props: {value},
+                    handleChange, 
+                    handleSubmit
+                } = this
+
+                return(
+                    <form onSubmit={ handleSubmit }>
+                        할 일 : <input type='text' value={value} onChange={ handleChange } />
+                        <input type='submit' value='입력' />
+                    </form>
+                )
+            }
+        }
+        
+        class App extends React.Component {
+            state = {
+                value: '',
+                todoArr: [],
+                updateValue: ''
+            }
+
+            changeValue = (v) => {
+                this.setState({
+                    ...this.state,
+                    value: v
+                })
+            } 
+
+            changeTodo = (v) => {
+                // this.state.todoArr.push(v)
+                const todoArr = [...this.state.todoArr, v]
+                this.setState({
+                    ...this.state,
+                    todoArr,
+                    value:''
+                })
+            }
+
+            deleteTodo = (k) => {
+                this.state.todoArr.splice(k, 1)
+                const newTodoArr = [...this.state.todoArr]
+                this.setState({
+                    ...this.state,
+                    todoArr: newTodoArr
+                })
+            }
+
+            updateTodo = (v, k) => {
+                const newState = {
+                    ...this.state,
+                    idx: k,
+                    updateValue: v
+                }
+                this.setState({
+                    ...newState,
+                })
+            }
+
+            changeUpdateValue = (v) => {
+                this.setState({
+                    ...this.state,
+                    updateValue: v
+                })
+            }
+
+            updateTodoArr = (v, k) => {
+                this.state.todoArr[k] = v
+                const newTodoArr = [...this.state.todoArr]
+                this.setState({
+                    ...this.state,
+                    todoArr: newTodoArr,
+                    idx: ''
+                })
+            }
+
+            render() {
+                return(
+                    <div>
+                        <Form value={this.state.value} change={this.changeValue} changeTodo={this.changeTodo} />
+                        <TodoList todo={this.state.todoArr} del={this.deleteTodo} update={this.updateTodo} idx={this.state.idx} changeU={this.changeUpdateValue} updateValue={this.state.updateValue} updateTodoArr={this.updateTodoArr} />
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(
+            <App />,
+            document.querySelector('#root')
+        )
+        
+    </script>
+</body>
+</html>

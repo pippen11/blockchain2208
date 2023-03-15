@@ -1,0 +1,15 @@
+<script type="text/javascript">
+    window.addEventListener('DOMContentLoaded', init)
+
+    function init(){
+
+        let hElement = document.querySelector('#h1')
+
+        hElement.addEventListener('click', color)
+
+        function color() {
+            hElement.setAttribute('class', 'on')
+        }
+
+    }
+</script>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        <a href='/'>Logo</a>
+    </h1>
+    <h2>글수정 페이지</h2>
+    <form method='post' action='/board/update'>
+    <input type='hidden' name='index' value='{{index}}'>
+    <ul>
+        <li>
+            <strong>글제목</strong>
+            : <input type='text' name='subject' value='{{data.subject}}'>
+        </li>
+        <li>
+            <strong>작성자</strong>
+            : <input type='text' name='username' value='{{data.username}}'>
+        </li>
+        <li>
+            <strong>작성일</strong>
+            : <input type='text' name='date' value='{{data.date}}'>
+        </li>
+    </ul>
+    <input type='submit' value='수정하기'>
+    </form>
+    <a href='/board/list'>목록가기</a>
+
+</body>
+</html>

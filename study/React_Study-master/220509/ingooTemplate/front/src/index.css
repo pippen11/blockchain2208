@@ -1,0 +1,17 @@
+*{
+  margin:0;
+  padding:0;
+}
+
+a{
+  list-style:none;
+  text-decoration: none;
+}
+
+ul,li{
+  list-style:none;
+}
+
+.link {
+  text-decoration: none;
+}

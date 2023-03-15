@@ -1,0 +1,23 @@
+{% extends "_layout.html" %}
+
+{% block content %}
+{% if user %}
+<h2>안녕하세요 {{user.username}}님</h2>
+<p></p>
+<a href="/user/logout">로그아웃</a>
+<p></p>
+<ul>
+    <li><a href="/user/profile/{{user.id}}">프로필</a></li>
+    <li><a href="/board/list/{{user.id}}">게시판</a></li>
+</ul>
+{% else %}
+<h2>my first Server</h2>
+<p></p>
+<a href="/user/login">로그인하기</a지
+<p></p>
+<a href="/register/on">회원가입</a>
+<ul>
+    <li><a href='/board/list'>게시판</a></li>
+</ul>
+{% endif %}
+{% endblock %}

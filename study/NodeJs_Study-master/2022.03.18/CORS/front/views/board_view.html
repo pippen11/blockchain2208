@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <style>
+        *{margin:0; padding:10px;}
+ul,li{
+    list-style:none;
+}
+
+.comment{
+    display:flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding:30px;
+    width:600px;
+    margin:0 auto;
+    
+}
+
+.comment > li{ margin-top:20px; }
+.comment > li:nth-child(1){ margin:0px;}
+
+.comment-row{
+    display:flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.comment-row{
+    margin-top:20px;
+    width:100%;
+}
+
+.comment-row > li:nth-child(1){
+    display:flex;
+    align-items: center;
+}
+.comment-row > li:nth-child(2){
+    flex-shrink: 0;
+    flex-grow: 1;
+    padding-left:25px;
+    z-index:1;
+    width:100%;
+}
+
+.comment-row > li:nth-child(2){
+    width:85px;
+}
+
+.comment-form > form{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.comment-form > form > h4{
+    width:100%;
+    margin:14px 0 14px 0;
+}
+
+.comment-content{
+    word-break:break-all;
+    padding-right:25px;
+}
+
+.ps_box{
+    display: block;
+    position: relative;
+    width: 80%;
+    height: 51px;
+    border: solid 1px #dadada;
+    padding: 10px 14px 10px 14px;
+    background: #fff;
+    box-sizing: border-box;
+}
+
+.ps_box > input{
+    outline:none;
+}
+
+.int{
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 29px;
+    padding-right: 25px;
+    line-height: 29px;
+    border: none;
+    background: #fff;
+    font-size: 15px;
+    box-sizing: border-box;
+    z-index: 10;
+}
+
+.btn{
+    width:18%;
+    padding: 18px 0 16px;
+    text-align: center;
+    box-sizing: border-box;
+    text-decoration: none;
+    border:none;
+    background:#333;
+    color:#fff;
+    font-size:14px;
+}
+
+.comment-delete-btn{
+    display:inline-block;
+    margin-left:7px;
+    cursor: pointer;
+}
+
+.comment-update-input{
+    border:none;
+    border-bottom: 1px solid #333;
+    font-size:16px;
+    color:#666;
+    outline: none;
+}
+    </style>
+</head>
+<body>
+    제목 : <span id="subject"></span><br/>
+    닉네임 : <span id="nickname"></span> <br />
+    내용 : <br/>
+    <div id="content">
+
+    </div>
+
+    <!-- 여기서부터 댓글 -->
+    <div>
+        <ul id="commentApp">
+
+        </ul>
+    </div>
+
+    <template id="commentForm">
+        <li class="comment-form">
+            <form action="post" action="">
+                <h4>댓글쓰기 <span>()</span></h4>
+                <span class="ps_box">
+                    <input type="text" placeholder="댓글 내용을 입력해주세요." class="int" value="" name="input">
+                </span>
+                <input type="submit" class="btn" value="등록" />
+            </form>
+        </li>
+    </template>
+
+    <template id="commentList">
+        <li>
+            <ul class="comment-row">
+                <li class="comment-id"></li>
+                <li class="comment-content">
+                    
+                    <input type="hidden" name="idx" value="" />
+                    <span class="comment-delete-btn">X</span>
+                </li>
+                <li class="comment-date"></li>
+            </ul>
+        </li>
+    </template>
+
+    <template id="commentInput">
+        <span>
+            <input type="text" class="comment-update-input" value="">
+        </span>
+    </template>
+
+
+    <script type="text/javascript">
+        console.log(location.pathname)
+        // /board/view/9 -> 
+        
+        
+        async function view(){
+            const [,,,idx] = location.pathname.split('/') // []
+            const subjectBox = document.querySelector('#subject')
+            const nicknameBox = document.querySelector('#nickname')
+            const contentBox = document.querySelector('#content')
+
+            const response = await axios.post(`http://localhost:4001/api/board/view/${idx}`,{
+                withCredentials:true,
+            })
+
+            if ( response.data.errno === 0) {
+                const [{subject,nickname,content}] = response.data.result
+                console.log(response.data)
+                subjectBox.innerHTML = subject
+                nicknameBox.innerHTML = nickname
+                contentBox.innerHTML = content
+            } else {
+
+            }
+        }
+
+        view()
+
+        // DB 요청해서 댓글리스트를 가져왔다고 가정할게요
+        let state = {
+            replay: [
+                {idx: 1, userid: 'web7722', content: '안녕하세요', date: '2022-03-18', updateFlag: true},
+                {idx: 2, userid: 'web7722', content: '안녕하세요', date: '2022-03-18', updateFlag: true},
+                {idx: 3, userid: 'web7722', content: '안녕하세요', date: '2022-03-18', updateFlag: true},
+                {idx: 4, userid: 'web7722', content: '안녕하세요', date: '2022-03-18', updateFlag: true}
+            ],
+            value: '',
+            length: 4
+        }
+
+        const commentApp = document.querySelector('#commentApp')
+        const commentForm = document.querySelector('#commentForm')
+        const commentList = document.querySelector('#commentList')
+        const commentInput = document.querySelector('#commentInput')
+
+        function createForm() {
+            const clone = document.importNode(commentForm.content, true)
+            const form = clone.querySelector('form')
+            
+            const counting = form.querySelector('h4 > span')
+            counting.innerHTML = `(${state.length})`
+
+            form.addEventListener('submit', submitHandler)
+            commentApp.append(clone)
+        
+        }
+
+        function submitHandler(e) {
+            e.preventDefault()
+            const { input } = e.target
+            const counting = e.target.querySelector('h4 > span')
+            console.log(input.value)
+            // 삼항연산자
+            const idx = state.replay.length !=0 ? parseInt(state.replay[state.replay.length - 1].idx + 1) : 1
+            const result = {idx, userid: 'web7722', content: input.value, date: '2022-03-18', updateFlag: true}
+
+            state = {
+                ...state,
+                replay: [
+                    ...state.replay,
+                    result
+                ],
+                length: state.replay.length + 1
+            }
+
+            input.value = ''
+            counting.innerHTML = `(${state.length})`
+            console.log(state)
+
+            commentView()
+    
+        }
+
+        function commentView() {
+            commentApp.innerHTML = ''
+            createForm()
+
+            state.replay.forEach(v => { 
+                const clone = document.importNode(commentList.content, true)
+                const row = clone.querySelectorAll('.comment-row > li')
+                // console.log(row[1])
+                row[0].innerHTML = v.userid
+                // row[1].innerHTML = v.content  // innerHTML 사용 X
+                row[1].querySelector('input').value = v.idx
+
+                if (v.updateFlag === true) {
+                    const spanElement = document.createElement('span')
+                    spanElement.innerHTML = v.content
+
+                    const deleteBtn = row[1].querySelector('.comment-delete-btn')
+                    spanElement.addEventListener('click', updateHandler)
+                    deleteBtn.addEventListener('click', deleteHandler)
+
+                    row[1].prepend(spanElement)  // 앞에다 붙이기
+                } else {
+                    const clone = document.importNode(commentInput.content, true)
+                    clone.querySelector('input').value = v.content
+                    clone.querySelector('input').addEventListener('keypress', updateSubmitHandler)
+                    row[1].prepend(clone)
+                }
+
+                // const spanElement = document.createElement('span')
+                // spanElement.innerHTML = v.content
+                // const deleteBtn = row[1].querySelector('.comment-delete-btn')
+                // spanElement.addEventListener('click', updateHandler)
+                // deleteBtn.addEventListener('click', deleteHandler)
+                // row[1].querySelector('input').value = v.idx
+                // row[1].prepend(spanElement)  // 앞에다 붙이기
+
+                row[2].innerHTML = v.date
+
+                commentApp.appendChild(clone)
+            })
+        }
+
+        function updateHandler(e) {
+            const idx = parseInt(e.target.parentNode.querySelector('input').value)
+            const newReply = [...state.replay]
+            newReply[idx-1].updateFlag = false
+
+            state = {
+                ...state,
+                replay: newReply
+            }
+
+            commentView()
+        }
+
+        function updateSubmitHandler(e){
+            
+            if(e.keyCode === 13){
+                
+                const idx = parseInt( e.target.parentNode.parentNode.querySelector('input[type=hidden]').value )
+                const newReplay = [...state.replay]
+
+                let index 
+                for(let i =0; i < newReplay.length; i++){
+                    if(newReplay[i].idx === idx){
+                        index = i
+                    }
+                }
+
+                newReplay[index].updateFlag = true
+                newReplay[index].content = e.target.value
+
+                state = {
+                    ...state,
+                    replay:newReplay
+                }
+
+                commentView()
+            }
+        }
+
+        
+        function deleteHandler(e) {
+            const idx = parseInt(e.target.parentNode.querySelector('input').value)
+            const newReply = state.replay.filter(v => v.idx !== idx)
+
+            state = {
+                ...state,
+                replay: newReply,
+                length: newReply.length
+            }
+
+            commentView()
+        }
+
+        commentView()
+
+    </script>
+</body>
+</html>

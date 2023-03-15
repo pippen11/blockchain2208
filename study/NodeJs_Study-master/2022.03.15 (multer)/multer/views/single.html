@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello multer!!</h1>
+    <!--
+        Content-type : application/json
+        Content-type : x-www-form-urlencoded
+
+        Request Body 영역의 content-type을 지정해줘야 한다.
+
+        form 엘리먼트의 enctype 디폴트값은 application/x-www-form-urlencoded
+    -->
+    <form method="post" action="/upload" enctype="multipart/form-data">
+        <input type="text" name="subject">
+        <input type="file" name="upload">
+        <input type="submit" value="전송">
+    </form>
+</body>
+</html>

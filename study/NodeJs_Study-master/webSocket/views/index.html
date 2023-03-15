@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+
+        document.addEventListener('DOMContentLoaded', ()=>{
+            
+            const webSocket = new WebSocket('ws://localhost:3000')
+            
+            // 연결에 성공하면 아래의 콜백함수가 실행됨
+            webSocket.onopen = () => {
+                console.log('웹소켓 connection 성공 ( HandShake )')
+            }
+    
+            const form = document.querySelector('form')
+            form.addEventListener('submit', (e)=>{
+                e.preventDefault()
+                const { input } = e.target
+
+                // 발생하는 event에 따라 구분값을 만들어주기 위해
+                // 객체 형태로 메세지를 작성해서 보낸다.
+                // 단, 데이터를 전달할 때는 무조건 string 형태로 전달.
+                let data = {
+                    type: 'send_msg',
+                    data: input.value
+                }
+
+                webSocket.send(JSON.stringify(data))  // 데이터 전달은 string 형태로,,
+                input.value = ''
+                input.focus()
+            })
+
+            webSocket.onmessage = (event) => {
+                const chat = document.querySelector('#chat')
+                const liElement = document.createElement('li')
+                liElement.innerHTML = event.data
+                chat.appendChild(liElement)
+                console.log(event.data)
+            }
+
+        })
+
+    </script>
+</head>
+<body>
+    <h1><a href="/">LOGO</a></h1>    
+    <h2>Hello Web Socket!!</h2>
+    <form action="/" method="get">
+        <input type="text" name="input" id="input">
+        <input type="submit" value="전송">
+    </form>
+    <ul id="chat">
+    </ul>
+</body>
+</html>

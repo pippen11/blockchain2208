@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+
+    <form method="post" action="http://localhost:4001/api/board/write" id="write_frm">
+        제목 : <input type="text" name="subject" id="subject"> <br />
+        내용 : <textarea name="content" id="content"></textarea> <br />
+        <input type="submit" id="btn" value="글쓰기">
+    </form>
+  
+    <script type="text/javascript">
+        const frm = document.querySelector('#write_frm')        
+        frm.addEventListener('submit',async (e)=>{
+            e.preventDefault()
+            const subject = document.querySelector('#subject')
+            const content = document.querySelector('#content')
+
+            const body = {
+                subject:subject.value,
+                content:content.value
+            }
+
+            // axios 어디가 요청을 보낼까요?
+            const response = await axios.post('http://localhost:4001/api/board/write',body,{
+                "Content-type":"application/json",
+                withCredentials:true,
+            })
+
+            if( response.data.errno === 0 ) {
+                // 성공적인 부분
+                const { insertId } = response.data.result
+                location.href=`/board/view/${insertId}`
+                
+                // /board/view?idx=1
+                // /board/view/1
+
+            } else {
+                // 실패적인 부분입니다. 
+                subject.value = ''
+                content.value = ''
+                alert('님 DB오류나서 실패됨 ^^')
+            }
+        })
+    </script>
+</body>
+</html>
+
+
+
+<!-- CREATE TABLE board(
+    idx INT NOT NULL AUTO_INCREMENT,
+    subject VARCHAR(40) NOT NULL,
+    nickname VARCHAR(10) NOT NULL,
+    date TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    content TEXT,
+    hit INT DEFAULT 0 NOT NULL,
+    PRIMARY KEY(idx)
+); -->

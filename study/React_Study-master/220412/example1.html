@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>  <!-- 결과값이 객체 -->
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>   <!-- 결과값이 객채 -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <!--
+        SPA를 만들기 위해 리액트를 사용한다.
+    -->
+    <script type="text/babel">  // babel 문법을 사용할 수 있게 type을 babel로 지정
+        // react : react 문법
+        // react-dom : 바뀐 값을 찾아서 그 영역만 바꿔주는 역할 수행 
+        // 엘리먼트를 변경할 때 변경되는 알고리즘을 찾아내는 것이 react-dom
+        // 그 전에 있는 값과 새로 만들 값을 비교해서 변경되는 값만 바꿔 껴주는 역할을 하는 것이 react-dom 
+
+        // ReactDOM.render()
+        // 첫번째 인자값 : 내가 넣을 내용
+        // react 문법으로 엘리먼트를 생성해서 넣어줘야 한다.
+        // 두번째 인자값 : 내가 넣을 위치 document.querySelector('#root')
+
+        // React.createElement()
+        // 인자값이 3개 들어간다.
+        // 첫번째 인자값은 엘리먼트명 a, button, input, li, img, ...
+        // 두번째 인자값은 속성 <input type='text'> / Object 타입으로 넣을 수 있다.
+        // 세번째 인자값은 innerHTML의 내용들 <span>하이</span>
+
+        // const btn = React.createElement('button', {id: 'ingoo', class: 'ingoo2'}, '버튼')
+        // babel => JSX
+        const id = 'ingoo'
+        const btn = <button id={id}>버튼</button>  // HTML처럼 생겼을 뿐, 실제로 돌아가는 것은 Javascript
+
+        // btn 변수의 내용을 함수나 클래스로 만드는 게 component
+
+        React.createElement('button', null, '버튼')  // 리액트 문법으로 엘리먼트 생성
+        ReactDOM.render(
+            btn, 
+            document.querySelector('#root')
+        )
+
+        // JSX
+        // Javascript 영역에서 HTML 문법으로 사용하는 것을 JSX라 한다.
+        // 자바스크립트에 HTML을 포함하는 JSX(JavaScript XML)이라는 간단한 문법을 사용
+
+        // Javascript 영역에서 HTML 형태로 사용할 수 있게 해주는 고마운 녀석이 존재함 => babel 
+        // babel : 리액트 라이브러리가 아니다. 문법을 바꿀 때 사용하는 것. 문법을 바꾸는 용도로만 사용한다. 
+
+        // babel 을 통해서 JSX 문법을 사용할 수 있는 환경구축
+
+        // react : 페이스북이 만든거
+            // jsx : 다른사람이 만든 babel을 활용해서 페이스북이 만든거
+            // component
+        // react-dom : 페이스북이 만든거
+        // babel : 다른 사람이 만든거
+
+        // ***************************************************** //
+        
+        // Component
+        // Javascript로 만든 HTML 구조를 재활용해서 사용할 수 있게 해주는게 component.
+        // class 문법을 사용하거나 함수를 사용해서 component를 생성한다.
+        // 대부분 함수형 component를 사용한다. 
+        // 리액트로 페이지를 만들 때 다른 사람이 만들어 놓은 component를 가져와서 사용하는 경우가 많다. 따라서 class component도 알아두는 것이 좋다. 
+
+        // btn 변수의 내용을 함수나 클래스로 만드는 게 component
+        class App extends React.Component{
+            render() {  // render 함수 선언
+                // render 함수는 최종적으로 화면에 그릴 내용을 넣는 공간이라고 보면 된다. 
+                // React.Component 안에 구현되어있는 함수, render()라는 함수명으로만 사용 가능
+                return (
+                    // return 값에는 기본적으로 하나 이상의 상위 엘리먼트가 존재해야만 한다.
+                    <button>클래스 컴포넌트 버튼</button>
+                    // return의 내용이 많을 경우 줄바꿈을 해주기 위해 괄호 사용
+                )
+            }
+        }
+
+        // Component라는 것은 JSX의 결과물을 함수나 클래스에 담는 행위
+        // 결과물을 -> JSX로 반환해줌 -> <App /> 형태로 사용해서 호출
+        // app2 컴포넌트를 만들고 결과물을 <li>hi</li>
+        class app2 extends React.Component {
+            render() {
+                return (
+                    <li>hi</li>
+                )
+            }
+        }
+
+        // 사용법 : JSX 형태로 사용
+
+        ReactDOM.render(
+            <App />, 
+            document.querySelector('#root')
+        )
+
+        // 함수형 Component
+        // const App = () => {
+
+        // }
+        
+    </script>
+</body>
+</html>

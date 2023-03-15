@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <form method="post" action="http://localhost:4001/api/board/write" id="write_frm">
+        제목 : <input type="text" name="subject" id="subject"> <br />
+        내용 : <textarea name="content" id="content"></textarea> <br />
+        <input type="submit" id="btn" value="글쓰기">
+    </form>
+    <script type="text/javascript">
+        const frm = document.querySelector('#write_frm')
+        frm.addEventListener('submit', async (e)=>{
+            e.preventDefault()
+            const subject = document.querySelector('#subject').value
+            const content = document.querySelector('#content').value
+
+            const body = {
+                subject,
+                content
+            }
+            const response = await axios.post('http://localhost:4001/api/board/write', body, {
+                "Content": "application/json",
+                withCredentials: true
+            })
+
+            if (response.data.errno === 0) {
+                // 성공
+                const {insertId} = response.data.result
+                location.href=`/board/view/${insertId}`
+            } else {
+                // 실패
+                subject.value=''
+                content.value=''
+                alert('님 DB오류나서 실패됨')
+            }
+
+            console.log(response.data)
+        })
+        
+    </script>
+</body>
+</html>

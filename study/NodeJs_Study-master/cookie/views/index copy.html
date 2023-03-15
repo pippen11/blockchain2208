@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--
+    <script type="text/javascript">
+        console.log(document.cookie)
+        document.cookie = 'token=0'
+        let cookie = document.cookie.split('=')
+        // cookie[0] = 'token'
+        // cookie[1] = '1'
+
+        if (cookie[0] === 'token' && cookie[1] === '1') {
+            alert('넌 인증된 사람이야!!')
+        }
+        console.log(document.cookie)
+    </script>
+    -->
+</head>
+<body>
+    <h1>
+        <a href="/">Logo</a>
+    </h1>
+    {{userid}}
+    
+    <ul>
+        {% if isLogin %}
+            <li>{{userid}}님 환영합니다.</li>
+            <li><a href='/logout'>Logout</a></li>
+        {% else %}
+            <li><a href='/login'>login</a></li>
+        {% endif %}
+    </ul>
+</body>
+</html>

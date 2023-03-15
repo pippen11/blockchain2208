@@ -1,0 +1,98 @@
+# multi Nodes
+# docker-compose -f ./geth-node.yml [up/down]
+
+version: "3.7"
+services:
+  bootnode:
+    hostname: geth-bootnode
+    image: ethereum/client-go
+    container_name: bootnode_container
+    working_dir: /root/.ethereum
+    command:
+      --nodekeyhex="ebeded96116476abd53786e9f90ddfcd43e8e6a46a1db135abb1df2afc39cbdd"
+      --nodiscover
+      --http
+      --http.addr="0.0.0.0"
+      --http.port=9001
+      --http.corsdomain="*"
+      --http.api="admin, miner, txpool, web3, personal, eth, net"
+      --syncmode="full"
+      --port=30301
+      --networkid=701
+      --allow-insecure-unlock
+      --unlock='c90b6201226f828e77920889dd0839330933ba35'
+      --password='./key-data/password.txt'
+      --mine
+    volumes:
+      - ./bootnode:/root/.ethereum:rw
+    ports:
+      - "30301:30301"
+      - "30301:30301/udp"
+      - "9001:9001"
+
+  node1:
+    image: ethereum/client-go
+    container_name: node1_container
+    working_dir: /root/.ethereum
+    depends_on: ["bootnode"]
+    command: --http
+      --http.addr="0.0.0.0"
+      --http.port=9002
+      --http.corsdomain="*"
+      --http.api="admin, miner, txpool, web3, personal, eth, net"
+      --syncmode="full"
+      --port=30302
+      --networkid=701
+      --allow-insecure-unlock
+      --bootnodes="enode://15eeaf795d067fa14cc14a343f12d5e5de1fc867e62dd30eabf2d671f7223a3e6a16dc30744a103934b5863448486a1e90a3f17e76ba3717ba989a59e86530b9@geth-bootnode:30301"
+      --unlock='4e1b289485334b781810d62299b71f9ece3feb0e'
+      --password='./key-data/password.txt'
+      --mine
+    volumes:
+      - ./node1:/root/.ethereum:rw
+    ports:
+      - "30302:30302"
+      - "30302:30302/udp"
+      - "9002:9002"
+
+  node2:
+    image: ethereum/client-go
+    container_name: node2_container
+    depends_on: ["bootnode"]
+    command: --http
+      --http.addr="0.0.0.0"
+      --http.port=9003
+      --http.corsdomain="*"
+      --http.api="admin, miner, txpool, web3, personal, eth, net"
+      --syncmode="full"
+      --port=30303
+      --networkid=701
+      --allow-insecure-unlock
+      --bootnodes="enode://15eeaf795d067fa14cc14a343f12d5e5de1fc867e62dd30eabf2d671f7223a3e6a16dc30744a103934b5863448486a1e90a3f17e76ba3717ba989a59e86530b9@geth-bootnode:30301"
+    volumes:
+      - ./node2:/root/.ethereum:rw
+    ports:
+      - "30303:30303"
+      - "30303:30303/udp"
+      - "9003:9003"
+
+  node3:
+    image: ethereum/client-go
+    container_name: node3_container
+    depends_on: ["bootnode"]
+    command: --http
+      --http.addr="0.0.0.0"
+      --http.port=9004
+      --http.corsdomain="*"
+      --http.api="admin, miner, txpool, web3, personal, eth, net"
+      --syncmode="full"
+      --port=30304
+      --networkid=701
+      --allow-insecure-unlock
+      --bootnodes="enode://15eeaf795d067fa14cc14a343f12d5e5de1fc867e62dd30eabf2d671f7223a3e6a16dc30744a103934b5863448486a1e90a3f17e76ba3717ba989a59e86530b9@geth-bootnode:30301"
+    volumes:
+      - ./node3:/root/.ethereum:rw
+    ports:
+      - "30304:30304"
+      - "30304:30304/udp"
+      - "9004:9004"

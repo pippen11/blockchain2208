@@ -1,0 +1,24 @@
+{
+    "exclude": ["node_modules"],
+    "compilerOptions": {
+        "outDir": "./build/",
+        "esModuleInterop": true,
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "strict": true,
+        "target": "ES6",
+        "removeComments": true,
+        "lib": ["ES6"],
+        "allowJs": true,
+        "typeRoots": ["./node_modules/@types", "./@types"],
+        "baseUrl": ".",
+        "paths": {
+            "@core/*": ["src/core/*"],
+            "*": ["@types/*"]
+        }
+    },
+    "ts-node": {
+        "files": true, // 전역 상태로 declare한 type들을 ts-node에서 찾을 수 있게끔 한다.
+        "require": ["tsconfig-paths/register"]
+    }
+}

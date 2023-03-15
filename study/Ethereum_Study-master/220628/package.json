@@ -1,0 +1,19 @@
+{
+  "name": "220628",
+  "version": "1.0.0",
+  "description": "## ganache-cli",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^28.1.1"
+  },
+  "dependencies": {
+    "ethereumjs-tx": "^2.1.2",
+    "web3": "^1.7.4"
+  }
+}

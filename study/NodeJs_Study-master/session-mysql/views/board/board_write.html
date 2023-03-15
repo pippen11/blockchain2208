@@ -1,0 +1,21 @@
+{% extends "_layout.html" %}
+
+{% block content %}
+<h2>글쓰기 페이지</h2>
+<p></p>
+<form method="post" action="/board/write/{{userId}}">
+    <ul>
+        <li>제목 : <input type='text' name="title"></li>
+        <p></p>
+        <li>내용 : 
+            <p></p>
+            <textarea type="text" cols="30" rows="10" name="content"></textarea>
+        </li>
+        <p></p>
+    </ul>
+    <p></p>
+    <button type="submit">작성하기</button>
+</form>
+<p></p>
+<a href="/board/list/{{userId}}">글목록</a>
+{% endblock %}

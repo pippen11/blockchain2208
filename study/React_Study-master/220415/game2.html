@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>game2</title>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <style>
+        body {
+          font: 14px "Century Gothic", Futura, sans-serif;
+          margin: 20px;
+        }
+
+        ol, ul {
+          padding-left: 30px;
+        }
+
+        .board-row:after {
+          clear: both;
+          content: "";
+          display: table;
+        }
+
+        .status {
+          margin-bottom: 10px;
+        }
+
+        .square {
+          background: #fff;
+          border: 1px solid #999;
+          float: left;
+          font-size: 24px;
+          font-weight: bold;
+          line-height: 34px;
+          height: 34px;
+          margin-right: -1px;
+          margin-top: -1px;
+          padding: 0;
+          text-align: center;
+          width: 34px;
+        }
+
+        .square:focus {
+          outline: none;
+        }
+
+        .kbd-navigation .square:focus {
+          background: #ddd;
+        }
+
+        .game {
+          display: flex;
+          flex-direction: row;
+        }
+
+        .game-info {
+          margin-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+        const calculateWinner = (squares) => {
+            const lines = [
+                [0, 1, 2], 
+                [3, 4, 5],
+                [6, 7, 8],
+                [2, 4, 6],
+                [0, 4, 8],
+                [0, 3, 6],
+                [1, 4, 7],
+                [2, 5, 8]
+            ]
+
+            for (let i=0; i<lines.length; i++) {
+                const [a, b, c] = lines[i]
+                // console.log(squares[a], squares[b], squares[c])
+
+                if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+                    return squares[a]
+                }
+            }
+
+            return null
+        }
+
+
+        class Square extends React.Component {
+            render() {
+                return(
+                    <button className="square"
+                            onClick={this.props.onClick}
+                    >
+                        {this.props.value}
+                    </button>
+                )
+            }
+        }
+
+
+        class Board extends React.Component {
+
+            state = {
+                squares: Array(9).fill(null),
+                xIsNext: true
+            }
+
+            handleClick = (i) => {
+                // console.log(i)
+                const squares = [...this.state.squares]
+                // console.log(this.state.xIsNext) // true
+                console.log(squares[i])
+                calculateWinner(squares)
+
+                if (squares[i] != null || calculateWinner(squares)) {
+                    return
+                }
+
+                const xIsNext = this.state.xIsNext // true
+
+                squares[i] = xIsNext ? 'X' : 'O'
+                this.setState({
+                    ...this.state,
+                    squares,
+                    xIsNext: !xIsNext
+                })
+            }
+
+            renderSquare = (i) => {
+                return(
+                    <Square
+                        value={this.state.squares[i]}
+                        onClick={() => { this.handleClick(i) }}
+                        // 익명함수로 감싸지 않으면 함수가 바로 실행되어 버린다.
+                    />
+                )
+            }
+
+            // 클릭을 했을 때 'X'가 나오게 하고 싶다.
+            // 클릭을 했을 때 해당 인자값이 있는 0 ~ 8의 숫자가 console.log에 찍히도록 하자.
+            // 내가 만약 n번을 클릭했으면 n번에 해당되는 내용을 null -> 'X'로 바꾸자.
+
+
+            render() {
+                const {renderSquare, state: {squares}} = this
+
+                const winner = calculateWinner(squares)  // null , 'X' , 'O'
+                let status = winner ? `Winner : ${winner}` : `Next Player : ${ this.state.xIsNext ? 'X' : 'O' }`
+                return(
+                    <div>
+                        <div className="status">
+                            {status}    
+                        </div>
+
+                        <div className="board-row">
+                            {renderSquare(0)}
+                            {renderSquare(1)}
+                            {renderSquare(2)}
+                        </div>
+                        <div className="board-row">
+                            {renderSquare(3)}
+                            {renderSquare(4)}
+                            {renderSquare(5)}
+                        </div>
+                        <div className="board-row">
+                            {renderSquare(6)}
+                            {renderSquare(7)}
+                            {renderSquare(8)}
+                        </div>
+                    </div>
+                )
+            }
+        }
+
+        class Game extends React.Component {
+            render() {
+                return(
+                    <div className="game">
+                        <div className="game-board">
+                            <Board />
+                        </div>
+                        <div className="game-info">
+                        </div>
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(
+            <Game />,
+            document.querySelector('#root')
+        )
+
+    </script>
+
+</body>
+</html>

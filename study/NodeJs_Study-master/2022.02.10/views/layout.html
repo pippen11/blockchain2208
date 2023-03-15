@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock %}</title>
+</head>
+<body>
+    <div id="header">
+        <h1>
+            <a href="/">Logo</a>
+        </h1>
+        {% include "header.html" %}
+    </div>
+    <!-- 여기서부터 -->
+    {% block content %}
+    {% endblock %}
+    <!-- 여기까지 바뀜 -->
+    <div id="footer">
+        copyright
+    </div>
+</body>
+</html>

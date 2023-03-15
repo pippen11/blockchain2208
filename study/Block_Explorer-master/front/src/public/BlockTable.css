@@ -1,0 +1,21 @@
+table {
+    width: 100%;
+    border-top: 1px solid #444444;
+    border-collapse: collapse;
+}
+th,
+td {
+    border-bottom: 1px solid #444444;
+    padding: 10px;
+    text-align: center;
+}
+thead tr {
+    background-color: #424242;
+    color: #ffffff;
+}
+tbody tr:nth-child(2n) {
+    background-color: #ffffff;
+}
+tbody tr:nth-child(2n + 1) {
+    background-color: #eeeeee;
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>list</title>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    
+    <script type="text/babel">
+
+        const numArr = [1, 2, 3, 4, 5]
+
+        class NumList extends React.Component {
+
+            numbers = this.props.num
+
+            listItems = this.numbers.map(v => {
+                return (
+                    <li key={v.toString()}>{v*2}</li>
+                )
+            })
+
+            render() {
+                console.log(this.props.num)
+                return (
+                    <ul>
+                        {this.listItems}
+                    </ul>
+                )
+            }
+        }
+        
+        
+        class App extends React.Component {
+            render() {
+                return (
+                    <div>
+                        <NumList num={numArr} />
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(
+            <App />,
+            document.querySelector('#root')
+        )
+    </script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "name": "2022.02.16",
+  "version": "1.0.0",
+  "description": "데이터베이스",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mysql": "^2.18.1"
+  }
+}

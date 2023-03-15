@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        // 1. 저는 폼을 실행이 안되게 하고싶습니다. submit 버튼을 누를때요.
+            // 1.1 DOMContentLoaded 이벤트 작성
+            // 1.2 form 가져오기 or 조작하기 할수있는 환경 만들기 
+            // document.getElementById() > document.querySelector()
+        // 2. submit 버튼을 눌렀을때 userid input의 내용과 userpw input의 내용을 console.log로 찍어주세요.
+        // DOMContentLoaded 
+        document.addEventListener('DOMContentLoaded',init)
+        function init(){
+            const frm = document.querySelector('#loginFrm')
+            const userid = frm.querySelector('#userid')
+            const userpw = frm.querySelector('#userpw')
+            
+            frm.addEventListener('submit',submitHandler)
+            function submitHandler(e){
+                e.preventDefault()
+                console.log(userid.value,userpw.value)
+                // input 에서 받은 아이디와, 패스워드를 back 서버에 보낸다. - submit버튼을 눌렀을때.
+                    // 서버를 보내는 즉시 로딩화면을 보여준다. 
+                // back 서버는 아이디와 패스워드를 검증하고, JWT토큰을 생성해서 cookie로 보내준다.
+                // 그 결과물을 받을시. 메인페이지로 이동시킨다. 혹은 화면에 성공여부를 보여준다.
+
+                const data = {
+                    userid:userid.value,
+                    userpw:userpw.value
+                }
+
+                ajax(data)
+            }
+
+            function ajax(item){
+                // AJAX 
+                const xhr = new XMLHttpRequest() // DataType 객체 
+
+                // 1. 요청 보내기 쌉가능 GET localhost:3000
+                // 2. 요청에 body내용 넣기 쌉가능 
+                    // 
+                // 3. 요청 header 조작 가능 
+                // 4. 응답받기 쌉가능.
+                    // 4.1 콜백이 총 3번이 되다는 사실을 알았어요. 
+                    // 4.2 그 콜백 3번을 컨트롤이 가능한가? 
+
+                xhr.open('POST','http://localhost:3000/login',true)
+                xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded')
+                xhr.send(`userid=${item.userid}&userpw=${item.userpw}`)
+
+                document.querySelector('#msg').innerHTML ='나로딩중'
+
+                // callback 
+                xhr.onreadystatechange = () => {
+                    // console.log('ajax야 나 실행 되니~?',xhr.readyState)
+                    switch(xhr.readyState){
+                        case 2:
+                            // HEADERS_RECEIVED
+                            console.log('HEADERS_RECEIVED')
+                        break;
+                        case 3:
+                            // LOADING
+                            console.log('LOADING')
+                        break;
+                        case 4:
+                            // DONE
+                            document.querySelector('#msg').innerHTML =''
+                            location.href="http://localhost:3000"
+                            console.log('DONE', xhr.response) // xhr.response 이 텍스트를 받아보거라~
+                        break;
+                    }
+                }
+            }
+        }
+
+        
+    </script>
+</head>
+<body>
+    <span id="msg"></span>
+    <form method="post" action="/login" id="loginFrm">
+        <input type="text" name="userid" id="userid">
+        <input type="text" name="userpw" id="userpw">
+        <input type="submit" value="로그인">
+    </form>
+
+    <!-- userid=ingoo&userpw=1234  -->
+    
+</body>
+</html>

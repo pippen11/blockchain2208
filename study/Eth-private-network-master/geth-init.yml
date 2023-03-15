@@ -1,0 +1,24 @@
+# docker-compose -f ./geth-init.yml [up/down]
+
+version: "3.7"
+services:
+  init0:
+    image: ethereum/client-go
+    command: init /root/.ethereum/genesis.json
+    volumes:
+      - ./bootnode:/root/.ethereum
+  init1:
+    image: ethereum/client-go
+    command: init /root/.ethereum/genesis.json
+    volumes:
+      - ./node1:/root/.ethereum
+  init2:
+    image: ethereum/client-go
+    command: init /root/.ethereum/genesis.json
+    volumes:
+      - ./node2:/root/.ethereum
+  init3:
+    image: ethereum/client-go
+    command: init /root/.ethereum/genesis.json
+    volumes:
+      - ./node3:/root/.ethereum

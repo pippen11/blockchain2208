@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        <a href="/">Logo</a>
+    </h1>
+    <h2>
+        게시판_리스트
+    </h2>
+    <table>
+        <tr>
+            <td>번호</td>
+            <td>제목</td>
+            <td>작성자</td>
+            <td>작성일</td>
+        </tr>
+        <!-- for문 if문 사용하는 법 -->
+        {% for item in content %}
+        <tr>
+            <td>1</td>
+            <td><a href="/board/view">{{item.subject}}</a></td>
+            <td>{{item.username}}</td>
+            <td>{{item.date}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="/board/write">글쓰기</a>
+</body>
+</html>

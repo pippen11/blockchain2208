@@ -1,0 +1,18 @@
+{
+  "name": "220712",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "keythereum": "^1.2.0",
+    "solc": "^0.8.15",
+    "truffle": "^5.5.21",
+    "web3": "^1.7.4"
+  }
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    제목 : <span id="subject"></span><br/>
+    닉네임 : <span id="nickname"></span> <br />
+    내용 : <br/>
+    <div id="content">
+
+    </div>
+    <script type="text/javascript">
+        console.log(location.pathname)
+        // /board/view/9 -> 
+        
+        
+        async function view(){
+            const [,,,idx] = location.pathname.split('/') // []
+            const subjectBox = document.querySelector('#subject')
+            const nicknameBox = document.querySelector('#nickname')
+            const contentBox = document.querySelector('#content')
+
+            const response = await axios.post(`http://localhost:4001/api/board/view/${idx}`,{
+                withCredentials:true,
+            })
+
+            if ( response.data.errno === 0) {
+                const [{subject,nickname,content}] = response.data.result
+                console.log(response.data.result)
+                subjectBox.innerHTML = subject
+                nicknameBox.innerHTML = nickname
+                contentBox.innerHTML = content
+            } else {
+
+            }
+        }
+
+        view()
+        
+    </script>
+</body>
+</html>

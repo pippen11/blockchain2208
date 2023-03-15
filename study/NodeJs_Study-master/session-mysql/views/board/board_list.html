@@ -1,0 +1,26 @@
+{% extends "_layout.html" %}
+
+{% block content %}
+<h2>게시판 페이지</h2>
+<p>접속자 : {{username}}     </p>
+<a href="/user/logout">로그아웃</a>
+<p></p>
+<table>
+    <tr>
+        <td style="border-bottom:1px solid black;">번호</td>
+        <td style="border-bottom:1px solid black;">제목</td>
+        <td style="border-bottom:1px solid black;">작성자</td>
+        <td style="border-bottom:1px solid black;">작성일</td>
+    </tr>
+    {% for item in rows %}
+    <tr>
+        <td>{{item.id}}</td>
+        <td><a href="/board/view/{{userId}}/?id={{item.id}}">{{item.title}}</a></td>
+        <td>{{item.author}}</td>
+        <td>{{item.date}}</td>
+    </tr>
+    {% endfor %}
+</table>
+<p></p>
+<a href="/board/write/{{userId}}">글쓰기</a>
+{% endblock %}

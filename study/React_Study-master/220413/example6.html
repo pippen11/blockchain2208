@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    
+    <script type="text/babel">
+        // Props는 기본적으로 부모에서 자식으로 데이터를 전달하는 방식
+
+        class C extends React.Component {
+            render() {
+                const { text } = this.props
+                return (
+                    <span>
+                        Hello world!! {text}
+                    </span>
+                )
+            }
+        }
+
+        class B extends React.Component {
+            render() {
+                // javascript 영역
+                const { value } = this.props
+                return (
+                    // JSX 영역
+                    // 중괄호를 이용해 변수 사용
+                    // component 속성을 javascript 변수명으로 사용하기 위해 중괄호 사용
+                    <div className="asdf">
+                        {value}
+                        <C text={value} />
+                    </div>
+                )
+            }
+        }
+
+        class A extends React.Component {
+             
+            render() {
+                const { name } = this.props
+                return (
+                    <div>
+                        {name}
+                        <B value={name} />
+                    </div>    
+                )
+            }
+        }
+        
+        class App extends React.Component {
+            render() {
+                return (
+                    <div>
+                        <A name="ingoo" />
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(
+            <App />,
+            document.querySelector('#root')
+        )
+        
+    </script>
+</body>
+</html>

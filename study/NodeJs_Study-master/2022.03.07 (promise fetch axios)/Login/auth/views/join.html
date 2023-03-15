@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="https://unpkg.com/axios@0.26.0/dist/axios.min.js"></script>
+    <!--  3가지 버전 -->
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded',init)
+        function init(){
+            const btn = document.querySelector('#idcheck_btn')
+            const userid = document.querySelector('#userid')
+            const msg = document.querySelector('#msg')
+            
+
+            btn.addEventListener('click',clickHandler4)
+
+            function clickHandler(){
+                const data = JSON.stringify({userid:userid.value})
+                // Ajax
+                const xhr = new XMLHttpRequest()
+                xhr.open('POST','/idcheck',true) // 보낼 url Request method 정보를 넣는곳
+                xhr.setRequestHeader('Content-type','application/json') // header내용을 바꿀쑤있어요 // application/x-www-form-urlencoded
+                xhr.send(data) // 보내는거 body 넣어서 보낼수있어요.
+                // json 
+                
+                // body영역에는 
+                // queruString 
+
+                xhr.onreadystatechange = () => {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        try {
+                            // 가입가능 1 가입불가능 2 
+                            // console.log(JSON.parse(xhr.response).result)
+                            let data = JSON.parse(xhr.response)
+                            if ( data.result === 2) throw new Error('아이디가 중복되었습니다.')
+                            msg.innerHTML = '사용이 가능합니다.'
+                            msg.style.color = 'green'
+                        } catch (e) {
+                            // 가입이 불가능할 경우
+                            msg.innerHTML = '사용이 불가능합니다.'
+                            msg.style.color = 'red'
+                        }
+                    }
+                }
+            }
+
+            // fetch 내장객체 javascript 대부분 지원해여 
+            function clickHandler2(){
+                const data = JSON.stringify({userid:userid.value})
+
+                // fetch 문 깔끔하게 만들어줌 
+                const option = {
+                    method:"POST",
+                    headers:{
+                        "Content-type":"application/json"
+                    },
+                    body:data
+                }
+
+                fetch('http://localhost:3000/idcheck',option)
+                .then( (response)=>{
+                    return response.json()
+                } )
+                .then( (result) => {
+                    console.log( result )
+                } )
+            }
+
+            // axios 외부라이브러리 
+            function clickHandler3(){
+                const data = {userid:userid.value}
+                // axios는 객체 형태로 데이터를 전달해도 된다.
+
+                // app.get('url',()=>{})
+                axios.post('http://localhost:3000/idcheck', data, {"Content-type":"application/json"})
+                .then( (response) => {
+                    console.log(response.data)
+                })
+            }
+
+            async function clickHandler4() {
+                const data = {userid: userid.value}
+
+                const response = await axios.post('http://localhost:3000/idcheck', data, {"Content-type": "application/json"})
+                console.log(response.data)
+            }
+
+
+            const joinfrm = document.querySelector('#joinfrm')
+            const id = document.querySelector('#userid')
+            const pw = document.querySelector('#userpw')
+            const name = document.querySelector('#username')
+
+
+            joinfrm.addEventListener('submit', async (e)=>{
+                e.preventDefault()
+                const data = {
+                    userid: id.value,
+                    userpw: pw.value,
+                    username: name.value
+                }
+                const response = await axios.post('/join2', data, {"Content-type": "application/json"})
+                console.log(response.data)
+
+                // welcome page를 ajax를 사용해서 만들기.
+                // DOM 조작을 하나하나 다 해주는 겁니다.
+                const wrap = document.querySelector('#wrap')
+                const {userid, userpw, username} = response.data
+                
+                // const spanElement = document.createElement('span')
+                // spanElement.innerHTML = `${userid}님 환영합니다.`
+
+                // template 내용을 가져와서 사용하는 방식
+                const template = document.querySelector('#welcome')
+                wrap.innerHTML = template.innerHTML.replace('{userid}', userid)
+                                                   .replace('{userpw}', userpw)
+                                                   .replace('{username}', username)
+
+                // wrap.innerHTML = ''
+                // wrap.append(spanElement)
+            })
+
+
+        }
+
+    </script>
+</head>
+<body>
+    <div id="wrap">
+    <form action="/join2" method="post" id="joinfrm">
+        <input type="text" id="userid" name="userid" placeholder="아이디입력">
+        <input type="button" id="idcheck_btn" value="중복체크">
+        <div id="msg">
+            
+        </div>
+        <input type="text" id="userpw" name="userpw" placeholder="패스워드입력">
+        <input type="text" id="username" name="username" placeholder="이름입력">
+
+        <input type="submit" value="회원가입">
+    </form>
+    </div>
+    <template id="welcome">
+        회원가입을 축하드립니다.
+        아이디는 : {userid}
+        패스워드는 : {userpw}
+        이름은 : {username}
+    </template>
+</body>
+</html>

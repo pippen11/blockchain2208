@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    
+    <script type="text/babel">
+
+        class Form extends React.Component {
+
+            handleSubmit = (e) => {
+                e.preventDefault()
+                const {value, clear, changeTodo} = this.props
+                changeTodo(value)
+                clear()
+            }
+
+            handleChange = (e) => {
+                const {change} = this.props
+                change(e.target.value)
+            }
+
+            render() {
+                const {
+                    props: {value},
+                    handleChange,
+                    handleSubmit
+                } = this
+
+                return(
+                    <form onSubmit={handleSubmit}>
+                        할 일 : <input type='text' value={value} onChange={ handleChange }/>
+                        <input type='submit' />
+                    </form>
+                )
+            }
+        }
+
+        class Todo extends React.Component {
+            state = {
+                todoArr: this.props.todo
+            }
+
+            list = this.state.todoArr.map(v => {
+                return(
+                    <li>{v}</li>
+                )
+            })
+
+            render() {
+                return(
+                    <ul>
+                        {this.list}
+                    </ul>
+                )
+            }
+        }
+
+        class TodoList extends React.Component {
+            render() {
+                const {todo} = this.props
+                return(
+                    <div>
+                        <Todo todo={todo} />
+                    </div>
+                )
+            }
+        }
+        
+        class App extends React.Component {
+            state = {
+                value: '',
+                todoArr: []
+            }
+
+            changeValue = (v) => {
+                this.setState({
+                    ...this.state,
+                    value: v
+                })
+            }
+
+            clearValue = () => {
+                this.setState({
+                    ...this.state,
+                    value: ''
+                })
+            }
+
+            changeTodo = (v) => {
+                this.setState({
+                    ...this.state,
+                    todoArr: this.state.todoArr.push(v)
+                })
+            }
+
+            render() {
+                const {
+                    state: {value, todoArr},
+                    changeValue,
+                    clearValue,
+                    changeTodo
+                } = this
+                return(
+                    <div>
+                        <Form value={value} change={changeValue} clear={clearValue} changeTodo={changeTodo} />
+                        <TodoList todo={todoArr} />
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(
+            <App />,
+            document.querySelector('#root')
+        )
+    </script>
+</body>
+</html>

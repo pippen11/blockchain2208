@@ -1,0 +1,19 @@
+{% extends "_layout.html" %}
+
+{% block content %}
+<h2>{{user.username}}님 회원정보</h2>
+<form method="post" action="/user/profile/{{user.id}}">
+    <ul>
+        <li>아이디 : {{user.userid}}</li>
+        <p></p>
+        <li>비밀번호 : <input type="text" name="userpw" value="{{user.userpw}}"></li>
+        <p></p>
+        <li>닉네임 : <input type="text" name="username" value="{{user.username}}"></li>
+    </ul>
+    <button type="submit">수정하기</button>
+</form>
+<p></p>
+<form method="post" action="/user/delete/{{user.id}}">
+    <button type="submit">탈퇴하기</button>
+</form>
+{% endblock %}

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <style>
+        #board {
+            width: 100%;
+        }
+    
+        #board > tbody td {
+            padding: 7px 14px;
+            border-bottom: 1px solid #eee;
+            text-align: center;
+        }
+
+        #board > thead th {
+            background: #eee;
+            border-bottom: 2px solid #333;
+        }
+
+        #board .subject {
+            width: 45%;
+        }
+    </style>
+    <script type="text/javascript">
+        // const data =  {
+        //     list: [
+        //         {
+        //            idx: 0,
+        //            subject: '첫번째 게시물',
+        //            nickname: 'web7722',
+        //            date: '2022-03-14',
+        //            hit: 0
+        //         },
+        //         {
+        //            idx: 1,
+        //            subject: '두번째 게시물',
+        //            nickname: 'web7722',
+        //            date: '2022-03-14',
+        //            hit: 0
+        //         },
+        //         {
+        //            idx: 2,
+        //            subject: '세번째 게시물',
+        //            nickname: 'web7722',
+        //            date: '2022-03-14',
+        //            hit: 0
+        //         }
+        //     ]
+        // }
+
+        let test = {}
+
+        document.addEventListener('DOMContentLoaded', async ()=>{
+            // 요청에 대한 코드를 작성해서 결과물을 받아와야 합니다.
+            const response = await axios.post('http://localhost:4001/api/board/list', {
+                withCredentials: true
+            })
+
+            test = {
+                ...response
+            }
+            console.log(response)
+
+            const trElement = document.querySelector('#board_row').innerHTML  // String..
+            const paging = document.querySelector('#paging > ul')
+            // console.log(trElement)
+
+            // const Nodes = response.data.result
+
+            const { total_record } = response.data  // 323
+            const view_article = 10  // 한 화면에 보일 갯수
+            const block_article = 10  // 한 블럭당 보일 갯수
+
+            const total_page = Math.ceil(total_record/view_article) // 33 page
+            const total_block = Math.ceil(total_page/block_article) // 4 block
+
+            // page
+            let page = 11;
+            const current_block = Math.ceil(page/block_article)
+            const block = ( (current_block-1)*block_article )
+
+            let end_block = block + block_article
+            if (end_block > total_page) end_block = total_page       
+            
+            // function pagemove(num) {
+            //     const trElement = document.querySelector('#board_row').innerHTML
+            //     const view_article = 10;
+            //     const Nodes = test.data.result.slice((num-1)*view_article, num*view_article) 
+
+            //     let template = ''
+            //     Nodes.forEach(v => {
+            //         template += trElement.replace('{idx}', v.idx)
+            //                              .replace('{subject}', v.subject)
+            //                              .replace('{nickname}', v.nickname)
+            //                              .replace('{date}', v.date)
+            //                              .replace('{hit}', v.hit)
+            //     })
+
+            //     const tbody = document.querySelector('#board tbody')
+            //     tbody.innerHTML = template;
+
+            // }
+
+            // // 페이징 만들기
+            for (let i=block+1; i<=end_block; i++) {
+                const liElement = document.createElement('li')
+                const aElement = document.createElement('a')
+                aElement.setAttribute('onClick', `pagemove(${i})`)
+                aElement.innerHTML = `[${i}]`
+                liElement.appendChild(aElement)
+                paging.appendChild(liElement)
+                console.log( i )
+            }
+
+            // // 게시물 자르기
+            const Nodes = response.data.result.splice((page-1)*view_article, view_article)
+
+
+            // let start = view_article*(page-1)
+            // let end = view_article*page
+
+            // for (let i=start; i<end; i++) {
+            //     if (i>total_record) { break }
+            //     console.log(i)
+            // }
+
+            // let block = []
+            // let page_set = []
+            // for (let i=0; i<total_page/block_article; i++) {
+            //     block.push(i)
+            // }
+            // console.log(block)
+
+            // let pStart = block_article*(total_block-1)
+            // let pEnd = block_article*(total_block)   
+            // for (let i=pStart; i<pEnd; i++) {
+            //     page_set.push(i)
+            // }
+            // console.log(page_set)
+
+            let template = ''
+            Nodes.forEach(v => {
+                template += trElement.replace('{idx}', v.idx)
+                                     .replace('{subject}', v.subject)
+                                     .replace('{nickname}', v.nickname)
+                                     .replace('{date}', v.date)
+                                     .replace('{hit}', v.hit)
+            })
+
+            const tbody = document.querySelector('#board tbody')
+            tbody.innerHTML = template;
+        })
+
+        pagemove()
+        function pagemove(num) {
+            const trElement = document.querySelector('#board_row').innerHTML
+            const view_article = 10;
+            const Nodes = test.data.result.slice((num-1)*view_article, num*view_article) 
+
+            let template = ''
+            Nodes.forEach(v => {
+                template += trElement.replace('{idx}', v.idx)
+                                     .replace('{subject}', v.subject)
+                                     .replace('{nickname}', v.nickname)
+                                     .replace('{date}', v.date)
+                                     .replace('{hit}', v.hit)
+            })
+
+            const tbody = document.querySelector('#board tbody')
+            tbody.innerHTML = template;
+
+        }
+    </script>
+</head>
+<body>
+    <table cellspacing="0" cellpadding="0" id="board">
+        <thead>
+            <tr>
+                <th>번호</th>
+                <th class="subject">제목</th>
+                <th>작성자</th>
+                <th>작성일</th>
+                <th>조회수</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <div id="paging">
+        <ul>
+        </ul>
+    </div>
+    <template id="board_row">
+        <tr>
+            <td>{idx}</td>
+            <td>{subject}</td>
+            <td>{nickname}</td>
+            <td>{date}</td>
+            <td>{hit}</td>
+        </tr>
+    </template>
+</body>
+</html>
+

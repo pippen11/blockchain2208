@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <!--
+        로그인 화면을 구성할 때
+        input box : userid, userpw
+
+    -->
+    
+    <script type="text/babel">
+
+        class Login extends React.Component {
+            // 데이터가 바뀌면 화면이 바뀐다.
+            // 변수명을 절대 바꾸면 안된다. 
+            // 변수명을 state로 사용해야만 한다.            
+            // 그리고 객체 형태로 관리한다. 
+            state = {
+                isLogin: false
+            }
+
+            // this.setState() , state라는 변수를 바꿔주는 함수
+            // 상태를 변경시킬 때는 항상 객체를 바꿔 껴줘야 한다.
+            render() {
+                const obj = {
+                    ...this.state,
+                    isLogin: !this.state.isLogin
+                }
+                return (
+                    <button onClick={() => { this.setState(obj) }}>
+                        {this.state.isLogin ? '로그아웃' : '로그인'}    
+                    </button>
+                )
+            }
+        }
+        
+        class App extends React.Component {
+            render() {
+                return (
+                    <div>
+                        <Login />    
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(
+            <App />,
+            document.querySelector('#root')
+        )
+
+    </script>
+
+    <button id="asdf" onClick="alert('버튼클릭!!')">버튼</button>
+    <!--onClick의 속성값은 javascript 영역이기 때문에 리액트에서 사용될 때는 중괄호{}가 사용된다.-->
+</body>
+</html>

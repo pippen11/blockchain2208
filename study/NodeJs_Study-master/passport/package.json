@@ -1,0 +1,21 @@
+{
+  "name": "passport",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chokidar": "^3.5.3",
+    "cookie-parser": "^1.4.6",
+    "express": "^4.17.3",
+    "jsonwebtoken": "^8.5.1",
+    "nunjucks": "^3.2.3",
+    "passport": "^0.5.2",
+    "passport-jwt": "^4.0.0"
+  }
+}

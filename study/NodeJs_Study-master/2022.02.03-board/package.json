@@ -1,0 +1,17 @@
+{
+  "name": "2022.02.03-board",
+  "version": "1.0.0",
+  "description": "",
+  "main": "board.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chokidar": "^3.5.3",
+    "express": "^4.17.2",
+    "nunjucks": "^3.2.3",
+    "supervisor": "^0.12.0"
+  }
+}

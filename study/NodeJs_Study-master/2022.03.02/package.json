@@ -1,0 +1,18 @@
+{
+  "name": "2022.03.02",
+  "version": "1.0.0",
+  "description": "hash (해쉬) -> 암호화",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chokidar": "^3.5.3",
+    "express": "^4.17.3",
+    "mysql": "^2.18.1",
+    "nunjucks": "^3.2.3",
+    "supervisor": "^0.12.0"
+  }
+}

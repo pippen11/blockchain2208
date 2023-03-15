@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello multer!!</h1>
+    <form method="post" action="/upload2" enctype="multipart/form-data">
+        <input type="text" name="subject">
+        <input type="file" name="upload" multiple>
+        <!-- multiple 속성값이 있으면 여러개의 파일을 업로드 할 수 있다.-->
+        <input type="submit" value="전송">
+    </form>
+</body>
+</html>

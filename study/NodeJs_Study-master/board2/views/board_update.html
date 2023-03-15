@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1><a href='/'>Logo</a></h1>
+    <h2>글 수정 페이지</h2>
+    <form method='post' action='/board/update/{{id}}'>
+        <ul>
+            <li>제목 : 
+                <input type='text' name='title' value='{{rows.title}}'>
+                <p></p>
+            </li>
+            <li>내용 : 
+                <p></p>
+                <textarea type="text" name='content'>{{rows.content}}</textarea>
+                <p></p>
+            </li>
+            <li>작성자 : <input type='text' name='author' value={{rows.author}}></li>
+        </ul>
+        <a href='/board'>글 목록</a>
+        <input type='submit' value='수정하기'>
+    </form>
+</body>
+</html>

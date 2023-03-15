@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <h1>Hello Asyncronous multer!!</h1>
+    <form method="post" action="/upload" enctype="multipart/form-data">
+        <input type="text" name="subject">
+        <input type="file" name="upload">
+        <input type="submit" value="전송">
+    </form>
+    <script type="text/javascript">
+        const frm = document.querySelector('form')
+        frm.addEventListener('submit', async (e)=>{
+            e.preventDefault()
+            console.log(e.target.subject)
+            console.log(e.target.upload)
+            const {subject, upload} = e.target
+            console.log(upload.files[0])
+
+            // body에 넣을 내용 만들기
+            const formData = new FormData()  // enctype에 있는 포맷으로 변환
+            formData.append('upload', upload.files[0])
+            formData.append('subject', subject.value)
+        
+            const response = await axios.post('/upload', formData)
+        })
+    </script>
+
+</body>
+</html>

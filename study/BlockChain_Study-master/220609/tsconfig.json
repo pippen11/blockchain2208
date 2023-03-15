@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "outDir": "./dist/",
+        "esModuleInterop": true, // export default 문법 사용 가능
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "strict": true,
+        "baseUrl": ".",
+        "typeRoots": ["./node_modules/@types", "./@types"],
+        "paths": {
+            "@core/*": ["src/core/*"],
+            "*": ["@types/*"]
+        }
+    }
+}

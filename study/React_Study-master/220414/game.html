@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <style>
+        body {
+          font: 14px "Century Gothic", Futura, sans-serif;
+          margin: 20px;
+        }
+
+        ol, ul {
+          padding-left: 30px;
+        }
+
+        .board-row:after {
+          clear: both;
+          content: "";
+          display: table;
+        }
+
+        .status {
+          margin-bottom: 10px;
+        }
+
+        .square {
+          background: #fff;
+          border: 1px solid #999;
+          float: left;
+          font-size: 24px;
+          font-weight: bold;
+          line-height: 34px;
+          height: 34px;
+          margin-right: -1px;
+          margin-top: -1px;
+          padding: 0;
+          text-align: center;
+          width: 34px;
+        }
+
+        .square:focus {
+          outline: none;
+        }
+
+        .kbd-navigation .square:focus {
+          background: #ddd;
+        }
+
+        .game {
+          display: flex;
+          flex-direction: row;
+        }
+
+        .game-info {
+          margin-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+    
+    <script type="text/babel">
+        // 3개의 component 존재
+        // Square
+        // Board
+        // Game
+
+        class Square extends React.Component {
+
+            render() {
+                return(
+                    <button className="square"
+                            onClick={ ()=>{ this.props.onClick() } }        
+                    >
+                        {this.props.value}         
+                    </button>
+                )
+            }
+        }
+
+        class Board extends React.Component {
+            state = {
+                squares: Array(9).fill(null),
+                xIsNext: true
+            }
+
+            handleClick = (i) => {
+                const squares = [...this.state.squares]
+                squares[i-1] = this.state.xIsNext ? 'X' : 'O'
+                this.setState({ 
+                    squares,
+                    xIsNext: !this.state.xIsNext 
+                })
+            }
+
+            renderSquare = (i) => {
+                return(
+                    <Square 
+                        onClick={ ()=>{ this.handleClick(i) } } 
+                        value={this.state.squares[i-1]}    
+                    />
+                )
+            }
+
+            render() {
+                const { renderSquare } = this
+                return(
+                    <div>
+                        <div className="status">
+                            
+                        </div>
+                        <div className="board-row">
+                            {renderSquare(1)}
+                            {renderSquare(2)}
+                            {renderSquare(3)}
+                        </div>
+                        <div className="board-row">
+                            {renderSquare(4)}
+                            {renderSquare(5)}
+                            {renderSquare(6)}
+                        </div>
+                        <div className="board-row">
+                            {renderSquare(7)}
+                            {renderSquare(8)}
+                            {renderSquare(9)}
+                        </div>
+                    </div>
+                )
+            }
+        }
+
+        class Game extends React.Component {
+            render() {
+                return (
+                    <div className="game">
+                        <div className="game-board">
+                            <Board />
+                        </div>
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(
+            <Game />,
+            document.querySelector('#root')
+        )
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1><a href='/'>Logo</a></h1>
+    <h2>글 보기</h2>
+    <ul>
+        <li>제목 : 
+            {{rows.title}}
+            <p></p>
+        </li>
+        <li>내용 : 
+            <p></p>
+            {{rows.content}}
+            <p></p>
+        </li>
+        <li>작성자 : {{rows.author}}</li>
+    </ul>
+    <a href='/board'>글 목록</a>
+    <p></p>
+    <a href='/board/update/{{id}}'>수정하기</a>
+    <p></p>
+    <form method='post' action='/board/delete'>
+        <input type="hidden" name='id' value="{{id}}">
+        <input type='submit' value='삭제하기'>
+    </form>
+</body>
+</html>

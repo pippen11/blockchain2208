@@ -1,0 +1,17 @@
+{
+  "name": "2022.03.04",
+  "version": "1.0.0",
+  "description": "비동기 요청에 대한 내용을 말하는 것.\r 브라우저에서 URL 입력 없이 요청을 보내는 행위,,그리고 요청을 보냈다면 응답을 받아야 한다.\r Asynchronous Javascript And XML.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chokidar": "^3.5.3",
+    "express": "^4.17.3",
+    "nunjucks": "^3.2.3"
+  }
+}

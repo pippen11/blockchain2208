@@ -1,0 +1,11 @@
+{
+  "include": ["src"],
+  "compilerOptions": {
+      "outDir": "build",
+      "target": "ES6",
+      "removeComments": true,
+      "lib": ["ES6", "DOM"],
+      "strict": true,
+      "allowJs": true
+  }
+}

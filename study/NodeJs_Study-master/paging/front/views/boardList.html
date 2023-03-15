@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="text/javascript" src="/JS/board.js" defer></script>
+    <style>
+        #board {
+            width: 100%;
+        }
+    
+        #board > tbody td {
+            padding: 7px 14px;
+            border-bottom: 1px solid #eee;
+            text-align: center;
+        }
+
+        #board > thead th {
+            background: #eee;
+            border-bottom: 2px solid #333;
+        }
+
+        #board .subject {
+            width: 45%;
+        }
+
+        #paging {
+            display: inline-block;
+            width: 800px;
+        }
+
+        #paging > a {
+            cursor: pointer;
+        }
+
+        li {
+            display: inline-block;
+            list-style: none;
+            padding: 0;
+            margin-left: 18px;
+            cursor: pointer;
+        }
+
+        .on {
+            background-color: yellow;
+        }
+
+        ul {
+            display: inline-block;
+            padding: 0;
+            width: 500px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1><a href='/'>LOGO</a></h1>    
+    <h2>게시판 리스트 페이지</h2>
+    <table cellspacing="0" cellpadding="0" id="board">
+        <thead>
+            <tr>
+                <th>번호</th>
+                <th class="subject">제목</th>
+                <th>작성자</th>
+                <th>작성일</th>
+                <th>조회수</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <div id="paging">
+        <a id="prevBlock"><<</a>
+        <a id="prevPage">prev</a>
+        <ul>
+
+        </ul>
+        <a id="nextPage">next</a>
+        <a id="nextBlock">>></a>
+    </div>
+    <template id="board_row">
+        <tr>
+            <td>{idx}</td>
+            <td>{subject}</td>
+            <td>{nickname}</td>
+            <td>{date}</td>
+            <td>{hit}</td>
+        </tr>
+    </template>
+</body>
+</html>

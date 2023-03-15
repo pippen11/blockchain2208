@@ -1,0 +1,16 @@
+{
+  "name": "220608",
+  "version": "1.0.0",
+  "description": "- 블록체인의 블록\r - 블록체인의 체인\r 두 개념에 대해 먼저 짚고 넘어가야 한다.\r <br>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "crypto-js": "^4.1.1",
+    "merkle": "^0.6.0"
+  }
+}

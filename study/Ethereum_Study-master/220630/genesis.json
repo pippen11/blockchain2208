@@ -1,0 +1,16 @@
+{
+    "difficulty": "200000",
+    "gasLimit": "3100000",
+    "alloc": {
+        "0xe7Cfd36ACfB1109Ac1080c30Ee7a2FAC263cAAe2": {
+            "balance": "100100000000000000000"
+        }
+    },
+    "config": {
+        "chainId": 7722,
+        "homesteadBlock": 0,
+        "eip150Block": 0,
+        "eip155Block": 0,
+        "eip158Block": 0
+    }
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>example2</title>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+        // class Hello2 extends React.Component {
+        //     render() {
+        //         return (
+        //             // return 값에는 기본적으로 하나 이상의 상위 엘리먼트가 존재해야만 한다.
+        //             // text만 집어넣고 싶을 때는 다음과 같이 사용한다.
+        //             // 가상의 엘리먼트를 만들어서 감싸기만 해주면 된다.
+        //             <>
+        //                 Hello
+        //             </>
+        //         )
+        //     }
+        // }
+
+        // class Hello3 extends React.Component {
+        //     render() {
+        //         return (
+        //             // return 값에는 기본적으로 하나 이상의 상위 엘리먼트가 존재해야만 한다.
+        //             // 엘리먼트를 여러개 사용하고자 하는 경우에도 아래와 같이 사용할 수 있다.
+        //             <>
+        //                 <li>제목</li>
+        //                 <li>날짜</li>
+        //             </>
+        //         )
+        //     }
+        // }
+
+        class Hello extends React.Component {
+            render() {
+                return (
+                    <span>Hello</span>
+                )
+            }
+        }
+
+        class World extends React.Component {
+            render() {
+                return (
+                    <span>World!!</span>
+                )
+            }
+        }
+
+        class App extends React.Component {
+            render() {
+                return (
+                    <div>
+                        Hello world!! <Hello /> <World />
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(
+            <App />,
+            document.querySelector('#root')
+        )
+
+        // ReactDOM은 기본적으로 하나의 컴포넌트만 실행을 해준다.
+        // App 컴포넌트 안에서 Hello 컴포넌트를 실행시켜줘야만 한다. 
+
+    </script>
+    <!-- App 컴포넌트를 만들어서 <div>Hello world</div>를 찍으세요 -->
+</body>
+</html>

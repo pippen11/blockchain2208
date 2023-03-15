@@ -1,0 +1,30 @@
+{
+  "name": "ethereum",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bitkunst/Ethereum_Study.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bitkunst/Ethereum_Study/issues"
+  },
+  "homepage": "https://github.com/bitkunst/Ethereum_Study#readme",
+  "devDependencies": {
+    "eslint": "^8.18.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.1.0",
+    "prettier": "^2.7.1"
+  },
+  "dependencies": {
+    "https-browserify": "^1.0.0",
+    "web3": "^1.7.4"
+  }
+}

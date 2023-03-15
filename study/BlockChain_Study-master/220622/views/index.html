@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Hello Wallet!!</h1>
+        <button id="wallet_btn">지갑생성</button>
+
+        <ul id="wallet_list">
+            <li>Coin : Bit-coin</li>
+            <li>
+                account :
+                <span class="account"></span>
+            </li>
+            <li>
+                private key :
+                <span class="privateKey"></span>
+            </li>
+            <li>
+                public key :
+                <span class="publicKey"></span>
+            </li>
+            <li>
+                balance :
+                <span class="balance"></span>
+            </li>
+        </ul>
+        <form id="transaction_form">
+            <ul>
+                <li>received : <input id="received" placeholder="보낼 계정" /></li>
+                <li>amount : <input id="amount" placeholder="보낼 금액" /></li>
+            </ul>
+            <input type="submit" value="전송" />
+        </form>
+
+        <!-- 지금껏 만들었던 지갑 목록들 -->
+        <h1>지갑목록</h1>
+        <button id="wallet_list_btn">지갑목록 버튼</button>
+        <div class="wallet_list2">
+            <ul>
+                목록 버튼을 눌러주세요
+            </ul>
+        </div>
+        <script type="text/javascript">
+            const walletBtn = document.querySelector('#wallet_btn');
+            const walletListBtn = document.querySelector('#wallet_list_btn');
+            const transactionForm = document.querySelector('#transaction_form');
+
+            const createWallet = async () => {
+                const response = await axios.post('/newWallet', null);
+                view(response.data);
+                console.log(response.data);
+            };
+
+            const submitHandler = async (e) => {
+                e.preventDefault();
+                // 본인의 account값과 publicKey값 가져오기
+                const publicKey = document.querySelector('.publicKey').innerHTML;
+                const account = document.querySelector('.account').innerHTML;
+                const data = {
+                    sender: {
+                        publicKey,
+                        account,
+                    },
+                    received: e.target.received.value,
+                    amount: parseInt(e.target.amount.value),
+                };
+
+                const response = await axios.post('/sendTransaction', data);
+            };
+
+            const view = (wallet) => {
+                const account = document.querySelector('.account');
+                const publicKey = document.querySelector('.publicKey');
+                const privateKey = document.querySelector('.privateKey');
+                const balance = document.querySelector('.balance');
+
+                account.innerHTML = wallet.account;
+                publicKey.innerHTML = wallet.publicKey;
+                privateKey.innerHTML = wallet.privateKey;
+                balance.innerHTML = wallet.balance;
+            };
+
+            const getView = async (account) => {
+                // 계정 정보 가져오기
+                const response = await axios.get(`/wallet/${account}`);
+                view(response.data);
+            };
+
+            const getWalletList = async () => {
+                const walletList = document.querySelector('.wallet_list2 > ul');
+                const response = await axios.post('/walletList', null);
+
+                const list = response.data.map((account) => {
+                    return `<li onClick="getView('${account}')">${account}</li>`;
+                });
+
+                walletList.innerHTML = list;
+            };
+
+            walletBtn.addEventListener('click', createWallet);
+            walletListBtn.addEventListener('click', getWalletList);
+            transactionForm.addEventListener('submit', submitHandler);
+        </script>
+    </body>
+</html>

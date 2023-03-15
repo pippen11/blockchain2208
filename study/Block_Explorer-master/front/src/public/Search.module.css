@@ -1,0 +1,30 @@
+.form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    margin: auto 0;
+}
+
+.select {
+    border: 0;
+    outline: 0;
+    border-radius: 10px;
+    margin-left: 5px;
+}
+
+.input {
+    border: 0;
+    outline: 0;
+    border-radius: 10px;
+    width: 100%;
+    font-size: 15px;
+}
+
+.btn {
+    border: 0;
+    outline: 0;
+    border-radius: 10px;
+    background: #ffffff;
+    margin-right: 5px;
+}
