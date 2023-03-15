@@ -17,6 +17,6 @@ contract Minting is ERC721 {
     uint _tokenId
   ) public pure override returns (string memory) {
     return
-      "https://ipfs.io/ipfs/QmawVbLDQU4Mg3TLuRpac5AAY7ZtWAB5ak93qxrcPRRQ4i";
+      "https://ipfs.io/ipfs/QmX1KLhCqhT25P63K2kF3Cr8yaRkBKzah5zdHcEZz94PWj";
   }
 }
