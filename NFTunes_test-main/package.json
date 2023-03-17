@@ -1,0 +1,26 @@
+{
+  "name": "pj8_dappstore_test",
+  "version": "1.0.0",
+  "description": "> ### 1. `cd front` >  > ### 2. git clone, pull 이후 `npm install or npm i` 실행 >  > ### 3. front 실행 : `npm run dev`",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yjleeinkr/NFTunes_test.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yjleeinkr/NFTunes_test/issues"
+  },
+  "homepage": "https://github.com/yjleeinkr/NFTunes_test#readme",
+  "devDependencies": {
+    "eslint": "^8.23.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.7.1"
+  }
+}

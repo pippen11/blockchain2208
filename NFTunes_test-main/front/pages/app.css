@@ -1,0 +1,73 @@
+/* 영문 폰트 */
+
+@font-face {
+  font-family: 'Black';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../src/font/Blinker-Black.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../src/font/Blinker-Bold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'ExtraBold';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../src/font/Blinker-ExtraBold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Headline';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../src/font/Blinker-Headline.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Light';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../src/font/Blinker-Light.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../src/font/Blinker-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'SemiBold';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../src/font/Blinker-SemiBold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'SemiLight';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../src/font/Blinker-SemiLight.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Thin';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../src/font/Blinker-Thin.woff') format('woff');
+}
+
+/* 한글 폰트 */
+
+@font-face {
+  font-family: 'Fly';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../src/font/tway-fly.woff') format('woff');
+}

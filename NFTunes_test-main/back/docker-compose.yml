@@ -1,0 +1,45 @@
+# docker compose -f docker-compose.yml up -d
+# root 계정 - ID: root, PW: 1234
+# 기본 계정 - ID: test, PW: 1234
+# mongo-express 주소 : http://localhost:8081
+# 주소 입력으로 접속 안될시, docker-Desktop 앱에서 mongo-express 콘테이너의 OPEN WITH BROWSER 클릭
+
+version: "3.7"
+
+services:
+  db:
+    container_name: mongo-dev
+    image: mongo:4.2
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_DATABASE=auth
+      - MONGO_INITDB_ROOT_PASSWORD=1234
+    networks:
+      - mongo-compose-network
+    ports:
+      - '27017:27017'
+    volumes:
+      - ./mongodb-data:/data/db
+
+  mongo-express:
+    container_name: mongo-express
+    image: mongo-express
+    depends_on:
+      - db
+    networks:
+      - mongo-compose-network
+    environment:
+      - ME_CONFIG_MONGODB_SERVER=mongo-dev
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=root
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=1234
+      - ME_CONFIG_BASICAUTH_USERNAME=test
+      - ME_CONFIG_BASICAUTH_PASSWORD=1234
+    ports:
+      - '8081:8081'
+    volumes:
+      - ./mongodb-data:/data/db
+
+networks:
+  mongo-compose-network:
+    driver: bridge
+

@@ -1,0 +1,4 @@
+.idea
+PRIVATE_NET/
+node_modules
+package-lock.json

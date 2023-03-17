@@ -1,0 +1,1204 @@
+{
+  "contractName": "CrossChainEnabledPolygonChild",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "rootMessageSender",
+          "type": "address"
+        },
+        {
+          "internalType": "bytes",
+          "name": "data",
+          "type": "bytes"
+        }
+      ],
+      "name": "processMessageFromRoot",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.15+commit.e14f2714\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"rootMessageSender\",\"type\":\"address\"},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"}],\"name\":\"processMessageFromRoot\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"[Polygon](https://polygon.technology/) specialization or the {CrossChainEnabled} abstraction the child side (polygon/mumbai). This version should only be deployed on child chain to process cross-chain messages originating from the parent chain. The fxChild contract is provided and maintained by the polygon team. You can find the address of this contract polygon and mumbai in [Polygon's Fx-Portal documentation](https://docs.polygon.technology/docs/develop/l1-l2-communication/fx-portal/#contract-addresses). _Available since v4.6._\",\"kind\":\"dev\",\"methods\":{\"constructor\":{\"custom:oz-upgrades-unsafe-allow\":\"constructor\"},\"processMessageFromRoot(uint256,address,bytes)\":{\"details\":\"External entry point to receive and relay messages originating from the fxChild. Non-reentrancy is crucial to avoid a cross-chain call being able to impersonate anyone by just looping through this with user-defined arguments. Note: if _fxChild calls any other function that does a delegate-call, then security could be compromised.\"}},\"stateVariables\":{\"_fxChild\":{\"custom:oz-upgrades-unsafe-allow\":\"state-variable-immutable\"}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/node_modules/openzeppelin-solidity/contracts/crosschain/polygon/CrossChainEnabledPolygonChild.sol\":\"CrossChainEnabledPolygonChild\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/node_modules/openzeppelin-solidity/contracts/crosschain/CrossChainEnabled.sol\":{\"keccak256\":\"0x1ec2f661e2b0bd06b245f7e847111d5b40d32380794bd2d791e89b0bdc3ef082\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://9466ccdfd19225a51b9b785e60f22b04220684b8c9f24e11b62b740ad77f761f\",\"dweb:/ipfs/QmUAXfC4rzW9cqVdNkXA5c4HgqxNRwzo2MbUV4wDT52tED\"]},\"project:/contracts/node_modules/openzeppelin-solidity/contracts/crosschain/errors.sol\":{\"keccak256\":\"0xa1e9b651a2427925598b49ef35da5930abc07859cfac5b9dfb1912f063a024b3\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://c514518c36a3fb1c5f1a99d88857e93160c72ea1fd728c443406ad1acb43ae9a\",\"dweb:/ipfs/Qmc3oXjBNhdeM5cfWpsvewXZAhH34Scgna2W3MvLaiiapQ\"]},\"project:/contracts/node_modules/openzeppelin-solidity/contracts/crosschain/polygon/CrossChainEnabledPolygonChild.sol\":{\"keccak256\":\"0xe310759acb8fe205bd0551e5dfbace064a7e9eec02a018f8723fa9dbe2c045be\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://f053f4c718d1c49999e53b191df9e351ae72085f995d5634d60eb61eaaf3f9d8\",\"dweb:/ipfs/QmVrApjZh56SJJkFiAKKBUhBY5YFUP4teyFzzTfEnA1e96\"]},\"project:/contracts/node_modules/openzeppelin-solidity/contracts/security/ReentrancyGuard.sol\":{\"keccak256\":\"0x0e9621f60b2faabe65549f7ed0f24e8853a45c1b7990d47e8160e523683f3935\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://287a2f8d5814dd0f05f22b740f18ca8321acc21c9bd03a6cb2203ea626e2f3f2\",\"dweb:/ipfs/QmZRQv9iuwU817VuqkA2WweiaibKii69x9QxYBBEfbNEud\"]},\"project:/contracts/node_modules/openzeppelin-solidity/contracts/utils/Address.sol\":{\"keccak256\":\"0x2ccf9d2313a313d41a791505f2b5abfdc62191b5d4334f7f7a82691c088a1c87\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://b3a57d0854b2fdce6ebff933a48dca2445643d1eccfc27f00292e937f26c6a58\",\"dweb:/ipfs/QmW45rZooS9TqR4YXUbjRbtf2Bpb5ouSarBvfW1LdGprvV\"]},\"project:/contracts/node_modules/openzeppelin-solidity/contracts/vendor/polygon/IFxMessageProcessor.sol\":{\"keccak256\":\"0xf613eaa6dfa0c12f4d0e5bf4362d0b9aa0aa9d7577af2822bc859ed2994e1558\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://6d02619992daca10a2d5e3dff5356dfd4cb028b9fc3d58398fc78b9c650c970d\",\"dweb:/ipfs/QmYYo2B4bY3XYmPotsRF7p3gVVG3DeFSaJ96frr2miYh1a\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: MIT\n// OpenZeppelin Contracts (last updated v4.6.0) (crosschain/polygon/CrossChainEnabledPolygonChild.sol)\n\npragma solidity ^0.8.4;\n\nimport \"../CrossChainEnabled.sol\";\nimport \"../../security/ReentrancyGuard.sol\";\nimport \"../../utils/Address.sol\";\nimport \"../../vendor/polygon/IFxMessageProcessor.sol\";\n\naddress constant DEFAULT_SENDER = 0x000000000000000000000000000000000000dEaD;\n\n/**\n * @dev [Polygon](https://polygon.technology/) specialization or the\n * {CrossChainEnabled} abstraction the child side (polygon/mumbai).\n *\n * This version should only be deployed on child chain to process cross-chain\n * messages originating from the parent chain.\n *\n * The fxChild contract is provided and maintained by the polygon team. You can\n * find the address of this contract polygon and mumbai in\n * [Polygon's Fx-Portal documentation](https://docs.polygon.technology/docs/develop/l1-l2-communication/fx-portal/#contract-addresses).\n *\n * _Available since v4.6._\n */\nabstract contract CrossChainEnabledPolygonChild is IFxMessageProcessor, CrossChainEnabled, ReentrancyGuard {\n    /// @custom:oz-upgrades-unsafe-allow state-variable-immutable\n    address private immutable _fxChild;\n    address private _sender = DEFAULT_SENDER;\n\n    /// @custom:oz-upgrades-unsafe-allow constructor\n    constructor(address fxChild) {\n        _fxChild = fxChild;\n    }\n\n    /**\n     * @dev see {CrossChainEnabled-_isCrossChain}\n     */\n    function _isCrossChain() internal view virtual override returns (bool) {\n        return msg.sender == _fxChild;\n    }\n\n    /**\n     * @dev see {CrossChainEnabled-_crossChainSender}\n     */\n    function _crossChainSender() internal view virtual override onlyCrossChain returns (address) {\n        return _sender;\n    }\n\n    /**\n     * @dev External entry point to receive and relay messages originating\n     * from the fxChild.\n     *\n     * Non-reentrancy is crucial to avoid a cross-chain call being able\n     * to impersonate anyone by just looping through this with user-defined\n     * arguments.\n     *\n     * Note: if _fxChild calls any other function that does a delegate-call,\n     * then security could be compromised.\n     */\n    function processMessageFromRoot(\n        uint256, /* stateId */\n        address rootMessageSender,\n        bytes calldata data\n    ) external override nonReentrant {\n        require(msg.sender == _fxChild, \"unauthorized cross-chain relay\");\n\n        _sender = rootMessageSender;\n        Address.functionDelegateCall(address(this), data, \"crosschain execution failled\");\n        _sender = DEFAULT_SENDER;\n    }\n}\n",
+  "sourcePath": "/Users/oo_ha/workspace/project/meta/dApp_Store/truffle/contracts/node_modules/openzeppelin-solidity/contracts/crosschain/polygon/CrossChainEnabledPolygonChild.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/node_modules/openzeppelin-solidity/contracts/crosschain/polygon/CrossChainEnabledPolygonChild.sol",
+    "exportedSymbols": {
+      "Address": [
+        2220
+      ],
+      "CrossChainEnabled": [
+        515
+      ],
+      "CrossChainEnabledPolygonChild": [
+        1023
+      ],
+      "DEFAULT_SENDER": [
+        932
+      ],
+      "IFxMessageProcessor": [
+        3197
+      ],
+      "InvalidCrossChainSender": [
+        829
+      ],
+      "NotCrossChainCall": [
+        823
+      ],
+      "ReentrancyGuard": [
+        1249
+      ]
+    },
+    "id": 1024,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 925,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".4"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "136:23:22"
+      },
+      {
+        "absolutePath": "project:/contracts/node_modules/openzeppelin-solidity/contracts/crosschain/CrossChainEnabled.sol",
+        "file": "../CrossChainEnabled.sol",
+        "id": 926,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 1024,
+        "sourceUnit": 516,
+        "src": "161:34:22",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "project:/contracts/node_modules/openzeppelin-solidity/contracts/security/ReentrancyGuard.sol",
+        "file": "../../security/ReentrancyGuard.sol",
+        "id": 927,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 1024,
+        "sourceUnit": 1250,
+        "src": "196:44:22",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "project:/contracts/node_modules/openzeppelin-solidity/contracts/utils/Address.sol",
+        "file": "../../utils/Address.sol",
+        "id": 928,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 1024,
+        "sourceUnit": 2221,
+        "src": "241:33:22",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "project:/contracts/node_modules/openzeppelin-solidity/contracts/vendor/polygon/IFxMessageProcessor.sol",
+        "file": "../../vendor/polygon/IFxMessageProcessor.sol",
+        "id": 929,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 1024,
+        "sourceUnit": 3198,
+        "src": "275:54:22",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "constant": true,
+        "id": 932,
+        "mutability": "constant",
+        "name": "DEFAULT_SENDER",
+        "nameLocation": "348:14:22",
+        "nodeType": "VariableDeclaration",
+        "scope": 1024,
+        "src": "331:76:22",
+        "stateVariable": false,
+        "storageLocation": "default",
+        "typeDescriptions": {
+          "typeIdentifier": "t_address",
+          "typeString": "address"
+        },
+        "typeName": {
+          "id": 930,
+          "name": "address",
+          "nodeType": "ElementaryTypeName",
+          "src": "331:7:22",
+          "stateMutability": "nonpayable",
+          "typeDescriptions": {
+            "typeIdentifier": "t_address",
+            "typeString": "address"
+          }
+        },
+        "value": {
+          "hexValue": "307830303030303030303030303030303030303030303030303030303030303030303030303064456144",
+          "id": 931,
+          "isConstant": false,
+          "isLValue": false,
+          "isPure": true,
+          "kind": "number",
+          "lValueRequested": false,
+          "nodeType": "Literal",
+          "src": "365:42:22",
+          "typeDescriptions": {
+            "typeIdentifier": "t_address",
+            "typeString": "address"
+          },
+          "value": "0x000000000000000000000000000000000000dEaD"
+        },
+        "visibility": "internal"
+      },
+      {
+        "abstract": true,
+        "baseContracts": [
+          {
+            "baseName": {
+              "id": 934,
+              "name": "IFxMessageProcessor",
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 3197,
+              "src": "1042:19:22"
+            },
+            "id": 935,
+            "nodeType": "InheritanceSpecifier",
+            "src": "1042:19:22"
+          },
+          {
+            "baseName": {
+              "id": 936,
+              "name": "CrossChainEnabled",
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 515,
+              "src": "1063:17:22"
+            },
+            "id": 937,
+            "nodeType": "InheritanceSpecifier",
+            "src": "1063:17:22"
+          },
+          {
+            "baseName": {
+              "id": 938,
+              "name": "ReentrancyGuard",
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 1249,
+              "src": "1082:15:22"
+            },
+            "id": 939,
+            "nodeType": "InheritanceSpecifier",
+            "src": "1082:15:22"
+          }
+        ],
+        "canonicalName": "CrossChainEnabledPolygonChild",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": {
+          "id": 933,
+          "nodeType": "StructuredDocumentation",
+          "src": "410:580:22",
+          "text": " @dev [Polygon](https://polygon.technology/) specialization or the\n {CrossChainEnabled} abstraction the child side (polygon/mumbai).\n This version should only be deployed on child chain to process cross-chain\n messages originating from the parent chain.\n The fxChild contract is provided and maintained by the polygon team. You can\n find the address of this contract polygon and mumbai in\n [Polygon's Fx-Portal documentation](https://docs.polygon.technology/docs/develop/l1-l2-communication/fx-portal/#contract-addresses).\n _Available since v4.6._"
+        },
+        "fullyImplemented": true,
+        "id": 1023,
+        "linearizedBaseContracts": [
+          1023,
+          1249,
+          515,
+          3197
+        ],
+        "name": "CrossChainEnabledPolygonChild",
+        "nameLocation": "1009:29:22",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "documentation": {
+              "id": 940,
+              "nodeType": "StructuredDocumentation",
+              "src": "1104:61:22",
+              "text": "@custom:oz-upgrades-unsafe-allow state-variable-immutable"
+            },
+            "id": 942,
+            "mutability": "immutable",
+            "name": "_fxChild",
+            "nameLocation": "1196:8:22",
+            "nodeType": "VariableDeclaration",
+            "scope": 1023,
+            "src": "1170:34:22",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 941,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "1170:7:22",
+              "stateMutability": "nonpayable",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "visibility": "private"
+          },
+          {
+            "constant": false,
+            "id": 945,
+            "mutability": "mutable",
+            "name": "_sender",
+            "nameLocation": "1226:7:22",
+            "nodeType": "VariableDeclaration",
+            "scope": 1023,
+            "src": "1210:40:22",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 943,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "1210:7:22",
+              "stateMutability": "nonpayable",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "value": {
+              "id": 944,
+              "name": "DEFAULT_SENDER",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "referencedDeclaration": 932,
+              "src": "1236:14:22",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "visibility": "private"
+          },
+          {
+            "body": {
+              "id": 955,
+              "nodeType": "Block",
+              "src": "1339:35:22",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 953,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 951,
+                      "name": "_fxChild",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 942,
+                      "src": "1349:8:22",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 952,
+                      "name": "fxChild",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 948,
+                      "src": "1360:7:22",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "src": "1349:18:22",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 954,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1349:18:22"
+                }
+              ]
+            },
+            "documentation": {
+              "id": 946,
+              "nodeType": "StructuredDocumentation",
+              "src": "1257:48:22",
+              "text": "@custom:oz-upgrades-unsafe-allow constructor"
+            },
+            "id": 956,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nameLocation": "-1:-1:-1",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 949,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 948,
+                  "mutability": "mutable",
+                  "name": "fxChild",
+                  "nameLocation": "1330:7:22",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 956,
+                  "src": "1322:15:22",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 947,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1322:7:22",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1321:17:22"
+            },
+            "returnParameters": {
+              "id": 950,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1339:0:22"
+            },
+            "scope": 1023,
+            "src": "1310:64:22",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "baseFunctions": [
+              508
+            ],
+            "body": {
+              "id": 968,
+              "nodeType": "Block",
+              "src": "1517:46:22",
+              "statements": [
+                {
+                  "expression": {
+                    "commonType": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    },
+                    "id": 966,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "expression": {
+                        "id": 963,
+                        "name": "msg",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4294967281,
+                        "src": "1534:3:22",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_message",
+                          "typeString": "msg"
+                        }
+                      },
+                      "id": 964,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "sender",
+                      "nodeType": "MemberAccess",
+                      "src": "1534:10:22",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "==",
+                    "rightExpression": {
+                      "id": 965,
+                      "name": "_fxChild",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 942,
+                      "src": "1548:8:22",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "src": "1534:22:22",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "functionReturnParameters": 962,
+                  "id": 967,
+                  "nodeType": "Return",
+                  "src": "1527:29:22"
+                }
+              ]
+            },
+            "documentation": {
+              "id": 957,
+              "nodeType": "StructuredDocumentation",
+              "src": "1380:61:22",
+              "text": " @dev see {CrossChainEnabled-_isCrossChain}"
+            },
+            "id": 969,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "_isCrossChain",
+            "nameLocation": "1455:13:22",
+            "nodeType": "FunctionDefinition",
+            "overrides": {
+              "id": 959,
+              "nodeType": "OverrideSpecifier",
+              "overrides": [],
+              "src": "1493:8:22"
+            },
+            "parameters": {
+              "id": 958,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1468:2:22"
+            },
+            "returnParameters": {
+              "id": 962,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 961,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 969,
+                  "src": "1511:4:22",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 960,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1511:4:22",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1510:6:22"
+            },
+            "scope": 1023,
+            "src": "1446:117:22",
+            "stateMutability": "view",
+            "virtual": true,
+            "visibility": "internal"
+          },
+          {
+            "baseFunctions": [
+              514
+            ],
+            "body": {
+              "id": 980,
+              "nodeType": "Block",
+              "src": "1732:31:22",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 978,
+                    "name": "_sender",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 945,
+                    "src": "1749:7:22",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "functionReturnParameters": 977,
+                  "id": 979,
+                  "nodeType": "Return",
+                  "src": "1742:14:22"
+                }
+              ]
+            },
+            "documentation": {
+              "id": 970,
+              "nodeType": "StructuredDocumentation",
+              "src": "1569:65:22",
+              "text": " @dev see {CrossChainEnabled-_crossChainSender}"
+            },
+            "id": 981,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "id": 974,
+                "kind": "modifierInvocation",
+                "modifierName": {
+                  "id": 973,
+                  "name": "onlyCrossChain",
+                  "nodeType": "IdentifierPath",
+                  "referencedDeclaration": 481,
+                  "src": "1699:14:22"
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "1699:14:22"
+              }
+            ],
+            "name": "_crossChainSender",
+            "nameLocation": "1648:17:22",
+            "nodeType": "FunctionDefinition",
+            "overrides": {
+              "id": 972,
+              "nodeType": "OverrideSpecifier",
+              "overrides": [],
+              "src": "1690:8:22"
+            },
+            "parameters": {
+              "id": 971,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1665:2:22"
+            },
+            "returnParameters": {
+              "id": 977,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 976,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 981,
+                  "src": "1723:7:22",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 975,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1723:7:22",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1722:9:22"
+            },
+            "scope": 1023,
+            "src": "1639:124:22",
+            "stateMutability": "view",
+            "virtual": true,
+            "visibility": "internal"
+          },
+          {
+            "baseFunctions": [
+              3196
+            ],
+            "body": {
+              "id": 1021,
+              "nodeType": "Block",
+              "src": "2349:245:22",
+              "statements": [
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "commonType": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "id": 998,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "expression": {
+                            "id": 995,
+                            "name": "msg",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 4294967281,
+                            "src": "2367:3:22",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_message",
+                              "typeString": "msg"
+                            }
+                          },
+                          "id": 996,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "sender",
+                          "nodeType": "MemberAccess",
+                          "src": "2367:10:22",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "==",
+                        "rightExpression": {
+                          "id": 997,
+                          "name": "_fxChild",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 942,
+                          "src": "2381:8:22",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "src": "2367:22:22",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "hexValue": "756e617574686f72697a65642063726f73732d636861696e2072656c6179",
+                        "id": 999,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "2391:32:22",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_99ccaacb862792f5c3e945a92010f086a875501fe76e64d554e7d2b9f1052fae",
+                          "typeString": "literal_string \"unauthorized cross-chain relay\""
+                        },
+                        "value": "unauthorized cross-chain relay"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_99ccaacb862792f5c3e945a92010f086a875501fe76e64d554e7d2b9f1052fae",
+                          "typeString": "literal_string \"unauthorized cross-chain relay\""
+                        }
+                      ],
+                      "id": 994,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        4294967278,
+                        4294967278
+                      ],
+                      "referencedDeclaration": 4294967278,
+                      "src": "2359:7:22",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 1000,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "2359:65:22",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 1001,
+                  "nodeType": "ExpressionStatement",
+                  "src": "2359:65:22"
+                },
+                {
+                  "expression": {
+                    "id": 1004,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 1002,
+                      "name": "_sender",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 945,
+                      "src": "2435:7:22",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 1003,
+                      "name": "rootMessageSender",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 986,
+                      "src": "2445:17:22",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "src": "2435:27:22",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 1005,
+                  "nodeType": "ExpressionStatement",
+                  "src": "2435:27:22"
+                },
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "arguments": [
+                          {
+                            "id": 1011,
+                            "name": "this",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 4294967268,
+                            "src": "2509:4:22",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_contract$_CrossChainEnabledPolygonChild_$1023",
+                              "typeString": "contract CrossChainEnabledPolygonChild"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_contract$_CrossChainEnabledPolygonChild_$1023",
+                              "typeString": "contract CrossChainEnabledPolygonChild"
+                            }
+                          ],
+                          "id": 1010,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "nodeType": "ElementaryTypeNameExpression",
+                          "src": "2501:7:22",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_address_$",
+                            "typeString": "type(address)"
+                          },
+                          "typeName": {
+                            "id": 1009,
+                            "name": "address",
+                            "nodeType": "ElementaryTypeName",
+                            "src": "2501:7:22",
+                            "typeDescriptions": {}
+                          }
+                        },
+                        "id": 1012,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "typeConversion",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "2501:13:22",
+                        "tryCall": false,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "id": 1013,
+                        "name": "data",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 988,
+                        "src": "2516:4:22",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes_calldata_ptr",
+                          "typeString": "bytes calldata"
+                        }
+                      },
+                      {
+                        "hexValue": "63726f7373636861696e20657865637574696f6e206661696c6c6564",
+                        "id": 1014,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "2522:30:22",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_10ebdb989df499b49f59dec31cd77cbeb4563568f2bca5a04097c64511bf5ae7",
+                          "typeString": "literal_string \"crosschain execution failled\""
+                        },
+                        "value": "crosschain execution failled"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_bytes_calldata_ptr",
+                          "typeString": "bytes calldata"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_10ebdb989df499b49f59dec31cd77cbeb4563568f2bca5a04097c64511bf5ae7",
+                          "typeString": "literal_string \"crosschain execution failled\""
+                        }
+                      ],
+                      "expression": {
+                        "id": 1006,
+                        "name": "Address",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2220,
+                        "src": "2472:7:22",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_contract$_Address_$2220_$",
+                          "typeString": "type(library Address)"
+                        }
+                      },
+                      "id": 1008,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "functionDelegateCall",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 2188,
+                      "src": "2472:28:22",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_bytes_memory_ptr_$_t_string_memory_ptr_$returns$_t_bytes_memory_ptr_$",
+                        "typeString": "function (address,bytes memory,string memory) returns (bytes memory)"
+                      }
+                    },
+                    "id": 1015,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "2472:81:22",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_memory_ptr",
+                      "typeString": "bytes memory"
+                    }
+                  },
+                  "id": 1016,
+                  "nodeType": "ExpressionStatement",
+                  "src": "2472:81:22"
+                },
+                {
+                  "expression": {
+                    "id": 1019,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 1017,
+                      "name": "_sender",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 945,
+                      "src": "2563:7:22",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 1018,
+                      "name": "DEFAULT_SENDER",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 932,
+                      "src": "2573:14:22",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "src": "2563:24:22",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 1020,
+                  "nodeType": "ExpressionStatement",
+                  "src": "2563:24:22"
+                }
+              ]
+            },
+            "documentation": {
+              "id": 982,
+              "nodeType": "StructuredDocumentation",
+              "src": "1769:411:22",
+              "text": " @dev External entry point to receive and relay messages originating\n from the fxChild.\n Non-reentrancy is crucial to avoid a cross-chain call being able\n to impersonate anyone by just looping through this with user-defined\n arguments.\n Note: if _fxChild calls any other function that does a delegate-call,\n then security could be compromised."
+            },
+            "functionSelector": "9a7c4b71",
+            "id": 1022,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "id": 992,
+                "kind": "modifierInvocation",
+                "modifierName": {
+                  "id": 991,
+                  "name": "nonReentrant",
+                  "nodeType": "IdentifierPath",
+                  "referencedDeclaration": 1248,
+                  "src": "2336:12:22"
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "2336:12:22"
+              }
+            ],
+            "name": "processMessageFromRoot",
+            "nameLocation": "2194:22:22",
+            "nodeType": "FunctionDefinition",
+            "overrides": {
+              "id": 990,
+              "nodeType": "OverrideSpecifier",
+              "overrides": [],
+              "src": "2327:8:22"
+            },
+            "parameters": {
+              "id": 989,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 984,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1022,
+                  "src": "2226:7:22",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 983,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2226:7:22",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 986,
+                  "mutability": "mutable",
+                  "name": "rootMessageSender",
+                  "nameLocation": "2265:17:22",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1022,
+                  "src": "2257:25:22",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 985,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2257:7:22",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 988,
+                  "mutability": "mutable",
+                  "name": "data",
+                  "nameLocation": "2307:4:22",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1022,
+                  "src": "2292:19:22",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_calldata_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 987,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2292:5:22",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2216:101:22"
+            },
+            "returnParameters": {
+              "id": 993,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2349:0:22"
+            },
+            "scope": 1023,
+            "src": "2185:409:22",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 1024,
+        "src": "991:1605:22",
+        "usedErrors": []
+      }
+    ],
+    "src": "136:2461:22"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.15+commit.e14f2714.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.8",
+  "updatedAt": "2022-09-01T06:47:08.331Z",
+  "devdoc": {
+    "details": "[Polygon](https://polygon.technology/) specialization or the {CrossChainEnabled} abstraction the child side (polygon/mumbai). This version should only be deployed on child chain to process cross-chain messages originating from the parent chain. The fxChild contract is provided and maintained by the polygon team. You can find the address of this contract polygon and mumbai in [Polygon's Fx-Portal documentation](https://docs.polygon.technology/docs/develop/l1-l2-communication/fx-portal/#contract-addresses). _Available since v4.6._",
+    "kind": "dev",
+    "methods": {
+      "constructor": {
+        "custom:oz-upgrades-unsafe-allow": "constructor"
+      },
+      "processMessageFromRoot(uint256,address,bytes)": {
+        "details": "External entry point to receive and relay messages originating from the fxChild. Non-reentrancy is crucial to avoid a cross-chain call being able to impersonate anyone by just looping through this with user-defined arguments. Note: if _fxChild calls any other function that does a delegate-call, then security could be compromised."
+      }
+    },
+    "stateVariables": {
+      "_fxChild": {
+        "custom:oz-upgrades-unsafe-allow": "state-variable-immutable"
+      }
+    },
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

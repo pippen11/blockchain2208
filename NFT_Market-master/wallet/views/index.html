@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Hello Wallet</h1>
+        <button id="btn">지갑생성</button>
+        <div id="result" style="display: none">
+            <ul>
+                <li>Coin : Ethereum</li>
+                <li>address : <span class="address"></span></li>
+                <li>private key : <span class="private"></span></li>
+                <li>public key : <span class="public"></span></li>
+                <li>balance : <span class="balance"></span></li>
+            </ul>
+        </div>
+        <script type="text/javascript">
+            const btn = document.querySelector('#btn')
+            const display = document.querySelector('#result')
+            const createWallet = async () => {
+                display.style.display = 'block'
+                const result = await axios.post('/newWallet', null)
+                console.log(result.data)
+            }
+            btn.addEventListener('click', createWallet)
+        </script>
+    </body>
+</html>
