@@ -21,9 +21,10 @@ const app: Express = express();
 
 dotenv.config();
 
-const web3 = new Web3("https://goerli.infura.io/v3");
+const web3 = new Web3("http://localhost:8545");
+// https://goerli.infura.io/v3
 // ipfs내쪽으로연결한다
-// 교수님꺼쓰면 이거고 로컬호스트면 다른거써야함
+// 교수님꺼쓰면 이거고 로컬호스트면 다른거써야함(메타마스크있는주소)
 
 const pinata = new pinataSDK(process.env.API_Key, process.env.API_Secret);
 
@@ -54,6 +55,9 @@ app.post("/api/list", async (req: Request, res: Response) => {
       console.log(tempArr);
       // 토큰 다 가져옴
       for (let i = 0; i < tempArr.length; i++) {
+        console.log("이거다", tempArr[i].tokenURI);
+        // json파일임
+        // https://gateway.pinata.cloud/ipfs/QmdhDDPEgvreCzzLP6bi2HCn5EhgPHyFV1BCG41zpjbcpw
         try {
           const { name, description, image } = (
             await axios.get(
@@ -147,49 +151,49 @@ app.post(
         //   image: "https://gateway.pinata.cloud/ipfs/" + imgResult.IpfsHash,
         image: `https://gateway.pinata.cloud/ipfs/${imgResult.IpfsHash}`,
         //이자리에 attributes넣을수있다
-        attributes: [
-          {
-            trait_type: "BackGround",
-            value: "Off White A",
-          },
-          {
-            trait_type: "CLOTHING",
-            value: "Azuki Tech Jacket",
-          },
-          { trait_type: "EYES", value: "Closed" },
-          {
-            trait_type: "Level",
-            value: 5,
-          },
-          {
-            trait_type: "Stamina",
-            value: 1.4,
-          },
-          {
-            trait_type: "Personality",
-            value: "Sad",
-          },
-          {
-            display_type: "boost_number",
-            trait_type: "Aqua Power",
-            value: 40,
-          },
-          {
-            display_type: "boost_percentage",
-            trait_type: "Stamina Increase",
-            value: 10,
-          },
-          {
-            display_type: "number",
-            trait_type: "Generation",
-            value: 2,
-          },
-          {
-            display_type: "date",
-            trait_type: "birthday",
-            value: 1546360800,
-          },
-        ],
+        // attributes: [
+        //   {
+        //     trait_type: "BackGround",
+        //     value: "Off White A",
+        //   },
+        //   {
+        //     trait_type: "CLOTHING",
+        //     value: "Azuki Tech Jacket",
+        //   },
+        //   { trait_type: "EYES", value: "Closed" },
+        //   {
+        //     trait_type: "Level",
+        //     value: 5,
+        //   },
+        //   {
+        //     trait_type: "Stamina",
+        //     value: 1.4,
+        //   },
+        //   {
+        //     trait_type: "Personality",
+        //     value: "Sad",
+        //   },
+        //   {
+        //     display_type: "boost_number",
+        //     trait_type: "Aqua Power",
+        //     value: 40,
+        //   },
+        //   {
+        //     display_type: "boost_percentage",
+        //     trait_type: "Stamina Increase",
+        //     value: 10,
+        //   },
+        //   {
+        //     display_type: "number",
+        //     trait_type: "Generation",
+        //     value: 2,
+        //   },
+        //   {
+        //     display_type: "date",
+        //     trait_type: "birthday",
+        //     value: 1546360800,
+        //   },
+        // ],
       },
       {
         pinataMetadata: {
