@@ -21,7 +21,7 @@ const app: Express = express();
 
 dotenv.config();
 
-const web3 = new Web3("http://localhost:8545");
+const web3 = new Web3("https://goerli.infura.io/v3");
 // https://goerli.infura.io/v3
 // ipfs내쪽으로연결한다
 // 교수님꺼쓰면 이거고 로컬호스트면 다른거써야함(메타마스크있는주소)
@@ -37,6 +37,7 @@ const upload: multer.Multer = multer();
 //multer.Multer가 타입지정이다
 
 app.post("/api/list", async (req: Request, res: Response) => {
+  // console.log(req.body.from);
   const deployed = new web3.eth.Contract(
     SaleAbi as AbiItem[],
     process.env.SALE_CA
@@ -52,7 +53,7 @@ app.post("/api/list", async (req: Request, res: Response) => {
       const tempArr = await deployed.methods
         .getOwnerTokens(req.body.from)
         .call();
-      console.log(tempArr);
+      console.log("나옴?", tempArr);
       // 토큰 다 가져옴
       for (let i = 0; i < tempArr.length; i++) {
         console.log("이거다", tempArr[i].tokenURI);
@@ -81,6 +82,7 @@ app.post("/api/list", async (req: Request, res: Response) => {
     }
   } else {
     try {
+      console.log("없다 req.body.from");
       const tempArr = await deployed.methods.getSaleTokenList().call();
       console.log(tempArr);
       // 토큰 다 가져옴
@@ -98,7 +100,9 @@ app.post("/api/list", async (req: Request, res: Response) => {
           });
         } catch (error) {}
       }
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   res.send(data);
