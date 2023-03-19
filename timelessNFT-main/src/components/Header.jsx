@@ -1,9 +1,9 @@
-import timelessLogo from '../assets/timeless.png'
-import { connectWallet } from '../Blockchain.Services'
-import { useGlobalState, truncate } from '../store'
+import timelessLogo from "../assets/timeless.png";
+import { connectWallet } from "../Blockchain.Services";
+import { useGlobalState, truncate } from "../store";
 
 const Header = () => {
-  const [connectedAccount] = useGlobalState('connectedAccount')
+  const [connectedAccount] = useGlobalState("connectedAccount");
   return (
     <nav className="w-4/5 flex md:justify-center justify-between items-center py-4 mx-auto">
       <div className="md:flex-[0.5] flex-initial justify-center items-center">
@@ -44,7 +44,7 @@ const Header = () => {
         </button>
       )}
     </nav>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
